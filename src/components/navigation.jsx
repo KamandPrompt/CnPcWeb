@@ -25,12 +25,50 @@ export const Navigation = (props) => {
           id='bs-example-navbar-collapse-1'
         >
           <ul className='nav navbar-nav navbar-right'>
-            <li>
-              <a href='#features' className='page-scroll'>
+            <li class="dropdown">
+              <a href='#features' className='page-scroll dropbtn'>
                 Why recruit?
               </a>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
             </li>
-            <li>
+            <li class="dropdown">
+              <a href='#features' className='page-scroll dropbtn'>
+              Recruiters valley
+              </a>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href='#features' className='page-scroll dropbtn'>
+              Students column
+              </a>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </li>
+            <li class="dropdown">
+              <a href='#features' className='page-scroll dropbtn'>
+              Contact us
+              </a>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 3</a>
+                <a href="#">Link 3</a>
+              </div>
+            </li>
+            {/* <li>
               <a href='#about' className='page-scroll'>
               Recruiters valley
               </a>
@@ -44,7 +82,7 @@ export const Navigation = (props) => {
               <a href='#portfolio' className='page-scroll'>
               Contact us
               </a>
-            </li>
+            </li> */}
             {/* <li>
               <a href='#testimonials' className='page-scroll'>
                 Testimonials
