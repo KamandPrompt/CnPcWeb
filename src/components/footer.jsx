@@ -1,6 +1,6 @@
 export const Footer = (props) => {
     return (
-        <footer >
+        <footer style={{position: "absolute",bottom: "0%"}}>
 		<div className="footer-main">
 			<div className="container">
 				<div className="row">
@@ -69,6 +69,6 @@ export const Footer = (props) => {
 				</div>
 			</div>
 		</div>
-		<div id="footer_copyright" style={{'font-size': '14px', 'color': '#6f6f71', 'transition': '.2s ease'}}>© <a href="https://iitmandi.co.in/">SnTC, IIT Mandi</a> 2021, All rights reserved.</div>
+		<div id="footer_copyright" style={{'font-size': '14px', 'color': '#6f6f71', 'transition': '.2s ease'}}> <a href="https://iitmandi.co.in/"><span>©</span>CnP, IIT Mandi</a> 2021, All rights reserved.</div>
 	</footer>
 )}

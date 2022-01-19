@@ -583,7 +583,7 @@ label {
   color: #608dfd;
   background: #fff;
 }
-/* Footer Section*/
+ /* Footer Section */
 #footer {
   background: #f6f6f6;
   padding: 30px 0;
@@ -611,10 +611,11 @@ label {
 
 
 .footer-main {
+  width: 100vw;
 	padding: 92px 0;
 	background: #1a1b1f;
 }
-
+ 
 @media (max-width: 768px) {
 	.footer-main {
 		padding: 50px 0;
@@ -690,7 +691,7 @@ label {
 	text-transform: uppercase;
 	font-size: 14px;
 	color: #000;
-}
+} 
 
 
 .dropbtn {
@@ -712,7 +713,6 @@ label {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   border-radius: 10px;
@@ -734,4 +734,5 @@ label {
 }
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;width: 100%;
+  margin: 0 auto;}
