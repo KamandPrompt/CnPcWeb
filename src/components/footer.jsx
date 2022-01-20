@@ -15,17 +15,16 @@ export const Footer = (props) => {
 									</td>
 								</tr>
 								<tr>
-									{/* <!-- Social Site Icons --> */}
 									<td><br/>
 										<ul className="social-icon list-inline">
 											<li className="list-inline-item">
-												<a className="social-links" href="https://www.facebook.com/IITMandi2009/"><i className="ti-facebook"></i></a>
+												<a className="social-links" href="https://www.facebook.com/IITMandi2009/"><i className="fa-brands fa-facebook"></i></a>
 											</li>
 											<li className="list-inline-item">
-												<a className="social-links" href="https://twitter.com/iit__mandi"><i className="ti-twitter"></i></a>
+												<a className="social-links" href="https://twitter.com/iit__mandi"><i className="fa-brands fa-twitter"></i></a>
 											</li>
 											<li className="list-inline-item">
-												<a className="social-links" href="https://www.linkedin.com/school/indian-institute-of-technology-mandi"><i className="ti-linkedin"></i></a>
+												<a className="social-links" href="https://www.linkedin.com/school/indian-institute-of-technology-mandi"><i className="fa-brands fa-linkedin"></i></a>
 											</li>
 										</ul>
 									</td>
@@ -69,6 +68,6 @@ export const Footer = (props) => {
 				</div>
 			</div>
 		</div>
-		<div id="footer_copyright" style={{'font-size': '14px', 'color': '#6f6f71', 'transition': '.2s ease'}}> <a href="https://iitmandi.co.in/"><span>©</span>CnP, IIT Mandi</a> 2021, All rights reserved.</div>
+		<div id="footer_copyright"> <a href="https://iitmandi.co.in/" style={{"color":"black"}}><span style={{"color":"black"}}>©</span>CnP, IIT Mandi</a> 2021, All rights reserved.</div>
 	</footer>
 )}
