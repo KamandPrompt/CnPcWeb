@@ -18,7 +18,7 @@ export const Footer = (props) => {
 										<a id="fav2" className="social-links" href="https://twitter.com/iit__mandi"><i className="fab fa-twitter"></i></a>
 									</li>
 									<li className="list-inline-item">
-										<a id="fav3" className="social-links" href="https://www.linkedin.com/school/indian-institute-of-technology-mandi"><i class="fab fa-linkedin-in"></i></a>
+										<a id="fav3" className="social-links" href="https://www.linkedin.com/school/indian-institute-of-technology-mandi"><i className="fab fa-linkedin-in"></i></a>
 									</li>
 								</ul>
 							</div>
