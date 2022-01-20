@@ -25,79 +25,55 @@ export const Navigation = (props) => {
           id='bs-example-navbar-collapse-1'
         >
           <ul className='nav navbar-nav navbar-right'>
-            <li class="dropdown">
+            <li className="dropdown">
               <a href='#features' className='page-scroll dropbtn'>
                 Why recruit?
               </a>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+              <div className="dropdown-content">
+                <a href="#">Acadmics</a>
+                <a href="#">Brochure</a>
+                <a href="#">Students achievements</a>
+                <a href="#">Demographics</a>
+                <a href="#">Students gymkhana</a>
+                <a href="#">IEEE SB chapter</a>
+                <a href="#">Alumni</a>
               </div>
             </li>
-            <li class="dropdown">
+            <li className="dropdown">
               <a href='#features' className='page-scroll dropbtn'>
               Recruiters valley
               </a>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+              <div className="dropdown-content">
+                <a href="#">Login</a>
+                <a href="#">Placement brochure</a>
+                <a href="#">Calendar</a>
+                <a href="#">Past Recruiters</a>
+                <a href="#">Placement news and stats</a>
               </div>
             </li>
-            <li class="dropdown">
+            <li className="dropdown">
               <a href='#features' className='page-scroll dropbtn'>
               Students column
               </a>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+              <div className="dropdown-content">
+                <a href="#">Login</a>
+                <a href="#">Policies</a>
+                <a href="#">Noticeboard</a>
+                <a href="#">Forms </a>
+                <a href="#">Preparation portal</a>
               </div>
             </li>
-            <li class="dropdown">
+            <li className="dropdown">
               <a href='#features' className='page-scroll dropbtn'>
               Contact us
               </a>
-              <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 3</a>
+              <div className="dropdown-content">
+                <a href="#">Professor in charge</a>
+                <a href="#">Placement cell details</a>
+                <a href="#">Student coordinators</a>
+                <a href="#">Administrative staff</a>
               </div>
             </li>
-            {/* <li>
-              <a href='#about' className='page-scroll'>
-              Recruiters valley
-              </a>
-            </li>
-            <li>
-              <a href='#services' className='page-scroll'>
-              Students column
-              </a>
-            </li>
-            <li>
-              <a href='#portfolio' className='page-scroll'>
-              Contact us
-              </a>
-            </li> */}
-            {/* <li>
-              <a href='#testimonials' className='page-scroll'>
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <a href='#team' className='page-scroll'>
-                Team
-              </a>
-            </li>
-            <li>
-              <a href='#contact' className='page-scroll'>
-                Contact
-              </a>
-            </li> */}
           </ul>
         </div>
       </div>
