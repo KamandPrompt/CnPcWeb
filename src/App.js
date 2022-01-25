@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Footer } from "./components/footer";
+import { Home } from "./components/home";
 // import { Header } from "./components/header";
 // import { Features } from "./components/features";
 // import { About } from "./components/about";
@@ -27,15 +28,8 @@ const App = () => {
   return (
     <div>
       <Navigation />
+      <Home />
       <Footer/>
-      {/* <Header data={landingPageData.Header} />
-      <Features data={landingPageData.Features} />
-      <About data={landingPageData.About} />
-      <Services data={landingPageData.Services} />
-      <Gallery data={landingPageData.Gallery}/>
-      <Testimonials data={landingPageData.Testimonials} />
-      <Team data={landingPageData.Team} />
-      <Contact data={landingPageData.Contact} /> */}
     </div>
   );
 };
