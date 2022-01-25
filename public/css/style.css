@@ -61,7 +61,7 @@ ol {
 }
 
 #menu {
-  background-image: linear-gradient(rgb(205, 227, 245), white);
+  background-image: linear-gradient(rgb(205, 227, 245), white,rgb(205, 227, 245));
   padding: 15px;
   transition: all 0.8s;
 }
@@ -94,7 +94,6 @@ ol {
   bottom: -1px;
   width: 0;
   height: 2px;
-  /* background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%); */
   content: "";
   transition: width 0.2s;
 }
@@ -130,28 +129,7 @@ ol {
 .navbar-default .navbar-toggle:hover > .icon-bar {
   background-color: #608dfd;
 }
-.section-title {
-  margin-bottom: 70px;
-}
-.section-title h2 {
-  position: relative;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-}
-.section-title h2::after {
-  position: absolute;
-  content: "";
-  background: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
-  height: 4px;
-  width: 60px;
-  bottom: 0;
-  margin-left: -30px;
-  left: 50%;
-}
-.section-title p {
-  font-size: 18px;
-}
+
 .btn-custom {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
@@ -195,20 +173,32 @@ a:focus,
 }
 /* Header Section */
 
+#more{
+  display: none;
+}
+
+.about{
+  margin: 50px 0px;
+}
+
+.faculty-advisor{
+  height: 350px;
+  width: 300px;
+  float: right;
+}
+
+.float{
+  float: left;
+}
 
 /* footer section */
 
 .footer-main {
-  width: 100vw;
-	padding: 50px 0;
+  /* width: 100vw; */
+	padding: 50px 0 0 0;
 	background: #cccccc;
 }
  
-@media (max-width: 768px) {
-	.footer-main {
-		padding: 50px 0;
-	}
-}
 
 #block-1{
   display: flex;
