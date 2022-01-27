@@ -30,7 +30,7 @@ export const Acadmics = (props) => {
         <br />
         <div className="slot">
           <button id="btn1" className="extraBtn">
-            Minors <span className="plus"><i className="fas fa-plus itag"></i></span>
+            Minors <span className="plus"><i id="plus1" className="fas fa-plus"></i></span>
           </button>
           <div id="msg1" className="extraCont">
             <p>
@@ -43,7 +43,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn2" className="extraBtn">
-            Semester Exchange <span className="plus"><i className="fas fa-plus itag"></i></span>
+            Semester Exchange <span className="plus"><i id="plus2" className="fas fa-plus"></i></span>
           </button>
           <div id="msg2" className="extraCont">
             <p>
@@ -61,7 +61,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn3" className="extraBtn">
-          Computer Science & Engineering <span className="plus"><i className="fas fa-plus itag"></i></span>
+          Computer Science & Engineering <span className="plus"><i id="plus3" className="fas fa-plus"></i></span>
           </button>
           <div id="msg3" className="extraCont">
             <p>
@@ -74,7 +74,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn4" className="extraBtn">
-          Electrical Engineering <span className="plus"><i className="fas fa-plus itag"></i></span>
+          Electrical Engineering <span className="plus"><i id="plus4" className="fas fa-plus"></i></span>
           </button>
           <div id="msg4" className="extraCont">
             <p>
@@ -87,7 +87,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn5" className="extraBtn">
-          Mechanical Engineering <span className="plus"><i className="fas fa-plus itag"></i></span>
+          Mechanical Engineering <span className="plus"><i id="plus5" className="fas fa-plus"></i></span>
           </button>
           <div id="msg5" className="extraCont">
             <p>
@@ -98,7 +98,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn6" className="extraBtn">
-            First Year curriculum <span className="plus"><i className="fas fa-plus itag"></i></span>
+            First Year curriculum <span className="plus"><i id="plus6" className="fas fa-plus"></i></span>
           </button>
           <div id="msg6" className="extraCont">
             <p>
@@ -115,7 +115,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn7" className="extraBtn">
-          Second Year curriculum  <span className="plus"><i className="fas fa-plus itag"></i></span>
+          Second Year curriculum  <span className="plus"><i id="plus7" className="fas fa-plus"></i></span>
           </button>
           <div id="msg7" className="extraCont">
             <p>
@@ -132,7 +132,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn8" className="extraBtn">
-          Third Year curriculum  <span className="plus"><i className="fas fa-plus itag"></i></span>
+          Third Year curriculum  <span className="plus"><i id="plus8" className="fas fa-plus"></i></span>
           </button>
           <div id="msg8" className="extraCont">
             <p>
@@ -150,7 +150,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn9" className="extraBtn">
-          Fourth Year curriculum  <span className="plus"><i className="fas fa-plus itag"></i></span>
+          Fourth Year curriculum  <span className="plus"><i id="plus9" className="fas fa-plus"></i></span>
           </button>
           <div id="msg9" className="extraCont">
             <p>

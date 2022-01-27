@@ -25,7 +25,6 @@ $(document).ready(function () {
     }
     $(".extraBtn").click(function (event) {
         invisibles = document.getElementsByClassName("extraCont");
-        tag = document.getElementsByClassName("plus");
         for (var i = 0; i<invisibles.length; i++) {
             let S = event.target.id;
             let digi = S[S.length - 1];
@@ -34,10 +33,14 @@ $(document).ready(function () {
                 console.log(invisibles[i].style.display);
                 if (invisibles[i].style.display === "" || invisibles[i].style.display === "none") {
                     invisibles[i].style.display = "block";
-                    tag[i].html("<i className='fas fa-minus'></i>");
+                    let Id = `#plus${i+1}`;
+                    $(Id).removeClass("fa-plus");
+                    $(Id).addClass("fa-minus");
                 } else {
                     invisibles[i].style.display = "none";
-                    tag[i].html("<i className='fas fa-plus'></i>");
+                    let Id = `#plus${i+1}`;
+                    $(Id).removeClass("fa-minus");
+                    $(Id).addClass("fa-plus");
                 }
             }
         }
