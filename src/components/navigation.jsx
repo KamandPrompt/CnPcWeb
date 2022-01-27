@@ -15,8 +15,8 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
             <span className='icon-bar'></span>{' '}
           </button>
-          <a className='navbar-brand page-scroll' href='#home'>
-            cnp IIT MANDI
+          <a className='navbar-brand page-scroll' href='/'>
+            CNP IIT MANDI
           </a>{' '}
         </div>
 
@@ -26,7 +26,7 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li className="dropdown">
-              <a href='#features' className='page-scroll dropbtn'>
+              <a href='/acadmics' className='page-scroll dropbtn'>
                 Why recruit?
               </a>
               <div className="dropdown-content">
