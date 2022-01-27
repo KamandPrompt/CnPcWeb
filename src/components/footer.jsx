@@ -1,5 +1,4 @@
 import React from 'react';
-import {Map} from './GoogleMap';
 
 export const Footer = (props) => {
     return (

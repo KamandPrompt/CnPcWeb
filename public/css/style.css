@@ -59,11 +59,15 @@ ul,
 ol {
   padding: 0;
 }
-
+/* background-image: linear-gradient(rgb(205, 227, 245), white,rgb(205, 227, 245)); */
 #menu {
-  background-image: linear-gradient(rgb(205, 227, 245), white,rgb(205, 227, 245));
+  background-color: #ffffff;
   padding: 15px;
   transition: all 0.8s;
+}
+
+.nav-top{
+  background-image: linear-gradient(rgb(205, 227, 245), white,rgb(205, 227, 245));
 }
 
 .nav-above{
@@ -74,7 +78,7 @@ ol {
 }
 
 #menu.navbar-default {
-  background-color: #fff;
+  background-color: #ffffff94;
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
@@ -88,9 +92,9 @@ ol {
 #menu.navbar-default .navbar-nav > li > a {
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
-  color: #555;
+  color: #000;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
   padding: 8px 2px;
   border-radius: 0;
   margin: 9px 20px 0;
@@ -321,9 +325,9 @@ a:focus,
   #menu.navbar-default .navbar-nav > li > a {
     font-family: "Lato", sans-serif;
     text-transform: uppercase;
-    color: #555;
+    color: #000;
     font-size: 13px;
-    font-weight: 400;
+    font-weight: 500;
     padding: 8px 2px;
     border-radius: 0;
     margin: 9px 8px 0;
@@ -363,12 +367,11 @@ hr {
 }
 
 .links{
-  color:rgb(65, 64, 64);
+  color:rgb(3, 3, 3);
   line-height: 2.5rem;
 }
 
 .dropbtn {
-
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -462,6 +465,10 @@ hr {
   width: 100%;
   height: 100vh;
 }
+
+/* @media (){
+
+} */
 
 #carouselExampleControls{
   margin-bottom: 30px;

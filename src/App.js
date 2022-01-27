@@ -3,7 +3,6 @@ import { Navigation } from "./components/navigation";
 import { Footer } from "./components/footer";
 import { Home } from "./components/home";
 import { Carousal } from "./components/carousal";
-import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
 // import { Features } from "./components/features";
