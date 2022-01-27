@@ -3,6 +3,8 @@ import { Navigation } from "./components/navigation";
 import { Footer } from "./components/footer";
 import { Home } from "./components/home";
 import { Carousal } from "./components/carousal";
+import { Acadmics } from "./components/Acadmics";
+import { Schools } from "./components/school";
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -32,8 +34,9 @@ const App = () => {
     <div>
       <Navigation />
       <Carousal/>
-      <Home />
-      {/* <GoogleMap/> */}
+      {/* <Home/> */}
+      <Acadmics />
+      <Schools/>
       <Footer/>
     </div>
   );
