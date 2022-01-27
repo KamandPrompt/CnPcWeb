@@ -30,8 +30,8 @@ export const Navigation = (props) => {
                 Why recruit?
               </a>
               <div className="dropdown-content">
-                <a className="page-scroll dropbtn" href="#">Acadmics
-                  <div className="dropdown-content" >
+                <a id="outerDiv" className="page-scroll dropbtn" href="#">Acadmics
+                  <div id="innerDiv" className="dropdown-content btn-group dropright">
                     <a href="#">Schools</a>
                     <a href="#">Research and Development</a>
                   </div>

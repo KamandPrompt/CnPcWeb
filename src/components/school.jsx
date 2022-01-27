@@ -1,6 +1,6 @@
 export const Schools = (props) => {
   return (
-    <div>
+    <div style={{"backgroundColor":"rgb(205, 227, 245)"}}>
           <h2 >
             Schools
           </h2>
