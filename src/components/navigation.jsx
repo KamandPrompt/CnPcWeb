@@ -26,11 +26,11 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li className="dropdown">
-              <a href='/acadmics' className='page-scroll dropbtn'>
+              <a href='#acadmics' className='page-scroll dropbtn'>
                 Why recruit?
               </a>
               <div className="dropdown-content">
-                <a id="outerDiv" className="page-scroll dropbtn" href="#">Acadmics
+                <a id="outerDiv" className="page-scroll dropbtn" href="/acadmics">Acadmics <i style={{"float":"right","marginTop":"4px"}} class="fas fa-caret-right"></i>
                   <div id="innerDiv" className="dropdown-content btn-group dropright">
                     <a href="#">Schools</a>
                     <a href="#">Research and Development</a>

@@ -489,13 +489,15 @@ hr {
   justify-content: center;
   align-items: center;
   width: 100%;
+  /* margin-top: 50px; */
 }
 
 .slot{
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   width: 80%;
 }
 
@@ -506,6 +508,7 @@ hr {
   font-size: 23px;
   background-color: #fff;
   border: 1px solid black;
+  color: rgb(59, 58, 58);
 }
 
 .extraCont{
@@ -517,8 +520,12 @@ hr {
   display: none;
 }
 
-/* .plus{
-  position: relative;
-  right: 10px;
-} */
+.plus{
+  float: right;
+  margin-right: 10px;
+}
+
+.subHead{
+  text-align: left;
+}
 
