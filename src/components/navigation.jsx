@@ -15,8 +15,8 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
             <span className='icon-bar'></span>{' '}
           </button>
-          <a className='navbar-brand page-scroll' href='#home'>
-            cnp IIT MANDI
+          <a className='navbar-brand page-scroll' href='/'>
+            CNP IIT MANDI
           </a>{' '}
         </div>
 
@@ -26,11 +26,16 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li className="dropdown">
-              <a href='#features' className='page-scroll dropbtn'>
+              <a href='/acadmics' className='page-scroll dropbtn'>
                 Why recruit?
               </a>
               <div className="dropdown-content">
-                <a href="#">Acadmics</a>
+                <a id="outerDiv" className="page-scroll dropbtn" href="#">Acadmics
+                  <div id="innerDiv" className="dropdown-content btn-group dropright">
+                    <a href="#">Schools</a>
+                    <a href="#">Research and Development</a>
+                  </div>
+                </a>
                 <a href="#">Brochure</a>
                 <a href="#">Students achievements</a>
                 <a href="#">Demographics</a>
@@ -41,7 +46,7 @@ export const Navigation = (props) => {
             </li>
             <li className="dropdown">
               <a href='#features' className='page-scroll dropbtn'>
-              Recruiters valley
+                Recruiters valley
               </a>
               <div className="dropdown-content">
                 <a href="#">Login</a>
@@ -53,7 +58,7 @@ export const Navigation = (props) => {
             </li>
             <li className="dropdown">
               <a href='#features' className='page-scroll dropbtn'>
-              Students column
+                Students column
               </a>
               <div className="dropdown-content">
                 <a href="#">Login</a>
@@ -65,7 +70,7 @@ export const Navigation = (props) => {
             </li>
             <li className="dropdown">
               <a href='#features' className='page-scroll dropbtn'>
-              Contact us
+                Contact us
               </a>
               <div className="dropdown-content">
                 <a href="#">Professor in charge</a>

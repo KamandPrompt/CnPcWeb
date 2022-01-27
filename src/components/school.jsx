@@ -1,11 +1,6 @@
-
-import logo from './logo.svg';
-
-import './App.css';
-
-function App() {
+export const Schools = (props) => {
   return (
-    <div className="App">
+    <div style={{"backgroundColor":"rgb(205, 227, 245)"}}>
           <h2 >
             Schools
           </h2>
@@ -48,5 +43,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

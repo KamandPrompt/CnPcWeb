@@ -21,7 +21,7 @@ export const Home = (props) => {
           <h3 className='homeHead'>Home</h3>
           <p>Among the elite technology institutes of the country, IIT Mandi embodies technology, research and development in the purest form. Supported by the nourishing, picturesque settings of the Shivalik mountain range, IIT Mandi boasts of a unique hands-on curriculum, creme de la creme of students who epitomise all round proficiency in technical and professional matters. <br/>All the Placement associated activities are handled by the Career and Placement Cell (CnP) of the institute. The CnP consists of Faculty Members, Placement Officers and student volunteers working round the clock to provide the best possible services to the visiting organisations. <br />We look forward to a mutually beneficial Placement Session with your company.</p>
       </div>
-      <div className="about container row item">
+      <div className="about container row item bc">
           {/* <div className="col-lg-4 col-md-6 col-sm-12">
               <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
           </div> */}

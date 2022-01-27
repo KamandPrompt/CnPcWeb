@@ -1,8 +1,14 @@
 // import { useState, useEffect } from "react";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Navigation } from "./components/navigation";
 import { Footer } from "./components/footer";
 import { Home } from "./components/home";
 import { Carousal } from "./components/carousal";
+import { Acadmics } from "./components/Acadmics";
+import { Schools } from "./components/school";
+import { Research } from "./components/Research";
+import { render } from '@testing-library/react';
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -22,21 +28,21 @@ import { Carousal } from "./components/carousal";
 //   speedAsDuration: true,
 // });
 
-const App = () => {
-  // const [landingPageData, setLandingPageData] = useState({});
-  // useEffect(() => {
-  //   setLandingPageData(JsonData);
-  // }, []);
+class App extends Component {
+  render() {
+    return (
+       <Router>
+           <Navigation/>
+           <Routes>
+                 <Route exact path='/' element={[<Carousal/>,< Home />]}></Route>
+                 <Route exact path='/acadmics' element={[<Acadmics/>,<Schools/>,<Research/>]}></Route>
+                 {/* <Route exact path='/contact' element={< Contact />}></Route> */}
+          </Routes>
+          <Footer/>
 
-  return (
-    <div>
-      <Navigation />
-      <Carousal/>
-      <Home />
-      {/* <GoogleMap/> */}
-      <Footer/>
-    </div>
-  );
-};
-
+       </Router>
+   );
+  }
+}
+ 
 export default App;
