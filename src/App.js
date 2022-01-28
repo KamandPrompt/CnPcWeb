@@ -9,6 +9,7 @@ import { Acadmics } from "./components/Acadmics";
 import { Schools } from "./components/school";
 import { Research } from "./components/Research";
 import { render } from '@testing-library/react';
+import { Contact} from './components/Contact'
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -36,7 +37,7 @@ class App extends Component {
            <Routes>
                  <Route exact path='/' element={[<Carousal/>,< Home />]}></Route>
                  <Route exact path='/acadmics' element={[<Acadmics/>,<Schools/>,<Research/>]}></Route>
-                 {/* <Route exact path='/contact' element={< Contact />}></Route> */}
+                 <Route exact path='/contact' element={< Contact />}></Route>
           </Routes>
           <Footer/>
 
