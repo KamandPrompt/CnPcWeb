@@ -226,7 +226,8 @@ a:focus,
   font-size: 15px;
   font-weight: 500;
   border: 0px;
-  padding-bottom: 10px;
+  padding-bottom: 25px;
+  padding-left: 3px;
 }
 
 .demo{

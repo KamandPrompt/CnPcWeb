@@ -26,7 +26,7 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li className="dropdown">
-              <a href='#acadmics' className='page-scroll dropbtn'>
+              <a href='/acadmics' className='page-scroll dropbtn'>
                 Why recruit?
               </a>
               <div className="dropdown-content">
@@ -71,7 +71,7 @@ export const Navigation = (props) => {
               </div>
             </li>
             <li className="dropdown">
-              <a href='#features' className='page-scroll dropbtn'>
+              <a href='/contact' className='page-scroll dropbtn'>
                 Contact us
               </a>
               <div className="dropdown-content">
