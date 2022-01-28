@@ -211,8 +211,8 @@ a:focus,
   align-items: center;
 }
 
-.bc{
-  background-color: rgb(200, 242, 255);
+.backG{
+  background-color: rgb(205, 227, 245);
 }
 
 .homeHead{
@@ -221,13 +221,23 @@ a:focus,
 }
 
 #myBtn{
-  background-color: rgb(200, 242, 255);
+  background-color: rgb(205, 227, 245);
   color: gray;
   font-size: 15px;
   font-weight: 500;
   border: 0px;
   padding-bottom: 10px;
 }
+
+.demo{
+  background-color: rgb(205, 227, 245);
+  padding: 5% 10%;
+}
+
+.demoimg{
+  width: inherit;
+}
+
 
 /* footer section */
 
@@ -489,13 +499,15 @@ hr {
   justify-content: center;
   align-items: center;
   width: 100%;
+  /* margin-top: 50px; */
 }
 
 .slot{
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   width: 80%;
 }
 
@@ -503,9 +515,10 @@ hr {
   width: 100%;
   height: 50px;
   text-align: left;
-  font-size: 23px;
+  font-size: 20px;
   background-color: #fff;
   border: 1px solid black;
+  color: rgb(59, 58, 58);
 }
 
 .extraCont{
@@ -517,8 +530,12 @@ hr {
   display: none;
 }
 
-/* .plus{
-  position: relative;
-  right: 10px;
-} */
+.plus{
+  float: right;
+  margin-right: 10px;
+}
+
+.subHead{
+  text-align: left;
+}
 

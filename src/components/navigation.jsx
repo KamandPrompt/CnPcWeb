@@ -26,22 +26,24 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li className="dropdown">
-              <a href='/acadmics' className='page-scroll dropbtn'>
+              <a href='#acadmics' className='page-scroll dropbtn'>
                 Why recruit?
               </a>
               <div className="dropdown-content">
-                <a id="outerDiv" className="page-scroll dropbtn" href="#">Acadmics
+                <a id="outerDiv" className="page-scroll dropbtn" href="/acadmics">Acadmics <i style={{"float":"right","marginTop":"4px"}} class="fas fa-caret-right"></i>
                   <div id="innerDiv" className="dropdown-content btn-group dropright">
                     <a href="#">Schools</a>
                     <a href="#">Research and Development</a>
+                    <a href="http://iitmandi.ac.in/administration/mou.php" target="_blank">MoUs</a>
+                    <a href="#">Programmes(UG & PG)</a>
                   </div>
                 </a>
-                <a href="#">Brochure</a>
+                <a href={require("./Brochure2021-22.pdf")} target="blank" >Brochure</a>
                 <a href="#">Students achievements</a>
                 <a href="#">Demographics</a>
-                <a href="#">Students gymkhana</a>
-                <a href="#">IEEE SB chapter</a>
-                <a href="#">Alumni</a>
+                <a href="https://gymkhana.iitmandi.co.in/index.html" target="_blank">Students gymkhana</a>
+                <a href="https://ieee.iitmandi.ac.in/index.html" target="_blank">IEEE SB chapter</a>
+                <a href="https://alumniconnect.iitmandi.ac.in/" target="_blank">Alumni</a>
               </div>
             </li>
             <li className="dropdown">
