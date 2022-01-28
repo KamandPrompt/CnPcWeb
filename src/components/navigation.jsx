@@ -75,10 +75,10 @@ export const Navigation = (props) => {
                 Contact us
               </a>
               <div className="dropdown-content">
-                <a href="#">Professor in charge</a>
-                <a href="#">Placement cell details</a>
-                <a href="#">Student coordinators</a>
-                <a href="#">Administrative staff</a>
+                <a href="/contact">Professor in charge</a>
+                <a href="/contact">Placement cell details</a>
+                <a href="/contact">Student coordinators</a>
+                <a href="/contact">Administrative staff</a>
               </div>
             </li>
           </ul>
