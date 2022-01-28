@@ -229,6 +229,11 @@ a:focus,
   padding-bottom: 10px;
 }
 
+.demo{
+  background-color: rgb(205, 227, 245);
+  padding: 5% 10%;
+}
+
 /* footer section */
 
 .footer-main {

@@ -36,12 +36,12 @@ export const Navigation = (props) => {
                     <a href="#">Research and Development</a>
                   </div>
                 </a>
-                <a href="#">Brochure</a>
+                <a href={require("./Brochure2021-22.pdf")} target="blank" >Brochure</a>
                 <a href="#">Students achievements</a>
                 <a href="#">Demographics</a>
-                <a href="#">Students gymkhana</a>
-                <a href="#">IEEE SB chapter</a>
-                <a href="#">Alumni</a>
+                <a href="https://gymkhana.iitmandi.co.in/index.html" target="_blank">Students gymkhana</a>
+                <a href="https://ieee.iitmandi.ac.in/index.html" target="_blank">IEEE SB chapter</a>
+                <a href="https://alumniconnect.iitmandi.ac.in/" target="_blank">Alumni</a>
               </div>
             </li>
             <li className="dropdown">
