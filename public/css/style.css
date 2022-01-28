@@ -234,6 +234,11 @@ a:focus,
   padding: 5% 10%;
 }
 
+.demoimg{
+  width: inherit;
+}
+
+
 /* footer section */
 
 .footer-main {
