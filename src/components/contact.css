@@ -81,6 +81,10 @@
     text-decoration: none;
 }
 
+.student{
+    font-weight: bolder;
+    color: black;
+}
 .table-1 thead th{
     background-color:cornflowerblue;
     color: rgb(0, 0, 0);
@@ -97,10 +101,13 @@
     font-weight: bold;
 }
 
-/* #table-op{
-    align-content: center;
-} */
-
+.table-1{
+    border-color: 2px solid black;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+}
 .table-1 th {
     border-width: 1px;
     border-style: solid;
