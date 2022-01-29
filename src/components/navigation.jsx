@@ -34,6 +34,8 @@ export const Navigation = (props) => {
                   <div id="innerDiv" className="dropdown-content btn-group dropright">
                     <a href="#">Schools</a>
                     <a href="#">Research and Development</a>
+                    {/* <a href="https://www.iitmandi.ac.in/TIH-HCI/">I HUB</a>
+                    <a href="https://www.iitmandicatalyst.in/">Catalyst</a> */}
                     <a href="http://iitmandi.ac.in/administration/mou.php" target="_blank">MoUs</a>
                     <a href="#">Programmes(UG & PG)</a>
                   </div>
