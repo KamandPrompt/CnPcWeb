@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    if(window.location.pathname == '/'){
+    if(window.location.pathname == '/' || window.location.pathname == '/contact'){
         $(window).scroll(function () {
             if ($(document).scrollTop() > 0) {
                 $("#menu").addClass("nav-top");

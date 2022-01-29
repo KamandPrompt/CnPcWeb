@@ -7,7 +7,7 @@ export const Contact = (props) => {
         <div>
             <div className="banner">
                 <div className="banner__content">
-                     <div className="container">
+                     <div className="contain">
                         <div className="banner__text">
                             <h1 className="banner_heading">
                                 The Placement Cell
