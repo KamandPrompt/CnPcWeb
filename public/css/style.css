@@ -563,3 +563,43 @@ hr {
   text-align: left;
 }
 
+.homeSlider{
+  background-color: rgb(253, 253, 253);
+  margin: 50px;
+  height: 500px;
+}
+
+.sliderItem{
+  background-color: rgba(251, 252, 253,0.75);
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 30px;
+  overflow: scroll;
+  transform: scale(0.9);
+}
+
+.slidePallet{
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  transform: scale(0.9);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.slidePallet h4{
+  text-align: center;
+  font-weight: 800;
+}
+
+.slidePallet p{
+  color: #5f6161;
+  font-weight: 600;
+}
+
+
+
+
+
