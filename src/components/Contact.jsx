@@ -200,7 +200,7 @@ export const Contact = (props) => {
                 <br />
                 <Table className="table-1" id="table-7">
                     <Tbody>
-                    {/* <Thead>
+                    <Thead>
                     <Tr>
                         <Th>
                             Name
@@ -212,8 +212,7 @@ export const Contact = (props) => {
                             Email
                         </Th>
                     </Tr>
-                    </Thead> */}
-                        
+                    </Thead>
                         <Tr>
                             <Th colSpan={3}>Computer Science and Engineering</Th>
                         </Tr>
