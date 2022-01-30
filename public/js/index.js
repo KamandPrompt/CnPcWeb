@@ -45,6 +45,28 @@ $(document).ready(function () {
             }
         }
     });
+    $(".extrabtn").click(function (event) {
+        invisibles = document.getElementsByClassName("extracont");
+        for (var i = 0; i<invisibles.length; i++) {
+            let S = event.target.id;
+            let digi = S[S.length - 1];
+            let ID = `li${digi}`;
+            if (invisibles[i].id === ID) {
+                console.log(invisibles[i].style.display);
+                if (invisibles[i].style.display === "" || invisibles[i].style.display === "none") {
+                    invisibles[i].style.display = "block";
+                    let Id = `#pluss${i+1}`;
+                    $(Id).removeClass("fa-plus");
+                    $(Id).addClass("fa-minus");
+                } else {
+                    invisibles[i].style.display = "none";
+                    let Id = `#pluss${i+1}`;
+                    $(Id).removeClass("fa-minus");
+                    $(Id).addClass("fa-plus");
+                }
+            }
+        }
+    });
     $('.carousel').carousel({
         interval: 3000
     }).cycle();
