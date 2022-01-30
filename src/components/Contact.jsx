@@ -2,20 +2,22 @@ import React from "react";
 import dummy from "../images/ravinder.png"
 import "./contact.css"
 import nimisha from "../images/nimisha.jpg"
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 export const Contact = (props) => {
     return(
         <div>
             <div className="banner">
                 <div className="banner__content">
                      <div className="contain">
-                        <div className="banner__text">
+                        {/* <div className="banner__text">
                             <h1 className="banner_heading">
                                 The Placement Cell
                             </h1>
                             <p>
                                 The primary objective of this cell is to guide the students in various fields which they can opt as their Career and also tries its best to provide them with jobs in such fields irrespective of their background. The Career and Placement cell invites organizations which have recruited IIT Mandi's alumni and have witnessed them deliver well an high expectations placed on them, as well as those whom the students have not yet got an opportunity to serve. The CnP cell strives to facilitate the best possible match between the aspirations of recruiting organizations and the abilities of the students.
                              </p>
-                        </div>
+                        </div> */}
                         <a className="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon="" href="#scroll" />
                     </div>
                 </div>
@@ -190,631 +192,629 @@ export const Contact = (props) => {
                                 <h2>
                                 Student Volunteers
                                 </h2>
-                                
                             </strong>
                         </span>
                     </center>
                 </p>
                 <br />
                 <br />
-                <table className="table-1" id="table-7">
-                    <tbody>
-                    {/* <thead className="student">
-                        <tr>
-                            <th colSpan='3'>Student Volunteers</th>
-                        </tr>
-                    </thead> */}
-                        <tr>
-                            <td>
-                                <strong>Name</strong>
-                            </td>
-                            <td>
-                                <strong>Contact Number</strong>
-                            </td>
-                            <td>
-                            <strong>Email Id</strong>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>Computer Science and Engineering</th>
-                        </tr>
-                        <tr>
-                            <td>
+                <Table className="table-1" id="table-7">
+                    <Tbody>
+                    {/* <Thead>
+                    <Tr>
+                        <Th>
+                            Name
+                        </Th>
+                        <Th>
+                            Contact
+                        </Th>
+                        <Th>
+                            Email
+                        </Th>
+                    </Tr>
+                    </Thead> */}
+                        
+                        <Tr>
+                            <Th colSpan={3}>Computer Science and Engineering</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Kairav Bansal
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 9988154700
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18062@students.iitmandi.ac.in">b18062@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Bhumanyu Goyal
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 6677838426
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18012@students.iitmandi.ac.in">b18012@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Pratik Kumar
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 9939549845
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18187@students.iitmandi.ac.in">b18187@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Saksham Barara
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 9877757063
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18190@students.iitmandi.ac.in">b18190@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Anjali Chaudhary
-                            </td>
-                            <td>                               9347856084
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
+                                9347856084
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19067@students.iitmandi.ac.in">b19067@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Aryan Goel
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 9718877971
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19073@students.iitmandi.ac.in">b19073@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Depanshu Gupta
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 788174900
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19244@students.iitmandi.ac.in">b19244@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Harnaman Kaur
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 9041590497
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19085@students.iitmandi.ac.in">b19085@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Niveditha N
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 7012016415
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19098@students.iitmandi.ac.in">b19098@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Vineet Ahuja
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 9911473244
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19122@students.iitmandi.ac.in">b19122@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                        <th colSpan={3}>Electrical Engineering</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                        <Th colSpan={3}>Electrical Engineering</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Sudhanshu Chauhan
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 9370552327
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18147@students.iitmandi.ac.in">b18147@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Ankit Karan
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             7667911376
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18159@students.iitmandi.ac.in">b18159@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Vidhi Desai
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 8544786022
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18168@students.iitmandi.ac.in">b18168@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Naveen Maheshwari
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 8219846675
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19175@students.iitmandi.ac.in">b19175@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Nayan K
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             8905336393
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19176@students.iitmandi.ac.in">b19176@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Shobhit Rajput
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 8126588271
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19195@students.iitmandi.ac.in">b19195@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Priyanshu Singh
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 7394941405
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19190@students.iitmandi.ac.in">b19190@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                        <th colSpan={3}>Mechanical Engineering</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                        <Th colSpan={3}>Mechanical Engineering</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Ankit Gupta
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             6388792413
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18008@students.iitmandi.ac.in">b18008@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Arjun Khanwalkar
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9897047640
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19239@students.iitmandi.ac.in">b19239@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Ayush Singh Vardhan
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9528553052
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19241@students.iitmandi.ac.in">b19241@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Sahas Goyal
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             8675150000
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19053@students.iitmandi.ac.in">b19053@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>Civil Engineering</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>Civil Engineering</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Ankit Gupta
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             6388792413
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18008@students.iitmandi.ac.in">b18008@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Nisha
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9694644470
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18020@students.iitmandi.ac.in">b18020@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Kunal kachawa
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             7668853539
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19057@students.iitmandi.ac.in">b19057@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Shikha
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             6388792413
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18008@students.iitmandi.ac.in">b18008@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>Data Science and Engineering</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>Data Science and Engineering</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Saksham Barara
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9877757063
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18190@students.iitmandi.ac.in">b18190@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Yash Verma
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9818722716
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19144@students.iitmandi.ac.in">b19144@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Yatharth Mogra
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             7568864147
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19272@students.iitmandi.ac.in">b19272@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>Engineering Physics</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>Engineering Physics</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Bhumanyu Goyal
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             6377838426
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18012@students.iitmandi.ac.in">b18012@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Jainan Tandel
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9925233876
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19224@students.iitmandi.ac.in">b19224@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Nilaksh Pundir
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             6284989635
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19048@students.iitmandi.ac.in">b19048@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Yuvraj Misra
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9779008042
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19225@students.iitmandi.ac.in">b19225@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>Bio Engineering</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>Bio Engineering</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Pratik Kumar
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9939549845
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b18187@students.iitmandi.ac.in">b18187@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Chirag
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9466644938
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19006@students.iitmandi.ac.in">b19006@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Sagar Mishra
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             7352509910
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:b19016@students.iitmandi.ac.in">b19016@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
+                            </Td>
+                        </Tr>
                         <br />
                         <br />
 
-                        <tr>
-                            <th colSpan={2}>PG Volunteers for the year 2021-2022</th>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>M.Tech VLSI</th>
-                        </tr>
-                        <tr>
-                            <td>
+                        <Tr>
+                            <Th colSpan={2}>PG Volunteers for the year 2021-2022</Th>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>M.Tech VLSI</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Nishanth Kumar V
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9380043083
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                                 <a href="mailto:t20250@students.iitmandi.ac.in">t20250@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>M.Tech CSP</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>M.Tech CSP</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Vineet Kumar Mishra
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9415846983
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:t20283@students.iitmandi.ac.in">t20283@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>M.Tech PED</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>M.Tech PED</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Tuhin Mitra
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9123051836
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:t20201@students.iitmandi.ac.in">t20201@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Soumya Ranjan Nayak
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9658321451
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:t20211@students.iitmandi.ac.in">t20211@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>M.Tech MES</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>M.Tech MES</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Mridul Agarwal
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9773660334
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:t20084@students.iitmandi.ac.in">t20084@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>M.Tech EEM</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>M.Tech EEM</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Sairaj Salunke
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             8369094781
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:t20043@students.iitmandi.ac.in">t20043@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>M.Tech STE</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>M.Tech STE</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Ammar Ahmed
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             7467853847
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:t20012@students.iitmandi.ac.in">t20012@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>M.Tech Biotech</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>M.Tech Biotech</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Ujjawal
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             8435177995
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:t20411@students.iitmandi.ac.in">t20411@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>MSc. Chemistry</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>MSc. Chemistry</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Samiksha
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             8708456060
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:v20011@students.iitmandi.ac.in">v20011@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Aman
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9255551231
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:v20040@students.iitmandi.ac.in">v20040@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>MSc. Applied Maths</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>MSc. Applied Maths</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Hement Kumar
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             7056582951
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:v20063@students.iitmandi.ac.in">v20063@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Naman Karol
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9358104468
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:v20043@students.iitmandi.ac.in">v20043@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>MSc. Physics</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>MSc. Physics</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                             Arun Pandiyan
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             9168180550
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:v20098@students.iitmandi.ac.in">v20098@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colSpan={3}>MA Development Studies</th>
-                        </tr>
-                        <tr>
-                            <td>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th colSpan={3}>MA Development Studies</Th>
+                        </Tr>
+                        <Tr>
+                            <Td>
                                 Jasmeet Singh
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             7070360676
-                            </td>
-                            <td>
+                            </Td>
+                            <Td>
                             <a href="mailto:a20010@students.iitmandi.ac.in">a20010@students.iitmandi.ac.in</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </Td>
+                        </Tr>
+                    </Tbody>
+                </Table>
         </div>
     );
 };

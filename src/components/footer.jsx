@@ -65,4 +65,5 @@ export const Footer = (props) => {
 		<div id="footer_copyright"> <a href="https://iitmandi.co.in/" style={{"color":"black"}}><span style={{"color":"black"}}>©</span>CnP, IIT Mandi</a> 2021, All rights reserved.</div>
 		</div>
 	</footer>
+	
 )}
