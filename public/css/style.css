@@ -239,6 +239,10 @@ a:focus,
   width: inherit;
 }
 
+.blue{
+  background-color: rgb(230 242 252);
+}
+
 
 /* footer section */
 

@@ -1,7 +1,7 @@
 export const Schools = (props) => {
   return (
     <>
-    <div style={{"backgroundColor":"rgb(205, 227, 245)"}}>
+    <div className="blue">
       <div className="acadmic">
         <div className="slot">
           <h3 className="homeHead">

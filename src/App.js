@@ -38,7 +38,8 @@ class App extends Component {
            <Routes>
                  <Route exact path='/' element={[<Carousal/>,< Home />]}></Route>
 
-                 <Route exact path='/acadmics' element={[<Acadmics/>,<Schools/>,<Research/>,<Demo/>]}></Route>
+                 <Route exact path='/acadmics' element={[<Acadmics/>,<Demo/>]}></Route>
+                 <Route exact path='/research' element={<Research/>}></Route>
                  <Route exact path='/contact' element={< Contact />}></Route>
           </Routes>
           <Footer/>

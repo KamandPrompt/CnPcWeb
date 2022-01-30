@@ -1,11 +1,12 @@
 import React from "react";
+import { Schools } from './school';
 
 export const Acadmics = (props) => {
   return (
     <div>
       <div className="acadmic">
         <div className="slot">
-        <h3 className='homeHead'>Academics</h3>
+          <h3 className='homeHead'>Academics</h3>
           <p>
             The B.Tech curriculum is designed keeping in mind the need to
             produce well-rounded graduates many of whom will go on to join
@@ -61,7 +62,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn3" className="extraBtn">
-          Computer Science & Engineering <span className="plus"><i id="plus3" className="fas fa-plus"></i></span>
+            Computer Science & Engineering <span className="plus"><i id="plus3" className="fas fa-plus"></i></span>
           </button>
           <div id="msg3" className="extraCont">
             <p>
@@ -74,7 +75,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn4" className="extraBtn">
-          Electrical Engineering <span className="plus"><i id="plus4" className="fas fa-plus"></i></span>
+            Electrical Engineering <span className="plus"><i id="plus4" className="fas fa-plus"></i></span>
           </button>
           <div id="msg4" className="extraCont">
             <p>
@@ -87,7 +88,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn5" className="extraBtn">
-          Mechanical Engineering <span className="plus"><i id="plus5" className="fas fa-plus"></i></span>
+            Mechanical Engineering <span className="plus"><i id="plus5" className="fas fa-plus"></i></span>
           </button>
           <div id="msg5" className="extraCont">
             <p>
@@ -115,7 +116,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn7" className="extraBtn">
-          Second Year curriculum  <span className="plus"><i id="plus7" className="fas fa-plus"></i></span>
+            Second Year curriculum  <span className="plus"><i id="plus7" className="fas fa-plus"></i></span>
           </button>
           <div id="msg7" className="extraCont">
             <p>
@@ -132,7 +133,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn8" className="extraBtn">
-          Third Year curriculum  <span className="plus"><i id="plus8" className="fas fa-plus"></i></span>
+            Third Year curriculum  <span className="plus"><i id="plus8" className="fas fa-plus"></i></span>
           </button>
           <div id="msg8" className="extraCont">
             <p>
@@ -150,7 +151,7 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn9" className="extraBtn">
-          Fourth Year curriculum  <span className="plus"><i id="plus9" className="fas fa-plus"></i></span>
+            Fourth Year curriculum  <span className="plus"><i id="plus9" className="fas fa-plus"></i></span>
           </button>
           <div id="msg9" className="extraCont">
             <p>
@@ -169,11 +170,31 @@ export const Acadmics = (props) => {
         </div>
         <br />
         <div className="slot">
-        <p>
-          Overall, the curriculum at IIT Mandi is designed to encourage and
-          enable the student to become well-qualified and well-rounded engineers
-          in all respects.
-        </p>
+          <p>
+            Overall, the curriculum at IIT Mandi is designed to encourage and
+            enable the student to become well-qualified and well-rounded engineers
+            in all respects.
+          </p>
+        </div>
+      </div>
+      <Schools/>
+      <div className='acadmic'>
+        <div className="slot">
+          <h3 className='homeHead'>Programmes</h3>
+          <div>
+            <h3>Under graduates</h3>
+            <p>
+              Situated in the lap of Himalayas, IIT Mandi  is one the finest technical institute for students to spend their undergraduate years. While broad academics and innovative curriculum is one strong focus of the institute, extra co circulars like sports, club activities and events, inter college competitions, fests are all given due importance. Owing to the enthusiastic student community, a lot of new ideas, projects, and events of different scales are executed every year. Overall, the undergraduate experience is one its kind and most cherished experience of students life.
+            </p>
+            <p> <strong>To know more please</strong> <a href="https://students.iitmandi.ac.in/main/ug/index.html" target="_blank" >click here</a>.</p>
+          </div>
+          <div>
+            <h3>Post graduates</h3>
+            <p>
+              With an extraordinary group of teachers and peers, IIT Mandi  offers one of India’s finest PG programs. With a vast pool of resources including a gigantic library and its number of labs , IIT Mandi  has managed to create the perfect nest to design and build the next future.
+            </p>
+            <p> <strong>To know more please</strong> <a href="https://students.iitmandi.ac.in/main/pg/index.html" target="_blank" >click here</a>.</p>
+          </div>
         </div>
       </div>
     </div>
