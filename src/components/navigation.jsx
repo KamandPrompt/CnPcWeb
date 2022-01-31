@@ -41,7 +41,7 @@ export const Navigation = (props) => {
                   </div>
                 </a>
                 <a href={require("./Brochure2021-22.pdf")} target="blank" >Brochure</a>
-                <a href="#">Students achievements</a>
+                <a href="/achievement">Students achievements</a>
                 <a href="#">Demographics</a>
                 <a href="https://gymkhana.iitmandi.co.in/index.html" target="_blank">Students gymkhana</a>
                 <a href="https://ieee.iitmandi.ac.in/index.html" target="_blank">IEEE SB chapter</a>
