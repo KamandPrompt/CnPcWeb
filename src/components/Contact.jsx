@@ -2,6 +2,7 @@ import React from "react";
 import dummy from "../images/ravinder.png"
 import "./contact.css"
 import nimisha from "../images/nimisha.jpg"
+import parmod from "../images/parmod.jpg"
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 export const Contact = (props) => {
@@ -78,7 +79,7 @@ export const Contact = (props) => {
                     <figure className="snip1559">
                         <div className="profile-image">
                             <img
-                            src="http://se.iitmandi.ac.in/faculty/upload/pics/parmod.jpg"
+                            src={parmod}
                             alt="Dr.Pramod-kumar"
                             />
                         </div>
