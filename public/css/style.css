@@ -578,6 +578,7 @@ hr {
   transform: scale(0.9);
 }
 
+
 .slidePallet{
   display: flex;
   flex-direction: column;
@@ -599,7 +600,74 @@ hr {
   font-weight: 600;
 }
 
+.yearBtn{
+  width: 100%;
+  height: 50px;
+  text-align: left;
+  font-size: 20px;
+  background-color: #fff;
+  border: 1px solid black;
+  color: rgb(59, 58, 58);
+}
 
+.yearCont ul{
+  margin-left: 40px;
+}
 
+.yearCont ul li{
+  list-style-type: disc;
+  text-indent: 0em;
+  padding: 0.1em;
+}
+
+.yearCont{
+  display: none;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.subCont{
+  text-align: justify;
+}
+
+.arrow{
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #959799;
+}
+
+.yearBtn{
+  color: #5f6161;
+  border: none;
+  border-bottom: 2px solid #88b3e0;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+
+.yearBtn:hover{
+  color: #79bcff;
+}
+
+.bann{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../images/resume_achievements.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 50px;
+}
+
+.bannCont{
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0,0.5);
+  color: white;
+  top: 60%;
+  right: 0%;
+}
 
 
