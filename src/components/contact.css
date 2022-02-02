@@ -293,7 +293,9 @@
     -moz-animation: ca3_fade_move_down 2s ease-in-out infinite;
     animation: ca3_fade_move_down 2s ease-in-out infinite;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 
 /*animated scroll arrow animation*/
 
