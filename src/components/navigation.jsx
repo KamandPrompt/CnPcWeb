@@ -65,7 +65,7 @@ export const Navigation = (props) => {
                 Students column
               </a>
               <div className="dropdown-content">
-                <a href="#">Login</a>
+                <a href="/login">Login</a>
                 <a href="#">Policies</a>
                 <a href="#">Noticeboard</a>
                 <a href="#">Forms </a>
