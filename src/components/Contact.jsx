@@ -31,17 +31,17 @@ export const Contact = (props) => {
                 </div>
                 <div className="container-snip">
                     <figure className="snip1559">
+                        <figcaption className="snip1560">
                         <div className="profile-image">
                             <img src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="tushar-jain" className="image"/>
-                        </div>
-                        <figcaption>
                             <h3>
                                 <strong>
                                     Dr. Tushar Jain
                                 </strong>
                             </h3>
+                        </div>
                             <br />
-                            <div className="middle">
+                        <div className="middle">
                             <p className="text">
                             <strong> Dr. Tushar Jain</strong>
                             <br />
@@ -55,19 +55,19 @@ export const Contact = (props) => {
                                     Phone
                                 </strong> - 01905-267920
                             </p>
-                            </div>
+                        </div>
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
+                        <figcaption>
                         <div className="profile-image">
                             <img src="	http://iitmandi.ac.in/Schools/SBS/faculty/garima.jpg" alt="Dr.Garima-Agrawal" className="image"/>
-                        </div>
-                        <figcaption>
                             <h3>
                             <strong>
                                     Dr. Garima Agrawal
                                 </strong>
                             </h3>
+                        </div>
                             <br />
                             <div className="middle">
                             <p className="text">
@@ -86,18 +86,18 @@ export const Contact = (props) => {
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
+                        <figcaption>
                         <div className="profile-image">
                             <img
                             src={parmod}
                             alt="Dr.Pramod-kumar"
                             className="image"/>
-                        </div>
-                        <figcaption>
                             <h3>
                             <strong>
                                     Dr. Pramod Kumar
                                 </strong>
                             </h3>
+                        </div>
                             <br />
                             <div className="middle">
                             <p className="text">
@@ -117,19 +117,18 @@ export const Contact = (props) => {
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
+                        <figcaption>
                         <div className="profile-image">
                             <img
                             src="	http://iitmandi.ac.in/Schools/SBS/faculty/baskar.jpg"
                             alt="Dr.Bhaskar"
                             className="image" /> 
-                        </div>
-                        <figcaption>
                             <h3>
                             <strong>
                             Dr. Bhaskar Bakthavachalu
                             </strong>
-                               
                             </h3>
+                        </div>
                             <br />
                             <div className="middle">
                             <p className="text">
@@ -148,18 +147,18 @@ export const Contact = (props) => {
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
+                        <figcaption>
                         <div className="profile-image">
                             <img
                             src="http://iitmandi.ac.in/Schools/SCEE/faculty/rameshwar.jpg"
                             alt="Dr.Rameshwar Pratap"
                             className="image" />
-                        </div>
-                        <figcaption>
                             <h3>
                             <strong>
                                  Dr. Rameshwar Pratap
                             </strong>
                             </h3>
+                        </div>
                             <br />
                             <div className="middle">
                             <p className="text">
@@ -174,16 +173,16 @@ export const Contact = (props) => {
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
+                        <figcaption>
                         <div className="profile-image">
                             <img
                             src={nimisha}
                             alt="Nimisha N B" className="image"
                             />
-                        </div>
-                        <figcaption>
                             <h3>
                                 <strong>Nimisha N B</strong>
                                 </h3>
+                        </div>
                             <br />
                             <div className="middle">
                             <p className="text">
@@ -198,18 +197,18 @@ export const Contact = (props) => {
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
+                        <figcaption>
                         <div className="profile-image">
                             <img
                             src={dummy}
                             alt="Mr.Ravinder" className="image"
                             />
-                        </div>
-                        <figcaption>
                         <h3>
                         <strong>
                             Mr. Ravinder Kumar
                         </strong>
                         </h3>
+                        </div>
                         <br />
                         <div className="middle">
                         <div className="text">
