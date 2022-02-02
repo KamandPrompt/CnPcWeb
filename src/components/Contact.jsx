@@ -32,7 +32,7 @@ export const Contact = (props) => {
                 <div className="container-snip">
                     <figure className="snip1559">
                         <div className="profile-image">
-                            <img src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="tushar-jain" />
+                            <img src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="tushar-jain" className="image"/>
                         </div>
                         <figcaption>
                             <h3>
@@ -41,7 +41,10 @@ export const Contact = (props) => {
                                 </strong>
                             </h3>
                             <br />
-                            <p>
+                            <div className="middle">
+                            <p className="text">
+                            <strong> Dr. Tushar Jain</strong>
+                            <br />
                                 Faculty Advisor
                                 <br />
                                 <strong>
@@ -52,18 +55,23 @@ export const Contact = (props) => {
                                     Phone
                                 </strong> - 01905-267920
                             </p>
+                            </div>
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
                         <div className="profile-image">
-                            <img src="	http://iitmandi.ac.in/Schools/SBS/faculty/garima.jpg" alt="Dr.Garima-Agrawal" />
+                            <img src="	http://iitmandi.ac.in/Schools/SBS/faculty/garima.jpg" alt="Dr.Garima-Agrawal" className="image"/>
                         </div>
                         <figcaption>
                             <h3>
-                                Dr. Garima Agrawal
+                            <strong>
+                                    Dr. Garima Agrawal
+                                </strong>
                             </h3>
                             <br />
-                            <p>
+                            <div className="middle">
+                            <p className="text">
+                            <strong> Dr. Garima Agrawal</strong><br />
                                 Faculty Co-Advisor
                                 <br />
                                 <strong>
@@ -72,8 +80,9 @@ export const Contact = (props) => {
                                 <br />
                                 <strong>
                                     Phone
-                                </strong> - 01905-267920
+                                </strong> - 01905-267827
                             </p>
+                            </div>
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
@@ -81,14 +90,18 @@ export const Contact = (props) => {
                             <img
                             src={parmod}
                             alt="Dr.Pramod-kumar"
-                            />
+                            className="image"/>
                         </div>
                         <figcaption>
                             <h3>
-                                Dr. Pramod Kumar
+                            <strong>
+                                    Dr. Pramod Kumar
+                                </strong>
                             </h3>
                             <br />
-                            <p>
+                            <div className="middle">
+                            <p className="text">
+                            <strong> Dr. Pramod Kumar</strong><br />
                                 Faculty Co-Advisor
                             <br />
                             <strong>
@@ -97,8 +110,9 @@ export const Contact = (props) => {
                             <br />
                             <strong>
                                 Phone
-                            </strong> - 01905-267920
+                            </strong> - 01905-267264
                             </p>
+                            </div>
                             <br />
                         </figcaption>
                     </figure>
@@ -107,24 +121,30 @@ export const Contact = (props) => {
                             <img
                             src="	http://iitmandi.ac.in/Schools/SBS/faculty/baskar.jpg"
                             alt="Dr.Bhaskar"
-                            />
+                            className="image" /> 
                         </div>
                         <figcaption>
                             <h3>
-                                Dr. Bhaskar Bakthavachalu
+                            <strong>
+                            Dr. Bhaskar Bakthavachalu
+                            </strong>
+                               
                             </h3>
                             <br />
-                            <p>
+                            <div className="middle">
+                            <p className="text">
+                            <strong> Dr. Bhaskar Bakthavachalu</strong><br />
                                 Faculty Co-Advisor
                             <br />
                             <strong>
                                 Email
                             </strong> - <a href="mailto: baskar@iitmandi.ac.in">baskar@iitmandi.ac.in</a>
                             <br />
-                            <strong>
+                            {/* <strong>
                                 Phone
-                            </strong> - 01905-267920
+                            </strong> - 01905-267920 */}
                             </p>
+                            </div>
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
@@ -132,689 +152,78 @@ export const Contact = (props) => {
                             <img
                             src="http://iitmandi.ac.in/Schools/SCEE/faculty/rameshwar.jpg"
                             alt="Dr.Rameshwar Pratap"
-                            />
+                            className="image" />
                         </div>
                         <figcaption>
-                            <h3>Dr. Rameshwar Pratap</h3>
+                            <h3>
+                            <strong>
+                                 Dr. Rameshwar Pratap
+                            </strong>
+                            </h3>
                             <br />
-                            <p>
+                            <div className="middle">
+                            <p className="text">
+                            <strong> Dr. Rameshwar Pratap</strong><br />
                             Faculty Co-Advisor
                             <br />
                             <strong>Email</strong> - <a href="mailto: rameshwar@iitmandi.ac.in">rameshwar@iitmandi.ac.in</a>
                             <br />
-                            <strong>Phone</strong> - 01905-267920
+                            <strong>Phone</strong> - 01905-267945
                             </p>
+                            </div>
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
                         <div className="profile-image">
                             <img
                             src={nimisha}
-                            alt="Nimisha N B"
+                            alt="Nimisha N B" className="image"
                             />
                         </div>
                         <figcaption>
-                            <h3>Nimisha N B</h3>
+                            <h3>
+                                <strong>Nimisha N B</strong>
+                                </h3>
                             <br />
-                            <p>
+                            <div className="middle">
+                            <p className="text">
+                            <strong>Nimisha N B</strong><br />
                             Placement Cell Executive
                             <br />
                             <strong>Email</strong> - <a href="mailto: nimisha@iitmandi.ac.in">nimisha@iitmandi.ac.in</a>
                             <br />
-                            <strong>Phone</strong> - 01905-267920
+                            <strong>Phone</strong> - +91-7807625022
                             </p>
+                            </div>
                         </figcaption>
                     </figure>
                     <figure className="snip1559">
                         <div className="profile-image">
                             <img
                             src={dummy}
-                            alt="Mr.Ravinder"
+                            alt="Mr.Ravinder" className="image"
                             />
                         </div>
                         <figcaption>
-                        <h3>Mr. Ravinder Kumar</h3>
+                        <h3>
+                        <strong>
+                            Mr. Ravinder Kumar
+                        </strong>
+                        </h3>
                         <br />
-                        <p>
+                        <div className="middle">
+                        <div className="text">
+                        <strong>Ravinder Kumar</strong>
+                        <br />
                         Office Assistant
                         <br />
-                        <strong>Phone</strong> - 01905-267920
-                        </p>
+                        <strong>Phone</strong> - +91-9459366121
+                        </div>
+                        </div>
                         <br />
                         </figcaption>
                     </figure>
                 </div>
-                <br />
-                <br />
-                <p>
-                    <center>
-                        <span className="student">
-                            <strong>
-                                <h2>
-                                Student Volunteers
-                                </h2>
-                            </strong>
-                        </span>
-                    </center>
-                </p>
-                <br />
-                <br />
-                <Table className="table-1" id="table-7">
-                    <Tbody>
-                    <Thead>
-                    <Tr>
-                        <Th>
-                            Name
-                        </Th>
-                        <Th>
-                            Contact
-                        </Th>
-                        <Th>
-                            Email
-                        </Th>
-                    </Tr>
-                    </Thead>
-                        <Tr>
-                            <Th colSpan={3}>Computer Science and Engineering</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Kairav Bansal
-                            </Td>
-                            <Td>
-                                9988154700
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18062@students.iitmandi.ac.in">b18062@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Bhumanyu Goyal
-                            </Td>
-                            <Td>
-                                6677838426
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18012@students.iitmandi.ac.in">b18012@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Pratik Kumar
-                            </Td>
-                            <Td>
-                                9939549845
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18187@students.iitmandi.ac.in">b18187@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Saksham Barara
-                            </Td>
-                            <Td>
-                                9877757063
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18190@students.iitmandi.ac.in">b18190@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Anjali Chaudhary
-                            </Td>
-                            <Td>
-                                9347856084
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19067@students.iitmandi.ac.in">b19067@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Aryan Goel
-                            </Td>
-                            <Td>
-                                9718877971
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19073@students.iitmandi.ac.in">b19073@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Depanshu Gupta
-                            </Td>
-                            <Td>
-                                788174900
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19244@students.iitmandi.ac.in">b19244@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Harnaman Kaur
-                            </Td>
-                            <Td>
-                                9041590497
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19085@students.iitmandi.ac.in">b19085@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Niveditha N
-                            </Td>
-                            <Td>
-                                7012016415
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19098@students.iitmandi.ac.in">b19098@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Vineet Ahuja
-                            </Td>
-                            <Td>
-                                9911473244
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19122@students.iitmandi.ac.in">b19122@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                        <Th colSpan={3}>Electrical Engineering</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Sudhanshu Chauhan
-                            </Td>
-                            <Td>
-                                9370552327
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18147@students.iitmandi.ac.in">b18147@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Ankit Karan
-                            </Td>
-                            <Td>
-                            7667911376
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18159@students.iitmandi.ac.in">b18159@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Vidhi Desai
-                            </Td>
-                            <Td>
-                                8544786022
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18168@students.iitmandi.ac.in">b18168@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Naveen Maheshwari
-                            </Td>
-                            <Td>
-                                8219846675
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19175@students.iitmandi.ac.in">b19175@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Nayan K
-                            </Td>
-                            <Td>
-                            8905336393
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19176@students.iitmandi.ac.in">b19176@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Shobhit Rajput
-                            </Td>
-                            <Td>
-                                8126588271
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19195@students.iitmandi.ac.in">b19195@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Priyanshu Singh
-                            </Td>
-                            <Td>
-                                7394941405
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19190@students.iitmandi.ac.in">b19190@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                        <Th colSpan={3}>Mechanical Engineering</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Ankit Gupta
-                            </Td>
-                            <Td>
-                            6388792413
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18008@students.iitmandi.ac.in">b18008@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Arjun Khanwalkar
-                            </Td>
-                            <Td>
-                            9897047640
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19239@students.iitmandi.ac.in">b19239@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Ayush Singh Vardhan
-                            </Td>
-                            <Td>
-                            9528553052
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19241@students.iitmandi.ac.in">b19241@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Sahas Goyal
-                            </Td>
-                            <Td>
-                            8675150000
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19053@students.iitmandi.ac.in">b19053@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>Civil Engineering</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Ankit Gupta
-                            </Td>
-                            <Td>
-                            6388792413
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18008@students.iitmandi.ac.in">b18008@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Nisha
-                            </Td>
-                            <Td>
-                            9694644470
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18020@students.iitmandi.ac.in">b18020@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Kunal kachawa
-                            </Td>
-                            <Td>
-                            7668853539
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19057@students.iitmandi.ac.in">b19057@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Shikha
-                            </Td>
-                            <Td>
-                            6388792413
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18008@students.iitmandi.ac.in">b18008@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>Data Science and Engineering</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Saksham Barara
-                            </Td>
-                            <Td>
-                            9877757063
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18190@students.iitmandi.ac.in">b18190@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Yash Verma
-                            </Td>
-                            <Td>
-                            9818722716
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19144@students.iitmandi.ac.in">b19144@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Yatharth Mogra
-                            </Td>
-                            <Td>
-                            7568864147
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19272@students.iitmandi.ac.in">b19272@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>Engineering Physics</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Bhumanyu Goyal
-                            </Td>
-                            <Td>
-                            6377838426
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18012@students.iitmandi.ac.in">b18012@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Jainan Tandel
-                            </Td>
-                            <Td>
-                            9925233876
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19224@students.iitmandi.ac.in">b19224@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Nilaksh Pundir
-                            </Td>
-                            <Td>
-                            6284989635
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19048@students.iitmandi.ac.in">b19048@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Yuvraj Misra
-                            </Td>
-                            <Td>
-                            9779008042
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19225@students.iitmandi.ac.in">b19225@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>Bio Engineering</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Pratik Kumar
-                            </Td>
-                            <Td>
-                            9939549845
-                            </Td>
-                            <Td>
-                                <a href="mailto:b18187@students.iitmandi.ac.in">b18187@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Chirag
-                            </Td>
-                            <Td>
-                            9466644938
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19006@students.iitmandi.ac.in">b19006@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Sagar Mishra
-                            </Td>
-                            <Td>
-                            7352509910
-                            </Td>
-                            <Td>
-                                <a href="mailto:b19016@students.iitmandi.ac.in">b19016@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <br />
-                        <br />
-
-                        <Tr>
-                            <Th colSpan={2}>PG Volunteers for the year 2021-2022</Th>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>M.Tech VLSI</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Nishanth Kumar V
-                            </Td>
-                            <Td>
-                            9380043083
-                            </Td>
-                            <Td>
-                                <a href="mailto:t20250@students.iitmandi.ac.in">t20250@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>M.Tech CSP</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Vineet Kumar Mishra
-                            </Td>
-                            <Td>
-                            9415846983
-                            </Td>
-                            <Td>
-                            <a href="mailto:t20283@students.iitmandi.ac.in">t20283@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>M.Tech PED</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Tuhin Mitra
-                            </Td>
-                            <Td>
-                            9123051836
-                            </Td>
-                            <Td>
-                            <a href="mailto:t20201@students.iitmandi.ac.in">t20201@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Soumya Ranjan Nayak
-                            </Td>
-                            <Td>
-                            9658321451
-                            </Td>
-                            <Td>
-                            <a href="mailto:t20211@students.iitmandi.ac.in">t20211@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>M.Tech MES</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Mridul Agarwal
-                            </Td>
-                            <Td>
-                            9773660334
-                            </Td>
-                            <Td>
-                            <a href="mailto:t20084@students.iitmandi.ac.in">t20084@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>M.Tech EEM</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Sairaj Salunke
-                            </Td>
-                            <Td>
-                            8369094781
-                            </Td>
-                            <Td>
-                            <a href="mailto:t20043@students.iitmandi.ac.in">t20043@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>M.Tech STE</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Ammar Ahmed
-                            </Td>
-                            <Td>
-                            7467853847
-                            </Td>
-                            <Td>
-                            <a href="mailto:t20012@students.iitmandi.ac.in">t20012@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>M.Tech Biotech</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Ujjawal
-                            </Td>
-                            <Td>
-                            8435177995
-                            </Td>
-                            <Td>
-                            <a href="mailto:t20411@students.iitmandi.ac.in">t20411@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>MSc. Chemistry</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Samiksha
-                            </Td>
-                            <Td>
-                            8708456060
-                            </Td>
-                            <Td>
-                            <a href="mailto:v20011@students.iitmandi.ac.in">v20011@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Aman
-                            </Td>
-                            <Td>
-                            9255551231
-                            </Td>
-                            <Td>
-                            <a href="mailto:v20040@students.iitmandi.ac.in">v20040@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>MSc. Applied Maths</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Hement Kumar
-                            </Td>
-                            <Td>
-                            7056582951
-                            </Td>
-                            <Td>
-                            <a href="mailto:v20063@students.iitmandi.ac.in">v20063@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Naman Karol
-                            </Td>
-                            <Td>
-                            9358104468
-                            </Td>
-                            <Td>
-                            <a href="mailto:v20043@students.iitmandi.ac.in">v20043@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>MSc. Physics</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                            Arun Pandiyan
-                            </Td>
-                            <Td>
-                            9168180550
-                            </Td>
-                            <Td>
-                            <a href="mailto:v20098@students.iitmandi.ac.in">v20098@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                        <Tr>
-                            <Th colSpan={3}>MA Development Studies</Th>
-                        </Tr>
-                        <Tr>
-                            <Td>
-                                Jasmeet Singh
-                            </Td>
-                            <Td>
-                            7070360676
-                            </Td>
-                            <Td>
-                            <a href="mailto:a20010@students.iitmandi.ac.in">a20010@students.iitmandi.ac.in</a>
-                            </Td>
-                        </Tr>
-                    </Tbody>
-                </Table>
         </div>
     );
 };
