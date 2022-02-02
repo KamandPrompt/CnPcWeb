@@ -53,7 +53,7 @@ export const Navigation = (props) => {
                 Recruiters valley
               </a>
               <div className="dropdown-content">
-                <a href="#">Login</a>
+                <a href="/login">Login</a>
                 <a href="#">Placement brochure</a>
                 <a href="#">Calendar</a>
                 <a href="#">Past Recruiters</a>
