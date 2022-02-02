@@ -12,6 +12,7 @@ import { Demo } from "./components/Demo";
 import { render } from '@testing-library/react';
 import { Contact} from './components/Contact'
 import { Achievement } from './components/achievement';
+import { Student } from './components/Student';
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -41,7 +42,9 @@ class App extends Component {
                   <Route exact path='/achievement' element={[<Achievement/>]}></Route>
                  <Route exact path='/acadmics' element={[<Acadmics/>,<Demo/>]}></Route>
                  <Route exact path='/research' element={<Research/>}></Route>
-                 <Route exact path='/contact' element={< Contact />}></Route>
+                 <Route exact path='/contact' element={<Contact />}></Route>
+                 <Route exact path='/login' element={<Student task={"login"} />}></Route>
+
           </Routes>
           <Footer/>
 
