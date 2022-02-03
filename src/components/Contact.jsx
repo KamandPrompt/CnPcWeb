@@ -3,8 +3,14 @@ import dummy from "../images/ravinder.png"
 import "./contact.css"
 import nimisha from "../images/nimisha.jpg"
 import parmod from "../images/parmod.jpg"
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import kairav from "../images/kairav.jpeg"
+import ankit from "../images/ankit.jpg"
+import vidhi from "../images/vidhi.jpg"
+import gupta from "../images/ankit-gupta.jpg"
+import saksham from "../images/saksham.jpg"
+import pratik from "../images/pratik.jpg"
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import { Form } from "react-bootstrap";
 export const Contact = (props) => {
     return(
         <div>
@@ -217,6 +223,235 @@ export const Contact = (props) => {
                         Office Assistant
                         <br />
                         <strong>Phone</strong> - +91-9459366121
+                        </div>
+                        </div>
+                        <br />
+                        </figcaption>
+                    </figure>
+                </div>
+                <div className="heading nav-unhide">
+                    <h2>
+                        The Student Coordinator's Team
+                    </h2>
+                </div>
+                <div className="container-snip">
+                    <figure className="snip1559">
+                        <figcaption className="snip1560">
+                        <div className="profile-image">
+                            <img src={vidhi} className="image"/>
+                            <h3>
+                                <strong>
+                                    Vidhi Desai
+                                </strong>
+                            </h3>
+                        </div>
+                            <br />
+                        <div className="middle">
+                            <p className="text">
+                            <strong>Vidhi Desai</strong>
+                            <br />
+                                Overall Coordinator
+                                <br />
+                                <strong>
+                                    Email
+                                </strong> - <a href="mailto: b18168@iitmandi.ac.in">b18168@iitmandi.ac.in</a>
+                                <br />
+                                <strong>
+                                    Phone
+                                </strong> - +91-8544786022
+                            </p>
+                        </div>
+                        </figcaption>
+                    </figure>
+                    <figure className="snip1559">
+                        <figcaption>
+                        <div className="profile-image">
+                            <img src={ankit} alt="Ankit Karan" className="image"/>
+                            <h3>
+                            <strong>
+                                    Ankit Karan
+                                </strong>
+                            </h3>
+                        </div>
+                            <br />
+                            <div className="middle">
+                            <p className="text">
+                            <strong> Ankit Karan</strong><br />
+                                Overall Coordinator
+                                <br />
+                                <strong>
+                                    Email
+                                </strong> - <a href="mailto: b18159@iitmandi.ac.in">b18159@iitmandi.ac.in</a>
+                                <br />
+                                <strong>
+                                    Phone
+                                </strong> - +91-7677911376
+                            </p>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure className="snip1559">
+                        <figcaption>
+                        <div className="profile-image">
+                            <img
+                            src={kairav}
+                            alt="Kairav Bansal"
+                            className="image"/>
+                            <h3>
+                            <strong>
+                                    Kairav Bansal
+                                </strong>
+                            </h3>
+                        </div>
+                            <br />
+                            <div className="middle">
+                            <p className="text">
+                            <strong>Kairav Bansal</strong><br />
+                                CSE Branch Coordinator
+                            <br />
+                            <strong>
+                                Email
+                            </strong> - <a href="mailto: b18062@iitmandi.ac.in">b18062@iitmandi.ac.in</a>
+                            <br />
+                            <strong>
+                                Phone
+                            </strong> - +91-9988154700
+                            </p>
+                            </div>
+                            <br />
+                        </figcaption>
+                    </figure>
+                    <figure className="snip1559">
+                        <figcaption>
+                        <div className="profile-image">
+                            <img
+                            src={dummy}
+                            alt="Sudhanshu Chauhan"
+                            className="image" /> 
+                            <h3>
+                            <strong>
+                            Sudhanshu Chauhan
+                            </strong>
+                            </h3>
+                        </div>
+                            <br />
+                            <div className="middle">
+                            <p className="text">
+                            <strong>Sudhanshu Chauhan</strong><br />
+                                EE Branch Coordinator
+                            <br />
+                            <strong>
+                                Email
+                            </strong> - <a href="mailto: b18147@iitmandi.ac.in">b18147@iitmandi.ac.in</a>
+                            <br />
+                            <strong>
+                                Phone
+                            </strong> - +91-9370552327
+                            </p>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure className="snip1559">
+                        <figcaption>
+                        <div className="profile-image">
+                            <img
+                            src={gupta}
+                            alt="Ankit Gupta"
+                            className="image" />
+                            <h3>
+                            <strong>
+                                 Ankit Gupta
+                            </strong>
+                            </h3>
+                        </div>
+                            <br />
+                            <div className="middle">
+                            <p className="text">
+                            <strong>Ankit Gupta</strong><br />
+                            ME, CE Branch Coordinator
+                            <br />
+                            <strong>Email</strong> - <a href="mailto: b18008@iitmandi.ac.in">b18008@iitmandi.ac.in</a>
+                            <br />
+                            <strong>Phone</strong> - +91-6388792413
+                            </p>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure className="snip1559">
+                        <figcaption>
+                        <div className="profile-image">
+                            <img
+                            src={saksham}
+                            alt="saksham" className="image"
+                            />
+                            <h3>
+                                <strong>Saksham Barara</strong>
+                                </h3>
+                        </div>
+                            <br />
+                            <div className="middle">
+                            <p className="text">
+                            <strong>Saksham Barara</strong><br />
+                            DSE Branch Coordinator
+                            <br />
+                            <strong>Email</strong> - <a href="mailto: b18190@iitmandi.ac.in">b18190@iitmandi.ac.in</a>
+                            <br />
+                            <strong>Phone</strong> - +91-9877757063
+                            </p>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <figure className="snip1559">
+                        <figcaption>
+                        <div className="profile-image">
+                            <img
+                            src={dummy}
+                            alt="Bhumanyu" className="image"
+                            />
+                        <h3>
+                        <strong>
+                            Bhumanyu Goyal
+                        </strong>
+                        </h3>
+                        </div>
+                        <br />
+                        <div className="middle">
+                        <div className="text">
+                        <strong>Bhumanyu Goyal</strong>
+                        <br />
+                        EP Branch Coordinator
+                        <br />
+                        <strong>Email</strong> - <a href="mailto:b18012@iitmandi.ac.in">b18012@iitmandi.ac.in</a>
+                        <br />
+                        <strong>Phone</strong> - +91-6377838426
+                        </div>
+                        </div>
+                        <br />
+                        </figcaption>
+                    </figure>
+                    <figure className="snip1559">
+                        <figcaption>
+                        <div className="profile-image">
+                            <img
+                            src={pratik}
+                            alt="Pratik" className="image"
+                            />
+                        <h3>
+                        <strong>
+                            Pratik Kumar
+                        </strong>
+                        </h3>
+                        </div>
+                        <br />
+                        <div className="middle">
+                        <div className="text">
+                        <strong>Pratik Kumar</strong>
+                        <br />
+                        Bio Eng. Branch Coordinator
+                        <br />
+                        <strong>Email</strong> - <a href="mailto:b18187@iitmandi.ac.in">b18187@iitmandi.ac.in</a>
+                        <br />
+                        <strong>Phone</strong> - +91-9939549845
                         </div>
                         </div>
                         <br />
