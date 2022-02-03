@@ -7,7 +7,7 @@ import kairav from "../images/kairav.jpeg"
 import ankit from "../images/ankit.jpg"
 import vidhi from "../images/vidhi.jpg"
 import gupta from "../images/ankit-gupta.jpg"
-import saksham from "../images/saksham.jpg"
+import saksham from "../images/saksham.jpeg"
 import pratik from "../images/pratik.jpg"
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import { Form } from "react-bootstrap";
