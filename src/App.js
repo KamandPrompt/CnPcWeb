@@ -43,8 +43,9 @@ class App extends Component {
                  <Route exact path='/acadmics' element={[<Acadmics/>,<Demo/>]}></Route>
                  <Route exact path='/research' element={<Research/>}></Route>
                  <Route exact path='/contact' element={<Contact />}></Route>
-                 <Route exact path='/login' element={<Student task={"login"} />}></Route>
-
+                 <Route exact path='/student_login' element={<Student task={"student_login"} />}></Route>
+                 <Route exact path='/recruiter_login' element={<Student task={"recruiter_login"} />}></Route>
+                 <Route exact path='/recruiter_register' element={<Student task={"recruiter_register"} />}></Route>
           </Routes>
           <Footer/>
 
