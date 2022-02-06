@@ -50,7 +50,7 @@ export const Contact = (props) => {
                 <br />
                 Faculty Advisor
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: advisorcnp@iitmandi.ac.in">
                   advisorcnp@iitmandi.ac.in
                 </a>
@@ -77,7 +77,7 @@ export const Contact = (props) => {
                 <br />
                 Faculty Co-Advisor
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: garima@iitmandi.ac.in">
                   garima@iitmandi.ac.in
                 </a>
@@ -100,7 +100,7 @@ export const Contact = (props) => {
                 <br />
                 Faculty Co-Advisor
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: pramod@iitmandi.ac.in">
                   pramod@iitmandi.ac.in
                 </a>
@@ -128,7 +128,7 @@ export const Contact = (props) => {
                 <br />
                 Faculty Co-Advisor
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: baskar@iitmandi.ac.in">
                   baskar@iitmandi.ac.in
                 </a>
@@ -154,7 +154,7 @@ export const Contact = (props) => {
                 <br />
                 Faculty Co-Advisor
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: rameshwar@iitmandi.ac.in">
                   rameshwar@iitmandi.ac.in
                 </a>
@@ -177,7 +177,7 @@ export const Contact = (props) => {
                 <br />
                 Placement Cell Executive
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: nimisha@iitmandi.ac.in">
                   nimisha@iitmandi.ac.in
                 </a>
@@ -224,7 +224,7 @@ export const Contact = (props) => {
                 <br />
                 Overall Coordinator
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: b18168@iitmandi.ac.in">
                   b18168@iitmandi.ac.in
                 </a>
@@ -247,7 +247,7 @@ export const Contact = (props) => {
                 <br />
                 Overall Coordinator
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: b18159@iitmandi.ac.in">
                   b18159@iitmandi.ac.in
                 </a>
@@ -270,7 +270,7 @@ export const Contact = (props) => {
                 <br />
                 CSE Branch Coordinator
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: b18062@iitmandi.ac.in">
                   b18062@iitmandi.ac.in
                 </a>
@@ -294,7 +294,7 @@ export const Contact = (props) => {
                 <br />
                 EE Branch Coordinator
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: b18147@iitmandi.ac.in">
                   b18147@iitmandi.ac.in
                 </a>
@@ -317,7 +317,7 @@ export const Contact = (props) => {
                 <br />
                 ME, CE Branch Coordinator
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: b18008@iitmandi.ac.in">
                   b18008@iitmandi.ac.in
                 </a>
@@ -340,7 +340,7 @@ export const Contact = (props) => {
                 <br />
                 DSE Branch Coordinator
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto: b18190@iitmandi.ac.in">
                   b18190@iitmandi.ac.in
                 </a>
@@ -363,7 +363,7 @@ export const Contact = (props) => {
                 <br />
                 EP Branch Coordinator
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto:b18012@iitmandi.ac.in">b18012@iitmandi.ac.in</a>
                 <br />
                 <b>Phone</b>- <a href="tel: +916377838426">+91-6377838426</a>
@@ -385,7 +385,7 @@ export const Contact = (props) => {
                 <br />
                 Bio Eng. Branch Coordinator
                 <br />
-                <b>Email</b>- {" "}
+                <b>Email</b>-{" "}
                 <a href="mailto:b18187@iitmandi.ac.in">b18187@iitmandi.ac.in</a>
                 <br />
                 <b>Phone</b>- <a href="tel: +919939549845">+91-9939549845</a>

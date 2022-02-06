@@ -1,6 +1,6 @@
 // import { useState, useEffect } from "react";
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Navigation } from "./components/navigation";
 import { Footer } from "./components/footer";
 import { Home } from "./components/home";
@@ -9,10 +9,10 @@ import { Acadmics } from "./components/Acadmics";
 import { Schools } from "./components/school";
 import { Research } from "./components/Research";
 import { Demo } from "./components/Demo";
-import { render } from '@testing-library/react';
-import { Contact} from './components/Contact'
-import { Achievement } from './components/achievement';
-import { Student } from './components/Student';
+import { render } from "@testing-library/react";
+import { Contact } from "./components/Contact";
+import { Achievement } from "./components/achievement";
+import { Student } from "./components/Student";
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -53,5 +53,5 @@ class App extends Component {
    );
   }
 }
- 
+
 export default App;

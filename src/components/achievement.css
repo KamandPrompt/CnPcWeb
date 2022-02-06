@@ -1,11 +1,14 @@
 .slick-arrow.slick-prev,
-.slick-arrow.slick-next{
+.slick-arrow.slick-next {
     background-color: rgb(255, 255, 255);
 }
 
-.slick-prev::before, .slick-next::before { color: rgb(0, 0, 0) !important; }
+.slick-prev::before,
+.slick-next::before {
+    color: rgb(0, 0, 0) !important;
+}
 
-.slick-slider{
+.slick-slider {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -16,6 +19,6 @@
     background-size: cover;
 }
 
-.slick-center{
+.slick-center {
     transform: scale(1.11);
 }

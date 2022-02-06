@@ -124,12 +124,15 @@ export const ResearchLab = () => {
         </div>
         <br />
         <div className="slot">
-            <p>Apart from these, we are planning to install few major instruments like:</p>
-            <ol>
-                <li>1) NMR</li>
-                <li>2) Single Crystal XRD</li>
-                <li>3) HR-TEM etc in near future</li>
-            </ol>
+          <p>
+            Apart from these, we are planning to install few major instruments
+            like:
+          </p>
+          <ol>
+            <li>1) NMR</li>
+            <li>2) Single Crystal XRD</li>
+            <li>3) HR-TEM etc in near future</li>
+          </ol>
         </div>
       </div>
     </>

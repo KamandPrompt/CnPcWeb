@@ -25,7 +25,9 @@ export const Achievement = () => {
   return (
     <>
       <div className="bann">
-        <div className="bannCont"><h1>Achievements</h1></div>
+        <div className="bannCont">
+          <h1>Achievements</h1>
+        </div>
       </div>
       <h2 style={{ textAlign: "center" }}>Latest Achievements</h2>
       <div className="homeSlider">
