@@ -35,27 +35,22 @@ import { Student } from "./components/Student";
 class App extends Component {
   render() {
     return (
-      <Router>
-        <Navigation />
-        <Routes>
-          <Route exact path="/" element={[<Carousal />, <Home />]}></Route>
-          <Route exact path="/achievement" element={[<Achievement />]}></Route>
-          <Route
-            exact
-            path="/acadmics"
-            element={[<Acadmics />, <Demo />]}
-          ></Route>
-          <Route exact path="/research" element={<Research />}></Route>
-          <Route exact path="/contact" element={<Contact />}></Route>
-          <Route
-            exact
-            path="/login"
-            element={<Student task={"login"} />}
-          ></Route>
-        </Routes>
-        <Footer />
-      </Router>
-    );
+       <Router>
+           <Navigation/>
+           <Routes>
+                 <Route exact path='/' element={[<Carousal/>,< Home />]}></Route>
+                  <Route exact path='/achievement' element={[<Achievement/>]}></Route>
+                 <Route exact path='/acadmics' element={[<Acadmics/>,<Demo/>]}></Route>
+                 <Route exact path='/research' element={<Research/>}></Route>
+                 <Route exact path='/contact' element={<Contact />}></Route>
+                 <Route exact path='/student_login' element={<Student task={"student_login"} />}></Route>
+                 <Route exact path='/recruiter_login' element={<Student task={"recruiter_login"} />}></Route>
+                 <Route exact path='/recruiter_register' element={<Student task={"recruiter_register"} />}></Route>
+          </Routes>
+          <Footer/>
+
+       </Router>
+   );
   }
 }
 

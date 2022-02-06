@@ -84,7 +84,8 @@ export const Navigation = (props) => {
                 Recruiters valley
               </a>
               <div className="dropdown-content">
-                <a href="/login">Login</a>
+              <a href="/recruiter_register">Register</a>
+                <a href="/recruiter_login">Login</a>
                 <a href="#">Placement brochure</a>
                 <a href="#">Calendar</a>
                 <a href="#">Past Recruiters</a>
@@ -96,7 +97,7 @@ export const Navigation = (props) => {
                 Students column
               </a>
               <div className="dropdown-content">
-                <a href="/login">Login</a>
+                <a href="/student_login">Login</a>
                 <a href="#">Policies</a>
                 <a href="#">Noticeboard</a>
                 <a href="#">Forms </a>
