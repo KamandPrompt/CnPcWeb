@@ -97,8 +97,8 @@ class Navigation extends Component {
                 Recruiters valley
               </a>
               <div className="dropdown-content">
-                <a href="/recruiter_register">Register</a>
-                <a href="/recruiter_login">Login</a>
+                <a href="/registerRecruiter">Register</a>
+                <a href="/loginRecruiter">Login</a>
                 <a href="#">Placement brochure</a>
                 <a href="#">Calendar</a>
                 <a href="#">Past Recruiters</a>
@@ -110,7 +110,7 @@ class Navigation extends Component {
                 Students column
               </a>
               <div className="dropdown-content">
-                <a href="/student_login">Login</a>
+                <a href="/loginStudent">Login</a>
                 <a href="#">Policies</a>
                 <a href="#">Noticeboard</a>
                 <a href="#">Forms </a>

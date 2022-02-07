@@ -81,21 +81,6 @@ class App extends Component {
             <Route exact path="/inf" element={<INF />}></Route>
             <Route
               exact
-              path="/student_login"
-              element={<Student task={"student_login"} />}
-            ></Route>
-            <Route
-              exact
-              path="/recruiter_login"
-              element={<Student task={"recruiter_login"} />}
-            ></Route>
-            <Route
-              exact
-              path="/recruiter_register"
-              element={<Student task={"recruiter_register"} />}
-            ></Route>
-            <Route
-              exact
               path="/registerRecruiter"
               element={<RegisterRecruiter />}
             ></Route>
