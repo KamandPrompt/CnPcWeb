@@ -56,9 +56,9 @@ class Register extends Component{
 
         return(
           <>
-          <Navbar/>
+ 
             <div className="form-box ">
-            <form className="signup-form"  onSubmit={this.onSubmit}>
+            <form className="form-container"  onSubmit={this.onSubmit}>
 
                <div><Link to="/"><i className="fa fa-arrow-circle-left  "></i> Back to Home</Link></div>
 

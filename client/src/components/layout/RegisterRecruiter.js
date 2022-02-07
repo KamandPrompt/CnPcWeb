@@ -5,140 +5,156 @@ import { connect } from "react-redux";
 import { registerRecruiter } from "../../actions/authActions";
 import classnames from "classnames";
 import Navbar from "./Navbar";
+import "../students.css";
 
-
-class Register extends Component{
-    constructor(){
-        super();
-        this.state = {
-            name:"",
-            email:"",
-            password:"",
-            password2:"",
-            errors:{}
-        }   
+class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      password2: "",
+      errors: {},
+    };
+  }
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      // this.props.history.push("/dashboard");
     }
-    componentDidMount() {
-        if (this.props.auth.isAuthenticated) {
-          // this.props.history.push("/dashboard");
-        }
-      }
+  }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.errors) {
-          this.setState({
-            errors: nextProps.errors
-          });
-        }
-      }
-
-    onChange = e => {
-        this.setState({[e.target.id]:e.target.value})
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors,
+      });
     }
+  }
 
-    onSubmit = e => {
-        e.preventDefault();
+  onChange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+  };
 
-        const newUser = {
-            name:this.state.name,
-            email:this.state.email,
-            password:this.state.password,
-            password2:this.state.password2
-        }
+  onSubmit = (e) => {
+    e.preventDefault();
 
-        console.log("Submitting")
-        this.props.registerRecruiter(newUser, this.props.history); 
-        console.log("Submitted")
-    }
+    const newUser = {
+      name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2,
+    };
 
-    render(){
-        const {name, email, password, password2 ,errors} = this.state;
+    console.log("Submitting");
+    this.props.registerRecruiter(newUser, this.props.history);
+    console.log("Submitted");
+  };
 
-        return(
-          <>
-          <Navbar/>
-            <div className="form-box ">
-            <form className="signup-form"  onSubmit={this.onSubmit}>
+  render() {
+    const { name, email, password, password2, errors } = this.state;
 
-               <div><Link to="/"><i className="fa fa-arrow-circle-left  "></i> Back to Home</Link></div>
+    return (
+      <>
+       
+        <div className="form-box ">
+          <form className="form-container" onSubmit={this.onSubmit}>
+            <div>
+              <Link to="/">
+                <i className="fa fa-arrow-circle-left  "></i> Back to Home
+              </Link>
+            </div>
 
-                <h2>Register</h2>
-                <hr/>
-                <div className="form-group">
-                    <input type="text" 
-                           id="name" 
-                           placeholder="Name" 
-                           value={name}
-                           error={errors.name} 
-                           onChange={this.onChange} 
-                           className={classnames("form-control", {
-                            invalid: errors.name
-                          })}/> 
-                        <span className="red-text">{errors.name}</span>
+            <h2>Register</h2>
+            <hr />
+            <div className="form-group">
+              <input
+                type="text"
+                id="name"
+                placeholder="Name"
+                value={name}
+                error={errors.name}
+                onChange={this.onChange}
+                className={classnames("form-control", {
+                  invalid: errors.name,
+                })}
+              />
+              <span className="red-text">{errors.name}</span>
+            </div>
 
-                </div>
+            <div className="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                value={email}
+                error={errors.email}
+                onChange={this.onChange}
+                className={classnames("form-control", {
+                  invalid: errors.email,
+                })}
+              />
+              <span className="red-text">{errors.email}</span>
+            </div>
 
-                <div className="form-group">
-                    <input type="email" 
-                           id="email" 
-                           placeholder="Email Address" 
-                           value={email}
-                           error={errors.email}
-                           onChange={this.onChange} 
-                           className={classnames("form-control", {
-                            invalid: errors.email
-                          })}/>
-                    <span className="red-text">{errors.email}</span>
-                </div>
+            <div className="form-group">
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                value={password}
+                error={errors.password}
+                onChange={this.onChange}
+                className={classnames("form-control", {
+                  invalid: errors.password,
+                })}
+              />
+              <span className="red-text">{errors.password}</span>
+            </div>
 
-                <div className="form-group">
-                    <input type="password" 
-                           id="password" 
-                           placeholder="Password" 
-                           value={password}
-                           error= {errors.password} 
-                           onChange={this.onChange}
-                           className={classnames("form-control", {
-                            invalid: errors.password
-                          })} />
-                    <span className="red-text">{errors.password}</span>                     
-                </div>
-
-                <div className="form-group">
-                    <input type="password" 
-                           id="password2"
-                           placeholder="Confirm Password" 
-                           value={password2} 
-                           error={errors.password}
-                           onChange={this.onChange}
-                           className={classnames("form-control", {
-                            invalid: errors.password2
-                          })} />
-                    <span className="red-text">{errors.password2}</span>
-                </div>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-block btn-lg">Sign Up</button>
-                </div>
-                <div className="text-center">Already have an account? <Link to="/loginRecruiter">Login here</Link></div>
-
-            </form>
+            <div className="form-group">
+              <input
+                type="password"
+                id="password2"
+                placeholder="Confirm Password"
+                value={password2}
+                error={errors.password}
+                onChange={this.onChange}
+                className={classnames("form-control", {
+                  invalid: errors.password2,
+                })}
+              />
+              <span className="red-text">{errors.password2}</span>
+            </div>
+            <div className="form-group">
+              <button
+                type="submit"
+                className="btn btn-primary btn-block btn-lg"
+              >
+                Sign Up
+              </button>
+            </div>
+            <div className="text-center">
+              Already have an account?{" "}
+              <Link to="/loginRecruiter">Login here</Link>
+            </div>
+          </form>
         </div>
       </>
-
-        )
-    }
+    );
+  }
 }
 
 Register.propTypes = {
-    registerRecruiter: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
-  };
+  registerRecruiter: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
+};
 
-const mapStateToProps = state => ({
-    auth: state.auth,
-    errors: state.errors
-  });
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+  errors: state.errors,
+});
 
 // export default connect(mapStateToProps,{registerRecruiter})(withRouter(Register));
-export default connect(mapStateToProps,{registerRecruiter})(Register);
+export default connect(mapStateToProps, { registerRecruiter })(Register);

@@ -6,7 +6,7 @@ import store from "./store";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./util/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
-import { Navigation } from "./components/navigation";
+import Navigation from "./components/navigation";
 import { Footer } from "./components/footer";
 import { Home } from "./components/home";
 import { Carousal } from "./components/carousal";

@@ -50,9 +50,9 @@ class Login extends Component{
         const {rollNo, password, errors} = this.state;
         return(
           <>
-          <Navbar/>
+
             <div className="form-box">
-            <form className="login-form" onSubmit={this.onSubmit}>
+            <form className="form-container" onSubmit={this.onSubmit}>
                 <h2>Login</h2>
                 <hr/>
                 <div className="form-group">
