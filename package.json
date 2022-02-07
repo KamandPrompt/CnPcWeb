@@ -1,46 +1,47 @@
 {
-  "name": "cnp",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.1.3",
-    "generate-password": "^1.7.0",
-    "google-maps-react": "^2.0.6",
-    "react": "^17.0.2",
-    "react-bootstrap": "^2.1.1",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-    "react-slick": "^0.28.1",
-    "react-super-responsive-table": "^5.2.0",
-    "slick-carousel": "^1.8.1",
-    "web-vitals": "^2.1.3"
-  },
+  "name": "mern-auth",
+  "version": "1.0.0",
+  "description": "Login/Registration authentication App",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "client-install": "npm install --prefix client",
+    "start": "npx nodemon --exec npx babel-node server.js",
+    "heroku-postbuild": "cd client && npm install && npm install && npm run build",
+    "server": "npx nodemon --exec npx babel-node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "classnames": "^2.2.6",
+    "concurrently": "^5.0.2",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-decode": "^2.2.0",
+    "mongoose": "^5.8.2",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "react-redux": "^7.1.3",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "uninstall": "0.0.0",
+    "validator": "^12.2.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "nodemon": "^2.0.2"
+  },
+  "engines": {
+    "node": "12.13.1"
   }
 }
