@@ -1,6 +1,19 @@
-export const Navigation = (props) => {
-  return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
+
+class Navigation extends Component {
+  onLogout = (e) => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+
+  render() {
+    // const { user } = this.props.auth;
+    return (
+      <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
         <div className="navbar-header">
           <button
@@ -84,8 +97,8 @@ export const Navigation = (props) => {
                 Recruiters valley
               </a>
               <div className="dropdown-content">
-              <a href="/recruiter_register">Register</a>
-                <a href="/recruiter_login">Login</a>
+                <a href="/registerRecruiter">Register</a>
+                <a href="/loginRecruiter">Login</a>
                 <a href="#">Placement brochure</a>
                 <a href="#">Calendar</a>
                 <a href="#">Past Recruiters</a>
@@ -97,7 +110,7 @@ export const Navigation = (props) => {
                 Students column
               </a>
               <div className="dropdown-content">
-                <a href="/student_login">Login</a>
+                <a href="/loginStudent">Login</a>
                 <a href="#">Policies</a>
                 <a href="#">Noticeboard</a>
                 <a href="#">Forms </a>
@@ -115,9 +128,30 @@ export const Navigation = (props) => {
                 <a href="/contact">Administrative staff</a>
               </div>
             </li>
+
+            {this.props.auth.isAuthenticated ? (
+              <button
+                onClick={this.onLogout}
+                className="page-scroll dropbtn"
+              >
+                Logout
+              </button>
+            ) : null}
           </ul>
         </div>
       </div>
     </nav>
-  );
+    );
+  }
+}
+
+Navigation.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logoutUser })(Navigation);
