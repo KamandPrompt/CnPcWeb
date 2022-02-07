@@ -13,6 +13,7 @@ import { render } from "@testing-library/react";
 import { Contact } from "./components/Contact";
 import { Achievement } from "./components/achievement";
 import { Student } from "./components/Student";
+import { INF } from "./components/INF";
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -39,10 +40,11 @@ class App extends Component {
            <Navigation/>
            <Routes>
                  <Route exact path='/' element={[<Carousal/>,< Home />]}></Route>
-                  <Route exact path='/achievement' element={[<Achievement/>]}></Route>
+                 <Route exact path='/achievement' element={[<Achievement/>]}></Route>
                  <Route exact path='/acadmics' element={[<Acadmics/>,<Demo/>]}></Route>
                  <Route exact path='/research' element={<Research/>}></Route>
                  <Route exact path='/contact' element={<Contact />}></Route>
+                 <Route exact path='/inf' element={<INF />}></Route>
                  <Route exact path='/student_login' element={<Student task={"student_login"} />}></Route>
                  <Route exact path='/recruiter_login' element={<Student task={"recruiter_login"} />}></Route>
                  <Route exact path='/recruiter_register' element={<Student task={"recruiter_register"} />}></Route>
