@@ -11,7 +11,43 @@ const StudentSchema = new Schema({
     type: String,
     required: true
   },
+  degree: {
+    type: String,
+    required: true
+  },
+  branch: {
+    type: String,
+    required: true
+  },
+  cgpa: {
+    type: String,
+    required: true
+  },
   email: {
+    type: String,
+    required: true
+  },
+  contactNumber: {
+    type: Number,
+    required: true
+  },
+  dob: {
+    type: String,
+    required: true
+  },
+  tenthPercentage: {
+    type: String,
+    required: true
+  },
+  twelthPercentage: {
+    type: String,
+    required: true
+  },
+  advanceRank: {
+    type: Number,
+    required: true
+  },
+  resume: {
     type: String,
     required: true
   },
@@ -26,7 +62,7 @@ const StudentSchema = new Schema({
   role: {
     type: String,
     default: 'student',
-   },
+  },
 });
 
 module.exports = mongoose.model("students", StudentSchema);
