@@ -11,10 +11,8 @@ csvtojson().fromFile(filepath).then((data)=>{
             length: 12,
             numbers: true
         });
-        console.log(password);
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);
-        console.log(hash);
         return item.password = hash;
     });
 
