@@ -9,7 +9,8 @@ const StudentSchema = new Schema({
   },
   rollNo: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   degree: {
     type: String,
@@ -25,13 +26,18 @@ const StudentSchema = new Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique : true,
   },
   contactNumber: {
-    type: Number,
+    type: String,
     required: true
   },
   dob: {
+    type: String,
+    required: true
+  },
+  gender: {
     type: String,
     required: true
   },
