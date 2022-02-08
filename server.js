@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
+const { google } = require("googleapis");
 
 const recruiters = require("./routes/api/recruiters");
 const students = require("./routes/api/students");
@@ -49,6 +50,36 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 
+app.get("/testing-data", async (req, res) => {
+  const auth = new google.auth.GoogleAuth({
+    keyFile: "fetching_data.json", //the key file
+    //url to spreadsheets API
+    scopes: "https://www.googleapis.com/auth/spreadsheets", 
+  });
+  const authClientObject = await auth.getClient();
+  const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
+  const spreadsheetId = "16S8LEhYuFEOBnTgnm9TG1NGo-3h0DSIt5jPQCM7XYRI";
+  try {
+    const readData = await googleSheetsInstance.spreadsheets.values.get({
+      auth, //auth object
+      spreadsheetId, // spreadsheet id
+      range: "Sheet1", //range of cells to read from.
+    });
+    console.log(readData.data.values)
+  } catch (error) {
+    console.log(error);
+  }
+  res.send("hi")
+//   'Name',           'Roll Number',     
+//   'Degree',         'Branch',
+//   'CGPA',           'Email Id',        
+//   'Contact Number', 'DOB',
+//   'Gender',         '10th %',
+//   '12th %',         'JEE Advance Rank',
+//   'Resume'
+// ],
+
+});
 const port = process.env.PORT || 5000;
 
 app.listen(port,()=>console.log(`Server up and running on port ${port}`));

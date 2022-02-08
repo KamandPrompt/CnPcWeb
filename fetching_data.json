@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "cnp-website-340713",
+  "private_key_id": "098cc525fa37aa24c57f1fb2bc00c547db671692",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCgEbFyX4LWgoLB\nTowhP4oN9y4nKl2TMzy6Npe0oOR1RHkX3hDvfjZzBjZpOPFeZt8b4yWk/sh7gO4p\nvl3F5fnHe58YTSDSUQeL0zOMp4DLLhqWe0f4YuhYALdaNUwfSIdX/Ut1WWYyN2JH\nCSSi4GawRb0EX6pRjQ6St2AA7l7h+t/1CfFLRsOJPF/LlJEtILlXHvwQeBqw0jiv\niviHoWnCO2T0G2OQVI9jLyiycHYSlVv5y2iBc8XKyi8go/v1i0E596qszoCla9uA\nTjRAoWcx3aRjgvBIIjDfyZYeuiQQXrsuD8aOS9zRHmd4Q7z83jU696MT2NuwDrXC\nSRjUN18zAgMBAAECggEAPAG2BHryySjfDMm99Z7kycx+xFb5AnxkSSi7IY9pZd7Y\nCI8KyUWG8wMCtdqPfcTR4hn63EpZbRdN8V84tz46L8LTxx/u7HlM+2mfOxz2RvUP\nKZeoyOCHWqpWEh7F3Tpq5p0Bw0nS6oNht+ChF+BJDs7uB6w3ZOAc9PqCpoa2Ej/L\nG4ZDGx++3iXHPTb++ixsOfA9QjtYpI96bzOIsy6TW0vvkb2TRjEV3zVvtIBrXpzg\nivsvttGOgj3KnXblYLQ1uaS9WMdgq/nrpS5WAM9JAM1f87fD5S8qKY18RKZiGf6/\nCIJXgn6RFuxiLP3b/OS+xZ4bpou+nEiCO1dBT3FZAQKBgQDLXSPxtM3A79klGRru\nEGy0gtq+ov2d1N7iGbt9GbMiNm1P6m0BJOynPwWUH6bBwrhQBN3T2ZBiQKwtjILO\nUs67HS2Af2Z3DPzU1eDeFcw8qpOpgg5SZ0KDoGXUa0LPafvmQz+Aue1fsTea0V0N\nmCihi8TohFmQqwGnd9UlYkI8MwKBgQDJf9nM9CdkPqJqmjxzJyvFHlNzbHDLGk/j\nKaXIb179lQiwpAi5cCinB5/cteweArOxpOq36UvG0mmFMbrLZCC7dq6dYluTa5dG\n0dXMgQXMKQRGFxWPe+JLMdD4C1nLAUpW7Z9999u5WfdoWhCWuMYwinwuQCAJ0+I6\n56xExnNRAQKBgHt+pjNDrqb5gA4NPtNO2hSMWjXmWMkd2fPH2JlRn/yovJ0JKQTG\n3Yd6t/KJfgSwMKk3K1ZZClsAFw7aAx00ICJ0x4r+0sR8+JRvBU0YQ5yboWwQdI4J\n8tRn9S6XrEy0eaoNMGUFg2bXAYNcnHuC6Tmg3QSuSo2Vqz19gcxf7QUNAoGAV6HI\nwT/12bz7ucz2OUZx3LqBpJMmws3grHSyauc0sqgcLWZJfQxwQaQpPD3KQIsAR2Pn\nyLAnioJ77bdg+4/CRIUrD7t1BDoogl5D0zrRoKa9+xWTBOHl2roBnb6iAI3BHOkf\nEhO3dXbRCIsS59nYJ8gylZLB3ERQATo8S3TbNgECgYAYZt1BaMGoN0Ata+GMuxRz\nnTw2bnb2mhbEjALxPsGUBDa4xqzVTG5RYgVbJ9i1m3u1+uEiKa/XgMnucR28uEw+\n5TlPPT0xsT5IjKyhD5QyFlq/XzJ2O/1x9+a62MKe9XKTJmWaaPvB7E7W9UJzHdQB\nS4vJkhLRmTm/cOM/SaHigA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cnp-admin@cnp-website-340713.iam.gserviceaccount.com",
+  "client_id": "100789499601224019151",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cnp-admin%40cnp-website-340713.iam.gserviceaccount.com"
+}
