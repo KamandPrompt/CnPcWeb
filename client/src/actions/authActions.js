@@ -38,7 +38,7 @@ import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 // Register
 export const registerRecruiter = (userData, history) => dispatch => {
   axios.post("/api/recruiters/register",userData)
-  .then(res => history.push("/loginRecruiter"))
+  .then(res => dispatch(loginRecruiter(userData)))
   .catch(err=> dispatch({
     type:GET_ERRORS,
     payload:err.response.data
@@ -69,7 +69,7 @@ export const loginRecruiter = (userData) => dispatch => {
 // Register
 export const registerStudent = (userData, history) => dispatch => {
   axios.post("/api/students/register",userData)
-  .then(res => history.push("/login"))
+  .then(res => loginStudent(userData))
   .catch(err=> dispatch({
     type:GET_ERRORS,
     payload:err.response.data
