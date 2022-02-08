@@ -1,6 +1,6 @@
-const Validator = require('validator');
+const Validator = require("validator");
 
-const isEmpty = require('is-empty');
+const isEmpty = require("is-empty");
 
 module.exports = function validateRegisterInput(data) {
   let errors = {};
@@ -10,10 +10,27 @@ module.exports = function validateRegisterInput(data) {
   data.email = !isEmpty(data.email) ? data.email : "";
   data.password = !isEmpty(data.password) ? data.password : "";
   data.password2 = !isEmpty(data.password2) ? data.password2 : "";
+  data.contactPerson = !isEmpty(data.contactPerson) ? data.contactPerson : "";
+  data.designation = !isEmpty(data.designation) ? data.designation : "";
+  data.telephone = !isEmpty(data.telephone) ? data.telephone : "";
+  data.mobile = !isEmpty(data.mobile) ? data.mobile : "";
 
   //Name checks
   if (Validator.isEmpty(data.name)) {
     errors.name = "Name field is required";
+  }
+  if (Validator.isEmpty(data.contactPerson)) {
+    errors.contactPerson = "Contact Person field is required";
+  }
+  if (Validator.isEmpty(data.designation)) {
+    errors.designation = "Designation is required";
+  }
+
+  if (Validator.isEmpty(data.telephone)) {
+    errors.telephone = "Telephone is required";
+  }
+  if (Validator.isEmpty(data.mobile)) {
+    errors.mobile = "Mobile is required";
   }
 
   //Email checks

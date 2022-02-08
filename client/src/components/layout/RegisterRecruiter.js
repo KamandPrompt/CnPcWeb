@@ -15,6 +15,10 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
+      contactPerson: "",
+      designation: "",
+      telephone: "",
+      mobile: "",
       errors: {},
     };
   }
@@ -44,6 +48,10 @@ class Register extends Component {
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
+      contactPerson: this.state.contactPerson,
+      designation: this.state.designation,
+      telephone: this.state.telephone,
+      mobile: this.state.mobile,
     };
 
     console.log("Submitting");
@@ -52,18 +60,27 @@ class Register extends Component {
   };
 
   render() {
-    const { name, email, password, password2, errors } = this.state;
+    const {
+      name,
+      email,
+      password,
+      password2,
+      contactPerson,
+      designation,
+      telephone,
+      mobile,
+      errors,
+    } = this.state;
 
     return (
       <>
-       
         <div className="form-box ">
           <form className="form-container" onSubmit={this.onSubmit}>
-            <div>
+            {/* <div>
               <Link to="/">
                 <i className="fa fa-arrow-circle-left  "></i> Back to Home
               </Link>
-            </div>
+            </div> */}
 
             <h2>Register</h2>
             <hr />
@@ -71,7 +88,7 @@ class Register extends Component {
               <input
                 type="text"
                 id="name"
-                placeholder="Name"
+                placeholder="Company Name"
                 value={name}
                 error={errors.name}
                 onChange={this.onChange}
@@ -95,6 +112,62 @@ class Register extends Component {
                 })}
               />
               <span className="red-text">{errors.email}</span>
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                id="contactPerson"
+                placeholder="Contact Person"
+                value={contactPerson}
+                error={errors.contactPerson}
+                onChange={this.onChange}
+                className={classnames("form-control", {
+                  invalid: errors.contactPerson,
+                })}
+              />
+              <span className="red-text">{errors.contactPerson}</span>
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                id="designation"
+                placeholder="Designation"
+                value={designation}
+                error={errors.designation}
+                onChange={this.onChange}
+                className={classnames("form-control", {
+                  invalid: errors.designation,
+                })}
+              />
+              <span className="red-text">{errors.designation}</span>
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                id="telephone"
+                placeholder="Telephone"
+                value={telephone}
+                error={errors.telephone}
+                onChange={this.onChange}
+                className={classnames("form-control", {
+                  invalid: errors.telephone,
+                })}
+              />
+              <span className="red-text">{errors.telephone}</span>
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                id="mobile"
+                placeholder="Mobile"
+                value={mobile}
+                error={errors.mobile}
+                onChange={this.onChange}
+                className={classnames("form-control", {
+                  invalid: errors.mobile,
+                })}
+              />
+              <span className="red-text">{errors.mobile}</span>
             </div>
 
             <div className="form-group">

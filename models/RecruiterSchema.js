@@ -11,6 +11,22 @@ const RecruiterSchema = new Schema({
     type: String,
     required: true
   },
+  contactPerson: {
+    type: String,
+    required: true
+  },
+  designation: {
+    type: String,
+    required: true
+  },
+  telephone: {
+    type: String,
+    required: true
+  },
+  mobile: {
+    type: String,
+    required: true
+  },
   password: {
     type: String,
     required: true
