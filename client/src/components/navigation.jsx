@@ -132,7 +132,7 @@ class Navigation extends Component {
             {this.props.auth.isAuthenticated ? (
               <button
                 onClick={this.onLogout}
-                className="page-scroll dropbtn"
+                className="page-scroll dropbtn logout"
               >
                 Logout
               </button>

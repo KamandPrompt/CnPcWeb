@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
-
+const create = require("./test");
 const recruiters = require("./routes/api/recruiters");
 const students = require("./routes/api/students");
 
@@ -29,6 +29,7 @@ mongoose
     .then(() => console.log("MongoDB successfully connected", process.env.MONGODB_URI || dbURL ))
     .catch(err => console.log(err));
 
+// create.fun(create.param);       Run this for uploading all data
 // Passport middleware
 app.use(passport.initialize());
 
