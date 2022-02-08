@@ -56,19 +56,18 @@ class Register extends Component {
 
     this.props
       .registerRecruiter(newUser, this.props.history)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-    // this.setState({
-    //   name: "",
-    //   email: "",
-    //   password: "",
-    //   password2: "",
-    //   contactPerson: "",
-    //   designation: "",
-    //   telephone: "",
-    //   mobile: "",
-    //   errors: {},
-    // });
+
+    this.setState({
+      name: "",
+      email: "",
+      password: "",
+      password2: "",
+      contactPerson: "",
+      designation: "",
+      telephone: "",
+      mobile: "",
+      errors: {},
+    });
   };
 
   render() {

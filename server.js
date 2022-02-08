@@ -29,7 +29,7 @@ mongoose
     .then(() => console.log("MongoDB successfully connected", process.env.MONGODB_URI || dbURL ))
     .catch(err => console.log(err));
 
-// create.fun(create.param);       Run this for uploading all data
+// create.fun(create.param);       Run this file
 // Passport middleware
 app.use(passport.initialize());
 
