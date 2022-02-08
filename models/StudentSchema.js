@@ -37,9 +37,8 @@ const StudentSchema = new Schema({
     type: String,
     required: true
   },
-  gender: {
-    type: String,
-    required: true
+  Gender: {
+    type: String
   },
   tenthPercentage: {
     type: String,
