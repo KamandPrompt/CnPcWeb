@@ -9,6 +9,11 @@ html {
   width: 100% !important;
   height: 100% !important;
 }
+
+h5{
+  color: #333333;
+}
+
 h2,
 h3,
 h4 {
@@ -168,9 +173,9 @@ ol {
   #menu.navbar-default .navbar-nav{
     position: static;
   }
-  .container{
+  /* .container{
     display: flex;
-  }
+  } */
   .nav{
     display: flex;
   }
@@ -178,7 +183,6 @@ ol {
     text-align: center;
   }
 }
-
 
 .btn-custom {
   font-family: "Raleway", sans-serif;
@@ -238,16 +242,17 @@ a:focus,
 .about{
   margin: 50px 0px;
   border-radius: 10px;
+  text-align: center;
 }
 
 .faculty-advisor{
   height: 150px;
   width: 170px;
-  padding-right: 30px;
-  padding-bottom: 5px;
+  /* padding-right: 30px; */
+  /* padding-bottom: 5px; */
   border-radius: 40%;
-  border-bottom-right-radius: 50%;
-  border-top-right-radius: 50%;
+  /* border-bottom-right-radius: 50%; */
+  /* border-top-right-radius: 50%; */
   /* border-radius: 100%; */
   /* padding-left: 100px; */
   border-color: #093660;

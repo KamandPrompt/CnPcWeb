@@ -36,18 +36,22 @@ export const Home = (props) => {
         </p>
       </div>
       <h3 className="homeHead">From the Faculty Advisor</h3>
-      <div className="about container row item backG">
+      <div className="about container row item">
         {/* <div className="col-lg-4 col-md-6 col-sm-12">
               <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
           </div> */}
         {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
-        <p className="bhashan">
+        <div className="col-lg-3 col-md-3 col-sm-12">
         <img
             className="faculty-advisor"
-            style={{ float: "left" }}
             src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg"
             alt="Dr. Tushar Jain"
           />
+          <h4>Dr. Tushar Jain</h4>
+          <h5>Faculty Advisor</h5>
+          <h5>IIT Mandi</h5>
+        </div>
+        <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
           During a short span of ten years of its existence, Indian Institute of
           Technology Mandi (IIT Mandi) has gained a reputation for its cutting
           edge research and innovative teaching programs. The institute prides
