@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 body,
 html {
   font-family: "Open Sans", sans-serif;
@@ -285,8 +286,8 @@ a:focus,
 
 .footer-main {
   /* width: 100vw; */
-	padding: 50px 0 0 0;
-	background: #cccccc;
+	padding: 50px;
+	background: #093660;
 }
  
 
@@ -305,7 +306,7 @@ a:focus,
 
 .footer-main .block img {
   background: transparent;
-  border-radius: 30px;
+  /* border-radius: 30px; */
 	margin-bottom: 50px;
 }
 
@@ -319,8 +320,8 @@ a:focus,
 	width: 38px;
 	height: 38px;
 	border-radius: 100%;
-	background: #928e8e;
-	color: #fff;
+	background: #ffffff;
+	color: #093660;
 	text-align: center;
 	line-height: 38px;
   font-size: 17px;
@@ -350,8 +351,9 @@ a:focus,
 }
 
 .footer-main .block .address {
-	font-size: 12px;
+	font-size: 15px;
 	color: #09090a;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .footer-main .block .address a:hover {
@@ -393,22 +395,22 @@ hr {
 	display: block;
 	/* height: 2px; */
 	border: 0;
-	border-top: 2px solid #5f6161;
+	border-top: 2px solid #06738A;
 	margin: 1em 0;
 	padding: 0;
 }
 
 #footer_copyright {
   display: block;
-  background: #cccccc;
+  background: #093660;
   border-color: #1a1b1f;
-  color: rgb(51, 51, 51);
+  color: rgb(131, 123, 123);
   text-align: center;
   padding: 5px;
 }
 
 .links{
-  color:rgb(3, 3, 3);
+  color:#84E8FF;
   line-height: 2.5rem;
 }
 
