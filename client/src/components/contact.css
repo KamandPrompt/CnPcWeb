@@ -11,7 +11,9 @@
 .snip1559 .snip1560 .profile-image .person {
     font-family: 'Nunito Sans', sans-serif;
 }
-
+.content{
+    background-color: #ffffff;
+}
 .container-snip {
     display: inline-flex;
     flex-wrap: wrap;
@@ -30,22 +32,23 @@
     border-radius: 10px;
     overflow: hidden;
     margin: 10px;
-    min-width: 200px;
-    max-width: 420px;
-    min-height: 350px;
+    min-width: 180px;
+    max-width: 300px;
+    min-height: 250px;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #f1f4f7;
     color: #2B2B2B;
     text-align: center;
     font-size: 16px;
-    box-shadow: 0 0 18px rgba(2, 118, 196, 0.1);
+    box-shadow: 5px 5px 2.5px  #8e99a1 ;
 }
-
+.snip1559 :hover{
+    background-color:#e4ecee;
+}
 .text {
-    background-color: #fff;
-    color: black;
+    color: #083661 ;
     font-size: 18px;
-    padding: 44px 60px;
+    padding:5%;
     text-align: left;
     /* font-family: 'IBM Plex Sans Thai Looped', sans-serif; */
     /* border-radius: 10px; */
@@ -71,8 +74,9 @@
 } */
 .snip1559:hover .profile-image {
     /* display: block; */
-    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    box-shadow: 0 0 11px #083661 ;
     opacity: 0;
+    border-radius: 10px;
 }
 
 .snip1559:hover .middle {
@@ -109,7 +113,8 @@
     vertical-align: top;
     position: relative;
     /* border-radius: 50%; */
-    max-width: 40%;
+    max-width: 60%;
+    border-radius: 60px;
 }
 
 .snip1559 figcaption {
