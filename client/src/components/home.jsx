@@ -1,5 +1,4 @@
 import React from "react";
-
 export const Home = (props) => {
   function myFunction() {
     var dots = document.getElementById("dots");
@@ -36,14 +35,14 @@ export const Home = (props) => {
           company.
         </p>
       </div>
+      <h3 className="homeHead">From the Faculty Advisor</h3>
       <div className="about container row item backG">
         {/* <div className="col-lg-4 col-md-6 col-sm-12">
               <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
           </div> */}
         {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
-        <h3 className="homeHead">Address By Faculty Advisor</h3>
-        <p>
-          <img
+        <p className="bhashan">
+        <img
             className="faculty-advisor"
             style={{ float: "left" }}
             src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg"
@@ -59,7 +58,8 @@ export const Home = (props) => {
           undergraduate curriculum at IIT Mandi strives to expose students to
           strong fundamentals of engineering, basic sciences, and humanities,
           while simultaneously sensitizing them about human values and
-          surroundings.<span id="dots">...</span>
+          surroundings.
+          <span id="dots">...</span>
           <span id="more">
             {" "}
             Similarly, the institute's focus on research at the fore-fronts of
@@ -77,20 +77,23 @@ export const Home = (props) => {
             enthusiastic participation of your organization in our forthcoming
             campus placement session and lasting and mutually satisfying
             relation with your organization.
+            
           </span>
           <button
             className="btn btn-primary btn-sm"
             onClick={myFunction}
             id="myBtn"
           >
-            <em>Read more</em>
+            <em><b>Read More</b></em>
           </button>
         </p>
+        
         {/* <br /> */}
         {/* <br /> */}
         {/* </div> */}
         <br />
       </div>
+      
     </div>
   );
 };

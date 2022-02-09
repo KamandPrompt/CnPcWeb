@@ -226,16 +226,32 @@ a:focus,
 #more{
   display: none;
 }
+.bhashan{
+  text-align:center;
+  padding-top: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: #06738A;
+}
 
 .about{
   margin: 50px 0px;
+  border-radius: 10px;
 }
 
 .faculty-advisor{
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 170px;
   padding-right: 30px;
   padding-bottom: 5px;
+  border-radius: 40%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  /* border-radius: 100%; */
+  /* padding-left: 100px; */
+  border-color: #093660;
+  border-width: 5px;
 }
 
 .float{
@@ -250,17 +266,19 @@ a:focus,
 }
 
 .backG{
-  background-color: rgb(205, 227, 245);
+  background-color: #D0FFF7;
 }
 
 .homeHead{
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   font-size: 27px;
+  text-align: left;
+  color: #093660
 }
 
 #myBtn{
-  background-color: rgb(205, 227, 245);
-  color: gray;
+  background-color: #D0FFF7;
+  color: #06738A;
   font-size: 15px;
   font-weight: 500;
   border: 0px;
