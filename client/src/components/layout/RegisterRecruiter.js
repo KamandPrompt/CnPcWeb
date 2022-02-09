@@ -36,6 +36,30 @@ class Register extends Component {
     }
   }
 
+  onChangepassword = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+    let p= e.target.value;
+    let er={};
+    let arr=[]
+    if (p.length < 8) {
+      arr.push("Your password must be at least 8 characters"); 
+    }
+    if (p.search(/[a-z]/i) < 0) {
+      arr.push("Your password must contain at least one letter.");
+    }
+    if (p.search(/[0-9]/) < 0) {
+        arr.push("Your password must contain at least one digit."); 
+    }
+    if (p.search(/^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/) < 0) {
+        arr.push("Your password must contain at least one special character."); 
+    }
+    er.password=arr
+    console.log(er);
+    this.setState({
+      errors : er
+    })
+  };
+
   onChange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
   };
@@ -188,7 +212,7 @@ class Register extends Component {
                 placeholder="Password"
                 value={password}
                 error={errors.password}
-                onChange={this.onChange}
+                onChange={this.onChangepassword}
                 className={classnames("form-control", {
                   invalid: errors.password,
                 })}

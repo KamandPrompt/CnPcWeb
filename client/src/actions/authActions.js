@@ -96,6 +96,26 @@ export const loginStudent = (userData) => dispatch => {
   }))
 }
 
+// Admin Login
+export const loginAdmin = (userData) => dispatch => {
+  axios.post("/api/admins/login",userData)
+  .then( res => {
+      const {token} = res.data;
+      // Set token to localStorage
+      localStorage.setItem("jwtToken", token);
+      // Set token to Auth header
+      setAuthToken(token);
+      const decoded = jwt_decode(token);
+      // Set current user
+      dispatch(setCurrentUser(decoded));
+   }
+  )
+  .catch(err=> dispatch({
+    type:GET_ERRORS,
+    payload:err.response.data
+  }))
+}
+
 
 
 // Set logged in user
