@@ -22,6 +22,7 @@ import { INF } from "./components/INF";
 
 import RegisterStudent from "./components/layout/RegisterStudent";
 import LoginStudent from "./components/layout/LoginStudent";
+import LoginAdmin from "./components/layout/LoginAdmin";
 import RegisterRecruiter from "./components/layout/RegisterRecruiter";
 import LoginRecruiter from "./components/layout/LoginRecruiter";
 import UnprivateOutlet from "./components/private-route/UnprivateOutlet";
@@ -94,6 +95,9 @@ class App extends Component {
             </Route>
             <Route exact path="/loginStudent" element={<UnprivateOutlet />}>
               <Route path="" element={<LoginStudent />} />
+            </Route>
+            <Route exact path="/loginAdmin" element={<UnprivateOutlet />}>
+              <Route path="" element={<LoginAdmin />} />
             </Route>
             <Route
               exact

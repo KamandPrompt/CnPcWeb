@@ -7,6 +7,7 @@ const path = require("path");
 const create = require("./test");
 const recruiters = require("./routes/api/recruiters");
 const students = require("./routes/api/students");
+const admins = require("./routes/api/admins");
 
 const app = express();
 
@@ -39,6 +40,7 @@ require("./config/passport")(passport);
 // Routes
 app.use("/api/recruiters", recruiters);
 app.use("/api/students", students);
+app.use("/api/admins", admins);
 
 if(process.env.NODE_ENV === 'production') {
    
