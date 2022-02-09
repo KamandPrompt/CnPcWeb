@@ -73,7 +73,7 @@ router.post("/login",(req,res) => {
     //Find user by Email
     Student.findOne({rollNo}).then(user=>{
         if(!user){
-            return res.status(404).json({ rollNonotfound: "Email not found" });
+            return res.status(404).json({ rollNonotfound: "Roll number not found" });
         }
 
     // Check password
@@ -82,7 +82,9 @@ router.post("/login",(req,res) => {
             // Create JWT Payload
             const payload = {
                 id: user.id,
-                name: user.name
+                name: user.name,
+                role: user.role
+
             };
 
             // Sign token

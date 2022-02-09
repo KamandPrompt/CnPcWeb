@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import Navbar from "./Navbar";
 
 
 class Dashboard extends Component {
@@ -15,7 +14,6 @@ render() {
     const { user } = this.props.auth;
     return (
       <>
-      <Navbar/>
       <div  className="container text-center mt-15">
         <div className="row">
           <div className="col-sm-12">
@@ -26,12 +24,12 @@ render() {
                 <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
               </p>
             </h4>
-            <button
+            {/* <button
               onClick={this.onLogout}
               className="btn btn-large btn-light hoverable font-weight-bold"
             >
               Logout
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

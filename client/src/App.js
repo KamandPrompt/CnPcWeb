@@ -1,6 +1,6 @@
 // import { useState, useEffect } from "react";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Router, Routes, Route, Link } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import jwt_decode from "jwt-decode";
@@ -24,7 +24,10 @@ import RegisterStudent from "./components/layout/RegisterStudent";
 import LoginStudent from "./components/layout/LoginStudent";
 import RegisterRecruiter from "./components/layout/RegisterRecruiter";
 import LoginRecruiter from "./components/layout/LoginRecruiter";
-import PrivateRoute from "./components/private-route/PrivateRoute";
+import UnprivateOutlet from "./components/private-route/UnprivateOutlet";
+import RecruiterOutlet from "./components/private-route/RecruiterOutlet";
+import AdminOutlet from "./components/private-route/AdminOutlet";
+import StudentOutlet from "./components/private-route/StudentOutlet";
 import Dashboard from "./components/layout/Dashboard";
 
 // import GoogleMap from "./components/GoogleMap";
@@ -62,7 +65,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
+        <BrowserRouter>
           <Navigation />
           <Routes>
             <Route exact path="/" element={[<Carousal />, <Home />]}></Route>
@@ -82,29 +85,32 @@ class App extends Component {
             <Route
               exact
               path="/registerRecruiter"
-              element={<RegisterRecruiter />}
-            ></Route>
+              element={<UnprivateOutlet />}
+            >
+              <Route path="" element={<RegisterRecruiter />} />
+            </Route>
+            <Route exact path="/loginRecruiter" element={<UnprivateOutlet />}>
+              <Route path="" element={<LoginRecruiter />} />
+            </Route>
+            <Route exact path="/loginStudent" element={<UnprivateOutlet />}>
+              <Route path="" element={<LoginStudent />} />
+            </Route>
             <Route
               exact
-              path="/registerStudent"
-              element={<RegisterStudent />}
-            ></Route>
-            <Route
-              exact
-              path="/loginRecruiter"
-              element={<LoginRecruiter />}
-            ></Route>
-            <Route
-              exact
-              path="/loginStudent"
-              element={<LoginStudent />}
-            ></Route>
-            <Route exact path="/dashboard" element={<PrivateRoute />}>
-              <Route exact path="/dashboard" element={<Dashboard />} />
+              path="/dashboardRecruiter"
+              element={<RecruiterOutlet />}
+            >
+              <Route path="" element={<Dashboard />} />
+            </Route>
+            <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
+              <Route path="" element={<Dashboard />} />
+            </Route>
+            <Route exact path="/dashboardAdmin" element={<AdminOutlet />}>
+              <Route path="" element={<Dashboard />} />
             </Route>
           </Routes>
           <Footer />
-        </Router>
+        </BrowserRouter>
       </Provider>
     );
   }

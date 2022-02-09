@@ -87,6 +87,7 @@ router.post("/login", (req, res) => {
           designation: user.designation,
           telephone: user.telephone,
           mobile: user.mobile,
+          role: user.role
         };
 
         // Sign token
