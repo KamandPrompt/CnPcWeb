@@ -90,7 +90,7 @@ ol {
 }
 
 #menu.navbar-default {
-  background-color: #031b3199;
+  background-color: #6f7c997a;
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
@@ -153,8 +153,8 @@ ol {
 }
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: rgb(207, 106, 106);
-  border-color: #cefd60;
+  background-color: #fff;
+  border-color: #608dfd;
 }
 .navbar-default .navbar-toggle:hover > .icon-bar {
   background-color: #608dfd;
@@ -165,7 +165,7 @@ ol {
   #menu.navbar-default .navbar-nav > li > a {
     font-family: "Lato", sans-serif;
     text-transform: uppercase;
-    color: #000;
+    color: rgb(255, 255, 255);
     font-size: 13px;
     font-weight: 500;
     padding: 8px 2px;
@@ -310,13 +310,8 @@ a:focus,
 
 .footer-main {
   /* width: 100vw; */
-<<<<<<< Updated upstream
 	padding: 50px;
 	background: #093660;
-=======
-	padding: 50px 0 0 0;
-	background: #083661;
->>>>>>> Stashed changes
 }
  
 
@@ -349,13 +344,8 @@ a:focus,
 	width: 38px;
 	height: 38px;
 	border-radius: 100%;
-<<<<<<< Updated upstream
 	background: #ffffff;
 	color: #093660;
-=======
-	background: white;
-	color: #083661;
->>>>>>> Stashed changes
 	text-align: center;
 	line-height: 38px;
   font-size: 17px;
@@ -367,7 +357,6 @@ a:focus,
 
 #fav1:hover{
   background-color: #375492;
-  color: rgb(255, 255, 255);
 }
 
 #fav2:hover{
@@ -377,7 +366,6 @@ a:focus,
 
 #fav3:hover{
   background-color: rgb(32, 81, 170);
-  color: rgb(255, 255, 255);
 }
 
 @media (max-width: 768px) {
@@ -412,19 +400,15 @@ a:focus,
 		margin-bottom: 10px;
 	}
 }
-<<<<<<< Updated upstream
 .profile{
   font-family: 'Open Sans', sans-serif;
   color: #093660;
 }
-=======
-/* 
->>>>>>> Stashed changes
 @media (min-width:1200px){
   #block-1{
-    border-left: 2px solid rgb(177, 170, 170);
+    border-right: 2px solid rgb(177, 170, 170);
   }
-} */
+}
 
 .footer-classic ul.footer-links li a {
 	padding: 0 10px;
@@ -432,42 +416,28 @@ a:focus,
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 14px;
-	color: rgb(255, 255, 255);
+	color: #000;
 } 
 hr {
 	display: block;
 	/* height: 2px; */
 	border: 0;
-<<<<<<< Updated upstream
 	border-top: 2px solid #06738A;
-=======
-	border-top: 2px solid #07738A;
->>>>>>> Stashed changes
 	margin: 1em 0;
 	padding: 0;
 }
 
 #footer_copyright {
   display: block;
-<<<<<<< Updated upstream
   background: #093660;
   border-color: #1a1b1f;
   color: rgb(131, 123, 123);
-=======
-  background: #083661;
-  border-color: #ffffff;
-  color: rgb(255, 255, 255);
->>>>>>> Stashed changes
   text-align: center;
   padding: 5px;
 }
 
 .links{
-<<<<<<< Updated upstream
   color:#84E8FF;
-=======
-  color:rgb(255, 255, 255);
->>>>>>> Stashed changes
   line-height: 2.5rem;
 }
 
@@ -758,5 +728,4 @@ hr {
   top: 60%;
   right: 0%;
 }
-
 
