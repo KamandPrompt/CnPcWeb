@@ -30,6 +30,7 @@ import RecruiterOutlet from "./components/private-route/RecruiterOutlet";
 import AdminOutlet from "./components/private-route/AdminOutlet";
 import StudentOutlet from "./components/private-route/StudentOutlet";
 import Dashboard from "./components/layout/Dashboard";
+import StudentDashboard from "./components/layout/StudentDashboard";
 
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
@@ -107,7 +108,7 @@ class App extends Component {
               <Route path="" element={<Dashboard />} />
             </Route>
             <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
-              <Route path="" element={<Dashboard />} />
+              <Route path="" element={<StudentDashboard />} />
             </Route>
             <Route exact path="/dashboardAdmin" element={<AdminOutlet />}>
               <Route path="" element={<Dashboard />} />
