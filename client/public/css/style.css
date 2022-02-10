@@ -9,6 +9,17 @@ html {
   width: 100% !important;
   height: 100% !important;
 }
+.aboutUs{
+  font-family: "Open Sans", sans-serif;
+  color: #06738A;
+  font-size: large;
+  text-align:center;
+}
+
+h5{
+  color: #333333;
+}
+
 h2,
 h3,
 h4 {
@@ -168,9 +179,9 @@ ol {
   #menu.navbar-default .navbar-nav{
     position: static;
   }
-  .container{
+  /* .container{
     display: flex;
-  }
+  } */
   .nav{
     display: flex;
   }
@@ -178,7 +189,6 @@ ol {
     text-align: center;
   }
 }
-
 
 .btn-custom {
   font-family: "Raleway", sans-serif;
@@ -226,16 +236,29 @@ a:focus,
 #more{
   display: none;
 }
+.bhashan{
+  text-align:center;
+  padding-top: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: #06738A;
+  font-size: large;
+}
 
 .about{
   margin: 50px 0px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .faculty-advisor{
-  height: 200px;
-  width: 200px;
-  padding-right: 30px;
-  padding-bottom: 5px;
+  height: 150px;
+  width: 170px;
+  border-radius: 40%;
+  border-color: #093660;
+  border-width: 5px;
+  border: 4px solid #06738A
 }
 
 .float{
@@ -250,17 +273,18 @@ a:focus,
 }
 
 .backG{
-  background-color: rgb(205, 227, 245);
+  background-color: #D0FFF7;
 }
 
 .homeHead{
-  margin-bottom: 30px;
   font-size: 27px;
+  text-align: left;
+  color: #093660
 }
 
 #myBtn{
-  background-color: rgb(205, 227, 245);
-  color: gray;
+  background-color: #D0FFF7;
+  color: #06738A;
   font-size: 15px;
   font-weight: 500;
   border: 0px;
@@ -376,7 +400,10 @@ a:focus,
 		margin-bottom: 10px;
 	}
 }
-
+.profile{
+  font-family: 'Open Sans', sans-serif;
+  color: #093660;
+}
 @media (min-width:1200px){
   #block-1{
     border-right: 2px solid rgb(177, 170, 170);
