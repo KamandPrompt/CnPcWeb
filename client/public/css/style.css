@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 body,
 html {
   font-family: "Open Sans", sans-serif;
@@ -8,6 +9,17 @@ html {
   width: 100% !important;
   height: 100% !important;
 }
+.aboutUs{
+  font-family: "Open Sans", sans-serif;
+  color: #06738A;
+  font-size: large;
+  text-align:center;
+}
+
+h5{
+  color: #333333;
+}
+
 h2,
 h3,
 h4 {
@@ -167,9 +179,9 @@ ol {
   #menu.navbar-default .navbar-nav{
     position: static;
   }
-  .container{
+  /* .container{
     display: flex;
-  }
+  } */
   .nav{
     display: flex;
   }
@@ -177,7 +189,6 @@ ol {
     text-align: center;
   }
 }
-
 
 .btn-custom {
   font-family: "Raleway", sans-serif;
@@ -225,16 +236,29 @@ a:focus,
 #more{
   display: none;
 }
+.bhashan{
+  text-align:center;
+  padding-top: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: #06738A;
+  font-size: large;
+}
 
 .about{
   margin: 50px 0px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .faculty-advisor{
-  height: 200px;
-  width: 200px;
-  padding-right: 30px;
-  padding-bottom: 5px;
+  height: 150px;
+  width: 170px;
+  border-radius: 40%;
+  border-color: #093660;
+  border-width: 5px;
+  border: 4px solid #06738A
 }
 
 .float{
@@ -249,17 +273,18 @@ a:focus,
 }
 
 .backG{
-  background-color: rgb(205, 227, 245);
+  background-color: #D0FFF7;
 }
 
 .homeHead{
-  margin-bottom: 30px;
   font-size: 27px;
+  text-align: left;
+  color: #093660
 }
 
 #myBtn{
-  background-color: rgb(205, 227, 245);
-  color: gray;
+  background-color: #D0FFF7;
+  color: #06738A;
   font-size: 15px;
   font-weight: 500;
   border: 0px;
@@ -285,8 +310,8 @@ a:focus,
 
 .footer-main {
   /* width: 100vw; */
-	padding: 50px 0 0 0;
-	background: #cccccc;
+	padding: 50px;
+	background: #093660;
 }
  
 
@@ -305,7 +330,7 @@ a:focus,
 
 .footer-main .block img {
   background: transparent;
-  border-radius: 30px;
+  /* border-radius: 30px; */
 	margin-bottom: 50px;
 }
 
@@ -319,8 +344,8 @@ a:focus,
 	width: 38px;
 	height: 38px;
 	border-radius: 100%;
-	background: #928e8e;
-	color: #fff;
+	background: #ffffff;
+	color: #093660;
 	text-align: center;
 	line-height: 38px;
   font-size: 17px;
@@ -350,8 +375,9 @@ a:focus,
 }
 
 .footer-main .block .address {
-	font-size: 12px;
+	font-size: 15px;
 	color: #09090a;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .footer-main .block .address a:hover {
@@ -374,7 +400,10 @@ a:focus,
 		margin-bottom: 10px;
 	}
 }
-
+.profile{
+  font-family: 'Open Sans', sans-serif;
+  color: #093660;
+}
 @media (min-width:1200px){
   #block-1{
     border-right: 2px solid rgb(177, 170, 170);
@@ -393,22 +422,22 @@ hr {
 	display: block;
 	/* height: 2px; */
 	border: 0;
-	border-top: 2px solid #5f6161;
+	border-top: 2px solid #06738A;
 	margin: 1em 0;
 	padding: 0;
 }
 
 #footer_copyright {
   display: block;
-  background: #cccccc;
+  background: #093660;
   border-color: #1a1b1f;
-  color: rgb(51, 51, 51);
+  color: rgb(131, 123, 123);
   text-align: center;
   padding: 5px;
 }
 
 .links{
-  color:rgb(3, 3, 3);
+  color:#84E8FF;
   line-height: 2.5rem;
 }
 

@@ -7,11 +7,10 @@ export const Footer = (props) => {
       <div className="footer-main">
         <div className="container">
           <div className="row">
-              
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div className="block-2">
                 {/* <!-- heading --> */}
-                <h4>Quick Links</h4>
+                <h4 style={{ color: "white" }}>Quick Links</h4>
                 <hr className="new4" />
                 {/* <!-- links --> */}
                 <ul id="links-1">
@@ -61,8 +60,8 @@ export const Footer = (props) => {
             </div>
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div className="block-2">
-                <h4>Explore</h4>
-                <hr className="new4" />
+                <h4 style={{ color: "white" }}>Explore</h4>
+                <hr className="new4" style={{ color: "white" }} />
                 <ul>
                   <li>
                     <a
@@ -176,10 +175,10 @@ export const Footer = (props) => {
         </div>
         <div id="footer_copyright">
           {" "}
-          <a href="https://iitmandi.co.in/" style={{ color: "black" }}>
-            <span style={{ color: "black" }}>©</span>CnP, IIT Mandi
+          <a href="https://iitmandi.co.in/" style={{ color: "#C4C4C4" }}>
+            <span style={{ color: "#C4C4C4" }}>©</span>CnP, IIT Mandi 2022,
           </a>{" "}
-          2021, All rights reserved.
+          All rights reserved.
         </div>
       </div>
     </footer>

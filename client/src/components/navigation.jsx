@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
-
+// import { iitimage } from "../images/logo-iit.png"
 class Navigation extends Component {
   onLogout = (e) => {
     e.preventDefault();
@@ -29,6 +29,7 @@ class Navigation extends Component {
             <span className="icon-bar"></span>{" "}
           </button>
           <a className="navbar-brand page-scroll" href="/">
+            {/* <img src={ iitimage }></img> */}
             CNP IIT MANDI
           </a>{" "}
         </div>

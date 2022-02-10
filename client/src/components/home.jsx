@@ -1,5 +1,4 @@
 import React from "react";
-
 export const Home = (props) => {
   function myFunction() {
     var dots = document.getElementById("dots");
@@ -19,8 +18,8 @@ export const Home = (props) => {
   return (
     <div className="cont">
       <div id="home" className="container item">
-        <h3 className="homeHead">Home</h3>
-        <p>
+        <h3 className="homeHead"><center>About Us</center></h3>
+        <p className="aboutUs">
           Among the elite technology institutes of the country, IIT Mandi
           embodies technology, research and development in the purest form.
           Supported by the nourishing, picturesque settings of the Shivalik
@@ -36,19 +35,23 @@ export const Home = (props) => {
           company.
         </p>
       </div>
-      <div className="about container row item backG">
+      <h3 className="homeHead">From the Faculty Advisor</h3>
+      <div className="about container row item">
         {/* <div className="col-lg-4 col-md-6 col-sm-12">
               <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
           </div> */}
         {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
-        <h3 className="homeHead">Address By Faculty Advisor</h3>
-        <p>
-          <img
+        <div className="col-lg-3 col-md-3 col-sm-12">
+        <img
             className="faculty-advisor"
-            style={{ float: "left" }}
             src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg"
             alt="Dr. Tushar Jain"
           />
+          <h4 className="profile">Dr. Tushar Jain</h4>
+          <h5 className="profile">Faculty Advisor</h5>
+          <h5 className="profile">IIT Mandi</h5>
+        </div>
+        <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
           During a short span of ten years of its existence, Indian Institute of
           Technology Mandi (IIT Mandi) has gained a reputation for its cutting
           edge research and innovative teaching programs. The institute prides
@@ -59,7 +62,8 @@ export const Home = (props) => {
           undergraduate curriculum at IIT Mandi strives to expose students to
           strong fundamentals of engineering, basic sciences, and humanities,
           while simultaneously sensitizing them about human values and
-          surroundings.<span id="dots">...</span>
+          surroundings.
+          <span id="dots">...</span>
           <span id="more">
             {" "}
             Similarly, the institute's focus on research at the fore-fronts of
@@ -83,7 +87,7 @@ export const Home = (props) => {
             onClick={myFunction}
             id="myBtn"
           >
-            <em>Read more</em>
+            <em><b>Read More</b></em>
           </button>
         </p>
         {/* <br /> */}
