@@ -18,8 +18,8 @@ export const Home = (props) => {
   return (
     <div className="cont">
       <div id="home" className="container item">
-        <h3 className="homeHead">Home</h3>
-        <p>
+        <h3 className="homeHead"><center>About Us</center></h3>
+        <p className="aboutUs">
           Among the elite technology institutes of the country, IIT Mandi
           embodies technology, research and development in the purest form.
           Supported by the nourishing, picturesque settings of the Shivalik
@@ -47,9 +47,9 @@ export const Home = (props) => {
             src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg"
             alt="Dr. Tushar Jain"
           />
-          <h4>Dr. Tushar Jain</h4>
-          <h5>Faculty Advisor</h5>
-          <h5>IIT Mandi</h5>
+          <h4 className="profile">Dr. Tushar Jain</h4>
+          <h5 className="profile">Faculty Advisor</h5>
+          <h5 className="profile">IIT Mandi</h5>
         </div>
         <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
           During a short span of ten years of its existence, Indian Institute of
@@ -81,7 +81,6 @@ export const Home = (props) => {
             enthusiastic participation of your organization in our forthcoming
             campus placement session and lasting and mutually satisfying
             relation with your organization.
-            
           </span>
           <button
             className="btn btn-primary btn-sm"
@@ -91,13 +90,11 @@ export const Home = (props) => {
             <em><b>Read More</b></em>
           </button>
         </p>
-        
         {/* <br /> */}
         {/* <br /> */}
         {/* </div> */}
         <br />
       </div>
-      
     </div>
   );
 };

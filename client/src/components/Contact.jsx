@@ -16,6 +16,7 @@ import { Form } from "react-bootstrap";
 export const Contact = (props) => {
   return (
     <div>
+      <div class="content">
       <div className="banner">
         <div className="banner__content">
           <div className="contain">
@@ -28,6 +29,7 @@ export const Contact = (props) => {
           </div>
         </div>
       </div>
+      
       <div id="scroll"></div>
       <div className="heading nav-unhide">
         <h2 className="placement">The Placement Team</h2>
@@ -394,7 +396,7 @@ export const Contact = (props) => {
             <br />
           </figcaption>
         </figure>
-      </div>
+      </div></div>
     </div>
   );
 };

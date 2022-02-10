@@ -7,61 +7,6 @@ export const Footer = (props) => {
       <div className="footer-main">
         <div className="container">
           <div className="row">
-            <div className="col-lg-4 col-md-12 m-md-auto align-self-center">
-              <div id="block-1" className="block">
-                <div className="log" style={{ height: "100px" }}>
-                  <a href="https://iitmandi.ac.in/">
-                    <img
-                      src="https://students.iitmandi.ac.in/~u_shivateja/e/iitmandi-logo.png"
-                      alt=""
-                      width="150px"
-                      height="auto"
-                    />
-                  </a>
-                </div>
-                <div className="head">
-                  <h2
-                    className="address"
-                    style={{ color: "#ffff", lineHeight: "24px"}}
-                  >
-                    Indian Institute of Technology Mandi
-                    <br />
-                    Kamand, Mandi - 175005 <br /> Himachal Pradesh, India
-                  </h2>
-                </div>
-                <div className="icons">
-                  <ul className="social-icon list-inline">
-                    <li className="list-inline-item">
-                      <a
-                        id="fav1"
-                        className="social-links"
-                        href="https://www.facebook.com/IITMandi2009/"
-                      >
-                        <i className="fab fa-facebook-f"></i>
-                      </a>
-                    </li>
-                    <li className="list-inline-item">
-                      <a
-                        id="fav2"
-                        className="social-links"
-                        href="https://twitter.com/iit__mandi"
-                      >
-                        <i className="fab fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li className="list-inline-item">
-                      <a
-                        id="fav3"
-                        className="social-links"
-                        href="https://www.linkedin.com/school/indian-institute-of-technology-mandi"
-                      >
-                        <i className="fab fa-linkedin-in"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div className="block-2">
                 {/* <!-- heading --> */}
@@ -168,6 +113,62 @@ export const Footer = (props) => {
                     </a>
                   </li>
                 </ul>
+              </div>
+            </div>
+            
+            <div className="col-lg-4 col-md-12 m-md-auto align-self-center">
+            <div id="block-1" className="block">
+                <div className="log" style={{ height: "100px" }}>
+                  <a href="https://iitmandi.ac.in/">
+                    <img
+                      src="images/iitmandi_logo.png"
+                      alt=""
+                      width="150px"
+                      height="auto"
+                    />
+                  </a>
+                </div>
+                <div className="head">
+                  <h2
+                    className="address"
+                    style={{ color: "#4b4b4b", lineHeight: "15px" }}
+                  >
+                    Indian Institute of Technology Mandi
+                    <br />
+                    Kamand, Mandi - 175005 <br /> Himachal Pradesh, India
+                  </h2>
+                </div>
+                <div className="icons">
+                  <ul className="social-icon list-inline">
+                    <li className="list-inline-item">
+                      <a
+                        id="fav1"
+                        className="social-links"
+                        href="https://www.facebook.com/IITMandi2009/"
+                      >
+                        <i className="fab fa-facebook-f"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a
+                        id="fav2"
+                        className="social-links"
+                        href="https://twitter.com/iit__mandi"
+                      >
+                        <i className="fab fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a
+                        id="fav3"
+                        className="social-links"
+                        href="https://www.linkedin.com/school/indian-institute-of-technology-mandi"
+                      >
+                        <i className="fab fa-linkedin-in"></i>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
