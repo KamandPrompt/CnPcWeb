@@ -40,22 +40,32 @@ module.exports = function validateRegisterInput(data) {
     errors.email = "Email is invalid";
   }
 
+  let arr=[]
   //Password checks
   if (Validator.isEmpty(data.password)) {
-    errors.password = "Password field is required";
+    arr.push("Password field is required");
   }
 
   if (Validator.isEmpty(data.password2)) {
     errors.password2 = "Confirm Password field is required";
   }
 
-  if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
-    errors.password = "Password must be at least 6 characters";
-  }
-
   if (!Validator.equals(data.password, data.password2)) {
     errors.password2 = "Passwords must match";
   }
+  if (data.password.length < 8) {
+    arr.push("Your password must be at least 8 characters."); 
+  }
+  if (data.password.search(/[a-z]/i) < 0) {
+    arr.push("Your password must contain at least one letter.");
+  }
+  if (data.password.search(/[0-9]/) < 0) {
+      arr.push("Your password must contain at least one digit."); 
+  }
+  if (data.password.search(/^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/) < 0) {
+      arr.push("Your password must contain at least one special character."); 
+  }
+  errors.password=arr;
 
   return {
     errors,
