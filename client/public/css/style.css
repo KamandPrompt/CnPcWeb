@@ -79,7 +79,7 @@ ol {
 }
 
 .nav-top{
-  background-image: linear-gradient(rgb(205, 227, 245), white,rgb(205, 227, 245));
+  background-image: linear-gradient(#031B31, #031B31,#031B31);
 }
 
 .nav-above{
@@ -90,7 +90,7 @@ ol {
 }
 
 #menu.navbar-default {
-  background-color: #ffffff94;
+  background-color: #6f7c997a;
   border-color: rgba(231, 231, 231, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
@@ -98,7 +98,7 @@ ol {
   font-family: "Raleway", sans-serif;
   font-size: 24px;
   font-weight: 700;
-  color: #333;
+  color: rgb(255, 255, 255);
   text-transform: uppercase;
 }
 #menu.navbar-default .navbar-nav{
@@ -110,7 +110,7 @@ ol {
 #menu.navbar-default .navbar-nav > li > a {
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
-  color: #000;
+  color: rgb(255, 255, 255);
   font-size: 15px;
   font-weight: 500;
   padding: 8px 2px;
@@ -165,7 +165,7 @@ ol {
   #menu.navbar-default .navbar-nav > li > a {
     font-family: "Lato", sans-serif;
     text-transform: uppercase;
-    color: #000;
+    color: rgb(255, 255, 255);
     font-size: 13px;
     font-weight: 500;
     padding: 8px 2px;
