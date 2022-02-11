@@ -52,7 +52,7 @@ render() {
                             defaultValue="michael23"
                             placeholder="Username"
                             type="text"
-                          >{user.name}</Form.Control>
+                          ></Form.Control>
                         </Form.Group>
                       </Col>
                       <Col className="pl-1" md="4">
