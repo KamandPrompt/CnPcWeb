@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const path = require("path");
-const create = require("./test");
 const recruiters = require("./routes/api/recruiters");
 const students = require("./routes/api/students");
 const admins = require("./routes/api/admins");
@@ -30,7 +29,6 @@ mongoose
     .then(() => console.log("MongoDB successfully connected", process.env.MONGODB_URI || dbURL ))
     .catch(err => console.log(err));
 
-// create.fun(create.param);       Run this file
 // Passport middleware
 app.use(passport.initialize());
 
@@ -50,6 +48,7 @@ if(process.env.NODE_ENV === 'production') {
       res.sendFile(path.join(__dirname,'client','build','index.html'));
   });
 }
+
 
 
 const port = process.env.PORT || 5000;

@@ -94,6 +94,9 @@ class App extends Component {
             <Route exact path="/loginRecruiter" element={<UnprivateOutlet />}>
               <Route path="" element={<LoginRecruiter />} />
             </Route>
+            <Route exact path="/registerStudent" element={<UnprivateOutlet />}>
+              <Route path="" element={<RegisterStudent />} />
+            </Route>
             <Route exact path="/loginStudent" element={<UnprivateOutlet />}>
               <Route path="" element={<LoginStudent />} />
             </Route>

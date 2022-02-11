@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { registerStudent } from "../../actions/authActions";
 import classnames from "classnames";
 import Navbar from "./Navbar";
+import jsonData from "../../output.json";
 
 
 class Register extends Component{
@@ -37,28 +38,21 @@ class Register extends Component{
         this.setState({[e.target.id]:e.target.value})
     }
 
-    onSubmit = e => {
-        e.preventDefault();
-
-        const newUser = {
-            name:this.state.name,
-            rollNo:this.state.rollNo,
-            email:this.state.email,
-            password:this.state.password,
-            password2:this.state.password2
-        }
-
-        this.props.registerStudent(newUser, this.props.history); 
+    onSubmit = (orgData) => {
+        orgData.map((item)=>{
+          const newUser = item;
+          this.props.registerStudent(newUser, this.props.history); 
+        });
     }
 
     render(){
         const {name, rollNo, email, password, password2 ,errors} = this.state;
-
+        const orgData = JSON.parse(jsonData);
         return(
           <>
  
             <div className="form-box ">
-            <form className="form-container"  onSubmit={this.onSubmit}>
+            <form className="form-container"  onSubmit={this.onSubmit(orgData)}>
 
                <div><Link to="/"><i className="fa fa-arrow-circle-left  "></i> Back to Home</Link></div>
 

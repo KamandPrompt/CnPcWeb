@@ -31,9 +31,19 @@ router.post("/register", (req, res) => {
         } else{
             const newStudent = new Student({
                 name:req.body.name,
-                password:req.body.password,
                 rollNo:req.body.rollNo,
-                email:req.body.email
+                degree:req.body.degree,
+                branch:req.body.branch,
+                cgpa:req.body.cgpa,
+                email:req.body.email,
+                contactNumber:req.body.contactNumber,
+                dob:req.body.dob,
+                Gender:req.body.Gender,
+                tenthPercentage:req.body.tenthPercentage,
+                twelthPercentage:req.body.twelthPercentage,
+                advanceRank:req.body.advanceRank,
+                resume:req.body.resume,
+                password:req.body.password,
             });
 
             // Hash password before storing in database
