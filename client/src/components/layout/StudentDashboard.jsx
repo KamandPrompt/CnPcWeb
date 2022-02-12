@@ -3,12 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import {
-    Badge,
     Button,
     Card,
     Form,
-    Navbar,
-    Nav,
     Container,
     Row,
     Col,
@@ -26,7 +23,7 @@ render() {
         <>
         <Container fluid>
           <Row>
-            <Col md="8">
+            <Col md="12">
               <Card>
                 <Card.Header>
                   <Card.Title as="h4">{user.name}</Card.Title>
@@ -147,19 +144,24 @@ render() {
                         </Form.Group>
                       </Col>
                     </Row>
+                    <div 
+                    className="clearfix"
+                    style={{"textAlign":"center","margin":"10px 0px"}}
+                    >
                     <Button
-                      className="btn-fill pull-right"
+                      className="btn-fill"
+                      style={{"width":"12%"}}
                       type="submit"
                       variant="info"
                     >
                       Update Profile
                     </Button>
-                    <div className="clearfix"></div>
+                    </div>
                   </Form>
                 </Card.Body>
               </Card>
             </Col>
-            <Col md="4">
+            {/* <Col md="4">
               <Card className="card-user">
                 <div className="card-image">
                   <img
@@ -216,7 +218,7 @@ render() {
                   </Button>
                 </div>
               </Card>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </>
