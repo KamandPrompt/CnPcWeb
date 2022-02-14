@@ -30,6 +30,7 @@ import RecruiterOutlet from "./components/private-route/RecruiterOutlet";
 import AdminOutlet from "./components/private-route/AdminOutlet";
 import StudentOutlet from "./components/private-route/StudentOutlet";
 import Dashboard from "./components/layout/Dashboard";
+import AdminDashboard from "./components/layout/AdminDashboard"
 import StudentDashboard from "./components/layout/StudentDashboard";
 
 // import GoogleMap from "./components/GoogleMap";
@@ -111,7 +112,7 @@ class App extends Component {
               <Route path="" element={<StudentDashboard />} />
             </Route>
             <Route exact path="/dashboardAdmin" element={<AdminOutlet />}>
-              <Route path="" element={<Dashboard />} />
+              <Route path="" element={<AdminDashboard />} />
             </Route>
           </Routes>
           <Footer />
