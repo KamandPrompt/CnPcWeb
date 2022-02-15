@@ -11,7 +11,7 @@ module.exports = function validateRegisterInput(data){
     data.email = !isEmpty(data.email) ? data.email : "";
     data.rollNo = !isEmpty(data.email) ? data.rollNo : "";
     data.password = !isEmpty(data.password) ? data.password : "";
-    data.password2 = !isEmpty(data.password2) ? data.password2 : "";
+    // data.password2 = !isEmpty(data.password2) ? data.password2 : "";
 
     //Name checks
     if(Validator.isEmpty(data.name)) {
@@ -41,9 +41,9 @@ module.exports = function validateRegisterInput(data){
         errors.password = "Password must be at least 6 characters";
     }
 
-    if(!Validator.equals(data.password,data.password2)){
-        errors.password2 = "Passwords must match";
-    }
+    // if(!Validator.equals(data.password,data.password2)){
+    //     errors.password2 = "Passwords must match";
+    // }
 
     return{
         errors,

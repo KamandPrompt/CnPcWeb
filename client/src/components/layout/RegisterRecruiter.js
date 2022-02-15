@@ -217,7 +217,9 @@ class Register extends Component {
                   invalid: errors.password,
                 })}
               />
-              <span className="red-text">{errors.password}</span>
+              {errors.password!==undefined ? errors.password.map((item)=>{
+                return (<><span className="red-text">{item}</span><br/></>)
+              }) : <><span className="red-text">{errors.password}</span></>}
             </div>
 
             <div className="form-group">

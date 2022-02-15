@@ -16,24 +16,27 @@ const Student = require("../../models/StudentSchema");
 // @access Public
 
 router.post("/register", (req, res) => {
-    
-    //Form validation
-    const {errors, isValid} = validateRegisterInput(req.body);
-    
-    if(!isValid){
-        return res.status(400).json(errors);
-    }
-
     Student.findOne({rollNo:req.body.rollNo}).then(user=>{
 
         if(user){
-            return res.status(400).json({rollNo:"Email already exists"});
+            console.log(`${user.rollNo} already exists`);
+            return res.status(400);
         } else{
             const newStudent = new Student({
                 name:req.body.name,
-                password:req.body.password,
                 rollNo:req.body.rollNo,
-                email:req.body.email
+                degree:req.body.degree,
+                branch:req.body.branch,
+                cgpa:req.body.cgpa,
+                email:req.body.email,
+                contactNumber:req.body.contactNumber,
+                dob:req.body.dob,
+                Gender:req.body.Gender,
+                tenthPercentage:req.body.tenthPercentage,
+                twelthPercentage:req.body.twelthPercentage,
+                advanceRank:req.body.advanceRank,
+                resume:req.body.resume,
+                password:req.body.password,
             });
 
             // Hash password before storing in database
@@ -50,6 +53,8 @@ router.post("/register", (req, res) => {
             });
         }
 
+    }).catch((err)=>{
+        console.log(err);
     });
 
 });

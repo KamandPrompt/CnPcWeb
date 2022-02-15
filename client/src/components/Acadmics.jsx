@@ -208,6 +208,7 @@ export const Acadmics = (props) => {
           </p>
         </div>
       </div>
+      <br /><br /><br />
       <Schools />
       <div className="acadmic">
         <div className="slot">
@@ -216,7 +217,37 @@ export const Acadmics = (props) => {
             <h3 className="homeHead">Programmes</h3>
             <hr className="right" />
           </div>
-          <div>
+          <div className="sec-heading">
+            <div className="subHead">
+            Under graduates
+            </div>
+            <div className="sub-content">
+            Situated in the lap of Himalayas, IIT Mandi is one the finest
+              technical institute for students to spend their undergraduate
+              years. While broad academics and innovative curriculum is one
+              strong focus of the institute, extra co circulars like sports,
+              club activities and events, inter college competitions, fests are
+              all given due importance. Owing to the enthusiastic student
+              community, a lot of new ideas, projects, and events of different
+              scales are executed every year. Overall, the undergraduate
+              experience is one its kind and most cherished experience of
+              students life.
+            </div>
+          </div>
+          <div className="sec-heading">
+            <div className="subHead">
+            Post graduates
+            </div>
+            <div className="sub-content">
+            With an extraordinary group of teachers and peers, IIT Mandi
+              offers one of India’s finest PG programs. With a vast pool of
+              resources including a gigantic library and its number of labs ,
+              IIT Mandi has managed to create the perfect nest to design and
+              build the next future.
+            </div>
+          </div>
+          <br />
+          {/* <div>
             <h3>Under graduates</h3>
             <p>
               Situated in the lap of Himalayas, IIT Mandi is one the finest
@@ -241,30 +272,10 @@ export const Acadmics = (props) => {
               </a>
               .
             </p>
-          </div>
-          <div>
-            <h3>Post graduates</h3>
-            <p>
-              With an extraordinary group of teachers and peers, IIT Mandi
-              offers one of India’s finest PG programs. With a vast pool of
-              resources including a gigantic library and its number of labs ,
-              IIT Mandi has managed to create the perfect nest to design and
-              build the next future.
-            </p>
-            <p>
-              {" "}
-              <strong>To know more please</strong>{" "}
-              <a
-                href="https://students.iitmandi.ac.in/main/pg/index.html"
-                target="_blank"
-              >
-                click here
-              </a>
-              .
-            </p>
-          </div>
+          </div> */}
         </div>
       </div>
+      <br /><br /><br />
     </div>
   );
 };
