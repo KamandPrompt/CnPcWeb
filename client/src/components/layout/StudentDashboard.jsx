@@ -2,25 +2,18 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import {
-    Button,
-    Card,
-    Form,
-    Container,
-    Row,
-    Col,
-  } from "react-bootstrap";
+import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 
 class StudentDashboard extends Component {
-  onLogout = e => {
+  onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
 
-render() {
+  render() {
     const { user } = this.props.auth;
     return (
-        <>
+      <>
         <Container fluid>
           <Row>
             <Col md="12">
@@ -33,21 +26,21 @@ render() {
                     <Row>
                       <Col className="pr-1" md="5">
                         <Form.Group>
-                          <label>Company (disabled)</label>
+                          <label>RollNo</label>
                           <Form.Control
-                            defaultValue="Creative Code Inc."
+                            defaultValue={user.rollNo}
                             disabled
-                            placeholder="Company"
+                            placeholder="RollNo"
                             type="text"
                           ></Form.Control>
                         </Form.Group>
                       </Col>
                       <Col className="px-1" md="3">
                         <Form.Group>
-                          <label>Username</label>
+                          <label>Name</label>
                           <Form.Control
-                            defaultValue="michael23"
-                            placeholder="Username"
+                            defaultValue={user.name}
+                            placeholder="Name"
                             type="text"
                           ></Form.Control>
                         </Form.Group>
@@ -58,6 +51,8 @@ render() {
                             Email address
                           </label>
                           <Form.Control
+                            defaultValue={user.email}
+                            disabled
                             placeholder="Email"
                             type="email"
                           ></Form.Control>
@@ -144,18 +139,18 @@ render() {
                         </Form.Group>
                       </Col>
                     </Row>
-                    <div 
-                    className="clearfix"
-                    style={{"textAlign":"center","margin":"10px 0px"}}
+                    <div
+                      className="clearfix"
+                      style={{ textAlign: "center", margin: "10px 0px" }}
                     >
-                    <Button
-                      className="btn-fill"
-                      style={{"width":"12%"}}
-                      type="submit"
-                      variant="info"
-                    >
-                      Update Profile
-                    </Button>
+                      <Button
+                        className="btn-fill"
+                        style={{ width: "12%" }}
+                        type="submit"
+                        variant="info"
+                      >
+                        Update Profile
+                      </Button>
                     </div>
                   </Form>
                 </Card.Body>
@@ -228,14 +223,11 @@ render() {
 
 StudentDashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = (state) => ({
+  auth: state.auth,
 });
 
-export default connect(
-  mapStateToProps,
-  { logoutUser }
-)(StudentDashboard);
+export default connect(mapStateToProps, { logoutUser })(StudentDashboard);
