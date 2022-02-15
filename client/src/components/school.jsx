@@ -1,10 +1,14 @@
 export const Schools = (props) => {
   return (
     <>
-      <div className="blue">
+      <div>
         <div className="acadmic">
           <div className="slot">
-            <h3 className="homeHead">Schools</h3>
+            <div>
+              <hr className="left" />
+              <h3 className="homeHead">Schools</h3>
+              <hr className="right" />
+            </div>
             <p>
               Our schools are configured not by the conventional divides, but by
               the common ideas and beliefs that are the very foundations of the

@@ -6,7 +6,11 @@ export const Acadmics = (props) => {
     <div>
       <div className="acadmic">
         <div className="slot">
-          <h3 className="homeHead">Academics</h3>
+          <div>
+            <hr className="left" />
+            <h3 className="homeHead">Academics</h3>
+            <hr className="right" />
+          </div>
           <p>
             The B.Tech curriculum is designed keeping in mind the need to
             produce well-rounded graduates many of whom will go on to join
@@ -207,7 +211,11 @@ export const Acadmics = (props) => {
       <Schools />
       <div className="acadmic">
         <div className="slot">
-          <h3 className="homeHead">Programmes</h3>
+          <div>
+            <hr className="left" />
+            <h3 className="homeHead">Programmes</h3>
+            <hr className="right" />
+          </div>
           <div>
             <h3>Under graduates</h3>
             <p>
