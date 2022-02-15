@@ -16,18 +16,11 @@ const Student = require("../../models/StudentSchema");
 // @access Public
 
 router.post("/register", (req, res) => {
-    
-    //Form validation
-    const {errors, isValid} = validateRegisterInput(req.body);
-    
-    if(!isValid){
-        return res.status(400).json(errors);
-    }
-
     Student.findOne({rollNo:req.body.rollNo}).then(user=>{
 
         if(user){
-            return res.status(400).json({rollNo:"Email already exists"});
+            console.log(`${user.rollNo} already exists`);
+            return res.status(400);
         } else{
             const newStudent = new Student({
                 name:req.body.name,
@@ -60,6 +53,8 @@ router.post("/register", (req, res) => {
             });
         }
 
+    }).catch((err)=>{
+        console.log(err);
     });
 
 });

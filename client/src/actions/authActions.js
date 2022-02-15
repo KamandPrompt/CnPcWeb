@@ -69,7 +69,7 @@ export const loginRecruiter = (userData) => dispatch => {
 // Register
 export const registerStudent = (userData, history) => dispatch => {
   axios.post("/api/students/register",userData)
-  .then((res) => console.log(res))
+  .then(res => dispatch(loginStudent(userData)))
   .catch(err=> dispatch({
     type:GET_ERRORS,
     payload:err.response.data

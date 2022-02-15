@@ -1,4 +1,3 @@
-
 const { google } = require("googleapis");
 const fs = require('fs');
 const generator = require('generate-password');
@@ -35,4 +34,4 @@ async function accessSpreadsheet() {
       }
 }
 
-accessSpreadsheet();
+module.exports = accessSpreadsheet;

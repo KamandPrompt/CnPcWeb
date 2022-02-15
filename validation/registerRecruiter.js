@@ -62,7 +62,7 @@ module.exports = function validateRegisterInput(data) {
   if (data.password.search(/[0-9]/) < 0) {
       arr.push("Your password must contain at least one digit."); 
   }
-  if (data.password.search(/^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/) < 0) {
+  if (data.password.search(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) < 0) {
       arr.push("Your password must contain at least one special character."); 
   }
   errors.password=arr;

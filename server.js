@@ -29,6 +29,8 @@ mongoose
     .then(() => console.log("MongoDB successfully connected", process.env.MONGODB_URI || dbURL ))
     .catch(err => console.log(err));
 
+
+
 // Passport middleware
 app.use(passport.initialize());
 
