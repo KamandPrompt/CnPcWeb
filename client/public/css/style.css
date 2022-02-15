@@ -13,7 +13,7 @@ html {
   font-family: "Open Sans", sans-serif;
   color: #06738A;
   font-size: large;
-  text-align:center;
+  text-align:justify;
 }
 
 h5{
@@ -277,9 +277,29 @@ a:focus,
 }
 
 .homeHead{
-  font-size: 27px;
+  font-size: 30px;
   text-align: left;
   color: #093660
+}
+.slot >p {
+  font-size: 17px;
+  text-align: justify;
+  color: #0788a5;
+
+}
+
+.sec-heading {
+  margin: auto;
+  width: 85%;
+  padding: 2% 0%;
+}
+
+@media (max-width:600px) {
+
+  .sec-heading{
+    width: 100%;
+  }
+
 }
 
 #myBtn{
@@ -580,9 +600,11 @@ hr {
   height: 50px;
   text-align: left;
   font-size: 20px;
-  background-color: #fff;
-  border: 1px solid black;
-  color: rgb(59, 58, 58);
+  background-color: #083661;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+  margin: 1px;
 }
 
 .extrabtn{
@@ -600,8 +622,46 @@ hr {
   padding-top: 5px;
   text-align: left;
   width: 100%;
-  border-left: 5px solid rgb(59, 59, 170);
+  border-left: 2px solid rgb(59, 59, 170);
+  border-right: 2px solid rgb(59, 59, 170);
+  border-bottom: 2px solid rgb(59, 59, 170);
   display: none;
+}
+
+.left{
+  display: inline-block !important;
+  width: 40%;
+  border-top: 2px solid #083661;
+  margin: 0.55em 0;
+}
+.right{
+  margin: 0.55em 0;
+  border-top: 2px solid #083661;
+  display: inline-block !important;
+  width: 40%;
+}
+.homeHead{
+  display: inline-block !important;
+  width: 20%;
+  text-align: center;
+}
+
+@media (max-width:1040px) {
+  .left{
+    display: block !important;
+    width: 100%;
+    border-top: 2px solid #083661;
+  }
+  .right{
+    border-top: 2px solid #083661;
+    display: block !important;
+    width: 100%;
+  }
+  .homeHead{
+    display: block !important;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .extracont{
@@ -619,7 +679,26 @@ hr {
 }
 
 .subHead{
-  text-align: left;
+  text-align: center;
+  background-color: #031B31;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 2% 0%;
+}
+
+@media (max-width:500px) {
+  .subHead{
+    font-size: 17px;
+  }
+  
+}
+
+.sub-content{
+  background-color: #CFFFF6;
+  padding: 2%;
+  color: #031B31;
+  font-size: 15px;
 }
 
 .homeSlider{
