@@ -277,7 +277,7 @@ a:focus,
 }
 
 .homeHead{
-  font-size: 27px;
+  font-size: 30px;
   text-align: left;
   color: #093660
 }
@@ -285,6 +285,20 @@ a:focus,
   font-size: 17px;
   text-align: justify;
   color: #0788a5;
+
+}
+
+.sec-heading {
+  margin: auto;
+  width: 85%;
+  padding: 2% 0%;
+}
+
+@media (max-width:600px) {
+
+  .sec-heading{
+    width: 100%;
+  }
 
 }
 
@@ -665,7 +679,26 @@ hr {
 }
 
 .subHead{
-  text-align: left;
+  text-align: center;
+  background-color: #031B31;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 2% 0%;
+}
+
+@media (max-width:500px) {
+  .subHead{
+    font-size: 17px;
+  }
+  
+}
+
+.sub-content{
+  background-color: #CFFFF6;
+  padding: 2%;
+  color: #031B31;
+  font-size: 15px;
 }
 
 .homeSlider{
