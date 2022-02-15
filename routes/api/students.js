@@ -83,7 +83,20 @@ router.post("/login",(req,res) => {
             const payload = {
                 id: user.id,
                 name: user.name,
-                role: user.role
+                role: user.role,
+                rollNo: user.rollNo,
+                degree: user.degree,
+                branch: user.branch,
+                cgpa: user.cgpa,
+                email: user.email,
+                contactNumber: user.contactNumber,
+                dob: user.dob,
+                Gender: user.Gender,
+                tenthPercentage: user.tenthPercentage,
+                twelthPercentage: user.twelthPercentage,
+                advanceRank: user.advanceRank,
+                resume: user.resume,
+                verification_status: user.verification_status,
 
             };
 
