@@ -64,6 +64,10 @@ const StudentSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  verification_status : {
+    type : String,
+    default : 'Not Verified',
+  },
   role: {
     type: String,
     default: 'student',
