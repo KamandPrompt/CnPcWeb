@@ -121,12 +121,12 @@ export const Contact = (props) => {
                 alt="Dr.Bhaskar"
                 className="image"
               />
-              <h3 className="person">Dr. Bhaskar Bakthavachalu</h3>
+              <h3 className="person">Dr. Baskar Bakthavachalu</h3>
             </div>
             <br />
             <div className="middle">
               <p className="text">
-                Dr. Bhaskar Bakthavachalu
+                Dr. Baskar Bakthavachalu
                 <br />
                 Faculty Co-Advisor
                 <br />

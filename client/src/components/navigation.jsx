@@ -30,7 +30,7 @@ class Navigation extends Component {
           </button>
           <a className="navbar-brand page-scroll" href="/">
             {/* <img src={ iitimage }></img> */}
-            CNP IIT MANDI
+            Career and Placement Cell
           </a>{" "}
         </div>
 
