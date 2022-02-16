@@ -62,7 +62,7 @@ export const Demo = (props) => {
     //   <h2 className="homehead">Student Demographics</h2>
     //   <img src={demo} className="demoimg" alt="Demographics" />
     // </div>
-    <div className="Pie">
+    <div id="demographics" className="Pie">
       <h3 className="h3">
         <center>Student Demographics</center>
       </h3>

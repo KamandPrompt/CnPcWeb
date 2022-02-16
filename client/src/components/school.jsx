@@ -1,7 +1,7 @@
 export const Schools = (props) => {
   return (
     <>
-      <div>
+      <div id="school">
         <div className="acadmic">
           <div className="slot">
             <div>

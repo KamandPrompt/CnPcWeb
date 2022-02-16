@@ -210,7 +210,7 @@ export const Acadmics = (props) => {
       </div>
       <br /><br /><br />
       <Schools />
-      <div className="acadmic">
+      <div id="UG/PG" className="acadmic">
         <div className="slot">
           <div>
             <hr className="left" />
