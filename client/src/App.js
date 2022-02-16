@@ -13,7 +13,7 @@ import { Carousal } from "./components/carousal";
 import { Acadmics } from "./components/Acadmics";
 import { Schools } from "./components/school";
 import { Research } from "./components/Research";
-import { Demo } from "./components/Demo";
+import  {Demo}  from "./components/Demo";
 import { render } from "@testing-library/react";
 import { Contact } from "./components/Contact";
 import { Achievement } from "./components/achievement";

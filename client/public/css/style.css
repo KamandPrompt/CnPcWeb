@@ -237,7 +237,7 @@ a:focus,
   display: none;
 }
 .bhashan{
-  text-align:center;
+  text-align:justify;
   padding-top: 35px;
   padding-left: 10px;
   padding-right: 10px;
@@ -255,7 +255,7 @@ a:focus,
 .faculty-advisor{
   height: 150px;
   width: 170px;
-  border-radius: 40%;
+  border-radius: 50%;
   border-color: #093660;
   border-width: 5px;
   border: 4px solid #06738A
@@ -274,6 +274,9 @@ a:focus,
 
 .backG{
   background-color: #D0FFF7;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 20px;
 }
 
 .homeHead{
@@ -281,6 +284,26 @@ a:focus,
   text-align: left;
   color: #093660
 }
+
+.device{
+  font-size: 20px;
+  text-align: center;
+  color: #093660
+}
+
+.installation{
+  text-align: center;
+  padding: 4%;
+}
+
+
+
+.faculty-head {
+  font-size: 30px;
+  text-align: left;
+  color: #093660
+}
+
 .slot >p {
   font-size: 17px;
   text-align: justify;
@@ -641,6 +664,7 @@ hr {
   display: none;
 }
 
+
 .left{
   display: inline-block !important;
   width: 40%;
@@ -653,9 +677,26 @@ hr {
   display: inline-block !important;
   width: 40%;
 }
+.left-lg{
+  display: inline-block !important;
+  width: 35%;
+  border-top: 2px solid #083661;
+  margin: 0.55em 0;
+}
+.right-lg{
+  margin: 0.55em 0;
+  border-top: 2px solid #083661;
+  display: inline-block !important;
+  width: 35%;
+}
 .homeHead{
   display: inline-block !important;
   width: 20%;
+  text-align: center;
+}
+.homeHead-lg{
+  display: inline-block !important;
+  width: 30%;
   text-align: center;
 }
 
@@ -670,11 +711,30 @@ hr {
     display: block !important;
     width: 100%;
   }
+  .left-lg{
+    display: block !important;
+    width: 100%;
+    border-top: 2px solid #083661;
+  }
+  .right-lg{
+    border-top: 2px solid #083661;
+    display: block !important;
+    width: 100%;
+  }
   .homeHead{
     display: block !important;
     width: 100%;
     text-align: center;
   }
+  .homeHead-lg{
+    display: block !important;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.i-hub{
+  background-image: url(../images/ihub.png);
 }
 
 .plus{
