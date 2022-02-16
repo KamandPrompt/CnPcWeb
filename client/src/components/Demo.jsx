@@ -28,7 +28,33 @@ const data02 = [
   { name: "Electrical Engineering", value: 51, fill: "#CE65DF" },
   { name: "Engineering Physics", value: 19, fill: "#990132" },
   { name: "Data Science and Engineering", value: 36, fill: "#7F7F7F" },
-  { name: "Bio Engineering", value: 18, fill: "#FDCD00" },
+  { name: "Bio Engineering", value: 18, fill: "#ed1727" },
+];
+const data03 = [
+  { name: "Bio Tech", value: 16, fill: "#003399" },
+  { name: "STE", value: 13, fill: "#015100" },
+  { name: "PED", value: 16, fill: "#FF6600" },
+  { name: "CSP", value: 3, fill: "#CE65DF" },
+  { name: "MES", value: 10, fill: "#990132" },
+  { name: "VLSI", value: 14, fill: "#7F7F7F" },
+  { name: "EEM", value: 12, fill: "#ed1727" },
+];
+const data04 = [
+  { name: "PhD", value: 315, fill: "#003399" },
+  // { name: "STE", value: 13, fill: "#015100" },
+  // { name: "PED", value: 16, fill: "#FF6600" },
+  // { name: "CSP", value: 3, fill: "#CE65DF" },
+  // { name: "MES", value: 10, fill: "#990132" },
+  // { name: "VLSI", value: 14, fill: "#7F7F7F" },
+  { name: "MS", value: 62, fill: "#ed1727" },
+];
+const data05 = [
+  { name: "Development Studies", value: 12, fill: "#ed1727" },
+];
+const data06 = [
+  { name: "Chemistry", value: 42, fill: "#003399" },
+  { name: "Physics", value: 27, fill: "#7F7F7F" },
+  { name: "Applied Maths", value: 34, fill: "#ed1727" },
 ];
 export const Demo = (props) => {
   return (
@@ -63,6 +89,7 @@ export const Demo = (props) => {
           <Legend />
         </PieChart>
       </center>
+
       {/* <PieChart
             width={1000}
             height={400}
@@ -80,6 +107,94 @@ export const Demo = (props) => {
             dataKey="value"
             isAnimationActive={false}
             data={data02}
+            cx={200}
+            cy={200}
+            outerRadius={80}
+            fill="#fff"
+            label
+          ></Pie>
+          <Tooltip />
+          <Legend />
+        </PieChart>
+      </center>
+      <br />
+      <br />
+      <center>
+        <PieChart
+          width={1000}
+          height={500}
+          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+        >
+          <Pie
+            dataKey="value"
+            isAnimationActive={false}
+            data={data03}
+            cx={200}
+            cy={200}
+            outerRadius={80}
+            fill="#fff"
+            label
+          ></Pie>
+          <Tooltip />
+          <Legend />
+        </PieChart>
+      </center>
+      <br />
+      <br />
+      <center>
+        <PieChart
+          width={1000}
+          height={500}
+          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+        >
+          <Pie
+            dataKey="value"
+            isAnimationActive={false}
+            data={data04}
+            cx={200}
+            cy={200}
+            outerRadius={80}
+            fill="#fff"
+            label
+          ></Pie>
+          <Tooltip />
+          <Legend />
+        </PieChart>
+      </center>
+      <br />
+      <br />
+      <center>
+        <PieChart
+          width={1000}
+          height={500}
+          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+        >
+          <Pie
+            dataKey="value"
+            isAnimationActive={false}
+            data={data05}
+            cx={200}
+            cy={200}
+            outerRadius={80}
+            fill="#fff"
+            label
+          ></Pie>
+          <Tooltip />
+          <Legend />
+        </PieChart>
+      </center>
+      <br />
+      <br />
+      <center>
+        <PieChart
+          width={1000}
+          height={500}
+          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+        >
+          <Pie
+            dataKey="value"
+            isAnimationActive={false}
+            data={data06}
             cx={200}
             cy={200}
             outerRadius={80}
