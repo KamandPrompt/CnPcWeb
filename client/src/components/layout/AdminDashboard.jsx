@@ -2,15 +2,24 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-
+import { studentsData } from "../../actions/fetching"
 
 class AdminDashboard extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //       DataisLoaded: false,
+  //   };
+  // }
+  componentDidMount() {
+    const data = this.props.studentsData();
+    // we have to make that async function
+  }
   onLogout = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
-
-render() {
+  render() {
     const { user } = this.props.auth;
     return (
       <>
@@ -40,6 +49,7 @@ render() {
 
 AdminDashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
+  studentsData : PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -49,5 +59,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  { logoutUser, studentsData }
 )(AdminDashboard);
