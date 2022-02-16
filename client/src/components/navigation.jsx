@@ -122,12 +122,12 @@ class Navigation extends Component {
               <a href="/contact" className="page-scroll dropbtn">
                 Contact us
               </a>
-              <div className="dropdown-content">
+              {/* <div className="dropdown-content">
                 <a href="/contact">Professor in charge</a>
                 <a href="/contact">Placement cell details</a>
                 <a href="/contact">Student coordinators</a>
                 <a href="/contact">Administrative staff</a>
-              </div>
+              </div> */}
             </li>
 
             {this.props.auth.isAuthenticated ? (
