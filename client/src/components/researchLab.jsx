@@ -1,11 +1,18 @@
 import React from "react";
+import nmr from "../images/nmr.png"
+import crystalxdr from "../images/crystalxdr.png"
+import hrtem from "../images/HR-TEM.png"
 
 export const ResearchLab = () => {
   return (
     <>
       <div className="acadmic">
         <div className="slot">
-          <h3 className="homeHead">Research Lab</h3>
+          <div>
+            <hr className="left-lg" />
+            <h3 className="homeHead homeHead-lg">Research Lab</h3>
+            <hr className="right-lg" />
+          </div>
           <p>
             In a world increasingly driven by technology, IIT Mandi offers the
             best research facilities to its students as well to the faculties.
@@ -123,16 +130,24 @@ export const ResearchLab = () => {
           </div>
         </div>
         <br />
-        <div className="slot">
+        <div className="slot container">
           <p>
-            Apart from these, we are planning to install few major instruments
-            like:
+            Upcomming Installations :
           </p>
-          <ol>
-            <li>1) NMR</li>
-            <li>2) Single Crystal XRD</li>
-            <li>3) HR-TEM etc in near future</li>
-          </ol>
+            <div className="row">
+              <div className="col-lg-4 col-md-4 col-sm-12 installation">
+                <img src={nmr} alt="" />
+                <h3 className="device">NMR</h3>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-12 installation">
+                <img src={crystalxdr} alt="" />
+                <h3 className="device">Single Crsytal XRD</h3>
+              </div>
+              <div className="col-lg-4 col-md-4 col-sm-12 installation">
+                <img src={hrtem} alt="" />
+                <h3 className="device">HR-TEM</h3>
+              </div>
+            </div>
         </div>
       </div>
     </>

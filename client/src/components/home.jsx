@@ -18,7 +18,11 @@ export const Home = (props) => {
   return (
     <div className="cont">
       <div id="home" className="container item">
-        <h3 className="homeHead"><center>About Us</center></h3>
+        <div>
+          <hr className="left" />
+          <h3 className="homeHead">About Us</h3>
+          <hr className="right" />
+        </div>
         <p className="aboutUs">
           Among the elite technology institutes of the country, IIT Mandi
           embodies technology, research and development in the purest form.
@@ -35,7 +39,7 @@ export const Home = (props) => {
           company.
         </p>
       </div>
-      <h3 className="homeHead">From the Faculty Advisor</h3>
+      <h3 className="faculty-head">From the Faculty Advisor</h3>
       <div className="about container row item">
         {/* <div className="col-lg-4 col-md-6 col-sm-12">
               <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
