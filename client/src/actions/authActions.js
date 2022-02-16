@@ -57,8 +57,7 @@ export const loginRecruiter = (userData) => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
-   }
-  )
+  })
   .catch(err=> dispatch({
     type:GET_ERRORS,
     payload:err.response.data
@@ -88,8 +87,7 @@ export const loginStudent = (userData) => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
-   }
-  )
+  })
   .catch(err=> dispatch({
     type:GET_ERRORS,
     payload:err.response.data
@@ -108,8 +106,7 @@ export const loginAdmin = (userData) => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
-   }
-  )
+  })
   .catch(err=> dispatch({
     type:GET_ERRORS,
     payload:err.response.data
@@ -125,7 +122,7 @@ export const setCurrentUser = decoded_data => {
     payload: decoded_data
   };
 };
- 
+
 // Logout user
 export const logoutUser = () => dispatch => {
   // Remove token from local storage
@@ -135,4 +132,3 @@ export const logoutUser = () => dispatch => {
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
-  

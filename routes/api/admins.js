@@ -9,7 +9,7 @@ const validateLoginInput = require("../../validation/loginAdmin");
 
 // Load Admin model
 const Admin = require("../../models/AdminSchema");
-
+const Students = require("../../models/StudentSchema");
 // @route POST api/admins/login
 // @desc Login user and return JWT token
 // @access Public
@@ -65,4 +65,9 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get("/all-students", async (req,res) => {
+  const allStudents = await Students.find({}).lean();
+  // console.log(allStudents);
+  return res.json(allStudents);
+});
 module.exports = router;
