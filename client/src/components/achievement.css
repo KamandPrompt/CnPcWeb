@@ -94,12 +94,12 @@ div#frame .pin1 {
     background-image: radial-gradient(rgb(255, 41, 41) 50%, black 100%);
 }
 
-.text {
+/* .text {
     font-size: 10px;
     margin: 8px;
     font-family: 'The Girl Next Door', cursive;
-    overflow: scroll;
-}
+    
+} */
 
 .text > h4{
     font-size: 15px;
@@ -109,6 +109,7 @@ div#frame .pin1 {
 
 .text > p{
     font-size: 13px;
+    overflow: scroll;
 }
 
 div#frame a:hover.note {
