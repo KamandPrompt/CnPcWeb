@@ -12,11 +12,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 470px;
-    background-image: url("../../public/images/degree.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-size: cover;
+    height: 170px;
+    background-color: rgba(202, 204, 206, 0.85);
 }
 
 .slick-center {

@@ -689,6 +689,18 @@ hr {
   display: inline-block !important;
   width: 35%;
 }
+.left-hcl{
+  display: inline-block !important;
+  width: 20%;
+  border-top: 2px solid #083661;
+  margin: 0.55em 0;
+}
+.right-hcl{
+  margin: 0.55em 0;
+  border-top: 2px solid #083661;
+  display: inline-block !important;
+  width: 20%;
+}
 .homeHead{
   display: inline-block !important;
   width: 20%;
@@ -698,6 +710,12 @@ hr {
   display: inline-block !important;
   width: 30%;
   text-align: center;
+}
+.homeHead-hcl{
+  display: inline-block !important;
+  width: 60%;
+  text-align: center;
+  font-size: 28px;
 }
 
 @media (max-width:1040px) {
@@ -721,12 +739,27 @@ hr {
     display: block !important;
     width: 100%;
   }
+  .left-hcl{
+    display: block !important;
+    width: 100%;
+    border-top: 2px solid #083661;
+  }
+  .right-hcl{
+    border-top: 2px solid #083661;
+    display: block !important;
+    width: 100%;
+  }
   .homeHead{
     display: block !important;
     width: 100%;
     text-align: center;
   }
   .homeHead-lg{
+    display: block !important;
+    width: 100%;
+    text-align: center;
+  }
+  .homeHead-hcl{
     display: block !important;
     width: 100%;
     text-align: center;
@@ -768,37 +801,38 @@ hr {
 .homeSlider{
   background-color: rgb(253, 253, 253);
   margin: 50px;
-  height: 500px;
+  height: 200px;
 }
 
 .sliderItem{
-  background-color: rgba(251, 252, 253,0.75);
+  background-color: #16395a;
   width: 100%;
-  border: 2px solid black;
+  border: 2px solid rgb(7, 28, 85);
   border-radius: 30px;
-  overflow: scroll;
   transform: scale(0.9);
 }
-
 
 .slidePallet{
   display: flex;
   flex-direction: column;
-  height: 350px;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
   transform: scale(0.9);
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
-.slidePallet h4{
+.slidePallet h3{
   text-align: center;
+  font-size: 30px;
   font-weight: 800;
 }
 
-.slidePallet p{
-  color: #5f6161;
+.slidePallet a{
+  color: #54d8f0;
   font-weight: 600;
 }
 
@@ -872,3 +906,13 @@ hr {
   right: 0%;
 }
 
+.ihubrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ihubimg{
+  height: 100%;
+}
