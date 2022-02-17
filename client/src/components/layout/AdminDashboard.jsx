@@ -2,18 +2,24 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import { studentsData } from "../../actions/fetching"
-
+import axios from "axios";
 class AdminDashboard extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //       DataisLoaded: false,
-  //   };
-  // }
-  componentDidMount() {
-    const data = this.props.studentsData();
-    // we have to make that async function
+  constructor(props) {
+    super(props);
+    this.state = {
+      DataisLoaded: false,
+      studentsData: []
+    };
+  }
+  async componentDidMount() {
+    await axios.get("/api/admins/all-students")
+    .then(res => {
+      this.setState({studentsData : res.data});
+      // console.log(this.state.studentsData);
+    })
+    .catch(err=> {
+      console.log(err);
+    })
   }
   onLogout = e => {
     e.preventDefault();
@@ -49,7 +55,6 @@ class AdminDashboard extends Component {
 
 AdminDashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  studentsData : PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
 
@@ -59,5 +64,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { logoutUser, studentsData }
+  { logoutUser }
 )(AdminDashboard);
