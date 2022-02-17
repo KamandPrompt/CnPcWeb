@@ -100,7 +100,7 @@ class Navigation extends Component {
               <div className="dropdown-content">
                 <a href="/registerRecruiter">Register</a>
                 <a href="/loginRecruiter">Login</a>
-                <a href="#">Placement brochure</a>
+                {/* <a href="#">Placement brochure</a> */}
                 <a href="#">Calendar</a>
                 <a href="#">Past Recruiters</a>
                 <a href="#">Placement news and stats</a>
