@@ -2,7 +2,28 @@ import React from "react";
 import { ResearchLab } from "./researchLab";
 import { Centre } from "./centre";
 import ihub from "../images/ihub.png";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export const Research = (props) => {
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "5px",
+    slidesToShow: 3,
+    speed: 500,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <div>
       <ResearchLab />
@@ -14,52 +35,76 @@ export const Research = (props) => {
             <h3 className="homeHead">Projects</h3>
             <hr className="right" />
           </div>
-          <h5>
-            Sponsored Research Projects (
+          <div className="homeSlider">
+        <Slider id="car1" {...settings}>
+          <div className="sliderItem">
+            <div className="slidePallet">
+              <h3>
             <a href="https://www.iitmandi.ac.in/research/sponsored_research.php">
-              Click Here
-            </a>
-            ).
-          </h5>
-          <h5>
-            Consultancy Projects (
+            Sponsored Research Projects
+            </a></h3>
+            </div>
+          </div>
+          <div className="sliderItem">
+            <div className="slidePallet">
+            <h3>
             <a href="https://www.iitmandi.ac.in/research/consultancy.php">
-              Click Here
-            </a>
-            ).
-          </h5>
-          <h5>
-            Seed Grant Projects (
+            Consultancy Projects 
+            </a> 
+          </h3>
+            </div>
+          </div>
+          <div className="sliderItem">
+            <div className="slidePallet">
+            <h3>
+            
             <a href="https://www.iitmandi.ac.in/research/seed_grant.php">
-              Click Here
+            Seed Grant Projects 
             </a>
-            ).
-          </h5>
-          <h5>
-            Internal Projects (
+            
+          </h3>
+            </div>
+          </div>
+          <div className="sliderItem">
+            <div className="slidePallet">
+            <h3>
             <a href="https://www.iitmandi.ac.in/research/internal.php">
-              Click Here
+            Internal Projects
             </a>
-            ).
-          </h5>
-          <h5>
-            EWOK (Enabling Women of Kamand) (
-            <a href="http://ewok.iitmandi.ac.in/">Click Here</a>).
-          </h5>
+          </h3>
+            </div>
+          </div>
+          <div className="sliderItem">
+            <div className="slidePallet">
+            <h3>
+             
+            <a href="http://ewok.iitmandi.ac.in/">EWOK (Enabling Women of Kamand)</a>
+          </h3>
+            </div>
+          </div>
+        </Slider>
+      </div>
         </div>
       </div>
       <div className="acadmic">
         <div className="slot">
-          <h3 className="faculty-head">Technology Innovation HUB and HCL</h3>
-          <div className="row">
-            <div className="col-lg-3 col-md-4">
+          {/* <h3 className="faculty-head">Technology Innovation HUB and HCL</h3> */}
+          <div>
+            <hr className="left-hcl" />
+            <h3 className="homeHead homeHead-hcl">Technology Innovation HUB and HCL</h3>
+            <hr className="right-hcl" />
+          </div>
+          <br />
+          <br />
+          <div className="row ihubrow">
+            <div className="col-lg-3 col-md-4 ihubimg">
               <img src={ihub} alt="" />
             </div>
             <div className="col-lg-9 col-md-8 backG">
               <p className="bhashan">
                 A Technology Innovation Hub (TIH) in human-computer interaction (IIT
                 Mandi iHub and HCI Foundation or iHub) has been setup at the Indian
-                Institute of Technology (IIT) Mandi under India’s National Mission
+                Institute of Technology (IIT) Mandi under India's National Mission
                 on Interdisciplinary Cyber-Physical Systems. The iHub is planned to
                 make India a leader in human-computer interaction (HCI) research in
                 the world. The iHub is a section-8 company that has been created

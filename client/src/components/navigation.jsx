@@ -58,7 +58,7 @@ class Navigation extends Component {
                     id="innerDiv"
                     className="dropdown-content btn-group dropright"
                   >
-                    <a href="#">Schools</a>
+                    <a href="/acadmics#school">Schools</a>
                     <a href="/research">Research and Development</a>
                     {/* <a href="https://www.iitmandi.ac.in/TIH-HCI/">I HUB</a>
                     <a href="https://www.iitmandicatalyst.in/">Catalyst</a> */}
@@ -68,14 +68,14 @@ class Navigation extends Component {
                     >
                       MoUs
                     </a>
-                    <a href="#">Programmes(UG & PG)</a>
+                    <a href="/acadmics#UG/PG">Programmes(UG & PG)</a>
                   </div>
                 </a>
                 <a href={require("./Brochure2021-22.pdf")} target="blank">
                   Brochure
                 </a>
                 <a href="/achievement">Students achievements</a>
-                <a href="#">Demographics</a>
+                <a href="/acadmics#demographics">Demographics</a>
                 <a
                   href="https://gymkhana.iitmandi.co.in/index.html"
                   target="_blank"
