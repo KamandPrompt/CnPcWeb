@@ -46,7 +46,7 @@ class Navigation extends Component {
               <div className="dropdown-content">
                 <a
                   id="outerDiv"
-                  className="page-scroll dropbtn"
+                  className="dropbtn"
                   href="/acadmics"
                 >
                   Acadmics{" "}

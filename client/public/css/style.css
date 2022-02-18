@@ -352,8 +352,7 @@ a:focus,
 /* footer section */
 
 .footer-main {
-  /* width: 100vw; */
-	padding: 50px;
+	padding: 50px 0px 10px 0px;
 	background: #093660;
 }
  
