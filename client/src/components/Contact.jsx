@@ -11,6 +11,7 @@ import saksham from "../images/saksham.jpeg";
 import pratik from "../images/pratik.jpg";
 import sudhanshu from "../images/sudhanshu.jpg";
 import bhumanyu from "../images/bhumanyu.jpg";
+import garima from "../images/garima.jpg";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import { Form } from "react-bootstrap";
 export const Contact = (props) => {
@@ -66,7 +67,8 @@ export const Contact = (props) => {
             <figcaption>
               <div className="profile-image">
                 <img
-                  src="	https://lh5.googleusercontent.com/XQNQdcBH_aYr8wZX6cXxiE73XRCaKPTXAsPZg5JbkkyI682WCQmKkUH7EjteWIB-Zbb4-R1BAIqC0IC02datWzmpvwtvJKSFZsLxl2NVOOV0oqnu=w1280"
+                  // src="	https://lh5.googleusercontent.com/XQNQdcBH_aYr8wZX6cXxiE73XRCaKPTXAsPZg5JbkkyI682WCQmKkUH7EjteWIB-Zbb4-R1BAIqC0IC02datWzmpvwtvJKSFZsLxl2NVOOV0oqnu=w1280"
+                  src={garima}
                   alt="Dr.Garima-Agrawal"
                   className="image"
                 />
