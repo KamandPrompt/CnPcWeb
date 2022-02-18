@@ -113,8 +113,8 @@
     vertical-align: top;
     position: relative;
     /* border-radius: 50%; */
-    max-width: 60%;
-    border-radius: 60px;
+    /* max-width: 60%; */
+    border-radius: 100%;
 }
 
 .snip1559 figcaption {
