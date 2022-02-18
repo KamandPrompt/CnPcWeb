@@ -66,7 +66,7 @@ export const Footer = (props) => {
               <div className="block-2">
                 {/* <!-- heading --> */}
                 <h4 style={{ color: "white" }}>Quick Links</h4>
-                {/* <hr className="new4" /> */}
+                <hr className="new4" />
                 {/* <!-- links --> */}
                 <ul id="links-1">
                   <li>
@@ -116,7 +116,7 @@ export const Footer = (props) => {
             <div className="col-lg-4 col-md-6 col-sm-12">
               <div className="block-2">
                 <h4 style={{ color: "white" }}>Explore</h4>
-                {/* <hr className="new4" style={{ color: "white" }} /> */}
+                <hr className="new4" style={{ color: "white" }} />
                 <ul>
                   <li>
                     <a
