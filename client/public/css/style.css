@@ -15,7 +15,13 @@ html {
   font-size: large;
   text-align:justify;
 }
-
+.recharts-legend-item-text{
+  font-size: 21px;
+}
+/* .recharts-legend-icon{
+  height: 22px;
+  width: 22px;
+} */
 h5{
   color: #333333;
 }
@@ -237,7 +243,7 @@ a:focus,
   display: none;
 }
 .bhashan{
-  text-align:justify;
+  text-align:initial;
   padding-top: 35px;
   padding-left: 10px;
   padding-right: 10px;

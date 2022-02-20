@@ -1,4 +1,4 @@
-import demo from "../images/demo.jpg";
+// import demo from "../images/demo.jpg";
 import {
   PieChart,
   BarChart,
@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
   Sector,
   Cell,
+  Label
 } from "recharts";
 const data01 = [
   { name: " Mechanical Engineering", value: 23, fill: "#003399" },
@@ -31,7 +32,7 @@ const data02 = [
   { name: "Bio Engineering", value: 18, fill: "#ed1727" },
 ];
 const data03 = [
-  { name: "Bio Tech", value: 16, fill: "#003399" },
+  { name: "Bio Technology", value: 16, fill: "#003399" },
   { name: "STE", value: 13, fill: "#015100" },
   { name: "PED", value: 16, fill: "#FF6600" },
   { name: "CSP", value: 3, fill: "#CE65DF" },
@@ -77,7 +78,7 @@ export const Demo = (props) => {
         >
           <Pie
             dataKey="value"
-            isAnimationActive={false}
+            isAnimationActive={true}
             data={data01}
             cx={200}
             cy={200}
@@ -86,26 +87,18 @@ export const Demo = (props) => {
             label
           ></Pie>
           <Tooltip />
-          <Legend />
+          <Legend layout="vertical" verticalAlign="middle" align="left" />
         </PieChart>
       </center>
-
-      {/* <PieChart
-            width={1000}
-            height={400}
-            margin={{ top: 0, right: 10, left: -75, bottom: 0 }}
-          >
-          </PieChart> */}
-      <br />
       <center>
         <PieChart
           width={1000}
-          height={500}
+          height={400}
           margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
         >
           <Pie
             dataKey="value"
-            isAnimationActive={false}
+            isAnimationActive={true}
             data={data02}
             cx={200}
             cy={200}
@@ -114,98 +107,101 @@ export const Demo = (props) => {
             label
           ></Pie>
           <Tooltip />
-          <Legend />
+          <Legend layout="vertical" verticalAlign="middle" align="left" />
         </PieChart>
       </center>
-      <br />
-      <br />
+      {/* <br />
+      <br /> */}
       <center>
-        <PieChart
+      <PieChart
           width={1000}
-          height={500}
+          height={400}
           margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
         >
           <Pie
             dataKey="value"
-            isAnimationActive={false}
+            isAnimationActive={true}
             data={data03}
-            cx={200}
+            cx={330}
             cy={200}
             outerRadius={80}
             fill="#fff"
             label
           ></Pie>
           <Tooltip />
-          <Legend />
+          <Legend layout="vertical" verticalAlign="middle" align="left" />
         </PieChart>
       </center>
-      <br />
-      <br />
       <center>
         <PieChart
           width={1000}
-          height={500}
+          height={400}
           margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
         >
           <Pie
             dataKey="value"
-            isAnimationActive={false}
+            isAnimationActive={true}
             data={data04}
-            cx={200}
+            cx={400}
             cy={200}
             outerRadius={80}
             fill="#fff"
             label
           ></Pie>
           <Tooltip />
-          <Legend />
+          <Legend layout="vertical" verticalAlign="middle" align="left" />
         </PieChart>
       </center>
-      <br />
-      <br />
+      {/* <br />
+      <br /> */}
       <center>
         <PieChart
           width={1000}
-          height={500}
+          height={400}
           margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
         >
           <Pie
             dataKey="value"
-            isAnimationActive={false}
+            isAnimationActive={true}
             data={data05}
-            cx={200}
+            cx={300}
             cy={200}
             outerRadius={80}
             fill="#fff"
             label
+          //   innerRadius={40}
+          // outerRadius={90}
           ></Pie>
           <Tooltip />
-          <Legend />
+          <Legend layout="vertical" verticalAlign="middle" align="left" />
         </PieChart>
       </center>
-      <br />
-      <br />
+      {/* <br />
+      <br /> */}
       <center>
         <PieChart
           width={1000}
-          height={500}
+          height={400}
           margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
         >
           <Pie
             dataKey="value"
-            isAnimationActive={false}
+            isAnimationActive={true}
+            // onMouseMove={onMouseMove}
             data={data06}
-            cx={200}
+            // dataKey="duration"
+            cx={350}
             cy={200}
             outerRadius={80}
             fill="#fff"
             label
-          ></Pie>
+          >
+            {/* <Label /> */}
+          </Pie>
           <Tooltip />
-          <Legend />
+          <Legend className="legendSize" layout="vertical" verticalAlign="middle" align="left" />
         </PieChart>
       </center>
-      <br />
     </div>
   );
 };
