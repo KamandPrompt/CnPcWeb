@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
-// import { iitimage } from "../images/logo-iit.png"
+import  iitimage  from "../images/resize.png";
+import  iiti  from "../images/iit.png"
 class Navigation extends Component {
   onLogout = (e) => {
     e.preventDefault();
@@ -14,7 +15,7 @@ class Navigation extends Component {
     // const { user } = this.props.auth;
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
-      <div className="container">
+      <div className="container-fluid">
         <div className="navbar-header">
           <button
             type="button"
@@ -29,7 +30,7 @@ class Navigation extends Component {
             <span className="icon-bar"></span>{" "}
           </button>
           <a className="navbar-brand page-scroll" href="/">
-            {/* <img src={ iitimage }></img> */}
+            {/* <img src={ iiti }></img> */}
             Career and Placement Cell
           </a>{" "}
         </div>
