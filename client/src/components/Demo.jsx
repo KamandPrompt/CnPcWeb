@@ -12,7 +12,7 @@ import {
   ResponsiveContainer,
   Sector,
   Cell,
-  Label
+  Label,
 } from "recharts";
 const data01 = [
   { name: " Mechanical Engineering", value: 23, fill: "#003399" },
@@ -49,9 +49,7 @@ const data04 = [
   // { name: "VLSI", value: 14, fill: "#7F7F7F" },
   { name: "MS", value: 62, fill: "#ed1727" },
 ];
-const data05 = [
-  { name: "Development Studies", value: 12, fill: "#ed1727" },
-];
+const data05 = [{ name: "Development Studies", value: 12, fill: "#ed1727" }];
 const data06 = [
   { name: "Chemistry", value: 42, fill: "#003399" },
   { name: "Physics", value: 27, fill: "#7F7F7F" },
@@ -64,12 +62,14 @@ export const Demo = (props) => {
     //   <img src={demo} className="demoimg" alt="Demographics" />
     // </div>
     <div id="demographics" className="Pie">
-      <h3 className="h3">
-        <center>Student Demographics</center>
-      </h3>
-      <h3 className="h3">
+      <div>
+        <hr className="left-lg" />
+        <h3 className="homeHead homeHead-lg">Student Demographics</h3>
+        <hr className="right-lg" />
+      </div>
+      {/* <h3 className="h3">
         <center>Number of Students in Each Stream</center>
-      </h3>
+      </h3> */}
       <center>
         <PieChart
           width={1000}
@@ -113,7 +113,7 @@ export const Demo = (props) => {
       {/* <br />
       <br /> */}
       <center>
-      <PieChart
+        <PieChart
           width={1000}
           height={400}
           margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
@@ -169,8 +169,8 @@ export const Demo = (props) => {
             outerRadius={80}
             fill="#fff"
             label
-          //   innerRadius={40}
-          // outerRadius={90}
+            //   innerRadius={40}
+            // outerRadius={90}
           ></Pie>
           <Tooltip />
           <Legend layout="vertical" verticalAlign="middle" align="left" />
@@ -199,7 +199,12 @@ export const Demo = (props) => {
             {/* <Label /> */}
           </Pie>
           <Tooltip />
-          <Legend className="legendSize" layout="vertical" verticalAlign="middle" align="left" />
+          <Legend
+            className="legendSize"
+            layout="vertical"
+            verticalAlign="middle"
+            align="left"
+          />
         </PieChart>
       </center>
     </div>
