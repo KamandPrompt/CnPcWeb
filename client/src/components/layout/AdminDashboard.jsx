@@ -5,7 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import axios from "axios";
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from "react-router-dom";
-
+import "../admin.css";
 
 class AdminDashboard extends Component {
   constructor(props) {
@@ -35,24 +35,32 @@ class AdminDashboard extends Component {
     {
       const userRows = this.state.studentsData;
       const columns = [
-        { field: 'rollNo', headerName: 'Roll No.'},
-        { field: 'name', headerName: 'Name'},
+        { field: 'rollNo', headerName: 'Roll No.',hideable:false,width:130},
+        { field: 'name', headerName: 'Name',hideable:false,width:130},
         {
           field: 'batch',
           headerName: 'Batch',
           type: 'number',
+          width:100,
+          hideable:false,
+          
         },
         {
           field: "verification_status",
           headerName: "Status",
+          width:130,
+          hideable:false,
         },
         {
           field: "edit",
           headerName: "Edit",
+          sortable: false,
+          filterable:false,
+          hideable:false,
           renderCell: (params) => {
             return (
               <>
-                <Link to={"user/edit/" + params.row.rollNo}>
+                <Link to={"user/edit/" + params.row.rollNo} target="_blank">
                   <button className="userEdit">Edit</button>
                 </Link>
               </>
@@ -65,7 +73,7 @@ class AdminDashboard extends Component {
           renderCell: (params) => {
             return (
               <>
-                <Link to={"user/view/" + params.row.rollNo}>
+                <Link to={"user/view/" + params.row.rollNo} target="_blank">
                   <button className="userView">View</button>
                 </Link>
               </>
@@ -85,17 +93,14 @@ class AdminDashboard extends Component {
                   <span style={{ fontFamily: "monospace" }}>admin</span> app 👏
                 </p>
               </h4>
-              <div style={{height:'300px', width:'100%', fontSize:'1em'}}>
-                <div style={{ display: 'flex', height: '100%'}}>
+              <div style={{height:'300px', width:'100%'}} id="dataGrid">
                 <DataGrid
                   rows={userRows}
-                  columns={[...columns,{ field: 'edit', sortable: false,filterable:false,hideable:false },{ field: 'view', sortable: false,filterable:false,hideable:false }]}
+                  columns={[...columns,{ field: 'edit',  },{ field: 'view', sortable: false,filterable:false,hideable:false }]}
                   pageSize={10}
                   rowsPerPageOptions={[10,20,30]}
-                  style = {{fontSize:'15px'}}
                   getRowId={(row) => row.rollNo}
                 />
-                </div>
               </div>
               {/* <button
                 onClick={this.onLogout}
