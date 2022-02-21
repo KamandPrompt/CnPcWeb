@@ -76,7 +76,7 @@ class StudentDashboard extends Component {
                         <Form.Group>
                           <label>City</label>
                           <Form.Control
-                            defaultValue="Mike"
+                            // defaultValue="Mike"
                             placeholder="City"
                             type="text"
                           ></Form.Control>
@@ -86,7 +86,7 @@ class StudentDashboard extends Component {
                         <Form.Group>
                           <label>Country</label>
                           <Form.Control
-                            defaultValue="Andrew"
+                            // defaultValue="Andrew"
                             placeholder="Country"
                             type="text"
                           ></Form.Control>
@@ -108,8 +108,8 @@ class StudentDashboard extends Component {
                           <label>About Me</label>
                           <Form.Control
                             cols="80"
-                            defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
-                            that two seat Lambo."
+                            // defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
+                            // that two seat Lambo."
                             placeholder="Here can be your description"
                             rows="4"
                             as="textarea"
