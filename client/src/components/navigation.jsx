@@ -42,7 +42,7 @@ class Navigation extends Component {
           <ul className="nav navbar-nav navbar-right">
             <li className="dropdown">
               <a href="/acadmics" className="page-scroll dropbtn">
-                Why recruit?
+                <strong>Why Recruit?</strong>
               </a>
               <div className="dropdown-content">
                 <a
@@ -75,13 +75,13 @@ class Navigation extends Component {
                 <a href={require("./Brochure2021-22.pdf")} target="blank">
                   Brochure
                 </a>
-                <a href="/achievement">Students achievements</a>
+                <a href="/achievement">Students Achievements</a>
                 <a href="/acadmics#demographics">Demographics</a>
                 <a
                   href="https://gymkhana.iitmandi.co.in/index.html"
                   target="_blank"
                 >
-                  Students gymkhana
+                  Students Gymkhana
                 </a>
                 <a
                   href="https://ieee.iitmandi.ac.in/index.html"
@@ -96,7 +96,7 @@ class Navigation extends Component {
             </li>
             <li className="dropdown">
               <a href="#features" className="page-scroll dropbtn">
-                Recruiters valley
+                <strong>Recruiters Valley</strong>
               </a>
               <div className="dropdown-content">
                 <a href="/registerRecruiter">Register</a>
@@ -104,24 +104,24 @@ class Navigation extends Component {
                 {/* <a href="#">Placement brochure</a> */}
                 <a href="#">Calendar</a>
                 <a href="#">Past Recruiters</a>
-                <a href="#">Placement news and stats</a>
+                <a href="#">Placement News and Stats</a>
               </div>
             </li>
             <li className="dropdown">
               <a href="#features" className="page-scroll dropbtn">
-                Students column
+                <strong>Students Col</strong>
               </a>
               <div className="dropdown-content">
                 <a href="/loginStudent">Login</a>
                 <a href="#">Policies</a>
                 <a href="#">Noticeboard</a>
                 <a href="#">Forms </a>
-                <a href="#">Preparation portal</a>
+                <a href="#">Preparation Portal</a>
               </div>
             </li>
             <li className="dropdown">
               <a href="/contact" className="page-scroll dropbtn">
-                Contact us
+                <strong>Contact Us</strong>
               </a>
               {/* <div className="dropdown-content">
                 <a href="/contact">Professor in charge</a>
