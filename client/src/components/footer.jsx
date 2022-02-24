@@ -77,14 +77,14 @@ export const Footer = (props) => {
                   <li>
                     <a
                       className="links"
-                      href="https://research.iitmandi.ac.in/main/placements/"
+                      href="/"
                     >
-                      Career and Placement Cell
+                      Welcome to Kamand Valley
                     </a>
                   </li>
                   <li>
-                    <a className="links" href="./grievances/index.html">
-                      Grievances
+                    <a className="links" target="_blank" href="https://guesthouse.iitmandi.ac.in/">
+                      Guest House
                     </a>
                   </li>
                   <li>
