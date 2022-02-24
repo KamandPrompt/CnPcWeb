@@ -102,7 +102,7 @@ class Navigation extends Component {
                 <a href="/registerRecruiter">Register</a>
                 <a href="/loginRecruiter">Login</a>
                 {/* <a href="#">Placement brochure</a> */}
-                <a href="#">Calendar</a>
+                <a href="https://iitmandi.ac.in/calender2022/Home/ViewCalendar/2.html" target="_blank">Calendar</a>
                 <a href="#">Past Recruiters</a>
                 <a href="#">Placement News and Stats</a>
               </div>
