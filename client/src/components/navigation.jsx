@@ -50,7 +50,7 @@ class Navigation extends Component {
                   className="dropbtn"
                   href="/acadmics"
                 >
-                  Acadmics{" "}
+                  Academics{" "}
                   <i
                     style={{ float: "right", marginTop: "4px" }}
                     class="fas fa-caret-right"
@@ -89,7 +89,7 @@ class Navigation extends Component {
                 >
                   IEEE SB chapter
                 </a>
-                <a href="https://alumniconnect.iitmandi.ac.in/" target="_blank">
+                <a href="https://iitmandi.ac.in/alumni/" target="_blank">
                   Alumni
                 </a>
               </div>

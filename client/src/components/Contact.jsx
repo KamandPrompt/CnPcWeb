@@ -94,18 +94,18 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={parmod} alt="Dr.Pramod-kumar" className="image" />
-                <h3 className="person">Dr. Pramod Kumar</h3>
+                <img src={parmod} alt="Dr.Parmod-kumar" className="image" />
+                <h3 className="person">Dr. Parmod Kumar</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Dr. Pramod Kumar
+                  Dr. Parmod Kumar
                   <br />
                   Faculty Co-Advisor
                   <br />
                   <b>Email</b>-{" "}
-                  <a href="mailto: pramod@iitmandi.ac.in">
+                  <a href="mailto: parmod@iitmandi.ac.in">
                     pramod@iitmandi.ac.in
                   </a>
                   <br />

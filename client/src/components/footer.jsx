@@ -87,29 +87,29 @@ export const Footer = (props) => {
                       Guest House
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a className="links" href="./Talk2_us/index.html">
                       Talk To Faculty
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a className="links" href="/gcs/index.html#ug_orientation">
                       B.Tech Orientation
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a
                       className="links"
                       href="https://students.iitmandi.ac.in/files/CodeOfConduct.pdf"
                     >
                       Code of Conduct
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a className="links" href="https://oas.iitmandi.ac.in">
                       Office Automation System
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -145,28 +145,28 @@ export const Footer = (props) => {
                     </a>
                   </li>
                   <li>
-                    <a className="links" href="./achievements/index.html">
+                    <a className="links" href="https://students.iitmandi.ac.in/main/achievements/index.html">
                       Students' Achievements
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a className="links" href="./FemaleHelpDesk/index.html">
                       Female Help Desk
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a
                       className="links"
                       href="http://students.iitmandi.ac.in/talk2_ws.php"
                     >
                       Talk To B.Tech Female Students
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a className="links" href="./FemaleStudents/index.html">
                       Specially For Female Students
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
