@@ -33,12 +33,12 @@ export const Achievement = () => {
       <div id='frame'>
         <a className="note sticky1">
             <div className='pin1'></div>
-            <div className='text'><h4>IIT Mandi graduate secures 3rd rank in UPPSC exam</h4>
+            <div className='text2'><h4>IIT Mandi graduate secures 3rd rank in UPPSC exam</h4>
               <p>IIT Mandi graduate Mr. Mohit Rawat, B.Tech (2015) from Palwal Haryana, secures 3rd rank in UPPSC exam.</p></div>
         </a>
         <a className="note sticky2">
             <div className='pin'></div>
-            <div className='text'><h4>Two IIT Mandi MA students ranked in GATE</h4>
+            <div className='text2'><h4>Two IIT Mandi MA students ranked in GATE</h4>
               <p>Shashank Shekhar (A18006) and Piyush Kumar (A18012) of Master of
                 Arts (MA) in Development Studies in the School of Humanities and
                 Social Sciences, Indian Institute of Technology (IIT) Mandi
@@ -46,14 +46,14 @@ export const Achievement = () => {
         </a>
         <a className="note sticky0">
             <div className='pin'></div>
-            <div className='text'><h4>IIT Mandi graduate placed at University of Texas</h4>
+            <div className='text2'><h4>IIT Mandi graduate placed at University of Texas</h4>
               <p>Dr. Palvi Aggarwal, a 2018 Ph.D. graduate has received an offer to a fulltime tenure track
                 Assistant Professor position in the Department of Computer
                 Science at the University of Texas at El Paso, USA.</p></div>
         </a>
         <a className="note sticky3">
             <div className='pin2'></div>
-            <div className='text'><h4>
+            <div className='text2'><h4>
                 IEEE Electron Devices Society Masters Student Fellowship 2021
               </h4><p>Mr. Arpit Nandi (S19017), pursuing MS with Dr. Ankush Bag,
                 Assistant Professor has received IEEE Electron Devices Society
@@ -62,7 +62,7 @@ export const Achievement = () => {
         </a>
         <a className="note sticky2">
             <div className='pin'></div>
-            <div className='text'><h4>
+            <div className='text2'><h4>
                 IIT Mandi Alumni secured 2nd AIR in Combined Defence Services
                 Examination 2020
               </h4><p>Indian Institute of Technology Mandi Alumni, Ms. Neha Grewal
@@ -72,7 +72,7 @@ export const Achievement = () => {
         </a>
         <a className="note sticky3">
             <div className='pin2'></div>
-            <div className='text'><h4>IIT Mandi Alumni Clear Civil Services Examination</h4>
+            <div className='text2'><h4>IIT Mandi Alumni Clear Civil Services Examination</h4>
             <p>Indian Institute of Technology Mandi Alumni, Mr. Mohit Rawat
                 (2015 Batch), have secured 462nd Rank in the final results of
                 the prestigious Civil Services Examination (CSE) declared this
@@ -82,7 +82,7 @@ export const Achievement = () => {
         </a>
         <a className="note sticky1">
             <div className='pin1'></div>
-            <div className='text'><h4>IIT Mandi Alumni Clear Civil Services Examination</h4>
+            <div className='text2'><h4>IIT Mandi Alumni Clear Civil Services Examination</h4>
               <p>
                 Indian Institute of Technology Mandi Alumni, Mr. Lalitesh K.
                 Meena (2015 Batch), have secured 655th Rank in the final results
@@ -94,7 +94,7 @@ export const Achievement = () => {
         </a>
         <a className="note sticky0">
             <div className='pin'></div>
-            <div className='text'><h4>Google Summer of Code(GSoC 2021)</h4>
+            <div className='text2'><h4>Google Summer of Code(GSoC 2021)</h4>
               <p>12 selections in organisations -
                 <ul>
                   <li>1) Zulip</li>
