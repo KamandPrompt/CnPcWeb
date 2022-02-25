@@ -75,6 +75,7 @@ class Navigation extends Component {
                 <a href={require("./Brochure2021-22.pdf")} target="blank">
                   Brochure
                 </a>
+                <a href="/Recpro">Recruitment Process</a>
                 <a href="/achievement">Students Achievements</a>
                 <a href="/acadmics#demographics">Demographics</a>
                 <a
