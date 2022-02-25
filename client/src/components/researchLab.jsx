@@ -132,7 +132,7 @@ export const ResearchLab = () => {
         <br />
         <div className="slot container">
           <p>
-            Upcomming Installations :
+            Upcoming Installations :
           </p>
             <div className="row">
               <div className="col-lg-4 col-md-4 col-sm-12 installation">
