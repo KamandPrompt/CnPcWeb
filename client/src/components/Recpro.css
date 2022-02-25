@@ -1,0 +1,18 @@
+
+.card{
+    border: 1px solid  rgb(232, 238, 241);
+    margin: 10px;
+    padding: 8px 10px;
+    box-shadow: 5px 10px #888888;
+    text-align: center;
+    align-items: center;
+    height: 250px ;
+    width: 230px ;
+    background-color:  rgba(204, 233, 255, 0.5);
+    box-shadow: 5px 5px 2.5px  #cee1f3c9 ;
+    border-radius: 5%;
+}
+
+.card-content{
+    text-align: center ;}
+

@@ -12,6 +12,7 @@ import { Home } from "./components/home";
 import { Carousal } from "./components/carousal";
 import { Acadmics } from "./components/Acadmics";
 import { Schools } from "./components/school";
+import { Recpro } from "./components/Recpro";
 import { Research } from "./components/Research";
 import  {Demo}  from "./components/Demo";
 import { render } from "@testing-library/react";
@@ -81,6 +82,12 @@ class App extends Component {
               exact
               path="/acadmics"
               element={[<Acadmics />, <Demo />]}
+            ></Route>
+
+            <Route
+              exact
+              path="/Recpro"
+              element={<Recpro />}
             ></Route>
             <Route exact path="/research" element={<Research />}></Route>
             <Route exact path="/contact" element={<Contact />}></Route>

@@ -40,6 +40,7 @@ class StudentDashboard extends Component {
                           <label>Name</label>
                           <Form.Control
                             defaultValue={user.name}
+                            disabled
                             placeholder="Name"
                             type="text"
                           ></Form.Control>
