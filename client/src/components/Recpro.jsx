@@ -7,6 +7,7 @@ export const Recpro = () => {
   return (
     <>
       <Container>
+        <center>
         <Row>
           <Col lg={3} md={4} sm={6} xs={12}>
             <div class="card text-center">
@@ -51,8 +52,7 @@ export const Recpro = () => {
               </div>
             </div>
           </Col>
-        </Row>
-        <Row> 
+
           <Col lg={3} md={4} sm={6} xs={12}>
             <div class="card text-center">
               <div class="card-body">
@@ -96,8 +96,7 @@ export const Recpro = () => {
               </div>
             </div>
           </Col>
-          </Row>
-          <Row>
+      
           <Col lg={3} md={4} sm={6} xs={12}>
             <div class="card text-center">
               <div class="card-body">
@@ -141,8 +140,7 @@ export const Recpro = () => {
               </div>
             </div>
           </Col>
-          </Row>
-          <Row>
+
           <Col lg={3} md={4} sm={6} xs={12}>
             <div class="card text-center">
               <div class="card-body">
@@ -155,6 +153,9 @@ export const Recpro = () => {
           </Col>
           
         </Row>
+
+        </center>
+        
       </Container>
       <br></br>
     </>

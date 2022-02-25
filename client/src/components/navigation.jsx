@@ -31,7 +31,7 @@ class Navigation extends Component {
           </button>
           <a className="navbar-brand page-scroll" href="/">
             {/* <img src={ iiti }></img> */}
-            Career and Placement Cell
+            CnP Cell
           </a>{" "}
         </div>
 
@@ -75,7 +75,6 @@ class Navigation extends Component {
                 <a href={require("./Brochure2021-22.pdf")} target="blank">
                   Brochure
                 </a>
-                <a href="/Recpro">Recruitment Process</a>
                 <a href="/achievement">Students Achievements</a>
                 <a href="/acadmics#demographics">Demographics</a>
                 <a
@@ -102,6 +101,7 @@ class Navigation extends Component {
               <div className="dropdown-content">
                 <a href="/registerRecruiter">Register</a>
                 <a href="/loginRecruiter">Login</a>
+                <a href="/Recpro">Recruitment Process</a>
                 {/* <a href="#">Placement brochure</a> */}
                 <a href="https://iitmandi.ac.in/calender2022/Home/ViewCalendar/2.html" target="_blank">Calendar</a>
                 <a href="#">Past Recruiters</a>
