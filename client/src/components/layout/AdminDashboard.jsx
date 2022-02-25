@@ -93,7 +93,7 @@ class AdminDashboard extends Component {
                   <span style={{ fontFamily: "monospace" }}>admin</span> app 👏
                 </p>
               </h4>
-              <div style={{height:'300px', width:'100%'}} id="dataGrid">
+              <div style={{height:'300px', width:'72%'}} id="dataGrid">
                 <DataGrid
                   rows={userRows}
                   columns={[...columns,{ field: 'edit',  },{ field: 'view', sortable: false,filterable:false,hideable:false }]}

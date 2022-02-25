@@ -94,23 +94,33 @@ div#frame .pin1 {
     background-image: radial-gradient(rgb(255, 41, 41) 50%, black 100%);
 }
 
-/* .text {
+.text2 {
     font-size: 10px;
     margin: 8px;
     font-family: 'The Girl Next Door', cursive;
-    
-} */
+    padding: 10px;
+    overflow: scroll;
+}
 
-.text > h4{
+.text2 {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.text2::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.text2 > h4{
     font-size: 15px;
     font-family: 'The Girl Next Door', cursive;
     text-align: center;
 }
 
-.text > p{
+.text2 > p{
+    color: rgb(8, 14, 80);
     font-size: 13px;
-    overflow: scroll;
 }
+
 
 div#frame a:hover.note {
     border: 1px solid rgba(0,0,0,.75);
