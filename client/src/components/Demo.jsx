@@ -14,6 +14,9 @@ import {
   Cell,
   Label,
 } from "recharts";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const data01 = [
   { name: " Mechanical Engineering", value: 23, fill: "#003399" },
   { name: "Civil Engineering", value: 20, fill: "#015100" },
@@ -56,6 +59,16 @@ const data06 = [
   { name: "Applied Maths", value: 34, fill: "#ed1727" },
 ];
 export const Demo = (props) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    cssEase: "linear"
+  };
   return (
     // <div className="acadmic container demo blue">
     //   <h2 className="homehead">Student Demographics</h2>
@@ -70,143 +83,185 @@ export const Demo = (props) => {
       {/* <h3 className="h3">
         <center>Number of Students in Each Stream</center>
       </h3> */}
-      <center>
-        <PieChart
-          width={1000}
-          height={400}
-          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
-        >
-          <Pie
-            dataKey="value"
-            isAnimationActive={true}
-            data={data01}
-            cx={200}
-            cy={200}
-            outerRadius={80}
-            fill="#fff"
-            label
-          ></Pie>
-          <Tooltip />
-          <Legend layout="vertical" verticalAlign="middle" align="left" />
-        </PieChart>
-      </center>
-      <center>
-        <PieChart
-          width={1000}
-          height={400}
-          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
-        >
-          <Pie
-            dataKey="value"
-            isAnimationActive={true}
-            data={data02}
-            cx={200}
-            cy={200}
-            outerRadius={80}
-            fill="#fff"
-            label
-          ></Pie>
-          <Tooltip />
-          <Legend layout="vertical" verticalAlign="middle" align="left" />
-        </PieChart>
-      </center>
-      {/* <br />
-      <br /> */}
-      <center>
-        <PieChart
-          width={1000}
-          height={400}
-          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
-        >
-          <Pie
-            dataKey="value"
-            isAnimationActive={true}
-            data={data03}
-            cx={330}
-            cy={200}
-            outerRadius={80}
-            fill="#fff"
-            label
-          ></Pie>
-          <Tooltip />
-          <Legend layout="vertical" verticalAlign="middle" align="left" />
-        </PieChart>
-      </center>
-      <center>
-        <PieChart
-          width={1000}
-          height={400}
-          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
-        >
-          <Pie
-            dataKey="value"
-            isAnimationActive={true}
-            data={data04}
-            cx={400}
-            cy={200}
-            outerRadius={80}
-            fill="#fff"
-            label
-          ></Pie>
-          <Tooltip />
-          <Legend layout="vertical" verticalAlign="middle" align="left" />
-        </PieChart>
-      </center>
-      {/* <br />
-      <br /> */}
-      <center>
-        <PieChart
-          width={1000}
-          height={400}
-          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
-        >
-          <Pie
-            dataKey="value"
-            isAnimationActive={true}
-            data={data05}
-            cx={300}
-            cy={200}
-            outerRadius={80}
-            fill="#fff"
-            label
-            //   innerRadius={40}
-            // outerRadius={90}
-          ></Pie>
-          <Tooltip />
-          <Legend layout="vertical" verticalAlign="middle" align="left" />
-        </PieChart>
-      </center>
-      {/* <br />
-      <br /> */}
-      <center>
-        <PieChart
-          width={1000}
-          height={400}
-          margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
-        >
-          <Pie
-            dataKey="value"
-            isAnimationActive={true}
-            // onMouseMove={onMouseMove}
-            data={data06}
-            // dataKey="duration"
-            cx={350}
-            cy={200}
-            outerRadius={80}
-            fill="#fff"
-            label
-          >
-            {/* <Label /> */}
-          </Pie>
-          <Tooltip />
-          <Legend
-            className="legendSize"
-            layout="vertical"
-            verticalAlign="middle"
-            align="left"
-          />
-        </PieChart>
-      </center>
+      <div className="homeSlider2">
+        <Slider {...settings}>
+          <div className="sliderItem2">
+            <div className="slidePallet2">
+              <center>
+                <PieChart
+                  width={1000}
+                  height={400}
+                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                >
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={200}
+                    cy={200}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                  ></Pie>
+                  <Tooltip />
+                  <Legend
+                    layout="vertical"
+                    verticalAlign="middle"
+                    align="left"
+                  />
+                </PieChart>
+              </center>
+            </div>
+          </div>
+          <div className="sliderItem2">
+            <div className="slidePallet2">
+              <center>
+                <PieChart
+                  width={1000}
+                  height={400}
+                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                >
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data02}
+                    cx={200}
+                    cy={200}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                  ></Pie>
+                  <Tooltip />
+                  <Legend
+                    layout="vertical"
+                    verticalAlign="middle"
+                    align="left"
+                  />
+                </PieChart>
+              </center>
+            </div>
+          </div>
+          <div className="sliderItem2">
+            <div className="slidePallet2">
+              <center>
+                <PieChart
+                  width={1000}
+                  height={400}
+                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                >
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data03}
+                    cx={330}
+                    cy={200}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                  ></Pie>
+                  <Tooltip />
+                  <Legend
+                    layout="vertical"
+                    verticalAlign="middle"
+                    align="left"
+                  />
+                </PieChart>
+              </center>
+            </div>
+          </div>
+          <div className="sliderItem2">
+            <div className="slidePallet2">
+              <center>
+                <PieChart
+                  width={1000}
+                  height={400}
+                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                >
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data04}
+                    cx={400}
+                    cy={200}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                  ></Pie>
+                  <Tooltip />
+                  <Legend
+                    layout="vertical"
+                    verticalAlign="middle"
+                    align="left"
+                  />
+                </PieChart>
+              </center>
+            </div>
+          </div>
+          <div className="sliderItem2">
+            <div className="slidePallet2">
+              <center>
+                <PieChart
+                  width={1000}
+                  height={400}
+                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                >
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data05}
+                    cx={300}
+                    cy={200}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    //   innerRadius={40}
+                    // outerRadius={90}
+                  ></Pie>
+                  <Tooltip />
+                  <Legend
+                    layout="vertical"
+                    verticalAlign="middle"
+                    align="left"
+                  />
+                </PieChart>
+              </center>
+            </div>
+          </div>
+          <div className="sliderItem2">
+            <div className="slidePallet2">
+              <center>
+                <PieChart
+                  width={1000}
+                  height={400}
+                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                >
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    // onMouseMove={onMouseMove}
+                    data={data06}
+                    // dataKey="duration"
+                    cx={350}
+                    cy={200}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                  >
+                    {/* <Label /> */}
+                  </Pie>
+                  <Tooltip />
+                  <Legend
+                    className="legendSize"
+                    layout="vertical"
+                    verticalAlign="middle"
+                    align="left"
+                  />
+                </PieChart>
+              </center>
+            </div>
+          </div>
+        </Slider>
+      </div>
     </div>
   );
 };
