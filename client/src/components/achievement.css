@@ -1,28 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Open+Sans&display=swap');
-.slick-arrow.slick-prev,
-.slick-arrow.slick-next {
-    background-color: rgb(255, 255, 255);
-}
-
-.slick-prev::before,
-.slick-next::before {
-    color: rgb(0, 0, 0) !important;
-}
-
-.slick-slider {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 170px;
-    background-color: rgba(202, 204, 206, 0.85);
-}
-
-.slick-center {
-    transform: scale(1.11);
-}
-
 div#frame {
     display: flex;
     /* background: url("../images/.png") no-repeat; */
