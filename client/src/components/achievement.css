@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Open+Sans&display=swap');
 .slick-arrow.slick-prev,
 .slick-arrow.slick-next {
     background-color: rgb(255, 255, 255);
@@ -22,7 +25,8 @@
 
 div#frame {
     display: flex;
-    background: url("../images/backdrop.jpg") no-repeat;
+    /* background: url("../images/.png") no-repeat; */
+    background-color: #a7dff6;
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -31,7 +35,7 @@ div#frame {
     margin: auto;
     border-radius: 30px;
     padding: 45px 35px;
-    box-shadow: 8px 5px 5px rgb(54, 41, 26);
+    box-shadow: 5px 5px 5px rgb(126, 125, 124);
     margin: 100px auto;
 }
 .note {
@@ -75,6 +79,7 @@ div#frame .pin {
 }
 
 div#frame .pin2 {
+    /* align-self: center; */
     position: absolute;
     left: 50%;
     top: 4px;
@@ -86,6 +91,7 @@ div#frame .pin2 {
 
 div#frame .pin1 {
     position: absolute;
+    left: 50%;
     right: 3px;
     top: 3px;
     width: 20px;
@@ -97,7 +103,7 @@ div#frame .pin1 {
 .text2 {
     font-size: 10px;
     margin: 8px;
-    font-family: 'The Girl Next Door', cursive;
+    font-family: 'Lato', sans-serif;
     padding: 10px;
     overflow: scroll;
 }
@@ -112,7 +118,7 @@ div#frame .pin1 {
 
 .text2 > h4{
     font-size: 15px;
-    font-family: 'The Girl Next Door', cursive;
+    font-family: 'Roboto Serif', sans-serif;
     text-align: center;
 }
 

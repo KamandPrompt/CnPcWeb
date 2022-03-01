@@ -26,13 +26,13 @@ export const Achievement = () => {
     <>
       <div className="bann">
         <div className="bannCont">
-          <h1>Achievements</h1>
+          <h1 className="bannCont">Achievements</h1>
         </div>
       </div>
       <h2 style={{ textAlign: "center" }}>Latest Achievements</h2>
       <div id='frame'>
         <a className="note sticky1">
-            <div className='pin1'></div>
+        <div className='pin1'></div>
             <div className='text2'><h4>IIT Mandi graduate secures 3rd rank in UPPSC exam</h4>
               <p>IIT Mandi graduate Mr. Mohit Rawat, B.Tech (2015) from Palwal Haryana, secures 3rd rank in UPPSC exam.</p></div>
         </a>
@@ -52,7 +52,7 @@ export const Achievement = () => {
                 Science at the University of Texas at El Paso, USA.</p></div>
         </a>
         <a className="note sticky3">
-            <div className='pin2'></div>
+            <center><div className='pin2'></div></center>
             <div className='text2'><h4>
                 IEEE Electron Devices Society Masters Student Fellowship 2021
               </h4><p>Mr. Arpit Nandi (S19017), pursuing MS with Dr. Ankush Bag,
@@ -99,8 +99,8 @@ export const Achievement = () => {
                 <ul>
                   <li>1) Zulip</li>
                   <li>2) THE LINUX FOUNDATION</li>
-                  <li>3) mlpack</li>
-                  <li>4) sympy</li>
+                  <li>3) MlPack</li>
+                  <li>4) Sympy</li>
                   <li>5) Kodi</li>
                   <li>6) Sugarlabs</li>
                 </ul>
