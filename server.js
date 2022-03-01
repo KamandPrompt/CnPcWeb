@@ -26,7 +26,7 @@ mongoose
     .connect(process.env.MONGODB_URI || dbURL,
     { useUnifiedTopology:true, useNewUrlParser: true }
     )
-    .then(() => console.log("MongoDB successfully connected", process.env.MONGODB_URI || dbURL ))
+    .then(() => console.log("MongoDB successfully connected"))
     .catch(err => console.log(err));
 
 
