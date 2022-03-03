@@ -948,10 +948,11 @@ hr {
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 50px;
+  top: 50%;
 }
 
 .bannCont{
-  width: 100%;
+  /* width: 100%; */
   position: absolute;
   /* text-align: center; */
   font-size: 70px;
