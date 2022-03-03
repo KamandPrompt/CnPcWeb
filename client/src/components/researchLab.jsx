@@ -27,106 +27,110 @@ export const ResearchLab = () => {
         <br />
         <div className="slot">
           <button id="bttn1" className="extrabtn">
-            Computational Facilities{" "}
+            MANAS Lab (SCEE){" "}
             <span className="plus">
               <i id="pluss1" className="fas fa-plus"></i>
             </span>
           </button>
           <div id="li1" className="extracont">
             <p>
-              The high performance computing facility at IT Mandi is operational
-              it is a 128-core rack mounted cluster with Xeon 2.4 GHz quad core
-              processor. 8GB memory per node, Gigabit Ethernet Interconnect and
-              6TB storage and can support 256 threads it has a RAM of IGB per
-              core. This is a rack-mounted cluster, with openPBS queuing The
-              campus is equipped with 1 Gb/s NKN connection and 45 Mb/s Internet
-              connection.
+              The Multimedia Analytics, Networks and Systems group at IIT Mandi works in several diverse areas includng communication networks, cloud computing, computer vision, data mining, machine learning techniques,signal processing and sensors. The group is a part of School of Computing and Electrical Engineering.
+              <br />To know more please{" "}
+              <a href="https://manas.iitmandi.ac.in/" target="_blank">
+                click here
+              </a>
+              .
             </p>
           </div>
         </div>
         <div className="slot">
           <button id="bttn2" className="extrabtn">
-            Characterization Lab{" "}
+            Modeling and Intelligent Control Group
+            (MIC) (SCEE){" "}
             <span className="plus">
               <i id="pluss2" className="fas fa-plus"></i>
             </span>
           </button>
           <div id="li2" className="extracont">
-            <li>UV-VIS spectrophotometer</li>
-            <li>Atomic Absorption Spectrometer (AAS)</li>
-            <li>Dynamic Light Scattering (DLS)</li>
-            <li>Magnetic susceptibility balance</li>
-            <li>Fluorescent spectrometer</li>
-            <li>
-              Thermo Gravimetric Analyzer coupled with Differential Scanning
-              Colorimetry (TGA-DSC)
-            </li>
-            <li>Electrochemical Analyzer</li>
-            <li>FT-R spectrophotometer</li>
-            <li>Ozonator</li>
-            <li>Polarimeter</li>
-            <li>GC</li>
-            <li>Time-Correlated Single Photon Counting (TCSPC)</li>
+            <p>The MIC group of IIT Mandi offers post-graduate as well as undergraduate courses in the broad areas of
+              Systems and Control. The faculty members of the group have varied research backgrounds that includes Control
+              Theory, Linear Systems, Distributed Energy Sources, Fault Diagnosis and Fault Tolerant Control, Sustainable
+              Energy Systems etc.<br />
+              To know more please{" "}
+              <a href="http://mic.iitmandi.ac.in/" target="_blank">
+                click here
+              </a>
+              .
+            </p>
           </div>
         </div>
         <div className="slot">
           <button id="bttn3" className="extrabtn">
-            Synthesis Lab{" "}
+            CMP Lab (SBS){" "}
             <span className="plus">
               <i id="pluss3" className="fas fa-plus"></i>
             </span>
           </button>
           <div id="li3" className="extracont">
-            <li>Fume Hood</li>
-            <li> Rotary Evaporator</li>
-            <li>Double Stage Water Purification System</li>
-            <li>Ultra Centrifuge with refrigeration</li>
-            <li>Muffle Furnace</li>
-            <li>Deep Freezer</li>
-            <li>Vacuum Oven</li>
-            <li>Flake loe Making Machine</li>
-            <li>Programmable Spin Coater</li>
-            <li>Ozone Generator with Oxygen Concentrator</li>
+            <p>
+              To know more please {" "}
+              <a href="http://iitmandi.ac.in/CMP/" target="_blank">
+                click here
+              </a>
+              .
+            </p>
           </div>
         </div>
         <div className="slot">
           <button id="bttn4" className="extrabtn">
-            Thermo-fluids and Design Labs{" "}
+            Photoresist Research Group{" "}
             <span className="plus">
               <i id="pluss4" className="fas fa-plus"></i>
             </span>
           </button>
           <div id="li4" className="extracont">
-            <li>N Data Acquisition Unit</li>
-            <li>Phantom high speed video camera</li>
-            <li>Coriolis flow meter</li>
-            <li>Pressure calibration system</li>
-            <li>Temperature calibration system</li>
+            <p>In today's world, semiconductor chips play a vital role in day to day life by making our life pleasurable, safer, and healthier. The radical improvements in integrated circuits (IC) performance stem primarily from the interconnection of millions of active and passive components such as logic, memory, input-output and power management modules on a single silicon chip. Semiconductor device manufacturers compete to offer cost effective devices that combine high performance and functionalities with low heat generation. This competition has resulted in a relentless drive to reduce the (IC) chip feature size to the sub N7 nm node. Reducing the device feature size boosts speed and improves the economics of manufacturing by allowing more transistors (often more than 50 million) to be placed on a single chip.
+              <br />To know more please{" "}
+              <a href="http://www.photoresistgroup.com/" target="_blank">
+                click here
+              </a>
+              .
+            </p>
           </div>
         </div>
         <div className="slot">
           <button id="bttn5" className="extrabtn">
-            Central Instrumentation Facility{" "}
+            MAS Lab (SCEE){" "}
             <span className="plus">
               <i id="pluss5" className="fas fa-plus"></i>
             </span>
           </button>
           <div id="li5" className="extracont">
-            <li>Rowder XRD</li>
-            <li>
-              High Resolution Transmission Electron Microscope ITEMI-Energy
-              Dispersive Spectroscopy (EDS)
-            </li>
-            <li>Nuclear Magnetic Resonance Spectrometer - 500 MHz</li>
-            <li>Field Emission Gun Scanning Electron Microscope (FE-SEM)</li>
-            <li>
-              Single Crystal X-ray crystallography 06. Fluorescence Confocal
-              Microscopy
-            </li>
-            <li>High Performance Liquid Chromatography (HPLC)</li>
-            <li>High Resolution Mass Spectrometer</li>
-            <li>FMTOSECOND PUMP-PROBE SET-UP</li>
-            <li>Spectrofluorometer</li>
+            <p>The Multimedia Analytics and Systems group at IIT Mandi works in several diverse areas includng signal processing, computer vision, data mining and machine learning techniques. The group is a part of School of Computing and Electrical Engineering.
+              <br />
+              To know more please{" "}
+              <a href="http://maslab.iitmandi.ac.in/" target="_blank">
+                click here
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+        <div className="slot">
+          <button id="bttn3" className="extrabtn">
+            ACS Lab (SCEE){" "}
+            <span className="plus">
+              <i id="pluss3" className="fas fa-plus"></i>
+            </span>
+          </button>
+          <div id="li3" className="extracont">
+            <p>The focus of APPLIED COGNITIVE SCIENCE lab is to investigate decision-making and cognition in applied domains. Some key domains include our environment, consumer behavior, cyber security, vehicle driving, natural disasters, and betting.
+              <br />To know more please{" "}
+              <a href="http://www.acslab.org/" target="_blank">
+                click here
+              </a>
+              .
+            </p>
           </div>
         </div>
         <br />
@@ -134,20 +138,20 @@ export const ResearchLab = () => {
           <p>
             Upcoming Installations :
           </p>
-            <div className="row">
-              <div className="col-lg-4 col-md-4 col-sm-12 installation">
-                <img src={nmr} alt="" />
-                <h3 className="device">NMR</h3>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-12 installation">
-                <img src={crystalxdr} alt="" />
-                <h3 className="device">Single Crsytal XRD</h3>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-12 installation">
-                <img src={hrtem} alt="" />
-                <h3 className="device">HR-TEM</h3>
-              </div>
+          <div className="row">
+            <div className="col-lg-4 col-md-4 col-sm-12 installation">
+              <img src={nmr} alt="" />
+              <h3 className="device">NMR</h3>
             </div>
+            <div className="col-lg-4 col-md-4 col-sm-12 installation">
+              <img src={crystalxdr} alt="" />
+              <h3 className="device">Single Crsytal XRD</h3>
+            </div>
+            <div className="col-lg-4 col-md-4 col-sm-12 installation">
+              <img src={hrtem} alt="" />
+              <h3 className="device">HR-TEM</h3>
+            </div>
+          </div>
         </div>
       </div>
     </>
