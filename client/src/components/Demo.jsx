@@ -12,7 +12,7 @@ import {
   ResponsiveContainer,
   Sector,
   Cell,
-  Label,
+  Label
 } from "recharts";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
