@@ -77,7 +77,7 @@ export const Footer = (props) => {
                   <li>
                     <a
                       className="links"
-                      href="/"
+                      href="/kamand"
                     >
                       Welcome to Kamand Valley
                     </a>

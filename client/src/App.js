@@ -20,6 +20,7 @@ import { Contact } from "./components/Contact";
 import { Achievement } from "./components/achievement";
 import { Student } from "./components/Student";
 import { INF } from "./components/INF";
+import { Kamand }from "./components/Kamand";
 
 import RegisterStudent from "./components/layout/RegisterStudent";
 import LoginStudent from "./components/layout/LoginStudent";
@@ -33,6 +34,7 @@ import StudentOutlet from "./components/private-route/StudentOutlet";
 import Dashboard from "./components/layout/Dashboard";
 import AdminDashboard from "./components/layout/AdminDashboard"
 import StudentDashboard from "./components/layout/StudentDashboard";
+
 
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
@@ -89,6 +91,7 @@ class App extends Component {
               path="/Recpro"
               element={<Recpro />}
             ></Route>
+           <Route exact path="/kamand" element={<Kamand />}></Route>
             <Route exact path="/research" element={<Research />}></Route>
             <Route exact path="/contact" element={<Contact />}></Route>
             <Route exact path="/inf" element={<INF />}></Route>
