@@ -69,7 +69,8 @@ class Navigation extends Component {
                     >
                       MoUs
                     </a>
-                    <a href="/acadmics#UG/PG">Programmes(UG & PG)</a>
+                    <a href="/Programmes"
+                    >Programmes</a>
                   </div>
                 </a>
                 <a href={require("./Brochure2021-22.pdf")} target="blank">
