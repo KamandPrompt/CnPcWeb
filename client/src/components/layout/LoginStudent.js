@@ -50,12 +50,19 @@ class Login extends Component{
         const {rollNo, password, errors} = this.state;
         return(
           <>
-
-            <div className="form-box">
-            <form className="form-container" onSubmit={this.onSubmit}>
-                <h2>Login</h2>
-                <hr/>
+            <div className="LoginBackground">
+            <div className="formCont">
+              <div className="formleft">
+              <div className="decal">
+              <div><i class="fa fa-graduation-cap graduation_cap" aria-hidden="true"></i></div>
+              <div className="header2"><h3>Career and Placement Cell</h3></div>
+              </div>
+              </div>
+              <div className="formright">
+                <form className="form_container" onSubmit={this.onSubmit}>
+                <h2 style={{"textAlign":"center","color":"white","paddingTop":"40px","paddingBottom":"20px","fontSize":"25px"}}>Login</h2>
                 <div className="form-group">
+                    <label style={{"color":"white"}}>Roll Number</label>
                     <input type="text" 
                            id="rollNo"
                            placeholder="Roll Number" 
@@ -71,6 +78,7 @@ class Login extends Component{
                         </span>
                 </div>
                 <div className="form-group">
+                    <label style={{"color":"white"}}>Password</label>
                     <input type="password"  
                            id="password" 
                            placeholder="Password" 
@@ -85,14 +93,14 @@ class Login extends Component{
                         {errors.passwordincorrect}
                     </span>
                 </div>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-block btn-lg">Login</button>
+                <div className="text-center no_account">Don't have an account? <Link to="/registerStudent">Register</Link></div>
+                <div className="form-group form_sub">
+                    <button type="submit" className="btn btn-primary btn-block btn-lg" style={{"backgroundColor":"#CFFFF6","color":"black"}}>Login</button>
                 </div>
-                <div className="text-center">Don't have an account? <Link to="/registerStudent">Register</Link></div>
-
-
-            </form>
-        </div>
+                </form>
+              </div>
+            </div>
+            </div>
       </>
 
         )

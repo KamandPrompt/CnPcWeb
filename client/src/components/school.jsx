@@ -28,6 +28,12 @@ export const Schools = (props) => {
                 energy. The underlying fundamental principles are information
                 theory, theory of computation, communication theory, quantum
                 mechanics and the laws of electromagnetism.
+                
+              To know more please,{" "}
+                <a href="https://www.iitmandi.ac.in/Schools/SCEE/index.php" target="_blank">
+                  click here
+                </a>
+                
               </div>
             </div>
             <br />
@@ -42,6 +48,12 @@ export const Schools = (props) => {
               classical mechanics, atomic physics, thermodynamics. Many faculty
               from the traditional departments of mechanical, civil, aerospace,
               metallurgy engineering would be in this School.
+
+              To know more please,{" "}
+                <a href="http://se.iitmandi.ac.in/" target="_blank">
+                  click here
+                </a>
+
               </div>
             </div>
             <br />
@@ -53,7 +65,14 @@ export const Schools = (props) => {
               This School includes mathematics, physics, chemistry and life
               sciences. While some faculty may work in pure research, others
               would work on applied research in collaboration with colleagues in
-              the engineering Schools
+              the engineering Schools.
+
+              
+              To know more please,{" "}
+                <a href="https://www.iitmandi.ac.in/Schools/SBS/index.php" target="_blank">
+                  click here
+                </a>
+                
               </div>
             </div>
             <br />
@@ -68,6 +87,12 @@ export const Schools = (props) => {
               is essential for the well-rounded engineer, for development of
               technologies, products and processes that will see widespread use.
               This School is thus an important part of IIT Mandi.
+              
+              To know more please,{" "}
+                <a href="https://www.iitmandi.ac.in/Schools/SHSS/index.php" target="_blank">
+                  click here
+                </a>
+                
               </div>
             </div>
             <br />

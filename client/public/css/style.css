@@ -961,11 +961,13 @@ hr {
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 50px;
+  top: 50%;
 }
 
 .bannCont{
-  width: 100%;
+  /* width: 100%; */
   position: absolute;
+  top: 20%;
   /* text-align: center; */
   font-size: 70px;
   padding-bottom: 10px;
@@ -985,6 +987,168 @@ hr {
 .ihubimg{
   height: 100%;
 }
-.listlink{
-  color: #06738A;
+
+.formCont{
+  width: 70%;
+  margin: auto;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.formCont2{
+  width: 90%;
+  margin: auto;
+  height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.formleft{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 85%;
+  background: url("./../images/NCampus.jpeg") no-repeat center / cover;
+  border-radius: 20px;
+}
+.formleft2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: 55%;
+  background: url("./../images/NCampus.jpeg") no-repeat center / cover;
+  border-radius: 20px;
+}
+.formright{
+  width: 50%;
+  height: 100%;
+  background-color: #083661;
+  margin-left: -50px;
+}
+
+.formright2{
+  width: 60%;
+  height: 100%;
+  background-color: #083661;
+  margin-left: -30px;
+  overflow: scroll;
+}
+
+.form_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+.form-group{
+  width: 70%;
+}
+
+.form_sub{
+  width: 25%;
+}
+
+.no_account{
+  width: 100%;
+  text-align: right;
+  margin-bottom: 20px;
+  padding-right: 10px;
+  color: white;
+}
+
+.graduation_cap{
+  font-size: 65px;
+  color: rgba(255, 255, 255, 0.774);
+}
+
+.decal{
+  background-color: black;
+  opacity: 0.6;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 20px 0px 20px 0px;
+}
+
+.header2{
+  width: 60%;
+  color: white;
+  text-align: center;
+}
+
+.header2>h3{
+  font-size:20px;
+  text-align:center;
+  color: white;
+}
+
+.formright2::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.formright2 {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@media only screen and (max-width: 846px) {
+  .formCont{
+    position: relative;
+    top: 0%;
+    flex-direction: column;
+    height: 800px;
+    width: 100%;
+  }
+  .formleft{
+    width: 95%;
+    height: 80%;
+    border-radius: 0px;
+  }
+  .formright{
+    width: 80%;
+    height: 80%;
+    margin: 0;
+    margin-top: -150px;
+  }
+}
+
+@media only screen and (max-width: 846px) {
+  .formCont2{
+    flex-direction: column;
+    height: 1500px;
+    width: 100%;
+  }
+  .formleft2{
+    width: 95%;
+    height: 40%;
+    border-radius: 0px;
+  }
+  .formright2{
+    width: 80%;
+    height: 80%;
+    margin: 0;
+    margin-top: -190px;
+    overflow: scroll;
+  }
+}
+
+.form-group{
+  margin-bottom: 0px;
+  margin-top: 5px;
 }

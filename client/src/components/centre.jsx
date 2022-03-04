@@ -31,6 +31,7 @@ export const Centre = (props) => {
           </p>
           </div>
         </div>
+
         <div className="sec-heading">
           <div className="subHead">
           Catalysts
@@ -72,7 +73,55 @@ export const Centre = (props) => {
             .
           </p>
           </div>
+
+      
+
+         
+
         </div>
+
+        <div className="sec-heading">
+          <div className="subHead">
+          BioX Centre 
+          </div>
+          <div className="sub-content">
+          The majority of the research in the BioX area is being carried out as a part of the BioX Centre, which was conceived at IIT Mandi in 2012, driven by the need for affordable health care for India, and advanced technology interventions in agriculture and for preservation of the environment in the Himalayan Region. Since then, IIT Mandi started to hire faculty and made an initial investment of Rs. 10 crores in lab equipment. As it had reached a critical mass, the formal structure of the BioX Centre was approved in December 2016. The BioX Centre building was inaugurated on May 13, 2017, by Professor K. Vijay Raghavan, Secretary, Dept. of Biotechnology, Govt. of India in the presence of Professor Sarit Kumar Das, Director IIT Ropar, and Professor Timothy A Gonsalves, Director IIT Mandi.
+            <p>
+            {" "}
+            To know more please{" "}
+            <a
+              href="https://www.iitmandi.ac.in/research/biox/"
+              target="_blank"
+            >
+              click here
+            </a>
+            .
+          </p>
+          </div>
+        </div>
+
+
+        <div className="sec-heading">
+          <div className="subHead">
+          C4DFED Facility 
+          </div>
+          <div className="sub-content">
+          Vision of C4DFED Facility @ IIT Mandi A World-Class Dynamic Infrastructure and Toolset  for Next Generation Integrated Circuits (IC’s) and Electronic Device Design and Fabrication Research and also technology development focusing  Semiconductor Industries. Vision of the centre is in line and synchronizes well with the vision of IIT Mandi : “To be a Leader in science and technology education, knowledge creation and innovation”
+            <p>
+            {" "}
+            To know more please{" "}
+            <a
+              href="https://c4dfed.iitmandi.ac.in/about-2/"
+              target="_blank"
+            >
+              click here
+            </a>
+            .
+          </p>
+          </div>
+        </div>
+
+
       </div>
     </div>
   );

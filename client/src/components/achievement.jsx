@@ -25,7 +25,7 @@ export const Achievement = () => {
   return (
     <>
       <div className="bann">
-        <div className="bannCont">
+        <div>
           <h1 className="bannCont">Achievements</h1>
         </div>
       </div>
