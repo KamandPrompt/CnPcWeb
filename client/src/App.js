@@ -11,6 +11,7 @@ import { Footer } from "./components/footer";
 import { Home } from "./components/home";
 import { Carousal } from "./components/carousal";
 import { Acadmics } from "./components/Acadmics";
+import { Programmes } from "./components/Programmes";
 import { Schools } from "./components/school";
 import { Recpro } from "./components/Recpro";
 import { Research } from "./components/Research";
@@ -84,6 +85,11 @@ class App extends Component {
               exact
               path="/acadmics"
               element={[<Acadmics />, <Demo />]}
+            ></Route>
+            <Route
+              exact
+              path="/Programmes"
+              element={<Programmes />}
             ></Route>
 
             <Route
