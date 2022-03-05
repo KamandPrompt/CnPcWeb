@@ -22,6 +22,7 @@ import { Achievement } from "./components/achievement";
 import { Student } from "./components/Student";
 import { INF } from "./components/INF";
 import { Kamand }from "./components/Kamand";
+import  Past from "./components/Past";
 
 import RegisterStudent from "./components/layout/RegisterStudent";
 import LoginStudent from "./components/layout/LoginStudent";
@@ -80,6 +81,11 @@ class App extends Component {
               exact
               path="/achievement"
               element={[<Achievement />]}
+            ></Route>
+            <Route
+              exact
+              path="/past"
+              element={[<Past />]}
             ></Route>
             <Route
               exact
