@@ -6,7 +6,7 @@ import axios from "axios";
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from "react-router-dom";
 import "../admin.css";
-
+import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 class AdminDashboard extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,8 @@ class AdminDashboard extends Component {
     {
       await axios.get(`/api/admins/student/${roll}`)
       .then(res => {
-        this.setState({studentsData : res.data, DataisLoaded:true,rollNo:roll});
+        this.setState({studentsData : res.data.details, DataisLoaded:true,rollNo:roll});
+        console.log(this.state.studentsData);
       })
       .catch(err=> {
         console.log(err);
@@ -50,43 +51,43 @@ class AdminDashboard extends Component {
     const { user } = this.props.auth;
     if(this.state.DataisLoaded === true)
     {
-      const userRows = this.state.studentsData;
-      const columns = [
-        { field: 'rollNo', headerName: 'Roll No.',hideable:false,width:130},
-        { field: 'name', headerName: 'Name',hideable:false,width:130},
-        {
-          field: 'batch',
-          headerName: 'Batch',
-          type: 'number',
-          width:100,
-          hideable:false,
-          
-        },
-        {
-          field: "verification_status",
-          headerName: "Status",
-          width:130,
-          hideable:false,
-        },
-        {
-          field: "edit",
-          headerName: "Edit/View",
-          sortable: false,
-          filterable:false,
-          hideable:false,
-          renderCell: (params) => {
-            return (
-              <>
-                <Link to={"?roll=" + params.row.rollNo} target="_blank">
-                  <button className="userEdit">Edit/View</button>
-                </Link>
-              </>
-            );
-          },
-        },
-      ];
       if(this.state.rollNo==="")
       {
+        const userRows = this.state.studentsData;
+        const columns = [
+          { field: 'rollNo', headerName: 'Roll No.',hideable:false,width:130},
+          { field: 'name', headerName: 'Name',hideable:false,width:130},
+          {
+            field: 'batch',
+            headerName: 'Batch',
+            type: 'number',
+            width:100,
+            hideable:false,
+            
+          },
+          {
+            field: "verification_status",
+            headerName: "Status",
+            width:130,
+            hideable:false,
+          },
+          {
+            field: "edit",
+            headerName: "Edit/View",
+            sortable: false,
+            filterable:false,
+            hideable:false,
+            renderCell: (params) => {
+              return (
+                <>
+                  <Link to={"?roll=" + params.row.rollNo} target="_blank">
+                    <button className="userEdit">Edit/View</button>
+                  </Link>
+                </>
+              );
+            },
+          },
+        ];
         return (
           <>
           <div  className="container text-center mt-15">
@@ -123,7 +124,59 @@ class AdminDashboard extends Component {
       else
       {
         return (
-          <h1>Here we will show details of {this.state.studentsData.details.name}</h1>
+          <>
+            <Container fluid>
+              <Row margin="auto">
+                <Col md="12">
+                  <Card>
+                    <Card.Header>
+                      <Card.Title as="h4">{this.state.studentsData.name}</Card.Title>
+                    </Card.Header>
+                    <Card.Body>
+                      <Form>
+                        <Row>
+                          <Col className="pr-1" md="5">
+                            <Form.Group>
+                              <label>RollNo</label>
+                              <Form.Control
+                                defaultValue={this.state.studentsData.rollNo}
+                                placeholder="RollNo"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="3">
+                            <Form.Group>
+                              <label>Name</label>
+                              <Form.Control
+                                defaultValue={this.state.studentsData.name}
+                                disabled
+                                placeholder="Name"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="pl-1" md="4">
+                            <Form.Group>
+                              <label htmlFor="exampleInputEmail1">
+                                Email address
+                              </label>
+                              <Form.Control
+                                defaultValue={this.state.studentsData.email}
+                                disabled
+                                placeholder="Email"
+                                type="email"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </Row>
+                      </Form>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </Container>
+          </>
         );
       }
     }
