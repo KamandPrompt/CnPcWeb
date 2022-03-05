@@ -70,4 +70,13 @@ router.get("/all-students", async (req,res) => {
   // console.log(allStudents);
   return res.json(allStudents);
 });
+router.get("/student/:roll",async(req,res)=>{
+  const roll = req.params.roll;
+  const student = await Students.findOne({rollNo:roll}).lean();
+  if(student)
+  {
+    console.log(student)
+    return res.json({status:"ok", details:student})
+  }
+})
 module.exports = router;
