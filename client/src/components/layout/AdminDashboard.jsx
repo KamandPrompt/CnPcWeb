@@ -12,18 +12,35 @@ class AdminDashboard extends Component {
     super(props);
     this.state = {
       DataisLoaded: false,
-      studentsData: []
+      studentsData: [],
+      rollNo:""
     };
   }
   async componentDidMount() {
-    await axios.get("/api/admins/all-students")
-    .then(res => {
-      this.setState({studentsData : res.data, DataisLoaded:true});
-      // console.log(this.state.studentsData);
-    })
-    .catch(err=> {
-      console.log(err);
-    })
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const roll = params.get('roll');
+    if(roll===null)
+    {
+      await axios.get("/api/admins/all-students")
+      .then(res => {
+        this.setState({studentsData : res.data, DataisLoaded:true});
+        // console.log(this.state.studentsData);
+      })
+      .catch(err=> {
+        console.log(err);
+      })
+    }
+    else
+    {
+      await axios.get(`/api/admins/student/${roll}`)
+      .then(res => {
+        this.setState({studentsData : res.data, DataisLoaded:true,rollNo:roll});
+      })
+      .catch(err=> {
+        console.log(err);
+      })
+    }
   }
   onLogout = e => {
     e.preventDefault();
@@ -53,66 +70,62 @@ class AdminDashboard extends Component {
         },
         {
           field: "edit",
-          headerName: "Edit",
+          headerName: "Edit/View",
           sortable: false,
           filterable:false,
           hideable:false,
           renderCell: (params) => {
             return (
               <>
-                <Link to={"user/edit/" + params.row.rollNo} target="_blank">
-                  <button className="userEdit">Edit</button>
-                </Link>
-              </>
-            );
-          },
-        },
-        {
-          field: "view",
-          headerName: "View",
-          renderCell: (params) => {
-            return (
-              <>
-                <Link to={"user/view/" + params.row.rollNo} target="_blank">
-                  <button className="userView">View</button>
+                <Link to={"?roll=" + params.row.rollNo} target="_blank">
+                  <button className="userEdit">Edit/View</button>
                 </Link>
               </>
             );
           },
         },
       ];
-      return (
-        <>
-        <div  className="container text-center mt-15">
-          <div className="row">
-            <div className="col-sm-12">
-              <h4>
-                Hey there, <b className="name-lable">{user.name.split(" ")[0]}</b>
-                <p className="mt-4">
-                  You are logged into a full-stack{" "}
-                  <span style={{ fontFamily: "monospace" }}>admin</span> app 👏
-                </p>
-              </h4>
-              <div style={{height:'300px', width:'72%'}} id="dataGrid">
-                <DataGrid
-                  rows={userRows}
-                  columns={[...columns,{ field: 'edit',  },{ field: 'view', sortable: false,filterable:false,hideable:false }]}
-                  pageSize={10}
-                  rowsPerPageOptions={[10,20,30]}
-                  getRowId={(row) => row.rollNo}
-                />
+      if(this.state.rollNo==="")
+      {
+        return (
+          <>
+          <div  className="container text-center mt-15">
+            <div className="row">
+              <div className="col-sm-12">
+                <h4>
+                  Hey there, <b className="name-lable">{user.name.split(" ")[0]}</b>
+                  <p className="mt-4">
+                    You are logged into a full-stack{" "}
+                    <span style={{ fontFamily: "monospace" }}>admin</span> app 👏
+                  </p>
+                </h4>
+                <div style={{height:'300px', width:'72%'}} id="dataGrid">
+                  <DataGrid
+                    rows={userRows}
+                    columns={[...columns,{ field: 'edit', sortable: false,filterable:false,hideable:false }]}
+                    pageSize={10}
+                    rowsPerPageOptions={[10,20,30]}
+                    getRowId={(row) => row.rollNo}
+                  />
+                </div>
+                {/* <button
+                  onClick={this.onLogout}
+                  className="btn btn-large btn-light hoverable font-weight-bold"
+                >
+                  Logout
+                </button> */}
               </div>
-              {/* <button
-                onClick={this.onLogout}
-                className="btn btn-large btn-light hoverable font-weight-bold"
-              >
-                Logout
-              </button> */}
             </div>
           </div>
-        </div>
-        </>
-      );
+          </>
+        );
+      }
+      else
+      {
+        return (
+          <h1>Here we will show details of {this.state.studentsData.details.name}</h1>
+        );
+      }
     }
     else
     {
