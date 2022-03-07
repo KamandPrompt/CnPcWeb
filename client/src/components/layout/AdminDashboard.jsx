@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
@@ -13,8 +13,24 @@ class AdminDashboard extends Component {
     this.state = {
       DataisLoaded: false,
       studentsData: [],
-      rollNo:""
+      name:"",
+      rollNo:"",
+      batch:"",
+      degree:"",
+      branch:"",
+      cgpa:"",
+      email:"",
+      contactNumber:"",
+      dob:"",
+      Gender:"",
+      tenthPercentage:"",
+      twelthPercentage:"",
+      advanceRank:"",
+      resume:"",
+      verification_status:""
     };
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
   async componentDidMount() {
     const search = window.location.search;
@@ -35,8 +51,24 @@ class AdminDashboard extends Component {
     {
       await axios.get(`/api/admins/student/${roll}`)
       .then(res => {
-        this.setState({studentsData : res.data.details, DataisLoaded:true,rollNo:roll});
-        console.log(this.state.studentsData);
+        this.setState({
+          name : res.data.details.name, 
+          rollNo:roll,
+          batch : res.data.details.batch, 
+          degree : res.data.details.degree, 
+          branch : res.data.details.branch, 
+          cgpa : res.data.details.cgpa, 
+          email : res.data.details.email, 
+          contactNumber : res.data.details.contactNumber, 
+          dob : res.data.details.dob, 
+          Gender : res.data.details.Gender, 
+          tenthPercentage : res.data.details.tenthPercentage, 
+          twelthPercentage : res.data.details.twelthPercentage, 
+          advanceRank : res.data.details.advanceRank, 
+          resume : res.data.details.resume, 
+          verification_status : res.data.details.verification_status, 
+          DataisLoaded:true,
+        });
       })
       .catch(err=> {
         console.log(err);
@@ -46,7 +78,20 @@ class AdminDashboard extends Component {
   onLogout = e => {
     e.preventDefault();
     this.props.logoutUser();
-  };
+  }
+  handleSubmit(event){
+    const {name,rollNo,batch,degree,branch,cgpa,email,contactNumber,dob,Gender,tenthPercentage,twelthPercentage,advanceRank,resume,verification_status } = this.state
+    event.preventDefault()
+    console.log(this.state);
+  }
+  
+  handleChange(event){
+    this.setState({
+      // Computed property names
+      // keys of the objects are computed dynamically
+      [event.target.name] : event.target.value
+    })
+  }
   render() {
     const { user } = this.props.auth;
     if(this.state.DataisLoaded === true)
@@ -123,6 +168,8 @@ class AdminDashboard extends Component {
       }
       else
       {
+        // 
+        // console.log(values);
         return (
           <>
             <Container fluid>
@@ -130,16 +177,18 @@ class AdminDashboard extends Component {
                 <Col md="12">
                   <Card>
                     <Card.Header>
-                      <Card.Title as="h4">{this.state.studentsData.name}</Card.Title>
+                      <Card.Title as="h4">{this.state.name}</Card.Title>
                     </Card.Header>
                     <Card.Body>
-                      <Form>
+                      <Form onSubmit={this.handleSubmit}>
                         <Row>
                           <Col className="pr-1" md="5">
                             <Form.Group>
                               <label>RollNo</label>
                               <Form.Control
-                                defaultValue={this.state.studentsData.rollNo}
+                                name='rollNo'
+                                value={this.state.rollNo}
+                                onChange={this.handleChange}
                                 placeholder="RollNo"
                                 type="text"
                               ></Form.Control>
@@ -149,8 +198,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Name</label>
                               <Form.Control
-                                defaultValue={this.state.studentsData.name}
-                                disabled
+                                name='name'
+                                value={this.state.name}
+                                onChange={this.handleChange}
                                 placeholder="Name"
                                 type="text"
                               ></Form.Control>
@@ -162,14 +212,16 @@ class AdminDashboard extends Component {
                                 Email address
                               </label>
                               <Form.Control
-                                defaultValue={this.state.studentsData.email}
-                                disabled
+                                name='email'
+                                value={this.state.email}
+                                onChange={this.handleChange}
                                 placeholder="Email"
                                 type="email"
                               ></Form.Control>
                             </Form.Group>
                           </Col>
                         </Row>
+                        <input type="submit" value="Update Profile" />
                       </Form>
                     </Card.Body>
                   </Card>
