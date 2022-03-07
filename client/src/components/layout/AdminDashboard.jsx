@@ -173,8 +173,8 @@ class AdminDashboard extends Component {
         return (
           <>
             <Container fluid>
-              <Row margin="auto">
-                <Col md="12">
+              <Row>
+                <Col>
                   <Card>
                     <Card.Header>
                       <Card.Title as="h4">{this.state.name}</Card.Title>
