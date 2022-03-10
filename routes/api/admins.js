@@ -75,7 +75,7 @@ router.get("/student/:roll",async(req,res)=>{
   const student = await Students.findOne({rollNo:roll}).lean();
   if(student)
   {
-    console.log(student)
+    // console.log(student)
     return res.json({status:"ok", details:student})
   }
 })
