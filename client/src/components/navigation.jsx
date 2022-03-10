@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 import  iitimage  from "../images/resize.png";
-import  iiti  from "../images/iit.png"
+import  logo  from "./logo.ico";
 class Navigation extends Component {
   onLogout = (e) => {
     e.preventDefault();
@@ -13,10 +13,16 @@ class Navigation extends Component {
 
   render() {
     // const { user } = this.props.auth;
+    let navimg={
+      width:'100px',
+      height:'50px',
+      padding:'0 10px'
+    }
     return (
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container-fluid">
         <div className="navbar-header">
+        <img className="navbar-brand " style={navimg} src={logo}></img>
           <button
             type="button"
             className="navbar-toggle collapsed"
@@ -30,8 +36,7 @@ class Navigation extends Component {
             <span className="icon-bar"></span>{" "}
           </button>
           <a className="navbar-brand page-scroll" href="/">
-            {/* <img src={ iiti }></img> */}
-            CnP Cell
+          IIT Mandi          
           </a>{" "}
         </div>
 
