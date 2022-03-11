@@ -563,7 +563,7 @@ hr {
 
 .carousel{position:relative}
 
-.carousel-inner{position:relative;width:100%;overflow:hidden}
+.carousel-inner{position:relative;width:100%;overflow:hidden;}
 
 .carousel-item{position:relative;display:none;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;transition:-webkit-transform .6s ease;transition:transform .6s ease;transition:transform .6s ease,-webkit-transform .6s ease;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-perspective:1000px;perspective:1000px}
 
@@ -611,7 +611,7 @@ hr {
 
 .Size{
   width: 100%;
-  height: 100vh;
+  height: 400px;
 }
 
 #carouselExampleControls{
@@ -1208,4 +1208,35 @@ hr {
   border-radius: 5px;
   border: 2px solid white;
   font-size: larger;
+}
+
+#front{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 90%;
+}
+
+.leftItem{
+  width: 50%;
+  text-align: center;
+  padding: 5px 15px;
+}
+
+.rightItem{
+  width: 50%;
+}
+
+@media (max-width: 900px) {
+  #front{
+    flex-direction: column;
+  }
+  .leftItem{
+    width: 90%;
+  }
+  .rightItem{
+    width: 100%;
+  }
 }

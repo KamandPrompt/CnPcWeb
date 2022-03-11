@@ -1,4 +1,6 @@
 import React from "react";
+import { Carousal } from "./carousal";
+
 export const Home = (props) => {
   function myFunction() {
     var dots = document.getElementById("dots");
@@ -17,6 +19,17 @@ export const Home = (props) => {
   }
   return (
     <div className="cont">
+      <div id="front" className="container item">
+        <div className="leftItem">
+          <h2>Welcome to IIT Mandi</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, voluptatibus eaque odio exercitationem cum, ex quasi tenetur accusantium delectus quae eius aspernatur voluptas molestiae velit fugit magnam? Rerum, fugiat fugit?</p>
+        </div>
+        <div className="rightItem">
+          <div className="carous">
+            <Carousal/>
+          </div>
+        </div>
+      </div>
       <div id="home" className="container item">
         <div>
           <hr className="left" />
