@@ -76,7 +76,7 @@ class App extends Component {
         <BrowserRouter>
           <Navigation />
           <Routes>
-            <Route exact path="/" element={[<Carousal />, <Home />]}></Route>
+            <Route exact path="/" element={[<Home />]}></Route>
             <Route
               exact
               path="/achievement"

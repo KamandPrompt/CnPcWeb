@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     $(".page-scroll").css("color","#000000");
-    if(window.location.pathname == '/' || window.location.pathname == '/contact' || window.location.pathname == '/achievement'){
+    if(window.location.pathname == '/contact' || window.location.pathname == '/achievement'){
         $(window).scroll(function () {
             if ($(document).scrollTop() > 0) {
                 $("#menu").addClass("nav-top");
@@ -17,7 +17,7 @@ $(document).ready(function () {
     else{
         $("#menu").removeClass("navbar-fixed-top");
         $(window).scroll(function () {
-            if ($(document).scrollTop() > 60) {
+            if ($(document).scrollTop() > 50) {
                 $("#menu").addClass("navbar-fixed-top");
                 $("#menu").addClass("nav-top");
                 $(".page-scroll").css("color","#fff");

@@ -22,7 +22,7 @@ export const Carousal = () => {
             <img className="Size" src={image3} alt="Third slide" />
           </div>
         </div>
-        <a
+        {/* <a
           className="carousel-control-prev"
           href="#carouselExampleControls"
           role="button"
@@ -33,8 +33,8 @@ export const Carousal = () => {
             aria-hidden="true"
           ></span>
           <span className="sr-only">Previous</span>
-        </a>
-        <a
+        </a> */}
+        {/* <a
           className="carousel-control-next"
           href="#carouselExampleControls"
           role="button"
@@ -45,7 +45,7 @@ export const Carousal = () => {
             aria-hidden="true"
           ></span>
           <span className="sr-only">Next</span>
-        </a>
+        </a> */}
       </div>
     </>
   );
