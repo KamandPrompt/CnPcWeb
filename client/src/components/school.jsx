@@ -19,7 +19,7 @@ export const Schools = (props) => {
             <br />
             <div className="sec-heading">
               <div className="subHead">
-                School of Computing and Electrical Engineering
+                <a href="https://www.iitmandi.ac.in/Schools/SCEE/index.php" target="_blank">School of Computing and Electrical Engineering</a>
               </div>
               <div className="sub-content">
                 This School brings together faculty involved in the key
@@ -39,8 +39,11 @@ export const Schools = (props) => {
             <br />
             <div className="sec-heading">
               <div className="subHead">
-                School of Engineering
+                <a href="http://se.iitmandi.ac.in/" target="_blank">School of Engineering</a>
               </div>
+              {/* <div className="subHead">
+                School of Engineering
+              </div> */}
               <div className="sub-content">
               This School covers tangible physical structures and artifacts such
               as transport vehicles, transport systems, machines, materials,
@@ -59,8 +62,11 @@ export const Schools = (props) => {
             <br />
             <div className="sec-heading">
               <div className="subHead">
-              School of Basic Sciences
+                <a href="https://www.iitmandi.ac.in/Schools/SBS/index.php" target="_blank">School of Basic Sciences</a>
               </div>
+              {/* <div className="subHead">
+              School of Basic Sciences
+              </div> */}
               <div className="sub-content">
               This School includes mathematics, physics, chemistry and life
               sciences. While some faculty may work in pure research, others
@@ -78,8 +84,11 @@ export const Schools = (props) => {
             <br />
             <div className="sec-heading">
               <div className="subHead">
-              School of Humanities and Social Sciences
+                <a href="https://www.iitmandi.ac.in/Schools/SHSS/index.php" target="_blank">School of Humanities and Social Sciences</a>
               </div>
+              {/* <div className="subHead">
+              School of Humanities and Social Sciences
+              </div> */}
               <div className="sub-content">
               Modern engineers work in teams to create, improve and apply
               technology for the good of society. A good understanding of

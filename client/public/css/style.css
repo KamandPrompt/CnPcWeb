@@ -794,12 +794,16 @@ hr {
 }
 
 .subHead{
+  color: #fff;
   text-align: center;
   background-color: #031B31;
-  color: #fff;
   font-size: 22px;
   font-weight: 500;
   padding: 2% 0%;
+}
+
+.subHead a{
+  color: #fff;
 }
 
 @media (max-width:500px) {
