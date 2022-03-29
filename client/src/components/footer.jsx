@@ -87,37 +87,6 @@ export const Footer = (props) => {
                       Guest House
                     </a>
                   </li>
-                  {/* <li>
-                    <a className="links" href="./Talk2_us/index.html">
-                      Talk To Faculty
-                    </a>
-                  </li> */}
-                  {/* <li>
-                    <a className="links" href="/gcs/index.html#ug_orientation">
-                      B.Tech Orientation
-                    </a>
-                  </li> */}
-                  {/* <li>
-                    <a
-                      className="links"
-                      href="https://students.iitmandi.ac.in/files/CodeOfConduct.pdf"
-                    >
-                      Code of Conduct
-                    </a>
-                  </li> */}
-                  {/* <li>
-                    <a className="links" href="https://oas.iitmandi.ac.in">
-                      Office Automation System
-                    </a>
-                  </li> */}
-                </ul>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12">
-              <div className="block-2">
-                <h4 style={{ color: "white" }}>Explore</h4>
-                <hr className="new4" style={{ color: "white" }} />
-                <ul>
                   <li>
                     <a
                       className="links"
@@ -150,11 +119,100 @@ export const Footer = (props) => {
                     </a>
                   </li>
                   {/* <li>
+                    <a className="links" href="./Talk2_us/index.html">
+                      Talk To Faculty
+                    </a>
+                  </li> */}
+                  {/* <li>
+                    <a className="links" href="/gcs/index.html#ug_orientation">
+                      B.Tech Orientation
+                    </a>
+                  </li> */}
+                  {/* <li>
+                    <a
+                      className="links"
+                      href="https://students.iitmandi.ac.in/files/CodeOfConduct.pdf"
+                    >
+                      Code of Conduct
+                    </a>
+                  </li> */}
+                  {/* <li>
+                    <a className="links" href="https://oas.iitmandi.ac.in">
+                      Office Automation System
+                    </a>
+                  </li> */}
+                </ul>
+              </div>
+            </div>
+            <div className="col-lg-4 col-md-6 col-sm-12">
+              <div className="block-2">
+                <h4 style={{ color: "white" }}>Contact Hours</h4>
+                <hr className="new4" style={{ color: "white" }} />
+                <div className="head">
+                  <h5
+                    // className="address"
+                    style={{ color: "#84E8FF" }}
+                  >
+                    Monday - Friday
+                    <br />
+                    9:00 AM to 5:00 PM, IST <br />
+                    <br /> <br />
+
+                  </h5>
+
+                </div>
+                <h4 style={{ color: "white" }}>Contact Us</h4>
+                <hr className="new4" style={{ color: "white" }} />
+                <div className="head">
+                  <h5
+                    // className="address"
+                    style={{ color: "#84E8FF" }}
+                  >
+                    Phone: 01905 - 267006 (Office) <br />
+                    Email: <a href="mailto:placement@iitmandi.ac.in">placement@iitmandi.ac.in</a>
+
+
+                  </h5>
+
+                </div>
+                {/* <ul> */}
+                {/* <li>
+                    <a
+                      className="links"
+                      href="https://gymkhana.iitmandi.co.in/"
+                    >
+                      Student Gymkhana
+                    </a>
+                  </li>
+                  <li>
+                    <a className="links" href="./campusLife/index.html">
+                      Campus Life
+                    </a>
+                  </li>
+                  <li>
+                    <a className="links" href="./studentLife/index.html">
+                      Student Life
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      className="links"
+                      href="./social_consciousness/index.html"
+                    >
+                      Social Initiatives
+                    </a>
+                  </li>
+                  <li>
+                    <a className="links" href="https://students.iitmandi.ac.in/main/achievements/index.html">
+                      Students' Achievements
+                    </a>
+                  </li> */}
+                {/* <li>
                     <a className="links" href="./FemaleHelpDesk/index.html">
                       Female Help Desk
                     </a>
                   </li> */}
-                  {/* <li>
+                {/* <li>
                     <a
                       className="links"
                       href="http://students.iitmandi.ac.in/talk2_ws.php"
@@ -162,12 +220,12 @@ export const Footer = (props) => {
                       Talk To B.Tech Female Students
                     </a>
                   </li> */}
-                  {/* <li>
+                {/* <li>
                     <a className="links" href="./FemaleStudents/index.html">
                       Specially For Female Students
                     </a>
                   </li> */}
-                </ul>
+                {/* </ul> */}
               </div>
             </div>
           </div>
