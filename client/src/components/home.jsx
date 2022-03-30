@@ -21,8 +21,20 @@ export const Home = (props) => {
     <div className="cont">
       <div id="front" className="container item">
         <div className="leftItem">
-          <h2>Welcome to IIT Mandi</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, voluptatibus eaque odio exercitationem cum, ex quasi tenetur accusantium delectus quae eius aspernatur voluptas molestiae velit fugit magnam? Rerum, fugiat fugit?</p>
+          <h2>About Us</h2>
+          <p style={{"textAlign":"justify"}}>Among the elite technology institutes of the country, IIT Mandi
+          embodies technology, research and development in the purest form.
+          Supported by the nourishing, picturesque settings of the Shivalik
+          mountain range, IIT Mandi boasts of a unique hands-on curriculum,
+          creme de la creme of students who epitomise all round proficiency in
+          technical and professional matters. <br />
+          All the Placement associated activities are handled by the Career and
+          Placement Cell (CnP) of the institute. The CnP consists of Faculty
+          Members, Placement Officers and student volunteers working round the
+          clock to provide the best possible services to the visiting
+          organisations. <br />
+          We look forward to a mutually beneficial Placement Session with your
+          company.</p>
         </div>
         <div className="rightItem">
           <div className="carous">
@@ -30,7 +42,7 @@ export const Home = (props) => {
           </div>
         </div>
       </div>
-      <div id="home" className="container item">
+      {/* <div id="home" className="container item">
         <div>
           <hr className="left" />
           <h3 className="homeHead">About Us</h3>
@@ -51,6 +63,40 @@ export const Home = (props) => {
           We look forward to a mutually beneficial Placement Session with your
           company.
         </p>
+      </div> */}
+      <h3 className="faculty-head">From the Director</h3>
+      <div className="about container row item">
+        {/* <div className="col-lg-4 col-md-6 col-sm-12">
+              <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
+          </div> */}
+        {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
+        <div className="col-lg-3 col-md-3 col-sm-12">
+        <img
+            className="faculty-advisor"
+            src="https://www.iitmandi.ac.in/images/Dir.jpg"
+            alt="Dr. "
+          />
+          <h4 className="profile">Dr. Laxmidhar Behera</h4>
+          <h5 className="profile">Director</h5>
+          <h5 className="profile">IIT Mandi</h5>
+        </div>
+        <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
+          During a short span of ten years of its existence, Indian Institute of
+          Technology Mandi (IIT Mandi) has gained a reputation for its cutting
+          edge research and innovative teaching programs. The institute prides
+          itself on creating an environment that empowers young minds by
+          developing intellect, versatility, broadening horizons of creativity,
+          and honing inter-personal skills. With an aim of shaping the students
+          into responsible engineers and scientists, the innovative
+          undergraduate curriculum at IIT Mandi strives to expose students to
+          strong fundamentals of engineering, basic sciences, and humanities,
+          while simultaneously sensitizing them about human values and
+          surroundings.
+        </p>
+        <br />
+        <br />
+        {/* </div> */}
+        <br />
       </div>
       <h3 className="faculty-head">From the Faculty Advisor</h3>
       <div className="about container row item">

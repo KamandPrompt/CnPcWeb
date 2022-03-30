@@ -62,10 +62,10 @@ export const Demo = (props) => {
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 1,
+    slidesToShow: 2,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 5000,
+    speed: 1000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
     cssEase: "linear"
   };
@@ -92,6 +92,7 @@ export const Demo = (props) => {
                   width={1000}
                   height={400}
                   margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                  title="CSE STUDENTS"
                 >
                   <Pie
                     dataKey="value"
@@ -102,6 +103,7 @@ export const Demo = (props) => {
                     outerRadius={80}
                     fill="#fff"
                     label
+                    // title={"Chart of diffferent branches"}
                   ></Pie>
                   <Tooltip />
                   <Legend
@@ -164,6 +166,7 @@ export const Demo = (props) => {
                     layout="vertical"
                     verticalAlign="middle"
                     align="left"
+                    // textDecoration={fontSize="100px"}
                   />
                 </PieChart>
               </center>
