@@ -309,7 +309,6 @@ a:focus,
 }
 
 
-
 .faculty-head {
   font-size: 30px;
   text-align: center;
@@ -620,6 +619,7 @@ hr {
 .Size{
   width: 100%;
   height: 400px;
+  border-radius: 30px;
 }
 
 #carouselExampleControls{
