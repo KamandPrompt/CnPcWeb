@@ -150,8 +150,8 @@ export const Footer = (props) => {
                 <hr className="new4" style={{ color: "white" }} />
                 <div className="head">
                   <h5
-                    // className="address"
-                    style={{ color: "#84E8FF" }}
+                    className="con"
+                    style={{ color: "#6ccce4" }}
                   >
                     Monday - Friday
                     <br />
@@ -165,11 +165,11 @@ export const Footer = (props) => {
                 <hr className="new4" style={{ color: "white" }} />
                 <div className="head">
                   <h5
-                    // className="address"
-                    style={{ color: "#84E8FF" }}
+                    className="con"
+                    style={{ color: "#6ccce4" }}
                   >
                     Phone: 01905 - 267006 (Office) <br />
-                    Email: <a href="mailto:placement@iitmandi.ac.in">placement@iitmandi.ac.in</a>
+                    Email: <a href="mailto:placement@iitmandi.ac.in" className="email">placement@iitmandi.ac.in</a>
 
 
                   </h5>

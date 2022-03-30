@@ -10,6 +10,9 @@ html {
   width: 100% !important;
   height: 100% !important;
 }
+.email{
+  color: #6ccce4;
+}
 .aboutUs{
   font-family: "Open Sans", sans-serif;
   color: #06738A;
@@ -50,7 +53,7 @@ h4 {
   font-weight: 600;
 }
 h5 {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 700;
   line-height: 20px;
 }
