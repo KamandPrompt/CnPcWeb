@@ -21,8 +21,8 @@ export const Home = (props) => {
     <div className="cont">
       <div id="front" className="container item">
         <div className="leftItem">
-          <h2>About Us</h2>
-          <p style={{"textAlign":"justify"}}>Among the elite technology institutes of the country, IIT Mandi
+          <h2 className="faculty-head">About Us</h2>
+          <p className="bhashan backG" style={{"textAlign":"justify"}}>Among the elite technology institutes of the country, IIT Mandi
           embodies technology, research and development in the purest form.
           Supported by the nourishing, picturesque settings of the Shivalik
           mountain range, IIT Mandi boasts of a unique hands-on curriculum,

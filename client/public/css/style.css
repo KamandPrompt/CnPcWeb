@@ -312,7 +312,7 @@ a:focus,
 
 .faculty-head {
   font-size: 30px;
-  text-align: left;
+  text-align: center;
   color: #093660
 }
 
@@ -394,7 +394,7 @@ a:focus,
 
 .footer-main .block img {
   background: transparent;
-  /* border-radius: 30px; */
+  border-radius: 30px;
 	margin-bottom: 50px;
 }
 
@@ -1224,6 +1224,7 @@ hr {
 }
 
 #front{
+  /* margin-top: 5%; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1240,6 +1241,7 @@ hr {
 
 .rightItem{
   width: 50%;
+  padding: 2% 0% 0% 2%;
 }
 
 @media (max-width: 900px) {
