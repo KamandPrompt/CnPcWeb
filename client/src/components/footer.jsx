@@ -232,8 +232,8 @@ export const Footer = (props) => {
         </div>
         <div id="footer_copyright">
           {" "}
-          <a href="https://iitmandi.co.in/" style={{ color: "#C4C4C4" }}>
-            <span style={{ color: "#C4C4C4" }}>©</span>CnP, IIT Mandi 2022,
+          <a href="https://iitmandi.co.in/" style={{ color: "white" }}>
+            <span style={{ color: "white" }}>© </span> CnP, IIT Mandi 2022,
           </a>{" "}
           All rights reserved.
         </div>

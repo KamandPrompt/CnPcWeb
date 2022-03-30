@@ -495,9 +495,14 @@ hr {
   display: block;
   background: #093660;
   border-color: #1a1b1f;
-  color: rgb(131, 123, 123);
+  /* color: rgb(131, 123, 123); */
+  color: white;
   text-align: center;
   padding: 5px;
+}
+
+#footer_copyright a {
+  color: white;
 }
 
 .links{
