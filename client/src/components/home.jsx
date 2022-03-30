@@ -98,6 +98,7 @@ export const Home = (props) => {
         {/* </div> */}
         <br />
       </div>
+      <br />
       <h3 className="faculty-head">From the Faculty Advisor</h3>
       <div className="about container row item">
         {/* <div className="col-lg-4 col-md-6 col-sm-12">
