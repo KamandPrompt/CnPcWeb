@@ -118,7 +118,7 @@ class Register extends Component {
           </div>
           <div className="formright2">
             <form className="form_container" onSubmit={this.onSubmit}>
-              <h2 style={{ "textAlign": "center", "color": "white", "paddingTop": "10px", "paddingBottom": "10px", "fontSize": "25px" }}>Register</h2>
+              <h2 style={{ "textAlign": "center", "color": "white", "fontSize": "25px" }}>Register</h2>
               <div className="form-group">
                 <label style={{ "color": "white" }}>Company Name</label>
                 <input
