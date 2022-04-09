@@ -103,7 +103,7 @@ class App extends Component {
               path="/Recpro"
               element={<Recpro />}
             ></Route>
-           <Route exact path="/kamand" element={<Kamand />}></Route>
+           <Route exact path="/Kamand" element={<Kamand />}></Route>
             <Route exact path="/research" element={<Research />}></Route>
             <Route exact path="/contact" element={<Contact />}></Route>
             <Route exact path="/inf" element={<INF />}></Route>
