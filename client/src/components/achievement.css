@@ -3,8 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Open+Sans&display=swap');
 div#frame {
     display: flex;
-    /* background: url("../images/.png") no-repeat; */
-    background-color: #a7dff6;
+    background: url("../images/sandpaper-background.jpg") no-repeat;
     background-size: cover;
     justify-content: center;
     align-items: center;
