@@ -72,58 +72,12 @@ export const Acadmics = (props) => {
         </div>
         <div className="slot">
           <button id="btn3" className="extraBtn">
-            Computer Science & Engineering{" "}
+            First Year curriculum{" "}
             <span className="plus">
               <i id="plus3" className="fas fa-plus"></i>
             </span>
           </button>
           <div id="msg3" className="extraCont">
-            <p>
-              Computer Science & Engineering trains students in programming,
-              theoretical foundations, design of computer hardware and software,
-              networks, artificial intelligence, databases, human-computer
-              interfaces, etc.
-            </p>
-          </div>
-        </div>
-        <div className="slot">
-          <button id="btn4" className="extraBtn">
-            Electrical Engineering{" "}
-            <span className="plus">
-              <i id="plus4" className="fas fa-plus"></i>
-            </span>
-          </button>
-          <div id="msg4" className="extraCont">
-            <p>
-              Electrical Engineering at IIT Mandi includes communications,
-              electronics, VLSI, electric power systems, and electrical
-              machinery. Besides core courses covering all these areas, students
-              will be able to specialize via elective courses.
-            </p>
-          </div>
-        </div>
-        <div className="slot">
-          <button id="btn5" className="extraBtn">
-            Mechanical Engineering{" "}
-            <span className="plus">
-              <i id="plus5" className="fas fa-plus"></i>
-            </span>
-          </button>
-          <div id="msg5" className="extraCont">
-            <p>
-              Mechanical Engineering covers materials, manufacturing processes,
-              design of machinery, vehicles, etc.
-            </p>
-          </div>
-        </div>
-        <div className="slot">
-          <button id="btn6" className="extraBtn">
-            First Year curriculum{" "}
-            <span className="plus">
-              <i id="plus6" className="fas fa-plus"></i>
-            </span>
-          </button>
-          <div id="msg6" className="extraCont">
             <p>
               An important aspect of the curriculum is the integration of
               innovation and design into the learning process. This is achieved
@@ -137,13 +91,13 @@ export const Acadmics = (props) => {
           </div>
         </div>
         <div className="slot">
-          <button id="btn7" className="extraBtn">
+          <button id="btn4" className="extraBtn">
             Second Year curriculum{" "}
             <span className="plus">
-              <i id="plus7" className="fas fa-plus"></i>
+              <i id="plus4" className="fas fa-plus"></i>
             </span>
           </button>
-          <div id="msg7" className="extraCont">
+          <div id="msg4" className="extraCont">
             <p>
               At the second year level, students learn product design and
               development skills. Interdisciplinary teams of six students,
@@ -157,13 +111,13 @@ export const Acadmics = (props) => {
           </div>
         </div>
         <div className="slot">
-          <button id="btn8" className="extraBtn">
+          <button id="btn5" className="extraBtn">
             Third Year curriculum{" "}
             <span className="plus">
-              <i id="plus8" className="fas fa-plus"></i>
+              <i id="plus5" className="fas fa-plus"></i>
             </span>
           </button>
-          <div id="msg8" className="extraCont">
+          <div id="msg5" className="extraCont">
             <p>
               At the third year level, the students have the option of working
               on an 'Interdisciplinary Socio-Technical Project' (ISTP). The ISTP
@@ -178,13 +132,13 @@ export const Acadmics = (props) => {
           </div>
         </div>
         <div className="slot">
-          <button id="btn9" className="extraBtn">
+          <button id="btn6" className="extraBtn">
             Fourth Year curriculum{" "}
             <span className="plus">
-              <i id="plus9" className="fas fa-plus"></i>
+              <i id="plus6" className="fas fa-plus"></i>
             </span>
           </button>
-          <div id="msg9" className="extraCont">
+          <div id="msg6" className="extraCont">
             <p>
               Finally, during the fourth year, the students have the option of
               doing a Major Technical Project (MTP) either individually or in a
@@ -210,7 +164,7 @@ export const Acadmics = (props) => {
       </div>
       <br /><br /><br />
       <Schools />
-      <div id="UG/PG" className="acadmic">
+      {/* <div id="UG/PG" className="acadmic">
         <div className="slot">
           <div>
             <hr className="left" />
@@ -247,34 +201,8 @@ export const Acadmics = (props) => {
             </div>
           </div>
           <br />
-          {/* <div>
-            <h3>Under graduates</h3>
-            <p>
-              Situated in the lap of Himalayas, IIT Mandi is one the finest
-              technical institute for students to spend their undergraduate
-              years. While broad academics and innovative curriculum is one
-              strong focus of the institute, extra co circulars like sports,
-              club activities and events, inter college competitions, fests are
-              all given due importance. Owing to the enthusiastic student
-              community, a lot of new ideas, projects, and events of different
-              scales are executed every year. Overall, the undergraduate
-              experience is one its kind and most cherished experience of
-              students life.
-            </p>
-            <p>
-              {" "}
-              <strong>To know more please</strong>{" "}
-              <a
-                href="https://students.iitmandi.ac.in/main/ug/index.html"
-                target="_blank"
-              >
-                click here
-              </a>
-              .
-            </p>
-          </div> */}
         </div>
-      </div>
+      </div> */}
       <br /><br /><br />
     </div>
   );
