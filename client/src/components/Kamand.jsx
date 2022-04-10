@@ -34,7 +34,7 @@ export const Kamand = () => {
       <div id="front" className="container-item">
         <div className="guestHouse1">
           {/* <h2 className="faculty-head">About Us</h2> */}
-          <p className="guest" style={{ textAlign: "justify" }}>
+          <p className="guest" style={{ textAlign: "justify" , "margin":"30px" }}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vero
             commodi corrupti at? Mollitia, natus dicta! Quo quidem eligendi,
             corporis consectetur eos numquam id a, voluptate vitae, amet debitis
@@ -52,7 +52,7 @@ export const Kamand = () => {
             cupiditate? Officiis, esse maiores!
           </p>
         </div>
-        <div className="guestHouse2">
+        <div className="guestHouse3">
           <img
             className="village"
             src={village}
@@ -91,15 +91,15 @@ export const Kamand = () => {
           </p>
         </div>
           {/* <div className="toVisit"> */}
-            <div className="ashu">
+            <div className="places2">
             <div className="guestHouse2">
               <img
                 className="village"
                 src={parashar}
                 alt="village"
               />
-              <h3 style={{"color":"white"}}>Parashar Lake</h3>
-              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE"}}>Know More</button>
+              <h3 style={{"color":"white", "borderRadius":"10px"}}>Parashar Lake</h3>
+              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE","width":"100px", "height":"40px", "borderRadius":"50px", "border":"none"}}><a href="https://en.wikipedia.org/wiki/Prashar_Lake" target={"_blank"} style={{"color":"#07748B"}}>Know More</a></button>
             </div>
             <div className="guestHouse2">
               <img
@@ -107,8 +107,8 @@ export const Kamand = () => {
                 src={manali}
                 alt="village"
               />
-              <h3 style={{"color":"white"}}>Manali</h3>
-              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE"}}>know More</button>
+              <h3 style={{"color":"white", "borderRadius":"10px"}}>Manali</h3>
+              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE", "width":"100px", "height":"40px", "borderRadius":"50px", "border":"none"}}><a href="https://en.wikipedia.org/wiki/Manali,_Himachal_Pradesh" target={"_blank"} style={{"color":"#07748B"}}>Know More</a></button>
             </div>
             </div>
         {/* </div> */}

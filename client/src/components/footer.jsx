@@ -118,6 +118,11 @@ export const Footer = (props) => {
                       Students' Achievements
                     </a>
                   </li>
+                  <li>
+                    <a className="links" href="./loginAdmin">
+                      Admin Login
+                    </a>
+                  </li>
                   {/* <li>
                     <a className="links" href="./Talk2_us/index.html">
                       Talk To Faculty

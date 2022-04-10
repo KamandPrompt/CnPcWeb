@@ -11,11 +11,11 @@
 .welcome{
     /* padding-top:100px; */
     /* background-image: url(../images/mountain.png); */
+    width: 60%;
     background-color: rgba(0,0,0,0.6);
-    left: 25%;
-    position: absolute;
-    /* margin: 30px; */
-    top: 30%;
+    text-align: center;
+    font-size: 30px;
+    margin: auto;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
 
@@ -49,7 +49,7 @@
     padding: 5px 15px;
   }
 
-.ashu{
+.places2{
     display: flex;
     flex-direction: row;
     background-color: #94ADC1;
@@ -57,6 +57,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-bottom: 30px;
 }
 
 .guestHouse2{
@@ -64,17 +67,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 350px;
     width: 50%;
     margin-bottom: 30px;
     border: 2px solid black;
     background-color: #093660;
     margin: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
-
+.guestHouse3{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 50%;
+    /* margin-left: 10px; */
+    /* margin-bottom: 10px; */
+    /* border: 2px solid black;
+    background-color: #093660;
+    margin: 20px; */
+  }
   .village{
       width: 80%;
-      height: 270px;
+      height: 200px;
   }
   
   @media (max-width: 900px) {
@@ -87,8 +104,14 @@
     .guestHouse2{
       width: 100%;
     }
+    .guestHouse3{
+      width: 100%;
+    }
     .places{
         width: 90%;
+    }
+    .places2{
+        flex-direction: column;
     }
   }
   .village{
@@ -111,4 +134,5 @@
 }
 .toVisit{
     background-color: #94ADC1;
+    
 }
