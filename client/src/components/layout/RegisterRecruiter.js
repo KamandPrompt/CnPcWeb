@@ -118,8 +118,9 @@ class Register extends Component {
           </div>
           <div className="formright2">
             <form className="form_container" onSubmit={this.onSubmit}>
-              <h2 style={{ "textAlign": "center", "color": "white", "fontSize": "25px" }}>Register</h2>
-              <div className="form-group">
+              <h2 style={{ "textAlign": "center", "color": "white", "fontSize": "25px", "marginBottom":"70px" }}>Register</h2>
+              <div className="form-group2">
+                <div className="label1">
                 <label style={{ "color": "white" }}>Company Name</label>
                 <input
                   type="text"
@@ -131,11 +132,12 @@ class Register extends Component {
                   className={classnames("form-control", {
                     invalid: errors.name,
                   })}
+                  style={{"margin":"0px"}}
                 />
                 <span className="red-text">{errors.name}</span>
-              </div>
-              <div className="form-group">
-              <label style={{ "color": "white" }}>Email Address</label>
+                </div>
+                <div className="label1">
+                <label style={{ "color": "white" }}>Email Address</label>
                 <input
                   type="email"
                   id="email"
@@ -146,11 +148,14 @@ class Register extends Component {
                   className={classnames("form-control", {
                     invalid: errors.email,
                   })}
+                  style={{"margin":"0px"}}
                 />
                 <span className="red-text">{errors.email}</span>
+                </div>
               </div>
-              <div className="form-group">
-              <label style={{ "color": "white" }}>Contact Person</label>
+              <div className="form-group2">
+                  <div className="label1">
+                  <label style={{ "color": "white" }}>Contact Person</label>
                 <input
                   type="text"
                   id="contactPerson"
@@ -161,11 +166,12 @@ class Register extends Component {
                   className={classnames("form-control", {
                     invalid: errors.contactPerson,
                   })}
+                  style={{"margin":"0px"}}
                 />
                 <span className="red-text">{errors.contactPerson}</span>
-              </div>
-              <div className="form-group">
-              <label style={{ "color": "white" }}>Designation</label>
+                  </div>
+                  <div className="label1">
+                  <label style={{ "color": "white" }}>Designation</label>
                 <input
                   type="text"
                   id="designation"
@@ -176,11 +182,14 @@ class Register extends Component {
                   className={classnames("form-control", {
                     invalid: errors.designation,
                   })}
+                  style={{"margin":"0px"}}
                 />
                 <span className="red-text">{errors.designation}</span>
+                  </div>
               </div>
-              <div className="form-group">
-              <label style={{ "color": "white" }}>Telephone</label>
+              <div className="form-group2">
+                  <div className="label1">
+                  <label style={{ "color": "white" }}>Telephone</label>
                 <input
                   type="text"
                   id="telephone"
@@ -191,11 +200,12 @@ class Register extends Component {
                   className={classnames("form-control", {
                     invalid: errors.telephone,
                   })}
+                  style={{"margin":"0px"}}
                 />
                 <span className="red-text">{errors.telephone}</span>
-              </div>
-              <div className="form-group">
-              <label style={{ "color": "white" }}>Mobile</label>
+                  </div>
+                  <div className="label1">
+                  <label style={{ "color": "white" }}>Mobile</label>
                 <input
                   type="text"
                   id="mobile"
@@ -206,12 +216,14 @@ class Register extends Component {
                   className={classnames("form-control", {
                     invalid: errors.mobile,
                   })}
+                  style={{"margin":"0px"}}
                 />
                 <span className="red-text">{errors.mobile}</span>
+                  </div>
               </div>
-
-              <div className="form-group">
-              <label style={{ "color": "white" }}>Password</label>
+              <div className="form-group2">
+                  <div className="label1">
+                  <label style={{ "color": "white" }}>Password</label>
                 <input
                   type="password"
                   id="password"
@@ -222,13 +234,14 @@ class Register extends Component {
                   className={classnames("form-control", {
                     invalid: errors.password,
                   })}
+                  style={{"margin":"0px"}}
                 />
                 {errors.password !== undefined ? errors.password.map((item) => {
                   return (<><span className="red-text">{item}</span><br /></>)
                 }) : <><span className="red-text">{errors.password}</span></>}
-              </div>
-              <div className="form-group">
-              <label style={{ "color": "white" }}>Confirm Password</label>
+                  </div>
+                  <div className="label1">
+                  <label style={{ "color": "white" }}>Confirm Password</label>
                 <input
                   type="password"
                   id="password2"
@@ -239,14 +252,16 @@ class Register extends Component {
                   className={classnames("form-control", {
                     invalid: errors.password2,
                   })}
+                  style={{"margin":"0px"}}
                 />
                 <span className="red-text">{errors.password2}</span>
+                  </div>
               </div>
-              <div className="text-center no_account">
+              <div className="text-center no_account" style={{"marginTop":"30px"}}>
                 Already have an account?{" "}
                 <Link to="/loginRecruiter">Login here</Link>
               </div>
-              <div className="form-group form_sub">
+              <div className="form-group2 form_sub">
                 <button type="submit" className="btn btn-primary btn-block btn-lg" style={{"backgroundColor":"#CFFFF6","color":"black"}}>Sign Up</button>
               </div>
             </form>
@@ -263,7 +278,7 @@ class Register extends Component {
 
             <h2>Register</h2>
             <hr />
-            <div className="form-group">
+            <div className="form-group2">
               <input
                 type="text"
                 id="name"
@@ -278,7 +293,7 @@ class Register extends Component {
               <span className="red-text">{errors.name}</span>
             </div>
 
-            <div className="form-group">
+            <div className="form-group2">
               <input
                 type="email"
                 id="email"
@@ -292,7 +307,7 @@ class Register extends Component {
               />
               <span className="red-text">{errors.email}</span>
             </div>
-            <div className="form-group">
+            <div className="form-group2">
               <input
                 type="text"
                 id="contactPerson"
@@ -306,7 +321,7 @@ class Register extends Component {
               />
               <span className="red-text">{errors.contactPerson}</span>
             </div>
-            <div className="form-group">
+            <div className="form-group2">
               <input
                 type="text"
                 id="designation"
@@ -320,7 +335,7 @@ class Register extends Component {
               />
               <span className="red-text">{errors.designation}</span>
             </div>
-            <div className="form-group">
+            <div className="form-group2">
               <input
                 type="text"
                 id="telephone"
@@ -334,7 +349,7 @@ class Register extends Component {
               />
               <span className="red-text">{errors.telephone}</span>
             </div>
-            <div className="form-group">
+            <div className="form-group2">
               <input
                 type="text"
                 id="mobile"
@@ -349,7 +364,7 @@ class Register extends Component {
               <span className="red-text">{errors.mobile}</span>
             </div>
 
-            <div className="form-group">
+            <div className="form-group2">
               <input
                 type="password"
                 id="password"
@@ -366,7 +381,7 @@ class Register extends Component {
               }) : <><span className="red-text">{errors.password}</span></>}
             </div>
 
-            <div className="form-group">
+            <div className="form-group2">
               <input
                 type="password"
                 id="password2"
@@ -380,7 +395,7 @@ class Register extends Component {
               />
               <span className="red-text">{errors.password2}</span>
             </div>
-            <div className="form-group">
+            <div className="form-group2">
               <button
                 type="submit"
                 className="btn btn-primary btn-block btn-lg"
