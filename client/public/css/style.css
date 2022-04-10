@@ -1183,6 +1183,7 @@ hr {
   /* position: fixed; */
   /* top: 0;
   right: 0; */
+  margin-top: 20px;
   width: 85%;
   display: flex;
   align-items: flex-start;
@@ -1218,6 +1219,7 @@ hr {
 .values{
   display: flex;
   flex-wrap: wrap;
+  margin: 5% 0%;
 }
 
 .company{
