@@ -108,7 +108,7 @@ export const Kamand = () => {
                 alt="village"
               />
               <h3 style={{"color":"white"}}>Manali</h3>
-              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE"}}>Know More</button>
+              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE"}}>know More</button>
             </div>
             </div>
         {/* </div> */}
