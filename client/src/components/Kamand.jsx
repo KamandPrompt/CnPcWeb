@@ -34,7 +34,7 @@ export const Kamand = () => {
       <div id="front" className="container-item">
         <div className="guestHouse1">
           {/* <h2 className="faculty-head">About Us</h2> */}
-          <p className="guest" style={{ textAlign: "justify" }}>
+          <p className="guest" style={{ textAlign: "justify" , "margin":"30px" }}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vero
             commodi corrupti at? Mollitia, natus dicta! Quo quidem eligendi,
             corporis consectetur eos numquam id a, voluptate vitae, amet debitis
@@ -52,7 +52,7 @@ export const Kamand = () => {
             cupiditate? Officiis, esse maiores!
           </p>
         </div>
-        <div className="guestHouse2">
+        <div className="guestHouse3">
           <img
             className="village"
             src={village}
