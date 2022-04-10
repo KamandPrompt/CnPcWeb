@@ -57,6 +57,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     margin-bottom: 30px;
 }
 
@@ -71,6 +73,8 @@
     border: 2px solid black;
     background-color: #093660;
     margin: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
 .guestHouse3{
     display: flex;
@@ -130,4 +134,5 @@
 }
 .toVisit{
     background-color: #94ADC1;
+    
 }

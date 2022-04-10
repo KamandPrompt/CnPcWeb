@@ -98,7 +98,7 @@ export const Kamand = () => {
                 src={parashar}
                 alt="village"
               />
-              <h3 style={{"color":"white"}}>Parashar Lake</h3>
+              <h3 style={{"color":"white", "borderRadius":"10px"}}>Parashar Lake</h3>
               <button style={{"color":"#07748B", "backgroundColor":"#58C1EE","width":"100px", "height":"40px", "borderRadius":"50px", "border":"none"}}><a href="https://en.wikipedia.org/wiki/Prashar_Lake" target={"_blank"} style={{"color":"#07748B"}}>Know More</a></button>
             </div>
             <div className="guestHouse2">
@@ -107,7 +107,7 @@ export const Kamand = () => {
                 src={manali}
                 alt="village"
               />
-              <h3 style={{"color":"white"}}>Manali</h3>
+              <h3 style={{"color":"white", "borderRadius":"10px"}}>Manali</h3>
               <button style={{"color":"#07748B", "backgroundColor":"#58C1EE", "width":"100px", "height":"40px", "borderRadius":"50px", "border":"none"}}><a href="https://en.wikipedia.org/wiki/Manali,_Himachal_Pradesh" target={"_blank"} style={{"color":"#07748B"}}>Know More</a></button>
             </div>
             </div>
