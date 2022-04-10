@@ -1,8 +1,10 @@
 import React from "react";
+import ContactForm from "./Form";
 import "./INF.css";
 export const INF = (props) => {
     return (
         <div>
+            <ContactForm/>
             <div className="nav-intern">
                 Indian Institute of Technology Mandi
             </div>
