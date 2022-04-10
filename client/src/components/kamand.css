@@ -49,7 +49,7 @@
     padding: 5px 15px;
   }
 
-.ashu{
+.places2{
     display: flex;
     flex-direction: row;
     background-color: #94ADC1;
@@ -57,6 +57,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    margin-bottom: 30px;
 }
 
 .guestHouse2{
@@ -64,7 +65,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 350px;
     width: 50%;
     margin-bottom: 30px;
     border: 2px solid black;
@@ -86,7 +87,7 @@
   }
   .village{
       width: 80%;
-      height: 270px;
+      height: 200px;
   }
   
   @media (max-width: 900px) {
@@ -104,6 +105,9 @@
     }
     .places{
         width: 90%;
+    }
+    .places2{
+        flex-direction: column;
     }
   }
   .village{

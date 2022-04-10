@@ -91,7 +91,7 @@ export const Kamand = () => {
           </p>
         </div>
           {/* <div className="toVisit"> */}
-            <div className="ashu">
+            <div className="places2">
             <div className="guestHouse2">
               <img
                 className="village"
@@ -99,7 +99,7 @@ export const Kamand = () => {
                 alt="village"
               />
               <h3 style={{"color":"white"}}>Parashar Lake</h3>
-              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE"}}>Know More</button>
+              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE","width":"100px", "height":"40px", "borderRadius":"50px", "border":"none"}}><a href="https://en.wikipedia.org/wiki/Prashar_Lake" target={"_blank"} style={{"color":"#07748B"}}>Know More</a></button>
             </div>
             <div className="guestHouse2">
               <img
@@ -108,7 +108,7 @@ export const Kamand = () => {
                 alt="village"
               />
               <h3 style={{"color":"white"}}>Manali</h3>
-              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE"}}>know More</button>
+              <button style={{"color":"#07748B", "backgroundColor":"#58C1EE", "width":"100px", "height":"40px", "borderRadius":"50px", "border":"none"}}><a href="https://en.wikipedia.org/wiki/Manali,_Himachal_Pradesh" target={"_blank"} style={{"color":"#07748B"}}>Know More</a></button>
             </div>
             </div>
         {/* </div> */}
