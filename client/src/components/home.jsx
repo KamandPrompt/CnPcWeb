@@ -4,6 +4,24 @@ import ReactDOM from "react-dom";
 import Carousel from "react-elastic-carousel";
 // import styled from "styled-components";
 import Item from "./Item";
+import amazon from "../images/Company_Logos/amazon.png"
+import adobe from "../images/Company_Logos/adobe.png"
+import digilytic from "../images/Company_Logos/Digilytics.png"
+import flipkart from "../images/Company_Logos/flipkart.png"
+import google from "../images/Company_Logos/google.png"
+import indeed from "../images/Company_Logos/indeed.png"
+import microsoft from "../images/Company_Logos/microsoft.png"
+import pharma from "../images/Company_Logos/PharmEasy.png"
+import sprinklr from "../images/Company_Logos/sprinklr.jpg"
+import siemens from "../images/Company_Logos/siemens.png"
+import swiggy from "../images/Company_Logos/Swiggy.png"
+import walmart from "../images/Company_Logos/Walmart.jpg"
+import uber from "../images/Company_Logos/uber.png"
+import texes from "../images/Company_Logos/texas.png"
+import suzlon from "../images/Company_Logos/Suzlon_Energy.jpg"
+import samsung from "../images/Company_Logos/samsung.png"
+import raam_g from "../images/Company_Logos/Raam_Group.png"
+import practical from "../images/Company_Logos/Practically.png"
 
 export const Home = (props) => {
   function myFunction() {
@@ -27,7 +45,7 @@ export const Home = (props) => {
     { width: 768, itemsToShow: 5 },
     { width: 1200, itemsToShow: 6 }
   ];
-  const items = [1, 2, 3, 4, 5, 6, 7, 8];
+  const items = [adobe, amazon, digilytic, flipkart, microsoft, google, samsung, siemens, sprinklr, suzlon, swiggy, indeed, pharma, walmart, uber, texes, raam_g, practical];
   return (
     <>
       <div className="cont">
@@ -180,11 +198,10 @@ export const Home = (props) => {
       <div className="car-logo">
         <div className="carousel-wrapper-logo">
           <Carousel 
-          enableAutoPlay={true}
-          
+          enableAutoPlay={Infinity}
           breakPoints={breakPoints}>
             {items.map((item) => (
-              <Item key={item}>{item}</Item>
+              <Item><img style={{"height":"100%", "width": "400%"}} src={item}  alt="adobe" /></Item>
             ))}
           </Carousel>
         </div>
