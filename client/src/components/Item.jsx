@@ -4,10 +4,10 @@ export default styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 250px;
+  height: 200px;
   width: 100%;
   background-color: #683bb7;
   color: #fff;
-  margin: 15px;
+  margin: 5px;
   font-size: 4em;
 `;
