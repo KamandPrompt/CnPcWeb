@@ -6,7 +6,7 @@ import "./kamand.css";
 export const Kamand = () => {
   return (
     <div>
-      <div className="banner">
+      <div className="banner1">
         <div className="banner__content">
           <div className="welcome">
             <div className="mountain"></div>
