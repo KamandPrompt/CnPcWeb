@@ -201,7 +201,7 @@ export const Home = (props) => {
           enableAutoPlay={Infinity}
           breakPoints={breakPoints}>
             {items.map((item) => (
-              <Item><img style={{"height":"100%", "width": "400%"}} src={item}  alt="adobe" /></Item>
+              <Item><img style={{"height":"100%", "width": "90%"}} src={item}  alt="adobe" /></Item>
             ))}
           </Carousel>
         </div>
