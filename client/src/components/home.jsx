@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Carousal } from "./carousal";
+import ReactDOM from "react-dom";
+import Carousel from "react-elastic-carousel";
+// import styled from "styled-components";
+import Item from "./Item";
 
 export const Home = (props) => {
   function myFunction() {
@@ -17,28 +21,35 @@ export const Home = (props) => {
       moreText.style.display = "inline";
     }
   }
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 3, itemsToScroll: 2 },
+    { width: 768, itemsToShow: 5 },
+    { width: 1200, itemsToShow: 6 }
+  ];
+  const items = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <div className="cont">
       <div id="front" className="container item">
         <div className="leftItem">
           <h2 className="faculty-head">About Us</h2>
-          <p className="bhashan backG" style={{"textAlign":"justify"}}>Among the elite technology institutes of the country, IIT Mandi
-          embodies technology, research and development in the purest form.
-          Supported by the nourishing, picturesque settings of the Shivalik
-          mountain range, IIT Mandi boasts of a unique hands-on curriculum,
-          creme de la creme of students who epitomise all round proficiency in
-          technical and professional matters. <br />
-          All the Placement associated activities are handled by the Career and
-          Placement Cell (CnP) of the institute. The CnP consists of Faculty
-          Members, Placement Officers and student volunteers working round the
-          clock to provide the best possible services to the visiting
-          organisations. <br />
-          We look forward to a mutually beneficial Placement Session with your
-          company.</p>
+          <p className="bhashan backG" style={{ "textAlign": "justify" }}>Among the elite technology institutes of the country, IIT Mandi
+            embodies technology, research and development in the purest form.
+            Supported by the nourishing, picturesque settings of the Shivalik
+            mountain range, IIT Mandi boasts of a unique hands-on curriculum,
+            creme de la creme of students who epitomise all round proficiency in
+            technical and professional matters. <br />
+            All the Placement associated activities are handled by the Career and
+            Placement Cell (CnP) of the institute. The CnP consists of Faculty
+            Members, Placement Officers and student volunteers working round the
+            clock to provide the best possible services to the visiting
+            organisations. <br />
+            We look forward to a mutually beneficial Placement Session with your
+            company.</p>
         </div>
         <div className="rightItem">
           <div className="carous">
-            <Carousal/>
+            <Carousal />
           </div>
         </div>
       </div>
@@ -71,7 +82,7 @@ export const Home = (props) => {
           </div> */}
         {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
         <div className="col-lg-3 col-md-3 col-sm-12">
-        <img
+          <img
             className="faculty-advisor"
             src="https://www.iitmandi.ac.in/images/Dir.jpg"
             alt="Dr. "
@@ -106,7 +117,7 @@ export const Home = (props) => {
           </div> */}
         {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
         <div className="col-lg-3 col-md-3 col-sm-12">
-        <img
+          <img
             className="faculty-advisor"
             src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg"
             alt="Dr. Tushar Jain"
@@ -158,6 +169,15 @@ export const Home = (props) => {
         {/* <br /> */}
         {/* </div> */}
         <br />
+      </div>
+      <div className="car-logo">
+        <div className="carousel-wrapper-logo">
+          <Carousel breakPoints={breakPoints}>
+            {items.map((item) => (
+              <Item key={item}>{item}</Item>
+            ))}
+          </Carousel>
+        </div>
       </div>
     </div>
   );
