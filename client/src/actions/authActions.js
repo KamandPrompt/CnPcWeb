@@ -36,20 +36,24 @@ import { GET_ERRORS, SET_CURRENT_USER } from "./types";
 
 // Recruiters
 // Register
-export const registerRecruiter = (userData, history) => dispatch => {
-  axios.post("/api/recruiters/register",userData)
-  .then(res => dispatch(loginRecruiter(userData)))
-  .catch(err=> dispatch({
-    type:GET_ERRORS,
-    payload:err.response.data
-  }))
-}
+export const registerRecruiter = (userData, history) => (dispatch) => {
+  axios
+    .post("/api/recruiters/register", userData)
+    .then((res) => dispatch(loginRecruiter(userData)))
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
 
 // Login
-export const loginRecruiter = (userData) => dispatch => {
-  axios.post("/api/recruiters/login",userData)
-  .then( res => {
-      const {token} = res.data;
+export const loginRecruiter = (userData) => (dispatch) => {
+  axios
+    .post("/api/recruiters/login", userData)
+    .then((res) => {
+      const { token } = res.data;
       // Set token to localStorage
       localStorage.setItem("jwtToken", token);
       // Set token to Auth header
@@ -57,29 +61,35 @@ export const loginRecruiter = (userData) => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
-  })
-  .catch(err=> dispatch({
-    type:GET_ERRORS,
-    payload:err.response.data
-  }))
-}
+    })
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
 
 // Students
 // Register
-export const registerStudent = (userData, history) => dispatch => {
-  axios.post("/api/students/register",userData)
-  .then(res => dispatch(loginStudent(userData)))
-  .catch(err=> dispatch({
-    type:GET_ERRORS,
-    payload:err.response.data
-  }))
-}
+export const registerStudent = (userData, history) => (dispatch) => {
+  axios
+    .post("/api/students/register", userData)
+    .then((res) => dispatch(loginStudent(userData)))
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
 
 // Login
-export const loginStudent = (userData) => dispatch => {
-  axios.post("/api/students/login",userData)
-  .then( res => {
-      const {token} = res.data;
+export const loginStudent = (userData) => (dispatch) => {
+  axios
+    .post("/api/students/login", userData)
+    .then((res) => {
+      const { token } = res.data;
       // Set token to localStorage
       localStorage.setItem("jwtToken", token);
       // Set token to Auth header
@@ -87,18 +97,21 @@ export const loginStudent = (userData) => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
-  })
-  .catch(err=> dispatch({
-    type:GET_ERRORS,
-    payload:err.response.data
-  }))
-}
+    })
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
 
 // Admin Login
-export const loginAdmin = (userData) => dispatch => {
-  axios.post("/api/admins/login",userData)
-  .then( res => {
-      const {token} = res.data;
+export const loginAdmin = (userData) => (dispatch) => {
+  axios
+    .post("/api/admins/login", userData)
+    .then((res) => {
+      const { token } = res.data;
       // Set token to localStorage
       localStorage.setItem("jwtToken", token);
       // Set token to Auth header
@@ -106,25 +119,25 @@ export const loginAdmin = (userData) => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
-  })
-  .catch(err=> dispatch({
-    type:GET_ERRORS,
-    payload:err.response.data
-  }))
-}
-
-
+    })
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
 
 // Set logged in user
-export const setCurrentUser = decoded_data => {
+export const setCurrentUser = (decoded_data) => {
   return {
     type: SET_CURRENT_USER,
-    payload: decoded_data
+    payload: decoded_data,
   };
 };
 
 // Logout user
-export const logoutUser = () => dispatch => {
+export const logoutUser = () => (dispatch) => {
   // Remove token from local storage
   localStorage.removeItem("jwtToken");
   // Remove auth header for future requests

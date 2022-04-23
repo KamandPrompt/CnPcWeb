@@ -5,77 +5,77 @@ const Schema = mongoose.Schema;
 const StudentSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   rollNo: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   batch: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   degree: {
     type: String,
-    required: true
+    required: true,
   },
   branch: {
     type: String,
-    required: true
+    required: true,
   },
   cgpa: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     required: true,
-    unique : true,
+    unique: true,
   },
   contactNumber: {
     type: String,
-    required: true
+    required: true,
   },
   dob: {
     type: String,
-    required: true
+    required: true,
   },
   Gender: {
-    type: String
+    type: String,
   },
   tenthPercentage: {
     type: String,
-    required: true
+    required: true,
   },
   twelthPercentage: {
     type: String,
-    required: true
+    required: true,
   },
   advanceRank: {
     type: Number,
-    required: true
+    required: true,
   },
   resume: {
     type: String,
-    required: true
+    required: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
-  verification_status : {
-    type : String,
-    default : 'Not Verified',
+  verification_status: {
+    type: String,
+    default: "Not Verified",
   },
   role: {
     type: String,
-    default: 'student',
+    default: "student",
   },
 });
 
