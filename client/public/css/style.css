@@ -892,7 +892,6 @@ hr {
   align-items: center;
   height: 350px;
   transform: scale(0.9);
-  overflow: scroll;
 }
 
 .slidePallet2::-webkit-scrollbar { 
@@ -1291,3 +1290,5 @@ hr {
   outline: none;
   box-shadow: inset 0 0 1px 0px violet;
 } */
+
+.recharts-legend-item-text { font-size: 10px; }

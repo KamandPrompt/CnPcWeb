@@ -17,6 +17,10 @@ import {
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Carousel from "react-elastic-carousel";
+// import styled from "styled-components";
+import Item from "./Item";
+
 const data01 = [
   { name: " Mechanical Engineering", value: 23, fill: "#003399" },
   { name: "Civil Engineering", value: 20, fill: "#015100" },
@@ -63,11 +67,27 @@ export const Demo = (props) => {
     dots: true,
     infinite: true,
     slidesToShow: 2,
-    autoplay: true,
+    autoplay: false,
     speed: 1000,
     autoplaySpeed: 2000,
     pauseOnHover: true,
-    cssEase: "linear"
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 990,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      }
+    ]
   };
   return (
     // <div className="acadmic container demo blue">
@@ -87,19 +107,19 @@ export const Demo = (props) => {
         <Slider {...settings}>
           <div className="sliderItem2">
             <div className="slidePallet2">
+            <h3 style={{"fontSize":"25px"}}>Title</h3>
               <center>
                 <PieChart
-                  width={1000}
-                  height={400}
-                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
-                  title="CSE STUDENTS"
+                  width={500}
+                  height={300}
+                  margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
                     data={data01}
-                    cx={200}
-                    cy={200}
+                    cx={170}
+                    cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
@@ -117,18 +137,19 @@ export const Demo = (props) => {
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
+              <h3 style={{"fontSize":"25px"}}>Title</h3>
               <center>
                 <PieChart
-                  width={1000}
-                  height={400}
-                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                  width={500}
+                  height={300}
+                  margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
                     data={data02}
-                    cx={200}
-                    cy={200}
+                    cx={170}
+                    cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
@@ -145,18 +166,19 @@ export const Demo = (props) => {
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
+              <h3 style={{"fontSize":"25px"}}>Title</h3>
               <center>
                 <PieChart
-                  width={1000}
-                  height={400}
-                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                  width={500}
+                  height={300}
+                  margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
                     data={data03}
-                    cx={330}
-                    cy={200}
+                    cx={220}
+                    cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
@@ -174,18 +196,19 @@ export const Demo = (props) => {
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
+              <h3 style={{"fontSize":"25px"}}>Title</h3>
               <center>
                 <PieChart
-                  width={1000}
-                  height={400}
-                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                  width={500}
+                  height={300}
+                  margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
                     data={data04}
-                    cx={400}
-                    cy={200}
+                    cx={250}
+                    cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
@@ -202,18 +225,19 @@ export const Demo = (props) => {
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
+              <h3 style={{"fontSize":"25px"}}>Title</h3>
               <center>
                 <PieChart
-                  width={1000}
-                  height={400}
-                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                  width={500}
+                  height={300}
+                  margin={{ top: 0, right: 0, left: 10, bottom: 0 }}
                 >
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
                     data={data05}
-                    cx={300}
-                    cy={200}
+                    cx={190}
+                    cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
@@ -232,11 +256,12 @@ export const Demo = (props) => {
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
+              <h3 style={{"fontSize":"25px"}}>Title</h3>
               <center>
                 <PieChart
-                  width={1000}
-                  height={400}
-                  margin={{ top: 0, right: 10, left: 250, bottom: 0 }}
+                  width={500}
+                  height={300}
+                  margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
                   <Pie
                     dataKey="value"
@@ -244,8 +269,8 @@ export const Demo = (props) => {
                     // onMouseMove={onMouseMove}
                     data={data06}
                     // dataKey="duration"
-                    cx={350}
-                    cy={200}
+                    cx={220}
+                    cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
