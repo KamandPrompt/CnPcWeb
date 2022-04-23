@@ -40,7 +40,7 @@ module.exports = function validateRegisterInput(data) {
     errors.email = "Email is invalid";
   }
 
-  let arr=[]
+  let arr=[];
   //Password checks
   if (Validator.isEmpty(data.password)) {
     arr.push("Password field is required");
@@ -65,7 +65,9 @@ module.exports = function validateRegisterInput(data) {
   if (data.password.search(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) < 0) {
       arr.push("Your password must contain at least one special character."); 
   }
-  errors.password=arr;
+  if(arr[0]){
+    errors.password=arr;
+  }
 
   return {
     errors,
