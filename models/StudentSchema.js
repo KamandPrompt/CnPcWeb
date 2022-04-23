@@ -45,18 +45,6 @@ const StudentSchema = new Schema({
   Gender: {
     type: String,
   },
-  tenthPercentage: {
-    type: String,
-    required: true,
-  },
-  twelthPercentage: {
-    type: String,
-    required: true,
-  },
-  advanceRank: {
-    type: Number,
-    required: true,
-  },
   resume: {
     type: String,
     required: true,
@@ -65,13 +53,9 @@ const StudentSchema = new Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-  verification_status: {
-    type: String,
-    default: "Not Verified",
+  verification_status : {
+    type : String,
+    default : 'Not Verified',
   },
   role: {
     type: String,
