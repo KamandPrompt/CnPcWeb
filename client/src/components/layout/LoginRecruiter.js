@@ -92,7 +92,7 @@ class Login extends Component{
                         {errors.passwordincorrect}
                     </span>
                 </div>
-                <div className="text-center no_account">Don't have an account? <Link to="/registerStudent">Register</Link></div>
+                <div className="text-center no_account">Don't have an account? <Link to="/registerRecruiter">Register</Link></div>
                 <div className="form-group form_sub">
                     <button type="submit" className="btn btn-primary btn-block btn-lg" style={{"backgroundColor":"#CFFFF6","color":"black"}}>Login</button>
                 </div>
