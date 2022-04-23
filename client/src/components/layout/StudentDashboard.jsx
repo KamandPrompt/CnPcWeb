@@ -124,7 +124,7 @@ class StudentDashboard extends Component {
                     >
                       <Button
                         className="btn-fill"
-                        style={{ width: "12%" }}
+                        style={{ width: "200px" }}
                         type="submit"
                         variant="info"
                       >

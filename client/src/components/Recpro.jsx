@@ -17,7 +17,7 @@ export const Recpro = () => {
         <center>
           <Row>
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 1</h3>
                   <p class="card-text">
@@ -28,7 +28,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 2</h3>
                   <p class="card-text">
@@ -39,7 +39,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 3</h3>
                   <p class="card-text">
@@ -50,7 +50,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 4</h3>
                   <p class="card-text">
@@ -61,7 +61,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 5</h3>
                   <p class="card-text">
@@ -72,7 +72,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 6</h3>
                   <p class="card-text">
@@ -83,7 +83,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 7</h3>
                   <p class="card-text">
@@ -94,7 +94,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 8</h3>
                   <p class="card-text">
@@ -105,7 +105,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 9</h3>
                   <p class="card-text">
@@ -116,7 +116,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 10</h3>
                   <p class="card-text">
@@ -127,7 +127,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 11</h3>
                   <p class="card-text">
@@ -138,7 +138,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 12</h3>
                   <p class="card-text">
@@ -149,7 +149,7 @@ export const Recpro = () => {
             </Col>
 
             <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card text-center">
+              <div class="card2 text-center">
                 <div class="card-body">
                   <h3 class="card-title">STEP 13</h3>
                   <p class="card-text">
