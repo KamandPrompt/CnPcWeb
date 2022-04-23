@@ -247,7 +247,7 @@ class Register extends Component {
                   id="password2"
                   placeholder="Confirm Password"
                   value={password2}
-                  error={errors.password}
+                  error={errors.password2}
                   onChange={this.onChange}
                   className={classnames("form-control", {
                     invalid: errors.password2,
