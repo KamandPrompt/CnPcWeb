@@ -34,4 +34,4 @@ async function accessSpreadsheet() {
       }
 }
 
-module.exports = accessSpreadsheet;
+accessSpreadsheet();

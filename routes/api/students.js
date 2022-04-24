@@ -27,6 +27,7 @@ router.post("/register", (req, res) => {
           rollNo: req.body.rollNo,
           degree: req.body.degree,
           branch: req.body.branch,
+          batch: req.body.batch,
           cgpa: req.body.cgpa,
           email: req.body.email,
           contactNumber: req.body.contactNumber,
@@ -38,7 +39,7 @@ router.post("/register", (req, res) => {
           resume: req.body.resume,
           password: req.body.password,
         });
-
+        console.log(req.body.password);
         // Hash password before storing in database
         const rounds = 10;
         bcrypt.genSalt(rounds, (err, salt) => {
@@ -47,7 +48,9 @@ router.post("/register", (req, res) => {
             newStudent.password = hash;
             newStudent
               .save()
-              .then((user) => res.json(user))
+              .then((user) => {
+                console.log(user);
+                res.json(user)})
               .catch((err) => console.log(err));
           });
         });
