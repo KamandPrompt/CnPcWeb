@@ -3,24 +3,99 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
+import { updateUser } from "../../actions/authActions";
 
 class StudentDashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "XYZ",
+      rollNo: "",
+      batch: "",
+      degree: "",
+      branch: "",
+      cgpa: "",
+      email: "",
+      contactNumber: "",
+      dob: "",
+      Gender: "",
+      resume: "",
+      password: "",
+      verification_status: "",
+      role: "",
+    };
+  }
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     name: this.props.auth.name,
+  //     rollNo: this.props.auth.rollNo,
+  //     batch: this.props.auth.batch,
+  //     degree: this.props.auth.degree,
+  //     branch: this.props.auth.branch,
+  //     cgpa: this.props.auth.cgpa,
+  //     email: this.props.auth.email,
+  //     contactNumber: this.props.auth.contactNumber,
+  //     dob:this.props.auth.dob,
+  //     Gender: this.props.auth.Gender,
+  //     resume: this.props.auth.resume,
+  //     password: this.props.auth.password,
+  //     verification_status: this.props.auth.verification_status,
+  //     role: this.props.auth.role,
+  //   };
+  // }
   onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
 
+  onchange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+    // this.setState(e.target.id=e.target.value)
+    // console.log(e.target.value);
+    // console.log(e.target.id);
+  }
+
+  onsubmit = (e,user) => {
+    e.preventDefault();
+    this.props
+      .updateUser(user);
+  }
+  show =() => {
+    console.log(rollNo.value);
+    console.log(email.value);
+    console.log(batch.value);
+    console.log(branch.value);
+    console.log(Gender.value);
+    console.log(name);
+  }
+
   render() {
     const { user } = this.props.auth;
+
+    const {
+      name,
+      rollNo,
+      batch,
+      degree,
+      branch,
+      cgpa,
+      email,
+      contactNumber,
+      dob,
+      Gender,
+      resume,
+      password,
+      verification_status,
+      role
+    } = this.state;
+
     return (
       <>
         <Container fluid>
           <Row>
             <Col md="12">
               <Card>
-                <Card.Header>
-                  <Card.Title as="h4">{user.name}</Card.Title>
-                </Card.Header>
                 <Card.Body>
                   <Form>
                     <Row>
@@ -28,10 +103,12 @@ class StudentDashboard extends Component {
                         <Form.Group>
                           <label>RollNo</label>
                           <Form.Control
-                            defaultValue={user.rollNo}
                             disabled
+                            defaultValue={user.rollNo}
                             placeholder="RollNo"
                             type="text"
+                            id="rollNo"
+                            onChange={this.onchange}
                           ></Form.Control>
                         </Form.Group>
                       </Col>
@@ -39,6 +116,8 @@ class StudentDashboard extends Component {
                         <Form.Group>
                           <label>Name</label>
                           <Form.Control
+                            onChange={this.onchange}
+                            id="name"
                             defaultValue={user.name}
                             disabled
                             placeholder="Name"
@@ -52,6 +131,8 @@ class StudentDashboard extends Component {
                             Email address
                           </label>
                           <Form.Control
+                            onChange={this.onchange}
+                            id="email"
                             defaultValue={user.email}
                             disabled
                             placeholder="Email"
@@ -63,10 +144,12 @@ class StudentDashboard extends Component {
                     <Row>
                       <Col md="12">
                         <Form.Group>
-                          <label>Address</label>
+                          <label>Contact number</label>
                           <Form.Control
-                            defaultValue=""
-                            placeholder="Home Address"
+                            onChange={this.onchange}
+                            id="contactNumber"
+                            defaultValue={user.contactNumber}
+                            placeholder="Contact Number"
                             type="text"
                           ></Form.Control>
                         </Form.Group>
@@ -75,45 +158,154 @@ class StudentDashboard extends Component {
                     <Row>
                       <Col className="pr-1" md="4">
                         <Form.Group>
-                          <label>City</label>
+                          <label>Branch</label>
                           <Form.Control
-                            // defaultValue="Mike"
-                            placeholder="City"
+                            onChange={this.onchange}
+                            id="branch"
+                            defaultValue={user.branch}
+                            placeholder="Branch"
                             type="text"
                           ></Form.Control>
                         </Form.Group>
                       </Col>
                       <Col className="px-1" md="4">
                         <Form.Group>
-                          <label>Country</label>
+                          <label>Resume</label>
                           <Form.Control
-                            // defaultValue="Andrew"
-                            placeholder="Country"
+                            onChange={this.onchange}
+                            id="resume"
+                            defaultValue={user.resume}
+                            placeholder="Drive link"
                             type="text"
                           ></Form.Control>
                         </Form.Group>
                       </Col>
                       <Col className="pl-1" md="4">
                         <Form.Group>
-                          <label>Postal Code</label>
+                          <div>
+                          <label>Gender</label>
+                          </div>
+                          <Form.Select className="btn-primary" aria-label="Default select example" onChange={this.onchange} id="Gender">
+                            <option>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Others">Others</option>
+                          </Form.Select>
+                          {/* <Form.Check
+                              inline
+                              label="Male"
+                              name="group1"
+                              type="radio"
+                              id="inline-radio-1"
+                            />
+                            <Form.Check
+                              inline
+                              label="Female"
+                              name="group1"
+                              type="radio"
+                              id="inline-radio-2"
+                            />
+                            <Form.Check
+                              inline
+                              label="Others"
+                              type="radio"
+                              id="inline-radio-3"
+                            /> */}
+                          {/* <Form.Check
+                            inline="true"
+                            type="radio"
+                            name="group1"
+                            id={`default-radio`}
+                            label={"Male"}
+                          />
+                          <Form.Check
+                            inline="true"
+                            type="radio"
+                            name="group1"
+                            id={`default-radio`}
+                            label={"Male"}
+                          />
+                          <Form.Check
+                            inline="true"
+                            type="radio"
+                            name="group1"
+                            id={`default-radio`}
+                            label={"Others"}
+                          /> */}
+                        </Form.Group>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col className="pr-1" md="4">
+                        <Form.Group>
+                          <label>Degree</label>
                           <Form.Control
-                            placeholder="ZIP Code"
-                            type="number"
+                            onChange={this.onchange}
+                            id="degree"
+                            defaultValue={user.degree}
+                            placeholder="Degree"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="4">
+                        <Form.Group>
+                          <label>Batch</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="batch"
+                            defaultValue={user.batch}
+                            placeholder="batch"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="pl-1" md="4">
+                        <Form.Group>
+                          <label>CGPA</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="cgpa"
+                            defaultValue={user.cgpa}
+                            placeholder="Cgpa"
+                            type="text"
                           ></Form.Control>
                         </Form.Group>
                       </Col>
                     </Row>
                     <Row>
-                      <Col md="12">
+                      <Col className="pr-1" md="4">
                         <Form.Group>
-                          <label>About Me</label>
+                          <label>Date of Birth</label>
                           <Form.Control
-                            cols="80"
-                            // defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
-                            // that two seat Lambo."
-                            placeholder="Here can be your description"
-                            rows="4"
-                            as="textarea"
+                            onChange={this.onchange}
+                            id="dob"
+                            defaultValue={user.dob}
+                            placeholder="Date of Birth"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="4">
+                        <Form.Group>
+                          <label>Role</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="role"
+                            defaultValue={user.role}
+                            placeholder="role"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="pl-1" md="4">
+                        <Form.Group>
+                          <label>Verification status</label>
+                          <Form.Control
+                            disabled
+                            defaultValue="No"
+                            placeholder="Verification Code"
+                            type="text"
                           ></Form.Control>
                         </Form.Group>
                       </Col>
@@ -130,6 +322,9 @@ class StudentDashboard extends Component {
                       >
                         Update Profile
                       </Button>
+                      <Button
+                      onClick={this.show
+                      }>Show</Button>
                     </div>
                   </Form>
                 </Card.Body>
