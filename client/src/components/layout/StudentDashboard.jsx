@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
-import { updateUser } from "../../actions/authActions";
+import axios from "axios";
+// import { updateUser } from "../../actions/authActions";
 
 class StudentDashboard extends Component {
   constructor() {
     super();
     this.state = {
-      name: "XYZ",
+      name: "",
       rollNo: "",
       batch: "",
       degree: "",
@@ -55,19 +56,29 @@ class StudentDashboard extends Component {
     // console.log(e.target.value);
     // console.log(e.target.id);
   }
+  updateUser = (userData) => {
+    console.log("hello");
+    axios.post("api/students/update", userData).then((res)=>{
+      console.log(res);
+    }).catch((err)=>{
+      console.log(err);
+    })
+  };
 
-  onsubmit = (e,user) => {
+  onsubmit = (e) => {
     e.preventDefault();
-    this.props
-      .updateUser(user);
-  }
-  show =() => {
-    console.log(rollNo.value);
-    console.log(email.value);
-    console.log(batch.value);
-    console.log(branch.value);
-    console.log(Gender.value);
-    console.log(name);
+    const user = {
+                  rollNo: rollNo.value,
+                  batch:batch.value,
+                  contactNumber: contactNumber.value,
+                  branch: branch.value,
+                  Gender: Gender.value,
+                  degree: degree.value,
+                  cgpa: cgpa.value,
+                  dob: dob.value,
+                  resume: resume.value,
+                };
+    this.updateUser(user);
   }
 
   render() {
@@ -319,12 +330,10 @@ class StudentDashboard extends Component {
                         style={{ width: "200px" }}
                         type="submit"
                         variant="info"
+                        onClick={this.onsubmit}
                       >
                         Update Profile
                       </Button>
-                      <Button
-                      onClick={this.show
-                      }>Show</Button>
                     </div>
                   </Form>
                 </Card.Body>

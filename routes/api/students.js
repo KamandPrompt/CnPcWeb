@@ -129,30 +129,19 @@ router.post("/login", (req, res) => {
 });
 
   router.post("/update", (req,res)=>{
-    Student.findOne({ rollNo: req.body.rollNo })
-    .then((user) => {
-      if(user){
-        Student.updateMany({rollNo:user.rollNo},
-          {batch:user.batch,
-           degree:user.degree,
-           branch:user.branch,
-           cgpa:user.cgpa,
-           contactNumber:user.contactNumber,
-           resume:user.resume,
-           Gender:user.Gender,
-           dob:user.dob,
-           role: user.role,
-          }, function (err,docs){
-            if(err){
-              console.log(err);
-            }else{
-              console.log(docs);
-            }
-          })
-      }
-    }).catch((err)=>{
-      console.log(err);
-    })
+    Student.updateMany({rollNo:req.body.rollNo},
+      {
+        batch:req.body.batch,
+        degree:req.body.degree,
+        branch:req.body.branch,
+        cgpa:req.body.cgpa,
+        contactNumber:req.body.contactNumber,
+        resume:req.body.resume,
+        Gender:req.body.Gender,
+        dob:req.body.dob,
+      }, function (){
+        console.log("Updated!!!");
+      });
   });
 
 module.exports = router;

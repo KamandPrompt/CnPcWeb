@@ -145,11 +145,3 @@ export const logoutUser = () => (dispatch) => {
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
-
-export const updateUser = (userData) => (dispatch) => {
-  axios.post("api/students/update", userData).then((res)=>{
-    console.log(res);
-  }).catch((err)=>{
-    console.log(err);
-  })
-}
