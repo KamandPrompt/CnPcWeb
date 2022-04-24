@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
+import { updateUser } from "../../actions/authActions";
 
 class StudentDashboard extends Component {
   constructor() {
     super();
     this.state = {
-      name: "",
+      name: "XYZ",
       rollNo: "",
       batch: "",
       degree: "",
@@ -47,11 +48,18 @@ class StudentDashboard extends Component {
     e.preventDefault();
     this.props.logoutUser();
   };
+
   onchange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
     // this.setState(e.target.id=e.target.value)
     // console.log(e.target.value);
     // console.log(e.target.id);
+  }
+
+  onsubmit = (e,user) => {
+    e.preventDefault();
+    this.props
+      .updateUser(user);
   }
   show =() => {
     console.log(rollNo.value);
@@ -59,9 +67,9 @@ class StudentDashboard extends Component {
     console.log(batch.value);
     console.log(branch.value);
     console.log(Gender.value);
-    console.log(name.value);
-
+    console.log(name);
   }
+
   render() {
     const { user } = this.props.auth;
 
@@ -314,6 +322,9 @@ class StudentDashboard extends Component {
                       >
                         Update Profile
                       </Button>
+                      <Button
+                      onClick={this.show
+                      }>Show</Button>
                     </div>
                   </Form>
                 </Card.Body>
