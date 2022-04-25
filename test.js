@@ -26,6 +26,7 @@ async function accessSpreadsheet() {
               length: 12,
               numbers: true
           });
+          console.log(item.rollNo);
           return item.password = password;
       });
         fs.writeFileSync('client/src/output.json',JSON.stringify(objects),"utf-8");

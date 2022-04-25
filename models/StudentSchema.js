@@ -36,7 +36,6 @@ const StudentSchema = new Schema({
   contactNumber: {
     type: String,
     required: true,
-    unique: true,
   },
   dob: {
     type: String,
