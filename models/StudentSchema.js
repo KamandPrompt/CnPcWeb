@@ -15,7 +15,6 @@ const StudentSchema = new Schema({
   batch: {
     type: String,
     required: true,
-    unique: true,
   },
   degree: {
     type: String,
@@ -37,6 +36,7 @@ const StudentSchema = new Schema({
   contactNumber: {
     type: String,
     required: true,
+    unique: true,
   },
   dob: {
     type: String,
