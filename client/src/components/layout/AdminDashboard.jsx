@@ -75,6 +75,33 @@ class AdminDashboard extends Component {
       })
     }
   }
+  updateUser = (userData) => {
+    axios.post("api/students/update", userData).then((res)=>{
+      console.log(res);
+    }).catch((err)=>{
+      console.log(err);
+    })
+  };
+  onsubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state)
+    const user = {
+      name : this.state.name,
+      rollNo: rollNo.value,
+      email : email.value,
+      batch:batch.value,
+      contactNumber: contactNumber.value,
+      branch: branch.value,
+      Gender: Gender.value,
+      degree: degree.value,
+      cgpa: cgpa.value,
+      dob: dob.value,
+      resume: resume.value,
+    };
+    console.log(user);
+    this.updateUser(user);
+  }
+
   onLogout = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -139,7 +166,7 @@ class AdminDashboard extends Component {
             <div className="row">
               <div className="col-sm-12">
                 <h4>
-                  Hey there, <b className="name-lable">{user.name.split(" ")[0]}</b>
+                  Hey there, <b className="name-lable">{this.state.name.split(" ")[0]}</b>
                   <p className="mt-4">
                     You are logged into a full-stack{" "}
                     <span style={{ fontFamily: "monospace" }}>admin</span> app 👏
@@ -173,61 +200,200 @@ class AdminDashboard extends Component {
         return (
           <>
             <Container fluid>
-              <Row>
-                <Col>
-                  <Card>
-                    <Card.Header>
-                      <Card.Title as="h4">{this.state.name}</Card.Title>
-                    </Card.Header>
-                    <Card.Body>
-                      <Form onSubmit={this.handleSubmit}>
-                        <Row>
-                          <Col className="pr-1" md="5">
-                            <Form.Group>
-                              <label>RollNo</label>
-                              <Form.Control
-                                name='rollNo'
-                                value={this.state.rollNo}
-                                onChange={this.handleChange}
-                                placeholder="RollNo"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="3">
-                            <Form.Group>
-                              <label>Name</label>
-                              <Form.Control
-                                name='name'
-                                value={this.state.name}
-                                onChange={this.handleChange}
-                                placeholder="Name"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="4">
-                            <Form.Group>
-                              <label htmlFor="exampleInputEmail1">
-                                Email address
-                              </label>
-                              <Form.Control
-                                name='email'
-                                value={this.state.email}
-                                onChange={this.handleChange}
-                                placeholder="Email"
-                                type="email"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <input type="submit" value="Update Profile" />
-                      </Form>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
+            <Row>
+              <Col md="12">
+                <Card>
+                  <Card.Body>
+                    <Form>
+                      <Row>
+                        <Col className="pr-1" md="5">
+                          <Form.Group>
+                            <label>RollNo</label>
+                            <Form.Control
+                              defaultValue={this.state.rollNo}
+                              placeholder="RollNo"
+                              type="text"
+                              id="rollNo"
+                              onChange={this.handleChange}
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="3">
+                          <Form.Group>
+                            <label>Name</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="name"
+                              defaultValue={this.state.name}
+                              placeholder="Name"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label htmlFor="exampleInputEmail1">
+                              Email address
+                            </label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="email"
+                              defaultValue={this.state.email}
+                              placeholder="Email"
+                              type="email"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md="12">
+                          <Form.Group>
+                            <label>Contact number</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="contactNumber"
+                              defaultValue={this.state.contactNumber}
+                              placeholder="Contact Number"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Branch</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="branch"
+                              defaultValue={this.state.branch}
+                              placeholder="Branch"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Resume</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="resume"
+                              defaultValue={this.state.resume}
+                              placeholder="Drive link"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <div>
+                            <label>Gender</label>
+                            </div>
+                            <Form.Select className="btn-primary" aria-label="Default select example" onChange={this.handleChange} id="Gender">
+                              <option>Select Gender</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
+                              <option value="Others">Others</option>
+                            </Form.Select>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Degree</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="degree"
+                              defaultValue={this.state.degree}
+                              placeholder="Degree"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Batch</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="batch"
+                              defaultValue={this.state.batch}
+                              placeholder="batch"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>CGPA</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="cgpa"
+                              defaultValue={this.state.cgpa}
+                              placeholder="CGPA"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Date of Birth</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="dob"
+                              defaultValue={this.state.dob}
+                              placeholder="Date of Birth"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Role</label>
+                            <Form.Control
+                              onChange={this.handleChange}
+                              id="role"
+                              defaultValue={this.state.role}
+                              placeholder="role"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <div>
+                              <label>Verification Status</label>
+                            </div>
+                            <Form.Select className="btn-primary" aria-label="Default select example" onChange={this.handleChange} id="verification_status">
+                              <option>Select Status</option>
+                              <option value="Yes">Yes</option>
+                              <option value="No">No</option>
+                            </Form.Select>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <div
+                        className="clearfix"
+                        style={{ textAlign: "center", margin: "10px 0px" }}
+                      >
+                        <Button
+                          className="btn-fill"
+                          style={{ width: "200px" }}
+                          type="submit"
+                          variant="info"
+                          onClick={this.onsubmit}
+                        >
+                          Update Profile
+                        </Button>
+                      </div>
+                    </Form>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
           </>
         );
       }
