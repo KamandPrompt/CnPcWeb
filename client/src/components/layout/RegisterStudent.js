@@ -5,18 +5,26 @@ import { connect } from "react-redux";
 import { registerStudent } from "../../actions/authActions";
 import classnames from "classnames";
 import Navbar from "./Navbar";
-import jsonData from "../../output.json";
+// import jsonData from "../../output.json";
 import axios from 'axios';
 
 const RegisterStudent = () => {
   const Dataloder = () => {
-    jsonData.map((item)=>{
-      axios.post('/api/students/register',item)
-      .then(res => console.log(res))
-      .catch((e)=>{
-        console.log(e);
-      });
+    // output.json shd be updated here
+    axios.get('/api/students/fetchOutput')
+    .then(res => {
+      console.log(res);
+      res.data.map((item)=>{
+        axios.post('/api/students/register',item)
+        .then(res => console.log(res))
+        .catch((e)=>{
+          console.log(e);
+        });
+      });  
     })
+    .catch((e)=>{
+      console.log(e);
+    });
   }
   return (
     <>
