@@ -22,6 +22,8 @@ import suzlon from "../images/Company_Logos/Suzlon_Energy.jpg"
 import samsung from "../images/Company_Logos/samsung.png"
 import raam_g from "../images/Company_Logos/Raam_Group.png"
 import practical from "../images/Company_Logos/Practically.png"
+import director from "../images/Dir.jpg"
+import tushar_jain from "../images/tj1.jpg"
 
 export const Home = (props) => {
   function myFunction() {
@@ -72,28 +74,6 @@ export const Home = (props) => {
             </div>
           </div>
         </div>
-        {/* <div id="home" className="container item">
-        <div>
-          <hr className="left" />
-          <h3 className="homeHead">About Us</h3>
-          <hr className="right" />
-        </div>
-        <p className="aboutUs">
-          Among the elite technology institutes of the country, IIT Mandi
-          embodies technology, research and development in the purest form.
-          Supported by the nourishing, picturesque settings of the Shivalik
-          mountain range, IIT Mandi boasts of a unique hands-on curriculum,
-          creme de la creme of students who epitomise all round proficiency in
-          technical and professional matters. <br />
-          All the Placement associated activities are handled by the Career and
-          Placement Cell (CnP) of the institute. The CnP consists of Faculty
-          Members, Placement Officers and student volunteers working round the
-          clock to provide the best possible services to the visiting
-          organisations. <br />
-          We look forward to a mutually beneficial Placement Session with your
-          company.
-        </p>
-      </div> */}
         <h3 className="faculty-head">From the Director</h3>
         <div className="about container row item">
           {/* <div className="col-lg-4 col-md-6 col-sm-12">
@@ -103,8 +83,8 @@ export const Home = (props) => {
           <div className="col-lg-3 col-md-3 col-sm-12">
             <img
               className="faculty-advisor"
-              src="https://www.iitmandi.ac.in/images/Dir.jpg"
-              alt="Dr. "
+              src={director}
+              alt="Dr. Laxmidhar Behera"
             />
             <h4 className="profile">Dr. Laxmidhar Behera</h4>
             <h5 className="profile">Director</h5>
@@ -138,7 +118,7 @@ export const Home = (props) => {
           <div className="col-lg-3 col-md-3 col-sm-12">
             <img
               className="faculty-advisor"
-              src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg"
+              src={tushar_jain}
               alt="Dr. Tushar Jain"
             />
             <h4 className="profile">Dr. Tushar Jain</h4>
