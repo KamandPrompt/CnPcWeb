@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs");
 const path = require('path');
 
 async function accessSpreadsheet() {
+    console.log("Running test.js")
     const auth = new google.auth.GoogleAuth({
         keyFile: "fetching_data.json",
         scopes: "https://www.googleapis.com/auth/spreadsheets", 

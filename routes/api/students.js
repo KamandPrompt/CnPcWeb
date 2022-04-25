@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
-
+import { accessSpreadsheet } from "../../test.js";
 // Load input validation
 const validateRegisterInput = require("../../validation/registerStudent");
 const validateLoginInput = require("../../validation/loginStudent");
@@ -11,6 +11,15 @@ const validateLoginInput = require("../../validation/loginStudent");
 // Load Student model
 const Student = require("../../models/StudentSchema");
 
+router.post("/fetchOutput", (req, res) => {
+  accessSpreadsheet()
+    .then((a) => {
+      return res.json({name:"hello"});
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 // @route POST api/students/register
 // @desc Register user
 // @access Public
@@ -50,7 +59,8 @@ router.post("/register", (req, res) => {
               .save()
               .then((user) => {
                 console.log(user);
-                res.json(user)})
+                res.json(user);
+              })
               .catch((err) => console.log(err));
           });
         });
@@ -128,20 +138,23 @@ router.post("/login", (req, res) => {
   });
 });
 
-  router.post("/update", (req,res)=>{
-    Student.updateMany({rollNo:req.body.rollNo},
-      {
-        batch:req.body.batch,
-        degree:req.body.degree,
-        branch:req.body.branch,
-        cgpa:req.body.cgpa,
-        contactNumber:req.body.contactNumber,
-        resume:req.body.resume,
-        Gender:req.body.Gender,
-        dob:req.body.dob,
-      }, function (){
-        console.log("Updated!!!");
-      });
-  });
+router.post("/update", (req, res) => {
+  Student.updateMany(
+    { rollNo: req.body.rollNo },
+    {
+      batch: req.body.batch,
+      degree: req.body.degree,
+      branch: req.body.branch,
+      cgpa: req.body.cgpa,
+      contactNumber: req.body.contactNumber,
+      resume: req.body.resume,
+      Gender: req.body.Gender,
+      dob: req.body.dob,
+    },
+    function () {
+      console.log("Updated!!!");
+    }
+  );
+});
 
 module.exports = router;

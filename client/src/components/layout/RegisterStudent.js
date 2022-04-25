@@ -10,6 +10,12 @@ import axios from 'axios';
 
 const RegisterStudent = () => {
   const Dataloder = () => {
+    // output.json shd be updated here
+    axios.post('/api/students/fetchOutput')
+    .then(res => console.log(res))
+    .catch((e)=>{
+      console.log(e);
+    });
     jsonData.map((item)=>{
       axios.post('/api/students/register',item)
       .then(res => console.log(res))
