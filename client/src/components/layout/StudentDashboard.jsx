@@ -68,16 +68,16 @@ class StudentDashboard extends Component {
   onsubmit = (e) => {
     e.preventDefault();
     const user = {
-                  rollNo: rollNo.value,
-                  batch:batch.value,
-                  contactNumber: contactNumber.value,
-                  branch: branch.value,
-                  Gender: Gender.value,
-                  degree: degree.value,
-                  cgpa: cgpa.value,
-                  dob: dob.value,
-                  resume: resume.value,
-                };
+        rollNo: rollNo.value,
+        batch:batch.value,
+        contactNumber: contactNumber.value,
+        branch: branch.value,
+        Gender: Gender.value,
+        degree: degree.value,
+        cgpa: cgpa.value,
+        dob: dob.value,
+        resume: resume.value,
+      };
     this.updateUser(user);
   }
 
