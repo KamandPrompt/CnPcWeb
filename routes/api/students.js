@@ -1,7 +1,7 @@
 const { google } = require("googleapis");
-const fs = require('fs');
-const generator = require('generate-password');
-const path = require('path');
+const fs = require("fs");
+const generator = require("generate-password");
+const path = require("path");
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
@@ -15,13 +15,16 @@ const validateLoginInput = require("../../validation/loginStudent");
 // Load Student model
 const Student = require("../../models/StudentSchema");
 const accessSpreadsheet = async () => {
-  console.log("Running test.js")
+  console.log("Running test.js");
   const auth = new google.auth.GoogleAuth({
     keyFile: "fetching_data.json",
     scopes: "https://www.googleapis.com/auth/spreadsheets",
   });
   const authClientObject = await auth.getClient();
-  const googleSheetsInstance = google.sheets({ version: "v4", auth: authClientObject });
+  const googleSheetsInstance = google.sheets({
+    version: "v4",
+    auth: authClientObject,
+  });
   const spreadsheetId = "1vtDWu_XI6_I2xP-ms6k5AkDjc3Epq9Yq3nhAawQnxQM";
   try {
     const readData = await googleSheetsInstance.spreadsheets.values.get({
@@ -31,23 +34,29 @@ const accessSpreadsheet = async () => {
     });
     let arrays = readData.data.values;
     const [keys, ...values] = arrays;
-    const objects = values.map(array => array.reduce((a, v, i) => ({ ...a, [keys[i]]: v }), {}));
+    const objects = values.map((array) =>
+      array.reduce((a, v, i) => ({ ...a, [keys[i]]: v }), {})
+    );
     objects.map((item) => {
       var password = generator.generate({
         length: 12,
-        numbers: true
+        numbers: true,
       });
       console.log(item.rollNo);
-      return item.password = password;
+      return (item.password = password);
     });
-    fs.writeFileSync('./client/src/output.json',JSON.stringify(objects),"utf-8");
+    fs.writeFileSync(
+      "./client/src/output.json",
+      JSON.stringify(objects),
+      "utf-8"
+    );
     return objects;
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-router.get("/fetchOutput", (req, res) => {
+router.post("/fetchOutput", (req, res) => {
   accessSpreadsheet()
     .then((a) => {
       console.log(a);
@@ -55,6 +64,7 @@ router.get("/fetchOutput", (req, res) => {
     })
     .catch((err) => {
       console.log(err);
+      return res.status(400);
     });
 });
 // @route POST api/students/register
@@ -175,25 +185,28 @@ router.post("/login", (req, res) => {
   });
 });
 
-  router.post("/update", (req,res)=>{
-    Student.updateMany({rollNo:req.body.rollNo},
-      {
-        name : req.body.name,
-        rollNo : req.body.rollNo,
-        email : req.body.email,
-        batch:req.body.batch,
-        degree:req.body.degree,
-        branch:req.body.branch,
-        cgpa:req.body.cgpa,
-        contactNumber:req.body.contactNumber,
-        resume:req.body.resume,
-        Gender:req.body.Gender,
-        dob:req.body.dob,
-        verification_status : req.body.verification_status,
-        role : req.body.role
-      }, function (){
-        console.log("Updated!!!");
-      });
-  });
+router.post("/update", (req, res) => {
+  Student.updateMany(
+    { rollNo: req.body.rollNo },
+    {
+      name: req.body.name,
+      rollNo: req.body.rollNo,
+      email: req.body.email,
+      batch: req.body.batch,
+      degree: req.body.degree,
+      branch: req.body.branch,
+      cgpa: req.body.cgpa,
+      contactNumber: req.body.contactNumber,
+      resume: req.body.resume,
+      Gender: req.body.Gender,
+      dob: req.body.dob,
+      verification_status: req.body.verification_status,
+      role: req.body.role,
+    },
+    function () {
+      console.log("Updated!!!");
+    }
+  );
+});
 
 module.exports = router;
