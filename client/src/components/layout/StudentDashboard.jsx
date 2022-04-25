@@ -197,7 +197,7 @@ class StudentDashboard extends Component {
                           <label>Gender</label>
                           </div>
                           <Form.Select className="btn-sm primary" aria-label="Default select example" onChange={this.onchange} id="Gender">
-                            <option value={user.Gender}>{user.Gender}</option>
+                            <option value={user.Gender} selected>{user.Gender}</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>
