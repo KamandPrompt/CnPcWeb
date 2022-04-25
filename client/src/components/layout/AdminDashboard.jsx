@@ -67,6 +67,7 @@ class AdminDashboard extends Component {
           advanceRank : res.data.details.advanceRank, 
           resume : res.data.details.resume, 
           verification_status : res.data.details.verification_status, 
+          role : res.data.details.role,
           DataisLoaded:true,
         });
       })
@@ -97,6 +98,8 @@ class AdminDashboard extends Component {
       cgpa: cgpa.value,
       dob: dob.value,
       resume: resume.value,
+      verification_status : verification_status.value,
+      role : role.value
     };
     console.log(user);
     this.updateUser(user);
@@ -367,7 +370,7 @@ class AdminDashboard extends Component {
                               <label>Verification Status</label>
                             </div>
                             <Form.Select className="btn-primary" aria-label="Default select example" onChange={this.handleChange} id="verification_status">
-                              <option>Select Status</option>
+                              {/* <option>Select Status</option> */}
                               <option value="Yes">Yes</option>
                               <option value="No">No</option>
                             </Form.Select>

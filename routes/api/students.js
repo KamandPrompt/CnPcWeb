@@ -131,6 +131,9 @@ router.post("/login", (req, res) => {
   router.post("/update", (req,res)=>{
     Student.updateMany({rollNo:req.body.rollNo},
       {
+        name : req.body.name,
+        rollNo : req.body.rollNo,
+        email : req.body.email,
         batch:req.body.batch,
         degree:req.body.degree,
         branch:req.body.branch,
@@ -139,6 +142,8 @@ router.post("/login", (req, res) => {
         resume:req.body.resume,
         Gender:req.body.Gender,
         dob:req.body.dob,
+        verification_status : req.body.verification_status,
+        role : req.body.role
       }, function (){
         console.log("Updated!!!");
       });

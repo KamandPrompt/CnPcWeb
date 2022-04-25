@@ -68,7 +68,9 @@ class StudentDashboard extends Component {
   onsubmit = (e) => {
     e.preventDefault();
     const user = {
+        name : this.state.name,
         rollNo: rollNo.value,
+        email : email.value,
         batch:batch.value,
         contactNumber: contactNumber.value,
         branch: branch.value,
@@ -77,7 +79,9 @@ class StudentDashboard extends Component {
         cgpa: cgpa.value,
         dob: dob.value,
         resume: resume.value,
-      };
+        verification_status : verification_status.value,
+        role : role.value
+    };
     this.updateUser(user);
   }
 
