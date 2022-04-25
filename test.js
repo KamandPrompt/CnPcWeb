@@ -4,7 +4,7 @@ const generator = require('generate-password');
 const bcrypt = require("bcryptjs");
 const path = require('path');
 
-async function accessSpreadsheet() {
+const accessSpreadsheet = async() => {
     console.log("Running test.js")
     const auth = new google.auth.GoogleAuth({
         keyFile: "fetching_data.json",
@@ -30,10 +30,12 @@ async function accessSpreadsheet() {
           console.log(item.rollNo);
           return item.password = password;
       });
-        fs.writeFileSync('client/src/output.json',JSON.stringify(objects),"utf-8");
+        // fs.writeFileSync('client/src/output.json',JSON.stringify(objects),"utf-8");
+        return objects;
       } catch (error) {
         console.log(error);
       }
 }
 
-accessSpreadsheet();
+module.exports = accessSpreadsheet;
+// accessSpreadsheet();
