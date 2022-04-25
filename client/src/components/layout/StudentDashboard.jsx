@@ -196,53 +196,12 @@ class StudentDashboard extends Component {
                           <div>
                           <label>Gender</label>
                           </div>
-                          <Form.Select className="btn-primary" aria-label="Default select example" onChange={this.onchange} id="Gender">
+                          <Form.Select className="btn-sm primary" aria-label="Default select example" onChange={this.onchange} id="Gender">
                             <option value={user.Gender}>{user.Gender}</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>
                           </Form.Select>
-                          {/* <Form.Check
-                              inline
-                              label="Male"
-                              name="group1"
-                              type="radio"
-                              id="inline-radio-1"
-                            />
-                            <Form.Check
-                              inline
-                              label="Female"
-                              name="group1"
-                              type="radio"
-                              id="inline-radio-2"
-                            />
-                            <Form.Check
-                              inline
-                              label="Others"
-                              type="radio"
-                              id="inline-radio-3"
-                            /> */}
-                          {/* <Form.Check
-                            inline="true"
-                            type="radio"
-                            name="group1"
-                            id={`default-radio`}
-                            label={"Male"}
-                          />
-                          <Form.Check
-                            inline="true"
-                            type="radio"
-                            name="group1"
-                            id={`default-radio`}
-                            label={"Male"}
-                          />
-                          <Form.Check
-                            inline="true"
-                            type="radio"
-                            name="group1"
-                            id={`default-radio`}
-                            label={"Others"}
-                          /> */}
                         </Form.Group>
                       </Col>
                     </Row>
