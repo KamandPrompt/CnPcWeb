@@ -9,24 +9,35 @@ import Navbar from "./Navbar";
 import axios from "axios";
 
 const RegisterStudent = () => {
-  const Dataloder = () => {
+  const Dataloder = async () => {
     // output.json shd be updated here
-    axios
-      .post("/api/students/fetchOutput", "hello")
+    var data = [];
+    await axios.post("/api/students/fetchOutput", "hello")
       .then((res) => {
         console.log(res);
-        res.data.map((item) => {
-          axios
-            .post("/api/students/register", item)
-            .then((res) => console.log(res))
-            .catch((e) => {
-              console.log(e);
-            });
-        });
+        data = res.data;
       })
       .catch((e) => {
         console.log(e);
       });
+      console.log(data);
+      // data.map(async (item) => {
+      //   await axios
+      //     .post("/api/students/register", item)
+      //     .then((res) => console.log(res))
+      //     .catch((e) => {
+      //       console.log(e);
+      //     });
+      // });
+      for(var i=0;i<data.length;i++)
+      {
+        await axios
+          .post("/api/students/register", data[i])
+          .then((res) => console.log(res))
+          .catch((e) => {
+            console.log(e);
+          });
+      }
   };
   return (
     <>

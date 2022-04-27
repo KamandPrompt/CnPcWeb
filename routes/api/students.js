@@ -71,51 +71,59 @@ router.post("/fetchOutput", (req, res) => {
 // @desc Register user
 // @access Public
 
-router.post("/register", (req, res) => {
-  Student.findOne({ rollNo: req.body.rollNo })
-    .then((user) => {
-      if (user) {
-        console.log(`${user.rollNo} already exists`);
-        return res.status(400);
-      } else {
-        const newStudent = new Student({
-          name: req.body.name,
-          rollNo: req.body.rollNo,
-          degree: req.body.degree,
-          branch: req.body.branch,
-          batch: req.body.batch,
-          cgpa: req.body.cgpa,
-          email: req.body.email,
-          contactNumber: req.body.contactNumber,
-          dob: req.body.dob,
-          Gender: req.body.Gender,
-          tenthPercentage: req.body.tenthPercentage,
-          twelthPercentage: req.body.twelthPercentage,
-          advanceRank: req.body.advanceRank,
-          resume: req.body.resume,
-          password: req.body.password,
+router.post("/register", async (req, res) => {
+
+  console.log("hi");
+  const rollNo = req.body.rollNo;
+  console.log(typeof(rollNo));
+  var ans= await Student.findOne({ rollNo }).then((user) => {
+    console.log("h4i");
+    if (user) {
+      console.log("h3i");
+      console.log(`${user.rollNo} already exists`);
+      return res.status(400);
+    } else {
+      console.log("h2i");
+      const newStudent = new Student({
+        name: req.body.name,
+        rollNo: req.body.rollNo,
+        degree: req.body.degree,
+        branch: req.body.branch,
+        batch: req.body.batch,
+        cgpa: req.body.cgpa,
+        email: req.body.email,
+        contactNumber: req.body.contactNumber,
+        dob: req.body.dob,
+        Gender: req.body.Gender,
+        tenthPercentage: req.body.tenthPercentage,
+        twelthPercentage: req.body.twelthPercentage,
+        advanceRank: req.body.advanceRank,
+        resume: req.body.resume,
+        password: req.body.password,
+      });
+      console.log(req.body.password);
+      // Hash password before storing in database
+      const rounds = 10;
+      bcrypt.genSalt(rounds, (err, salt) => {
+        bcrypt.hash(newStudent.password, salt, (err, hash) => {
+          if (err) throw err;
+          newStudent.password = hash;
+          newStudent
+            .save()
+            .then((user) => {
+              console.log(user);
+              res.json(user);
+            })
+            .catch((err) => console.log(err));
         });
-        console.log(req.body.password);
-        // Hash password before storing in database
-        const rounds = 10;
-        bcrypt.genSalt(rounds, (err, salt) => {
-          bcrypt.hash(newStudent.password, salt, (err, hash) => {
-            if (err) throw err;
-            newStudent.password = hash;
-            newStudent
-              .save()
-              .then((user) => {
-                console.log(user);
-                res.json(user);
-              })
-              .catch((err) => console.log(err));
-          });
-        });
-      }
-    })
+      });
+    }
+  })
     .catch((err) => {
       console.log(err);
     });
+    console.log(ans);
+  console.log("h5i");
 });
 
 // @route POST api/students/login
