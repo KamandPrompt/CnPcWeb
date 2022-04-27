@@ -11,9 +11,53 @@ const keys = require("../../config/keys");
 // Load input validation
 const validateRegisterInput = require("../../validation/registerStudent");
 const validateLoginInput = require("../../validation/loginStudent");
+const nodemailer = require("nodemailer");
+const contactEmail = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  // service: "gmail",
+  auth: {
+    // user: "capibulladvisors@gmail.com",
+    // pass: "capibull9550",
+    user: "cpdashboard11@gmail.com",
+    pass: "cp-dash@",
+  },
+});
 
+contactEmail.verify((error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Ready to Send");
+  }
+});
 // Load Student model
 const Student = require("../../models/StudentSchema");
+const sendPwdMail = async (email, pwd) => {
+  // const email = req.body.email;
+  console.log("Sending Mail");
+
+  const mail = {
+    from: `CnP Web Team`,
+    to: `${email}`,
+    subject: `Your Password for CnP Website`,
+    html: `<p>Email: ${email}</p><p>Password: ${pwd}</p>`,
+  };
+  // console.log(mail);
+  contactEmail.sendMail(mail, (error) => {
+    console.log("Hello");
+    if (error) {
+      // res.json({ status: "ERROR" });
+      console.log(error);
+    } else {
+      console.log("Mail Sent");
+      // res.json({ status: "Mail Sent" });
+    }
+  });
+  console.log("Hello1");
+  return "Hello";
+};
 const accessSpreadsheet = async () => {
   console.log("Running test.js");
   const auth = new google.auth.GoogleAuth({
@@ -43,6 +87,7 @@ const accessSpreadsheet = async () => {
         numbers: true,
       });
       console.log(item.rollNo);
+      const hello = sendPwdMail(item.email, password);
       return (item.password = password);
     });
     fs.writeFileSync(
@@ -59,7 +104,7 @@ const accessSpreadsheet = async () => {
 router.post("/fetchOutput", (req, res) => {
   accessSpreadsheet()
     .then((a) => {
-      console.log(a);
+      // console.log(a);
       return res.json(a);
     })
     .catch((err) => {
