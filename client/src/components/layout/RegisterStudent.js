@@ -21,14 +21,6 @@ const RegisterStudent = () => {
         console.log(e);
       });
       console.log(data);
-      // data.map(async (item) => {
-      //   await axios
-      //     .post("/api/students/register", item)
-      //     .then((res) => console.log(res))
-      //     .catch((e) => {
-      //       console.log(e);
-      //     });
-      // });
       for(var i=0;i<data.length;i++)
       {
         await axios

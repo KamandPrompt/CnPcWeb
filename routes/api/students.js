@@ -73,17 +73,17 @@ router.post("/fetchOutput", (req, res) => {
 
 router.post("/register", async (req, res) => {
 
-  console.log("hi");
+  // console.log("hi");
   const rollNo = req.body.rollNo;
   console.log(typeof(rollNo));
   var ans= await Student.findOne({ rollNo }).then((user) => {
-    console.log("h4i");
+    // console.log("h4i");
     if (user) {
-      console.log("h3i");
+      // console.log("h3i");
       console.log(`${user.rollNo} already exists`);
       return res.status(400);
     } else {
-      console.log("h2i");
+      // console.log("h2i");
       const newStudent = new Student({
         name: req.body.name,
         rollNo: req.body.rollNo,
@@ -122,8 +122,8 @@ router.post("/register", async (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-    console.log(ans);
-  console.log("h5i");
+    // console.log(ans);
+  // console.log("h5i");
 });
 
 // @route POST api/students/login
