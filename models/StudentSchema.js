@@ -15,6 +15,7 @@ const StudentSchema = new Schema({
   batch: {
     type: String,
     required: true,
+    unique: false
   },
   degree: {
     type: String,
