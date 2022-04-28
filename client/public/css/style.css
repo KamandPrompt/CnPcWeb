@@ -20,8 +20,12 @@ html {
   text-align:justify;
 }
 .recharts-legend-item-text{
-  font-size: 21px;
+  font-size: 10px;
 }
+
+/* .recharts-legend-wrapper{
+  left:20px;
+} */
 /* .recharts-legend-icon{
   height: 22px;
   width: 22px;
@@ -1293,3 +1297,13 @@ hr {
 } */
 
 .recharts-legend-item-text { font-size: 10px; }
+
+
+@media (max-width:600px) {
+  .recharts-legend-wrapper{
+    text-align: center !important;
+    width: 300px !important;
+    left: 140px !important;
+  }  
+  
+}

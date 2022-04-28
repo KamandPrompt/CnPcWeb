@@ -12,7 +12,7 @@ import {
   ResponsiveContainer,
   Sector,
   Cell,
-  Label
+  Label,
 } from "recharts";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -20,15 +20,15 @@ import "slick-carousel/slick/slick-theme.css";
 import Carousel from "react-elastic-carousel";
 // import styled from "styled-components";
 import Item from "./Item";
-
+import { useEffect, useState } from "react";
 const data00 = [
   { name: " Mechanical Engineering", value: 29, fill: "#003399" },
   { name: "Civil Engineering", value: 25, fill: "#015100" },
   { name: "Computer Science and Engineering", value: 106, fill: "#FF6600" },
   { name: "Electrical Engineering", value: 67, fill: "#CE65DF" },
-  { name: 'Data Science and Engineering', value: 43, fill:'#AFCA54'},
-  { name: 'Engineering Physics', value: 20, fill:'#CE65DF'},
-  { name: 'Bio-Engineering', value: 15, fill:'#BF65GF'},
+  { name: "Data Science and Engineering", value: 43, fill: "#AFCA54" },
+  { name: "Engineering Physics", value: 20, fill: "#CE65DF" },
+  { name: "Bio-Engineering", value: 15, fill: "#BF65GF" },
 ];
 const data01 = [
   { name: " Mechanical Engineering", value: 23, fill: "#003399" },
@@ -55,7 +55,7 @@ const data03 = [
   { name: "MES", value: 10, fill: "#990132" },
   { name: "VLSI", value: 14, fill: "#7F7F7F" },
   { name: "EEM", value: 12, fill: "#ed1727" },
-]
+];
 const data07 = [
   { name: "Bio Technology", value: 18, fill: "#003399" },
   { name: "STE", value: 10, fill: "#115408" },
@@ -83,18 +83,28 @@ const data06 = [
   { name: "Applied Maths", value: 34, fill: "#ed1727" },
 ];
 export const Demo = (props) => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
+  const updateWidthAndHeight = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", updateWidthAndHeight);
+    return () => window.removeEventListener("resize", updateWidthAndHeight);
+  });
   const settings = {
     dots: true,
     infinite: true,
-    slidesToShow: 2,
-    autoplay: false,
+    slidesToShow: 3,
+    autoplay: true,
     speed: 1000,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     cssEase: "linear",
     responsive: [
       {
-        breakpoint: 1200,
+        breakpoint: 1500,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -106,8 +116,8 @@ export const Demo = (props) => {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
-      }
-    ]
+      },
+    ],
   };
   return (
     // <div className="acadmic container demo blue">
@@ -127,7 +137,7 @@ export const Demo = (props) => {
         <Slider {...settings}>
           <div className="sliderItem2">
             <div className="slidePallet2">
-            <h3 style={{"fontSize":"25px"}}>B.Tech(2018-2022)</h3>
+              <h3 style={{ fontSize: "15px" }}>B.Tech(2018-2022)</h3>
               <center>
                 <PieChart
                   width={500}
@@ -146,18 +156,26 @@ export const Demo = (props) => {
                     // title={"Chart of diffferent branches"}
                   ></Pie>
                   <Tooltip />
-                  <Legend
-                    layout="vertical"
-                    verticalAlign="middle"
-                    align="left"
-                  />
+                  {width > 640 ? (
+                    <Legend
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="left"
+                    />
+                  ) : (
+                    <Legend
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="left"
+                    />
+                  )}
                 </PieChart>
               </center>
             </div>
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
-              <h3 style={{"fontSize":"25px"}}>B.Tech(2019-2023)</h3>
+              <h3 style={{ fontSize: "15px" }}>B.Tech(2019-2023)</h3>
               <center>
                 <PieChart
                   width={500}
@@ -175,18 +193,26 @@ export const Demo = (props) => {
                     label
                   ></Pie>
                   <Tooltip />
-                  <Legend
-                    layout="vertical"
-                    verticalAlign="middle"
-                    align="left"
-                  />
+                  {width > 640 ? (
+                    <Legend
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="left"
+                    />
+                  ) : (
+                    <Legend
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="left"
+                    />
+                  )}
                 </PieChart>
               </center>
             </div>
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
-              <h3 style={{"fontSize":"25px"}}>B.Tech(2020-2024)</h3>
+              <h3 style={{ fontSize: "15px" }}>B.Tech(2020-2024)</h3>
               <center>
                 <PieChart
                   width={500}
@@ -204,18 +230,26 @@ export const Demo = (props) => {
                     label
                   ></Pie>
                   <Tooltip />
-                  <Legend
-                    layout="vertical"
-                    verticalAlign="middle"
-                    align="left"
-                  />
+                  {width > 640 ? (
+                    <Legend
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="left"
+                    />
+                  ) : (
+                    <Legend
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="left"
+                    />
+                  )}
                 </PieChart>
               </center>
             </div>
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
-              <h3 style={{"fontSize":"25px"}}>M.Tech(2021-2023)</h3>
+              <h3 style={{ fontSize: "15px" }}>M.Tech(2021-2023)</h3>
               <center>
                 <PieChart
                   width={500}
@@ -233,18 +267,26 @@ export const Demo = (props) => {
                     label
                   ></Pie>
                   <Tooltip />
-                  <Legend
-                    layout="vertical"
-                    verticalAlign="middle"
-                    align="left"
-                  />
+                  {width > 640 ? (
+                    <Legend
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="left"
+                    />
+                  ) : (
+                    <Legend
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="left"
+                    />
+                  )}
                 </PieChart>
               </center>
             </div>
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
-              <h3 style={{"fontSize":"25px"}}>M.Tech (2018-2022)</h3>
+              <h3 style={{ fontSize: "15px" }}>M.Tech (2018-2022)</h3>
               <center>
                 <PieChart
                   width={500}
@@ -262,19 +304,26 @@ export const Demo = (props) => {
                     label
                   ></Pie>
                   <Tooltip />
-                  <Legend
-                    layout="vertical"
-                    verticalAlign="middle"
-                    align="left"
-                    // textDecoration={fontSize="100px"}
-                  />
+                  {width > 640 ? (
+                    <Legend
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="left"
+                    />
+                  ) : (
+                    <Legend
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="left"
+                    />
+                  )}
                 </PieChart>
               </center>
             </div>
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
-              <h3 style={{"fontSize":"25px"}}>M.Sc.(2021-2023)</h3>
+              <h3 style={{ fontSize: "15px" }}>M.Sc.(2021-2023)</h3>
               <center>
                 <PieChart
                   width={500}
@@ -285,25 +334,33 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data04}
-                    cx={250}
+                    cx={220}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
                   ></Pie>
                   <Tooltip />
-                  <Legend
-                    layout="vertical"
-                    verticalAlign="middle"
-                    align="left"
-                  />
+                  {width > 640 ? (
+                    <Legend
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="left"
+                    />
+                  ) : (
+                    <Legend
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="left"
+                    />
+                  )}
                 </PieChart>
               </center>
             </div>
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
-              <h3 style={{"fontSize":"25px"}}>MA(2021-2023)</h3>
+              <h3 style={{ fontSize: "15px" }}>MA(2021-2023)</h3>
               <center>
                 <PieChart
                   width={500}
@@ -314,7 +371,7 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data05}
-                    cx={190}
+                    cx={220}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
@@ -323,18 +380,26 @@ export const Demo = (props) => {
                     // outerRadius={90}
                   ></Pie>
                   <Tooltip />
-                  <Legend
-                    layout="vertical"
-                    verticalAlign="middle"
-                    align="left"
-                  />
+                  {width > 640 ? (
+                    <Legend
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="left"
+                    />
+                  ) : (
+                    <Legend
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="left"
+                    />
+                  )}
                 </PieChart>
               </center>
             </div>
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
-              <h3 style={{"fontSize":"25px"}}>Title</h3>
+              <h3 style={{ fontSize: "15px" }}>Title</h3>
               <center>
                 <PieChart
                   width={500}
@@ -356,12 +421,19 @@ export const Demo = (props) => {
                     {/* <Label /> */}
                   </Pie>
                   <Tooltip />
-                  <Legend
-                    className="legendSize"
-                    layout="vertical"
-                    verticalAlign="middle"
-                    align="left"
-                  />
+                  {width > 640 ? (
+                    <Legend
+                      layout="vertical"
+                      verticalAlign="middle"
+                      align="left"
+                    />
+                  ) : (
+                    <Legend
+                      layout="horizontal"
+                      verticalAlign="bottom"
+                      align="left"
+                    />
+                  )}
                 </PieChart>
               </center>
             </div>
