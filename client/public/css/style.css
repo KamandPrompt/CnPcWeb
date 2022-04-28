@@ -112,7 +112,7 @@ ol {
 }
 #menu.navbar-default .navbar-nav{
   padding: 0;
-  position: absolute;
+  /* position: absolute; */
   right: 5px;
   margin-right: 10px;
 }
@@ -375,6 +375,7 @@ a:focus,
 .footer-main {
 	padding: 50px 0px 10px 0px;
 	background: #093660;
+  /* position: absolute !important; */
 }
  
 

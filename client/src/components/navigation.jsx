@@ -111,7 +111,7 @@ class Navigation extends Component {
                 {/* <a href="#">Placement brochure</a> */}
                 <a href="https://iitmandi.ac.in/calender2022/Home/ViewCalendar/2.html" target="_blank">Calendar</a>
                 <a href="/past">Past Recruiters</a>
-                <a href="#">Placement News and Stats</a>
+                <a href="https://iitmandi.ac.in/Newspaper_reports/placement_news.php">Placement News and Stats</a>
               </div>
             </li>
             <li className="dropdown">

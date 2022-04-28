@@ -69,11 +69,11 @@ export const Footer = (props) => {
                 <hr className="new4" />
                 {/* <!-- links --> */}
                 <ul id="links-1">
-                  <li>
+                  {/* <li>
                     <a className="links" href="./gcs/index.html">
                       Guidance and Counseling Service
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a
                       className="links"
@@ -100,19 +100,19 @@ export const Footer = (props) => {
                       Campus Life
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a className="links" href="./studentLife/index.html">
                       Student Life
                     </a>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <a
                       className="links"
                       href="./social_consciousness/index.html"
                     >
                       Social Initiatives
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a className="links" href="https://students.iitmandi.ac.in/main/achievements/index.html">
                       Students' Achievements
