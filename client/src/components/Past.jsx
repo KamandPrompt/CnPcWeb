@@ -417,7 +417,7 @@ const Past = () => {
 
   return (
     <>
-      <div>
+      <div style={{"margin":"30px 0px"}}>
         <hr className="left" />
         <h3 className="homeHead homeHead">Past Recruiters</h3>
         <hr className="right" />
@@ -454,7 +454,7 @@ const Past = () => {
                 <div className="values row">
           {name.map((item) => {
             return (
-              <div className="company col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <div className="company col-lg-3 col-md-4 col-sm-6 col-xs-12" style={{"padding":"25px"}}>
                 {item}
               </div>
             );

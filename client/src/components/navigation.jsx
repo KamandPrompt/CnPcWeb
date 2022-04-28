@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
 import  iitimage  from "../images/resize.png";
 import  logo  from "./logo.ico";
+import noc from "./NOC.doc"
 class Navigation extends Component {
   onLogout = (e) => {
     e.preventDefault();
@@ -106,12 +107,13 @@ class Navigation extends Component {
               </a>
               <div className="dropdown-content">
                 <a href="/Recpro">Recruitment Process</a>
+                <a href="http://research.iitmandi.ac.in/main/placements/files/COMPANY%20POLICY.pdf" target="_blank" >Company policy</a>
                 <a href="/registerRecruiter">Register</a>
                 <a href="/loginRecruiter">Login</a>
                 {/* <a href="#">Placement brochure</a> */}
                 <a href="https://iitmandi.ac.in/calender2022/Home/ViewCalendar/2.html" target="_blank">Calendar</a>
                 <a href="/past">Past Recruiters</a>
-                <a href="https://iitmandi.ac.in/Newspaper_reports/placement_news.php">Placement News and Stats</a>
+                <a href="https://iitmandi.ac.in/Newspaper_reports/placement_news.php" target="_blank">Placement News and Stats</a>
               </div>
             </li>
             <li className="dropdown">
@@ -120,9 +122,9 @@ class Navigation extends Component {
               </a>
               <div className="dropdown-content">
                 <a href="/loginStudent">Login</a>
-                <a href="#">Policies</a>
-                <a href="#">Noticeboard</a>
-                <a href="#">Forms </a>
+                <a href="http://research.iitmandi.ac.in/main/placements/files/STUDENT%20INTERNSHIP%20AND%20PLACEMENT%20POLICY.pdf" target="_blank">Student policy</a>
+                {/* <a href="#">Noticeboard</a> */}
+                <a href={noc}>Forms </a>
                 <a href="#">Preparation Portal</a>
               </div>
             </li>
