@@ -7,6 +7,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Link } from "react-router-dom";
 import "../admin.css";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
+
 class AdminDashboard extends Component {
   constructor(props) {
     super(props);
@@ -122,6 +123,28 @@ class AdminDashboard extends Component {
       [event.target.name] : event.target.value
     })
   }
+  Dataloder = async () => {
+    // output.json shd be updated here
+    var data = [];
+    await axios.post("/api/students/fetchOutput", "hello")
+      .then((res) => {
+        console.log(res);
+        data = res.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+      console.log(data);
+      for(var i=0;i<data.length;i++)
+      {
+        await axios
+          .post("/api/students/register", data[i])
+          .then((res) => console.log(res))
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+  };
   render() {
     const { user } = this.props.auth;
     if(this.state.DataisLoaded === true)
@@ -130,20 +153,20 @@ class AdminDashboard extends Component {
       {
         const userRows = this.state.studentsData;
         const columns = [
-          { field: 'rollNo', headerName: 'Roll No.',hideable:false,width:130},
-          { field: 'name', headerName: 'Name',hideable:false,width:130},
+          { field: 'rollNo', headerName: 'Roll No.',hideable:false,width:230},
+          { field: 'name', headerName: 'Name',hideable:false,width:230},
           {
             field: 'batch',
             headerName: 'Batch',
             type: 'number',
-            width:100,
+            width:150,
             hideable:false,
             
           },
           {
             field: "verification_status",
             headerName: "Status",
-            width:130,
+            width:190,
             hideable:false,
           },
           {
@@ -152,6 +175,7 @@ class AdminDashboard extends Component {
             sortable: false,
             filterable:false,
             hideable:false,
+            width:180,
             renderCell: (params) => {
               return (
                 <>
@@ -168,14 +192,14 @@ class AdminDashboard extends Component {
           <div  className="container text-center mt-15">
             <div className="row">
               <div className="col-sm-12">
-                <h4>
-                  Hey there, <b className="name-lable">{this.state.name.split(" ")[0]}</b>
-                  <p className="mt-4">
-                    You are logged into a full-stack{" "}
-                    <span style={{ fontFamily: "monospace" }}>admin</span> app 👏
-                  </p>
-                </h4>
-                <div style={{height:'300px', width:'72%'}} id="dataGrid">
+                <div>
+                  <h4>Register Students</h4>
+                  <button style={{"width":"120px","height":"35px","borderRadius":"50px","color":"white","backgroundColor":"#2196F3","border":"none"}} onClick={this.Dataloder}>Register</button></div>
+                  <br />
+                  <br />
+                  <br />
+                <h3>Registered Students details</h3>
+                <div style={{height:'400px', width:'90%'}} id="dataGrid">
                   <DataGrid
                     rows={userRows}
                     columns={[...columns,{ field: 'edit', sortable: false,filterable:false,hideable:false }]}
