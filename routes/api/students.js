@@ -126,7 +126,8 @@ router.post("/register", async (req, res) => {
       if (user) {
         // console.log("h3i");
         console.log(`${user.rollNo} already exists`);
-        return res.status(400);
+        // return res.status(400);
+        return res.json({ name: "Hello" });
       } else {
         sendPwdMail(req.body.email, req.body.password);
 
@@ -169,6 +170,7 @@ router.post("/register", async (req, res) => {
     .catch((err) => {
       console.log(err);
     });
+
   // console.log(ans);
   // console.log("h5i");
 });
