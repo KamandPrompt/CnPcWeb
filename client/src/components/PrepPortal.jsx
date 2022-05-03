@@ -9,7 +9,7 @@ export const PrepPortal = () => {
         arrows: false,
         infinite: true,
         slidesToShow: 1,
-        autoplay: false,
+        autoplay: true,
         speed: 1000,
         autoplaySpeed: 2000,
         pauseOnHover: true,
