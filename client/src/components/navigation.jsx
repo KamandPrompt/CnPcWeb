@@ -125,7 +125,7 @@ class Navigation extends Component {
                 <a href="http://research.iitmandi.ac.in/main/placements/files/STUDENT%20INTERNSHIP%20AND%20PLACEMENT%20POLICY.pdf" target="_blank">Student policy</a>
                 {/* <a href="#">Noticeboard</a> */}
                 <a href={noc}>Forms </a>
-                <a href="#">Preparation Portal</a>
+                <a href="/PrepPortal">Preparation Portal</a>
               </div>
             </li>
             <li className="dropdown">
