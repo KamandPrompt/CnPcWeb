@@ -144,7 +144,8 @@ export const Demo = (props) => {
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
-                  <Pie
+                  {width > 640 ? (
+                    <Pie
                     dataKey="value"
                     isAnimationActive={true}
                     data={data01}
@@ -155,6 +156,20 @@ export const Demo = (props) => {
                     label
                     // title={"Chart of diffferent branches"}
                   ></Pie>
+                  ) : (
+                    
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={230}
+                    cy={130}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  )}
                   <Tooltip />
                   {width > 640 ? (
                     <Legend
@@ -182,16 +197,32 @@ export const Demo = (props) => {
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
-                  <Pie
+                  {width > 640 ? (
+                    <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data02}
+                    data={data01}
                     cx={170}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
+                    // title={"Chart of diffferent branches"}
                   ></Pie>
+                  ) : (
+                    
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={230}
+                    cy={110}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  )}
                   <Tooltip />
                   {width > 640 ? (
                     <Legend
@@ -219,16 +250,32 @@ export const Demo = (props) => {
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
-                  <Pie
+                  {width > 640 ? (
+                    <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data00}
+                    data={data01}
                     cx={170}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
+                    // title={"Chart of diffferent branches"}
                   ></Pie>
+                  ) : (
+                    
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={230}
+                    cy={130}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  )}
                   <Tooltip />
                   {width > 640 ? (
                     <Legend
@@ -256,16 +303,32 @@ export const Demo = (props) => {
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
-                  <Pie
+                  {width > 640 ? (
+                    <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data07}
+                    data={data01}
                     cx={170}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
+                    // title={"Chart of diffferent branches"}
                   ></Pie>
+                  ) : (
+                    
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={230}
+                    cy={130}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  )}
                   <Tooltip />
                   {width > 640 ? (
                     <Legend
@@ -293,16 +356,32 @@ export const Demo = (props) => {
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
-                  <Pie
+                  {width > 640 ? (
+                    <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data03}
-                    cx={220}
+                    data={data01}
+                    cx={170}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
+                    // title={"Chart of diffferent branches"}
                   ></Pie>
+                  ) : (
+                    
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={230}
+                    cy={130}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  )}
                   <Tooltip />
                   {width > 640 ? (
                     <Legend
@@ -330,16 +409,32 @@ export const Demo = (props) => {
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
-                  <Pie
+                  {width > 640 ? (
+                    <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data04}
-                    cx={220}
+                    data={data01}
+                    cx={170}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
+                    // title={"Chart of diffferent branches"}
                   ></Pie>
+                  ) : (
+                    
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={230}
+                    cy={130}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  )}
                   <Tooltip />
                   {width > 640 ? (
                     <Legend
@@ -367,18 +462,32 @@ export const Demo = (props) => {
                   height={300}
                   margin={{ top: 0, right: 0, left: 10, bottom: 0 }}
                 >
-                  <Pie
+                  {width > 640 ? (
+                    <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data05}
+                    data={data01}
                     cx={220}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
-                    //   innerRadius={40}
-                    // outerRadius={90}
+                    // title={"Chart of diffferent branches"}
                   ></Pie>
+                  ) : (
+                    
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={230}
+                    cy={130}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  )}
                   <Tooltip />
                   {width > 640 ? (
                     <Legend
@@ -406,20 +515,32 @@ export const Demo = (props) => {
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
-                  <Pie
+                  {width > 640 ? (
+                    <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    // onMouseMove={onMouseMove}
-                    data={data06}
-                    // dataKey="duration"
+                    data={data01}
                     cx={220}
                     cy={160}
                     outerRadius={80}
                     fill="#fff"
                     label
-                  >
-                    {/* <Label /> */}
-                  </Pie>
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  ) : (
+                    
+                  <Pie
+                    dataKey="value"
+                    isAnimationActive={true}
+                    data={data01}
+                    cx={230}
+                    cy={130}
+                    outerRadius={80}
+                    fill="#fff"
+                    label
+                    // title={"Chart of diffferent branches"}
+                  ></Pie>
+                  )}
                   <Tooltip />
                   {width > 640 ? (
                     <Legend
