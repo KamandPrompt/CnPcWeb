@@ -34,7 +34,8 @@ import UnprivateOutlet from "./components/private-route/UnprivateOutlet";
 import RecruiterOutlet from "./components/private-route/RecruiterOutlet";
 import AdminOutlet from "./components/private-route/AdminOutlet";
 import StudentOutlet from "./components/private-route/StudentOutlet";
-import Dashboard from "./components/layout/Dashboard";
+import RecruiterDashboard from "./components/layout/RecruiterDashboard";
+import CreateForm from "./components/layout/CreateForm";
 import AdminDashboard from "./components/layout/AdminDashboard"
 import StudentDashboard from "./components/layout/StudentDashboard";
 
@@ -121,9 +122,9 @@ class App extends Component {
             <Route exact path="/loginRecruiter" element={<UnprivateOutlet />}>
               <Route path="" element={<LoginRecruiter />} />
             </Route>
-            <Route exact path="/registerStudent" element={<UnprivateOutlet />}>
+            {/* <Route exact path="/registerStudent" element={<UnprivateOutlet />}>
               <Route path="" element={<RegisterStudent />} />
-            </Route>
+            </Route> */}
             <Route exact path="/loginStudent" element={<UnprivateOutlet />}>
               <Route path="" element={<LoginStudent />} />
             </Route>
@@ -135,7 +136,14 @@ class App extends Component {
               path="/dashboardRecruiter"
               element={<RecruiterOutlet />}
             >
-              <Route path="" element={<Dashboard />} />
+              <Route path="" element={<RecruiterDashboard />} />
+            </Route>
+            <Route
+              exact
+              path="/createForm"
+              element={<RecruiterOutlet />}
+            >
+              <Route path="" element={<CreateForm />} />
             </Route>
             <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
               <Route path="" element={<StudentDashboard />} />
