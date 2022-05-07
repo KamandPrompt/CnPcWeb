@@ -14,11 +14,11 @@ const StudentSchema = new Schema({
   },
   batch: {
     type: String,
-    enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
     required: true,
     unique: false,
   },
   degree: {
+    enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
     type: String,
     required: true,
   },
