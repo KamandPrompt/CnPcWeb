@@ -12,6 +12,10 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/registerStudent");
 const validateLoginInput = require("../../validation/loginStudent");
 const nodemailer = require("nodemailer");
+const validDegree = (degree) => {
+  var str = degree.replace(/\s/g, "");
+  return str.toUpperCase();
+};
 const contactEmail = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -134,8 +138,8 @@ router.post("/register", async (req, res) => {
         // console.log("h2i");
         const newStudent = new Student({
           name: req.body.name,
-          rollNo: req.body.rollNo,
-          degree: req.body.degree,
+          rollNo: validDegree(req.body.rollNo),
+          degree: validDegree(req.body.degree),
           branch: req.body.branch,
           batch: req.body.batch,
           cgpa: req.body.cgpa,
@@ -162,7 +166,14 @@ router.post("/register", async (req, res) => {
                 console.log(user);
                 res.json(user);
               })
-              .catch((err) => console.log(err));
+              .catch((err) => {
+                console.log(err);
+                return res.json({
+                  error: err,
+                  isError: true,
+                  rollNo: req.body.rollNo,
+                });
+              });
           });
         });
       }
