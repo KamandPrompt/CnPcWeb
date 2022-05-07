@@ -14,8 +14,9 @@ const StudentSchema = new Schema({
   },
   batch: {
     type: String,
+    enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
     required: true,
-    unique: false
+    unique: false,
   },
   degree: {
     type: String,
@@ -23,6 +24,27 @@ const StudentSchema = new Schema({
   },
   branch: {
     type: String,
+    enum: [
+      "CSE",
+      "EP",
+      "DSE",
+      "ME",
+      "CE",
+      "EE",
+      "BIOE",
+      "CSP",
+      "MES",
+      "EEM",
+      "STE",
+      "VLSI",
+      "PED",
+      "BIOT",
+      "DS",
+      "PY",
+      "CM",
+      "AM",
+      "",
+    ],
     required: true,
   },
   cgpa: {
@@ -53,9 +75,9 @@ const StudentSchema = new Schema({
     type: String,
     required: true,
   },
-  verification_status : {
-    type : String,
-    default : 'No',
+  verification_status: {
+    type: String,
+    default: "No",
   },
   role: {
     type: String,

@@ -22,7 +22,42 @@ const FieldSchema = new mongoose.Schema({
     min: 1,
   },
 });
-
+const EligibilitySchema = new mongoose.Schema({
+  program: {
+    type: String,
+    enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
+    required: true,
+  },
+  batch: {
+    type: String,
+    required: true,
+  },
+  branch: {
+    type: String,
+    enum: [
+      "CSE",
+      "EP",
+      "DSE",
+      "ME",
+      "CE",
+      "EE",
+      "BIOE",
+      "CSP",
+      "MES",
+      "EEM",
+      "STE",
+      "VLSI",
+      "PED",
+      "BIOT",
+      "DS",
+      "PY",
+      "CM",
+      "",
+      "AM",
+    ],
+    required: true,
+  },
+});
 const FormSchema = new mongoose.Schema({
   CID: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recruiter" }],
   title: {
@@ -35,29 +70,24 @@ const FormSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ['inf', 'jnf'],
+    enum: ["inf", "jnf"],
     required: true,
   },
   formStatus: {
     type: String,
-    enum: ['open', 'close'],
+    enum: ["open", "close"],
     required: true,
   },
-  eligibleBatch: {
-    type: String,
-    required: true,
-  },
-  eligibleBranch: [
+  eligibility: [
     {
-      type: String,
+      type: EligibilitySchema,
     },
   ],
   fields: [
     {
       type: FieldSchema,
-    }
-  ]
+    },
+  ],
 });
-
 
 module.exports = mongoose.model("forms", FormSchema);
