@@ -57,7 +57,7 @@ const FieldSchema = new mongoose.Schema({
 //   },
 // });
 const FormSchema = new mongoose.Schema({
-  CID: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recruiter" }],
+  CID: { type: mongoose.Schema.Types.ObjectId, ref: "Recruiter" },
   title: {
     type: String,
     required: true,
