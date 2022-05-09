@@ -198,7 +198,7 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const rollNo = req.body.rollNo;
+  const rollNo = req.body.rollNo.toUpperCase();
   const password = req.body.password;
 
   //Find user by Email
