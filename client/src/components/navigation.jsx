@@ -150,7 +150,7 @@ class Navigation extends Component {
                   >
                     Student policy
                   </a>
-                  {/* <a href="#">Noticeboard</a> */}
+                  <a href="/noticeboard">Noticeboard</a>
                   <a href={noc}>Forms </a>
                   <a href="/PrepPortal">Preparation Portal</a>
                 </div>
