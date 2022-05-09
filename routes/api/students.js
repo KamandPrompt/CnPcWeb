@@ -283,7 +283,7 @@ router.post("/update", (req, res) => {
 router.get("/noticeboard", async (req,res) => {
   try {
     const data = await Form.find({formStatus:'open'}).lean();
-    console.log(data);
+    // console.log(data);
     res.send(data);
   } catch (error) {
     res.send(error);

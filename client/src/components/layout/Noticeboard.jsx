@@ -45,7 +45,7 @@ class Noticeboard extends Component {
         await axios.get("/api/students/noticeboard")
             .then((res) => {
                 this.setState({ data: res.data, DataisLoaded: true });
-                console.log(this.state.data);
+                // console.log(this.state.data);
                 this.addNotice(this.state.data.length);
             }).catch((err) => {
                 console.log(err);
