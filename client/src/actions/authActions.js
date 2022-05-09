@@ -47,6 +47,18 @@ export const registerRecruiter = (userData, history) => (dispatch) => {
       })
     );
 };
+export const createFormRecruiter = (formData, history) => (dispatch) => {
+  axios
+    .post("/api/recruiters/form", formData)
+    .then((res) => console.log("Created successfully"))
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
+
 
 // Login
 export const loginRecruiter = (userData) => (dispatch) => {

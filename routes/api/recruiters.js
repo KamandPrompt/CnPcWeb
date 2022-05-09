@@ -10,6 +10,7 @@ const validateLoginInput = require("../../validation/loginRecruiter");
 
 // Load Recruiter model
 const Recruiter = require("../../models/RecruiterSchema");
+const Form = require("../../models/FormSchema");
 
 // @route POST api/recruiters/register
 // @desc Register user
@@ -114,5 +115,24 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+router.post("/form", (req, res) => {
+  console.log("Adding...");
+  //Form validation
+
+
+  const newForm = new Form({
+    title: req.body.title,
+    JD: req.body.JD,
+    type: req.body.type,
+    fields: req.body.fields,
+    CID: req.body.CID
+  });
+  newForm
+    .save()
+    .then((user) => res.json(user))
+    .catch((err) => console.log(err));
+});
+
 
 module.exports = router;

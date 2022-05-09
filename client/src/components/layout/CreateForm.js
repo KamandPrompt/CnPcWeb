@@ -1,26 +1,24 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+import { logoutUser, createFormRecruiter } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 
 class CreateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter1 : 0,
-      counter2: 0,
-      countries : [],
-      states : [],
-      cities : [],
-      selectedCountry : 'Country',
-      selectedState : 'State'
+      counter1: 0,
+      title: "",
+      type: "",
+      JD: "",
+      fields: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.changeCountry = this.changeCountry.bind(this);
-    this.changeState = this.changeState.bind(this);
+    // this.changeCountry = this.changeCountry.bind(this);
+    // this.changeState = this.changeState.bind(this);
   }
   onLogout = (e) => {
     e.preventDefault();
@@ -39,7 +37,7 @@ class CreateForm extends Component {
   //               {name: 'Illinois', cities: ['Springfield', 'Chicago']},
   //               {name: 'New Jersey', cities: ['Trenton', 'Newark']}
   //           ]},
-                 
+
   //       ]
   //   });
   // }
@@ -54,41 +52,91 @@ class CreateForm extends Component {
   //   const stats = this.state.countries.find(cntry => cntry.name === this.state.selectedCountry).states;
   //   this.setState({cities : stats.find(stat => stat.name === event.target.value).cities});
   // }
-
   handleChange(event) {
-    this.setState({[e.target.id]: event.target.value});
+    this.setState({ [event.target.id]: event.target.value });
+  }
+  handleChangeField(event, i) {
+    const newFields = this.state.fields;
+    if (newFields.length < i + 1) newFields.push({})
+    newFields[i] = { ...newFields[i], [event.target.id]: event.target.value }
+    this.setState({ fields: newFields });
+    console.log(newFields);
   }
 
-  handleAdd1(counter1){
+  handleAdd1(counter1) {
     console.log(counter1);
-    this.setState({counter1: counter1+1});
+    this.setState({ counter1: counter1 + 1 });
   }
 
-  handleAdd2(counter2){
-    console.log(counter2);
-    this.setState({counter2: counter2+1});
-  }
+  // handleAdd2(counter2) {
+  //   console.log(counter2);
+  //   this.setState({ counter2: counter2 + 1 });
+  // }
 
   handleSubmit(event) {
     event.preventDefault();
+
   }
 
-  kuchbhi1(counter1) {
+  onSubmit = (e) => {
+    e.preventDefault();
+    const fields = [];
+    for (const [i, obj] of this.state.fields.entries()) {
+      if (obj.isRequired == 'on') {
+        obj.isRequired = true
+      } else {
+        obj.isRequired = false
+      }
+      if (obj.isSelected == 'on') {
+        fields.push(obj);
+      }
+    }
+    console.log(fields);
+    const newForm = {
+      title: this.state.title,
+      JD: this.state.JD,
+      type: this.state.type,
+      fields: fields,
+      CID: this.props.auth.user.id
+    };
+    console.log(newForm)
+    this.props.createFormRecruiter(newForm, this.props.history)
+
+    this.setState({
+      counter1: 0,
+      title: "",
+      type: "",
+      JD: "",
+      fields: []
+    });
+  };
+
+
+  addFields(counter1) {
     const list = [];
-    for(let i=0;i<counter1;i++){
+    for (let i = 0; i < counter1; i++) {
+      let num = (i + 1);
       list.push(<div>
         <label>Label:
-          <input id={i+1} onChange={this.handleChange}/>
+          <input id='label' name={'label' + num.toString()} onChange={(event) => {
+            this.handleChangeField(event, i)
+          }} />
         </label>
         <label>
           Short Desc:
-          <textarea id={i+1} onChange={this.handleChange}></textarea>
+          <textarea id='description' name={'description' + num.toString()} onChange={(event) => {
+            this.handleChangeField(event, i)
+          }}></textarea>
         </label>
         <label>Required:
-        <input type="checkbox" onChange={this.handleChange}/>
+          <input type="checkbox" id='isRequired' name={'isRequired' + num.toString()} onChange={(event) => {
+            this.handleChangeField(event, i)
+          }} />
         </label>
         <label>Select
-        <input type="checkbox" onChange={this.handleChange}/>
+          <input type="checkbox" id='isSelected' name={'select' + num.toString()} onChange={(event) => {
+            this.handleChangeField(event, i)
+          }} />
         </label>
       </div>);
     }
@@ -98,33 +146,35 @@ class CreateForm extends Component {
       </div>
     )
   }
- 
+
 
   render() {
     const { user } = this.props.auth;
-    let counter1 = this.state.counter1; 
+    let counter1 = this.state.counter1;
     let counter2 = this.state.counter2;
+
     return (
       <>
-        <button onClick={()=>{
+        <button onClick={() => {
           this.handleAdd1(this.state.counter1);
         }}>ADD</button>
-        <button onClick={()=>{
-          this.handleAdd2(this.state.counter2);
-        }}>Eligible Batch</button>
-        <br/>
-        <br/>
-        <form>
+        <br />
+        <br />
+        <form onSubmit={this.onSubmit}>
           <label> Title:
-            <input type="" id="title" name="title" onChange={this.handleChange}/>
+            <input type="" id="title" name="title" onChange={this.handleChange} />
           </label>
-          <br/>
+          <br />
           <label> Type:
-            <input type="radio" id="type" name="type" onChange={this.handleChange}/>INF
-            <input type="radio" id="type" name="type" onChange={this.handleChange}/>JNF
+            <input type="radio" id="type" name="type" value="inf" onChange={this.handleChange} />INF
+            <input type="radio" id="type" name="type" value="jnf" onChange={this.handleChange} />JNF
           </label>
-          <br/>
-          <div className="form-group">
+          <br />
+          <label> Job Desc. :
+            <textarea name="JD" id="JD" onChange={this.handleChange} />
+          </label>
+          <br />
+          {/* <div className="form-group">
               <label>Country</label>
               <select className="form-select" placeholder="Country" value={this.state.selectedCountry} onChange={this.changeCountry}>
                   <option>Country</option>
@@ -154,8 +204,8 @@ class CreateForm extends Component {
                       return <option key={key}>{e}</option>;
                   })}
               </select>
-          </div>
-          {this.kuchbhi1(this.state.counter1)}
+          </div> */}
+          {this.addFields(this.state.counter1)}
           <div
             className="clearfix"
             style={{ textAlign: "center", margin: "10px 0px" }}
@@ -165,7 +215,6 @@ class CreateForm extends Component {
               style={{ width: "200px" }}
               type="submit"
               variant="info"
-              onClick={this.onsubmit}
             >
               Update Profile
             </Button>
@@ -185,4 +234,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser })(CreateForm);
+export default connect(mapStateToProps, { logoutUser, createFormRecruiter })(CreateForm);

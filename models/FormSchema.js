@@ -11,15 +11,13 @@ const FieldSchema = new mongoose.Schema({
     type: String,
     required: true,
     min: 1,
+    default: ""
+
   },
   isRequired: {
     type: Boolean,
     required: true,
-  },
-  fieldID: {
-    type: String,
-    required: true,
-    min: 1,
+    default: false
   },
 });
 // const EligibilitySchema = new mongoose.Schema({
@@ -81,6 +79,7 @@ const FormSchema = new mongoose.Schema({
     type: String,
     enum: ["open", "close"],
     required: true,
+    default: "open"
   },
   fields: [
     {
