@@ -218,6 +218,7 @@ router.post("/login", (req, res) => {
           rollNo: user.rollNo,
           degree: user.degree,
           branch: user.branch,
+          batch: user.batch,
           cgpa: user.cgpa,
           email: user.email,
           contactNumber: user.contactNumber,
