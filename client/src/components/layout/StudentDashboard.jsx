@@ -7,10 +7,10 @@ import axios from "axios";
 // import { updateUser } from "../../actions/authActions";
 
 class StudentDashboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      name: "",
+      name: this.props.auth.user.name,
       rollNo: "",
       batch: "",
       degree: "",
@@ -21,9 +21,9 @@ class StudentDashboard extends Component {
       dob: "",
       Gender: "",
       resume: "",
-      password: "",
       verification_status: "",
       role: "",
+      DataisLoaded: false,
     };
   }
   // constructor() {
@@ -45,6 +45,34 @@ class StudentDashboard extends Component {
   //     role: this.props.auth.role,
   //   };
   // }
+  async componentDidMount() {
+    const roll = this.props.auth.user.rollNo;
+    if (roll != null) {
+      await axios
+        .get(`/api/admins/student/${roll}`)
+        .then((res) => {
+          this.setState({ name: res.data.details.name,
+            rollNo: roll,
+            batch: res.data.details.batch,
+            degree: res.data.details.degree,
+            branch: res.data.details.branch,
+            cgpa: res.data.details.cgpa,
+            email: res.data.details.email,
+            contactNumber: res.data.details.contactNumber,
+            dob: res.data.details.dob,
+            Gender: res.data.details.Gender,
+            resume: res.data.details.resume,
+            verification_status: res.data.details.verification_status,
+            role: res.data.details.role,
+            DataisLoaded: true, });
+          // console.log(this.state.studentsData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
+
   onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
@@ -69,18 +97,18 @@ class StudentDashboard extends Component {
     e.preventDefault();
     const user = {
         name : this.state.name,
-        rollNo: rollNo.value,
-        email : email.value,
-        batch:batch.value,
-        contactNumber: contactNumber.value,
-        branch: branch.value,
-        Gender: Gender.value,
-        degree: degree.value,
-        cgpa: cgpa.value,
-        dob: dob.value,
-        resume: resume.value,
-        verification_status : verification_status.value,
-        role : role.value
+        rollNo: this.state.rollNo,
+        email : this.state.email,
+        batch:this.state.batch,
+        contactNumber: this.state.contactNumber,
+        branch: this.state.branch,
+        Gender: this.state.Gender,
+        degree: this.state.degree,
+        cgpa: this.state.cgpa,
+        dob: this.state.dob,
+        resume: this.state.resume,
+        verification_status : this.state.verification_status,
+        role : this.state.role
     };
     this.updateUser(user);
   }
@@ -119,7 +147,7 @@ class StudentDashboard extends Component {
                           <label>RollNo</label>
                           <Form.Control
                             disabled
-                            defaultValue={user.rollNo}
+                            defaultValue={rollNo}
                             placeholder="RollNo"
                             type="text"
                             id="rollNo"
@@ -148,7 +176,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="email"
-                            defaultValue={user.email}
+                            defaultValue={email}
                             disabled
                             placeholder="Email"
                             type="email"
@@ -163,7 +191,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="contactNumber"
-                            defaultValue={user.contactNumber}
+                            defaultValue={contactNumber}
                             placeholder="Contact Number"
                             type="text"
                           ></Form.Control>
@@ -177,7 +205,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="branch"
-                            defaultValue={user.branch}
+                            defaultValue={branch}
                             placeholder="Branch"
                             type="text"
                           ></Form.Control>
@@ -189,7 +217,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="resume"
-                            defaultValue={user.resume}
+                            defaultValue={resume}
                             placeholder="Drive link"
                             type="text"
                           ></Form.Control>
@@ -201,7 +229,7 @@ class StudentDashboard extends Component {
                           <label>Gender</label>
                           </div>
                           <Form.Select className="btn-sm primary" aria-label="Default select example" onChange={this.onchange} id="Gender">
-                            <option value={user.Gender} selected>{user.Gender}</option>
+                            <option value={Gender} selected>{Gender}</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                             <option value="Others">Others</option>
@@ -216,7 +244,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="degree"
-                            defaultValue={user.degree}
+                            defaultValue={degree}
                             placeholder="Degree"
                             type="text"
                           ></Form.Control>
@@ -228,7 +256,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="batch"
-                            defaultValue={user.batch}
+                            defaultValue={batch}
                             placeholder="batch"
                             type="text"
                           ></Form.Control>
@@ -240,7 +268,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="cgpa"
-                            defaultValue={user.cgpa}
+                            defaultValue={cgpa}
                             placeholder="Cgpa"
                             type="text"
                           ></Form.Control>
@@ -254,7 +282,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="dob"
-                            defaultValue={user.dob}
+                            defaultValue={dob}
                             placeholder="Date of Birth"
                             type="text"
                           ></Form.Control>
@@ -266,7 +294,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="role"
-                            defaultValue={user.role}
+                            defaultValue={role}
                             placeholder="role"
                             type="text"
                           ></Form.Control>
