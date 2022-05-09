@@ -88,6 +88,7 @@ class StudentDashboard extends Component {
     console.log("hello");
     axios.post("api/students/update", userData).then((res)=>{
       console.log(res);
+      alert(res.data);
     }).catch((err)=>{
       console.log(err);
     })

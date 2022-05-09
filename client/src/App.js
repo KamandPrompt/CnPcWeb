@@ -38,6 +38,7 @@ import RecruiterDashboard from "./components/layout/RecruiterDashboard";
 import CreateForm from "./components/layout/CreateForm";
 import AdminDashboard from "./components/layout/AdminDashboard"
 import StudentDashboard from "./components/layout/StudentDashboard";
+import Noticeboard from "./components/layout/Noticeboard";
 
 
 // import GoogleMap from "./components/GoogleMap";
@@ -147,6 +148,9 @@ class App extends Component {
             </Route>
             <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
               <Route path="" element={<StudentDashboard />} />
+            </Route>
+            <Route exact path="/noticeboard" element={<StudentOutlet />}>
+              <Route path="" element={<Noticeboard />} />
             </Route>
             <Route exact path="/dashboardAdmin" element={<AdminOutlet />}>
               <Route path="" element={<AdminDashboard />} />
