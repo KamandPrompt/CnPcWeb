@@ -26,34 +26,34 @@ class CreateForm extends Component {
     e.preventDefault();
     this.props.logoutUser();
   };
-  componentDidMount() { //https://reactjs.org/docs/react-component.html#componentdidmount
-    this.setState({
-        countries : [
-            { name: 'Philippines', states: [ 
-                {name: 'Central Luzon', cities: ['Angeles City', 'Olongapo', 'San Fernando']},
-                {name: 'NCR', cities: ['Pasay City', 'Makati', 'Marikina']}
-            ]},
-            { name: 'United States of America', states: [ 
-                {name: 'California', cities: ['Sacramento', 'Los Angeles', 'Bakersfield', 'Carson']},
-                {name: 'Florida', cities: ['Tallahassee', 'Jacksonville']},
-                {name: 'Illinois', cities: ['Springfield', 'Chicago']},
-                {name: 'New Jersey', cities: ['Trenton', 'Newark']}
-            ]},
+  // componentDidMount() { //https://reactjs.org/docs/react-component.html#componentdidmount
+  //   this.setState({
+  //       countries : [
+  //           { name: 'Philippines', states: [ 
+  //               {name: 'Central Luzon', cities: ['Angeles City', 'Olongapo', 'San Fernando']},
+  //               {name: 'NCR', cities: ['Pasay City', 'Makati', 'Marikina']}
+  //           ]},
+  //           { name: 'United States of America', states: [ 
+  //               {name: 'California', cities: ['Sacramento', 'Los Angeles', 'Bakersfield', 'Carson']},
+  //               {name: 'Florida', cities: ['Tallahassee', 'Jacksonville']},
+  //               {name: 'Illinois', cities: ['Springfield', 'Chicago']},
+  //               {name: 'New Jersey', cities: ['Trenton', 'Newark']}
+  //           ]},
                  
-        ]
-    });
-  }
+  //       ]
+  //   });
+  // }
 
-  changeCountry(event) {
-    this.setState({selectedCountry: event.target.value});
-    this.setState({states : this.state.countries.find(cntry => cntry.name === event.target.value).states});
-  }
+  // changeCountry(event) {
+  //   this.setState({selectedCountry: event.target.value});
+  //   this.setState({states : this.state.countries.find(cntry => cntry.name === event.target.value).states});
+  // }
 
-  changeState(event) {
-    this.setState({selectedState: event.target.value});
-    const stats = this.state.countries.find(cntry => cntry.name === this.state.selectedCountry).states;
-    this.setState({cities : stats.find(stat => stat.name === event.target.value).cities});
-  }
+  // changeState(event) {
+  //   this.setState({selectedState: event.target.value});
+  //   const stats = this.state.countries.find(cntry => cntry.name === this.state.selectedCountry).states;
+  //   this.setState({cities : stats.find(stat => stat.name === event.target.value).cities});
+  // }
 
   handleChange(event) {
     this.setState({[e.target.id]: event.target.value});
@@ -155,6 +155,7 @@ class CreateForm extends Component {
                   })}
               </select>
           </div>
+          {this.kuchbhi1(this.state.counter1)}
           <div
             className="clearfix"
             style={{ textAlign: "center", margin: "10px 0px" }}
