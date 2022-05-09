@@ -123,7 +123,7 @@ class Navigation extends Component {
               <div className="dropdown-content">
                 <a href="/loginStudent">Login</a>
                 <a href="http://research.iitmandi.ac.in/main/placements/files/STUDENT%20INTERNSHIP%20AND%20PLACEMENT%20POLICY.pdf" target="_blank">Student policy</a>
-                {/* <a href="#">Noticeboard</a> */}
+                <a href="/noticeboard">Noticeboard</a>
                 <a href={noc}>Forms </a>
                 <a href="/PrepPortal">Preparation Portal</a>
               </div>

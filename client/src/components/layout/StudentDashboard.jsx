@@ -60,6 +60,7 @@ class StudentDashboard extends Component {
     console.log("hello");
     axios.post("api/students/update", userData).then((res)=>{
       console.log(res);
+      alert(res.data);
     }).catch((err)=>{
       console.log(err);
     })
@@ -79,7 +80,7 @@ class StudentDashboard extends Component {
         cgpa: cgpa.value,
         dob: dob.value,
         resume: resume.value,
-        verification_status : verification_status.value,
+        verification_status : this.state.verification_status,
         role : role.value
     };
     this.updateUser(user);

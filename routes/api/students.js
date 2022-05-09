@@ -38,6 +38,7 @@ contactEmail.verify((error) => {
 });
 // Load Student model
 const Student = require("../../models/StudentSchema");
+const Form = require("../../models/FormSchema");
 const sendPwdMail = async (email, pwd) => {
   // const email = req.body.email;
   console.log("Sending Mail");
@@ -275,6 +276,17 @@ router.post("/update", (req, res) => {
       console.log("Updated!!!");
     }
   );
+  res.send("Profile updated Successfully!");
+});
+
+router.get("/noticeboard", async (req,res) => {
+  try {
+    const data = await Form.find({formStatus:'open'}).lean();
+    console.log(data);
+    res.send(data);
+  } catch (error) {
+    res.send(error);
+  }
 });
 
 module.exports = router;
