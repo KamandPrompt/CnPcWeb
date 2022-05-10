@@ -15,15 +15,15 @@ import { Programmes } from "./components/Programmes";
 import { Schools } from "./components/school";
 import { Recpro } from "./components/Recpro";
 import { Research } from "./components/Research";
-import  {Demo}  from "./components/Demo";
+import { Demo } from "./components/Demo";
 import { render } from "@testing-library/react";
 import { Contact } from "./components/Contact";
 import { Achievement } from "./components/achievement";
 import { Student } from "./components/Student";
 // import { INF } from "./components/INF";
-import { Kamand }from "./components/Kamand";
-import {PrepPortal} from "./components/PrepPortal";
-import  Past from "./components/Past";
+import { Kamand } from "./components/Kamand";
+import { PrepPortal } from "./components/PrepPortal";
+import Past from "./components/Past";
 
 import RegisterStudent from "./components/layout/RegisterStudent";
 import LoginStudent from "./components/layout/LoginStudent";
@@ -36,11 +36,12 @@ import AdminOutlet from "./components/private-route/AdminOutlet";
 import StudentOutlet from "./components/private-route/StudentOutlet";
 import RecruiterDashboard from "./components/layout/RecruiterDashboard";
 import CreateForm from "./components/layout/CreateForm";
-import AdminDashboard from "./components/layout/AdminDashboard"
+import AdminDashboard from "./components/layout/AdminDashboard";
 import StudentDashboard from "./components/layout/StudentDashboard";
 import Noticeboard from "./components/layout/Noticeboard";
 import FormResponses from "./components/layout/FormResponses";
-
+import ManageStudents from "./components/layout/ManageStudents";
+import ManageRecruiters from "./components/layout/ManageRecruiters";
 
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
@@ -86,31 +87,16 @@ class App extends Component {
               path="/achievement"
               element={[<Achievement />]}
             ></Route>
-            <Route
-              exact
-              path="/past"
-              element={[<Past />]}
-            ></Route>
+            <Route exact path="/past" element={[<Past />]}></Route>
             <Route
               exact
               path="/acadmics"
               element={[<Acadmics />, <Demo />]}
             ></Route>
-            <Route
-              exact
-              path="/Programmes"
-              element={<Programmes />}
-            ></Route>
-            <Route
-             exact path="/PrepPortal"
-             element={<PrepPortal/>}>
-            </Route>
-            <Route
-              exact
-              path="/Recpro"
-              element={<Recpro />}
-            ></Route>
-           <Route exact path="/Kamand" element={<Kamand />}></Route>
+            <Route exact path="/Programmes" element={<Programmes />}></Route>
+            <Route exact path="/PrepPortal" element={<PrepPortal />}></Route>
+            <Route exact path="/Recpro" element={<Recpro />}></Route>
+            <Route exact path="/Kamand" element={<Kamand />}></Route>
             <Route exact path="/research" element={<Research />}></Route>
             <Route exact path="/contact" element={<Contact />}></Route>
             {/* <Route exact path="/inf" element={<INF />}></Route> */}
@@ -140,11 +126,7 @@ class App extends Component {
             >
               <Route path="" element={<RecruiterDashboard />} />
             </Route>
-            <Route
-              exact
-              path="/createForm"
-              element={<RecruiterOutlet />}
-            >
+            <Route exact path="/createForm" element={<RecruiterOutlet />}>
               <Route path="" element={<CreateForm />} />
             </Route>
             <Route
@@ -162,6 +144,12 @@ class App extends Component {
             </Route>
             <Route exact path="/dashboardAdmin" element={<AdminOutlet />}>
               <Route path="" element={<AdminDashboard />} />
+            </Route>
+            <Route exact path="/manageStudents" element={<AdminOutlet />}>
+              <Route path="" element={<ManageStudents />} />
+            </Route>
+            <Route exact path="/manageRecruiters" element={<AdminOutlet />}>
+              <Route path="" element={<ManageRecruiters />} />
             </Route>
           </Routes>
           <Footer />

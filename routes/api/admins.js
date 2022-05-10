@@ -10,6 +10,7 @@ const validateLoginInput = require("../../validation/loginAdmin");
 // Load Admin model
 const Admin = require("../../models/AdminSchema");
 const Students = require("../../models/StudentSchema");
+const Recruiters = require("../../models/RecruiterSchema");
 // @route POST api/admins/login
 // @desc Login user and return JWT token
 // @access Public
@@ -78,6 +79,21 @@ router.get("/student/:roll", async (req, res) => {
   if (student) {
     // console.log(student)
     return res.json({ status: "ok", details: student });
+  }
+});
+router.get("/all-recruiters", async (req, res) => {
+  const allRecruiters = await Recruiters.find({})
+    .select("email name isVerified -_id")
+    .lean();
+  // console.log(allRecruiters);
+  return res.json(allRecruiters);
+});
+router.get("/recruiter/:email", async (req, res) => {
+  const email = req.params.email;
+  const recruiter = await Recruiters.findOne({ email: email }).lean();
+  if (recruiter) {
+    // console.log(student)
+    return res.json({ status: "ok", details: recruiter });
   }
 });
 module.exports = router;
