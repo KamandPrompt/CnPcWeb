@@ -390,3 +390,15 @@ html {
         min-width: 70px;
     }
 }
+
+.pr-2{
+    width: 100% !important;
+}
+
+.noticeForm{
+    font-size: 25px;
+}
+
+.form-control{
+    height: 40px;
+}

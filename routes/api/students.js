@@ -39,6 +39,7 @@ contactEmail.verify((error) => {
 // Load Student model
 const Student = require("../../models/StudentSchema");
 const Form = require("../../models/FormSchema");
+const Response = require("../../models/ResponseSchema");
 const sendPwdMail = async (email, pwd) => {
   // const email = req.body.email;
   console.log("Sending Mail");
@@ -302,6 +303,25 @@ router.get("/noticeboard/:id", async (req, res) => {
   } catch (error) {
     res.send(error);
   }
+});
+
+router.post("/form", (req,res)=>{
+  // const data = await Response.find({SID:req.body.SID, FID:req.body.FID});
+  // if(!data){
+    
+  // }
+  // console.log("hi");
+  // console.log(req.body);
+  const newForm = new Response({
+    SID: req.body.SID,
+    CID: req.body.CID,
+    FID: req.body.FID,
+    answers: req.body.answers
+  });
+  newForm
+    .save()
+    .then((user) => res.json(user))
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;
