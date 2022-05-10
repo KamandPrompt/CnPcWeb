@@ -165,4 +165,15 @@ router.get("/:email", async (req, res) => {
   }
 });
 
+router.post("/responses", async (req,res)=>{
+  console.log(req.body.id);
+  try {
+    const data = await Form.find({ CID: req.body.id }).lean();
+    // console.log(data);
+    res.send(data);
+  } catch (error) {
+    res.send(error);
+  }
+})
+
 module.exports = router;

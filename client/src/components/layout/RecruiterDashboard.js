@@ -18,6 +18,7 @@ class RecruiterDashboard extends Component {
       isVerified: "",
       role: "",
       DataisLoaded: false,
+      CID: this.props.auth.user.id,
     };
   }
 
@@ -30,7 +31,6 @@ class RecruiterDashboard extends Component {
       await axios
         .get(`/api/recruiters/${email}`)
         .then((res) => {
-          console.log("Hello")
           this.setState({
             name: res.data.details.name,
             contactPerson: res.data.details.contactPerson,
@@ -42,7 +42,6 @@ class RecruiterDashboard extends Component {
             role: res.data.details.role,
             DataisLoaded: true,
           });
-          console.log(this.state.user);
         })
         .catch((err) => {
           console.log(err);
@@ -253,6 +252,18 @@ class RecruiterDashboard extends Component {
         >
           Create Form
         </Button>
+        <br />
+        <br />
+        <Button
+          className="btn-fill"
+          style={{ width: "200px" }}
+          href="/formresponses"
+          variant="info"
+        >
+          View form/responses
+        </Button>
+        <br />
+        <br />
       </>
     );
   }
