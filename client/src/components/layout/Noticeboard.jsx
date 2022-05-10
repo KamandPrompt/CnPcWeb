@@ -10,19 +10,22 @@ import { Link } from "react-router-dom";
 // import { updateUser } from "../../actions/authActions";
 
 class Noticeboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       DataisLoaded: false,
       data: [],
       datalist: [],
       id: "",
       CID: "",
+      SID: this.props.auth.user.id,
       title: "",
       type: "",
       JD: "",
-      fields: [],
+      answers: [],
     };
+    this.handleChangeField = this.handleChangeField.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
   onLogout = (e) => {
     e.preventDefault();
@@ -78,7 +81,7 @@ class Noticeboard extends Component {
             title: res.data.data[0].title,
             type: res.data.data[0].type,
             JD: res.data.data[0].JD,
-            fields: res.data.data[0].fields,
+            answers: res.data.data[0].fields,
             DataisLoaded: true,
           });
           console.log(this.state.fields);
@@ -90,8 +93,34 @@ class Noticeboard extends Component {
     }
   }
 
+  handleChangeField(event, i) {
+    const newFields = this.state.answers;
+    newFields[i] = { ...newFields[i], [event.target.id]: event.target.value }
+    this.setState({ answers: newFields });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const newForm = {
+        SID: this.state.SID,
+        FID: this.state.id,
+        answers: this.state.answers,
+        CID: this.state.CID,
+    };
+    console.log(newForm);
+    // this.props.createFormRecruiter(newForm, this.props.history);
+    // this.setState({
+    //     counter1: 0,
+    //     title: "",
+    //     type: "",
+    //     JD: "",
+    //     answers: []
+    // });
+  }
+
   render() {
     const { user } = this.props.auth;
+    console.log(this.state.answers);
     if (this.state.id === "") {
       return (
         <>
@@ -106,18 +135,29 @@ class Noticeboard extends Component {
         <>
           <h3>{this.state.title}</h3>
           <p>{this.state.JD}</p>
-          {this.state.fields.map((item) => {
-            return (
-              <>
-                <label>
-                  {item.isRequired ? item.label + "*" : item.label}
-                  <input type="text" required={item.isRequired} name={item.label}/>
-                </label>
-                <p>{item.description}</p>
-                <br />
-              </>
-            );
-          })}
+          <form onSubmit={this.onSubmit}>
+            {this.state.answers.map((item, i) => {
+              return (
+                <>
+                  <label>
+                    {item.isRequired ? item.label + "*" : item.label}
+                    <input
+                      type="text"
+                      id="answer"
+                      required={item.isRequired}
+                      name={item.label}
+                      onChange={(event) => {
+                        this.handleChangeField(event, i);
+                      }}
+                    />
+                  </label>
+                  <p>{item.description}</p>
+                  <br />
+                </>
+              );
+            })}
+            <button type="submit">Submit</button>
+          </form>
         </>
       );
     }
