@@ -87,6 +87,7 @@ router.post("/login", (req, res) => {
           id: user.id,
           name: user.name,
           contactPerson: user.contactPerson,
+          email: user.email,
           designation: user.designation,
           telephone: user.telephone,
           mobile: user.mobile,
@@ -131,6 +132,37 @@ router.post("/form", (req, res) => {
     .save()
     .then((user) => res.json(user))
     .catch((err) => console.log(err));
+});
+
+
+router.post("/update", (req, res) => {
+  Recruiter.updateMany(
+    { email: req.body.email },
+    {
+      name: req.body.name,
+      contactPerson: req.body.contactPerson,
+      designation: req.body.designation,
+      email: req.body.email,
+      telephone: req.body.telephone,
+      mobile: req.body.mobile,
+      isVerified: req.body.isVerified,
+      role: req.body.role,
+    },
+    function () {
+      console.log("Updated!!!");
+    }
+  );
+  res.send("Profile updated Successfully!");
+});
+
+router.get("/:email", async (req, res) => {
+  console.log("Gelllllo")
+  const email = req.params.email;
+  const recruiter = await Recruiter.findOne({ email: email }).lean();
+  if (recruiter) {
+    // console.log(student)
+    return res.json({ status: "ok", details: recruiter });
+  }
 });
 
 module.exports = router;

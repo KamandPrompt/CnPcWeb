@@ -20,7 +20,7 @@ import { render } from "@testing-library/react";
 import { Contact } from "./components/Contact";
 import { Achievement } from "./components/achievement";
 import { Student } from "./components/Student";
-import { INF } from "./components/INF";
+// import { INF } from "./components/INF";
 import { Kamand }from "./components/Kamand";
 import {PrepPortal} from "./components/PrepPortal";
 import  Past from "./components/Past";
@@ -112,7 +112,7 @@ class App extends Component {
            <Route exact path="/Kamand" element={<Kamand />}></Route>
             <Route exact path="/research" element={<Research />}></Route>
             <Route exact path="/contact" element={<Contact />}></Route>
-            <Route exact path="/inf" element={<INF />}></Route>
+            {/* <Route exact path="/inf" element={<INF />}></Route> */}
             <Route
               exact
               path="/registerRecruiter"
