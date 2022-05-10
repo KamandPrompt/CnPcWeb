@@ -101,7 +101,7 @@ class CreateForm extends Component {
     if (newFields.length < i + 1) newFields.push({});
     newFields[i] = { ...newFields[i], [event.target.id]: event.target.value };
     this.setState({ fields: newFields });
-    console.log(newFields);
+    // console.log(newFields);
   }
   handleChangeBox(event, i) {
     // console.log(event.target.checked);
@@ -139,7 +139,6 @@ class CreateForm extends Component {
     };
     console.log(newForm);
     this.props.createFormRecruiter(newForm, this.props.history);
-
     this.setState({
       title: "",
       type: "",
@@ -153,6 +152,12 @@ class CreateForm extends Component {
     const list = [];
     for (let i = 0; i < counter1; i++) {
       let num = i + 1;
+      this.state.fields.push({
+        label: "",
+        description: "",
+        isRequired: false,
+        isSelected: true,
+      });
       list.push(
         <div>
           <label>
@@ -273,13 +278,6 @@ class CreateForm extends Component {
           <br />
 
           {this.addFields(this.state.counter1)}
-          <button
-            onClick={() => {
-              this.handleAdd1(this.state.counter1);
-            }}
-          >
-            Add new field
-          </button>
           <div
             className="clearfix"
             style={{ textAlign: "center", margin: "10px 0px" }}
@@ -294,6 +292,13 @@ class CreateForm extends Component {
             </Button>
           </div>
         </form>
+        <button
+          onClick={() => {
+            this.handleAdd1(this.state.counter1);
+          }}
+        >
+          Add new field
+        </button>
       </>
     );
   }

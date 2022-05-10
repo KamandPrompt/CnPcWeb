@@ -76,7 +76,7 @@ class Noticeboard extends Component {
         .get(`/api/students/noticeboard/${id}`)
         .then((res) => {
           this.setState({
-            CID: res.data.data[0].CID[0],
+            CID: res.data.data[0].CID,
             title: res.data.data[0].title,
             type: res.data.data[0].type,
             JD: res.data.data[0].JD,
@@ -129,29 +129,42 @@ class Noticeboard extends Component {
         <>
           <h3>{this.state.title}</h3>
           <p>{this.state.JD}</p>
+          <div style={{"width":"60%", "margin":"auto"}}>
           <form onSubmit={this.onSubmit}>
             {this.state.answers.map((item, i) => {
               return (
                 <>
-                  <label>
+                <Row>
+                <Col className="pr-1 pr-2" md="5">
+                <Form.Group>
+                  <label className="noticeForm">
                     {item.isRequired ? item.label + "*" : item.label}
-                    <input
+                    </label>
+                    <Form.Control
                       type="text"
                       id="answer"
+                      placeholder={item.description}
                       required={item.isRequired}
                       name={item.label}
                       onChange={(event) => {
                         this.handleChangeField(event, i);
                       }}
+                      style={{"width":"100%"}}
                     />
-                  </label>
-                  <p>{item.description}</p>
+                    </Form.Group>
+                    </Col>
+                    </Row>
+                  {/* </label> */}
+                  {/* <p>{item.description}</p> */}
                   <br />
                 </>
               );
             })}
-            <button type="submit">Submit</button>
+            <center>
+            <button style={{"width":"100px", "height":"60px", "marginBottom":"20px", "borderRadius":"6px", "backgroundColor":"#2196F3", "color":"#FFFF", "fontSize":"20px"}} type="submit">Submit</button>
+            </center>
           </form>
+          </div>
         </>
       );
     }

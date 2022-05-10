@@ -50,7 +50,7 @@ export const registerRecruiter = (userData, history) => (dispatch) => {
 export const createFormRecruiter = (formData, history) => (dispatch) => {
   axios
     .post("/api/recruiters/form", formData)
-    .then((res) => console.log("Created successfully"))
+    .then((res) => alert("Form created successfully!!"))
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
@@ -61,7 +61,7 @@ export const createFormRecruiter = (formData, history) => (dispatch) => {
 export const createFormStudent = (formData, history) => (dispatch) => {
   axios
     .post("/api/students/form", formData)
-    .then((res) => console.log("Form submitted successfully"))
+    .then((res) => alert("Form submitted successfully"))
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
@@ -69,7 +69,6 @@ export const createFormStudent = (formData, history) => (dispatch) => {
       })
     );
 };
-
 
 // Login
 export const loginRecruiter = (userData) => (dispatch) => {
