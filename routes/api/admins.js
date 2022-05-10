@@ -39,7 +39,7 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name,
-          role: user.role
+          role: user.role,
         };
 
         // Sign token
@@ -48,7 +48,6 @@ router.post("/login", (req, res) => {
           keys.secretOrKey,
           {
             expiresIn: 7200,
-
           },
           (err, token) => {
             res.json({
@@ -66,18 +65,19 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.get("/all-students", async (req,res) => {
-  const allStudents = await Students.find({}).select('rollNo name batch verification_status -_id').lean();
+router.get("/all-students", async (req, res) => {
+  const allStudents = await Students.find({})
+    .select("rollNo name batch verification_status -_id")
+    .lean();
   // console.log(allStudents);
   return res.json(allStudents);
 });
-router.get("/student/:roll",async(req,res)=>{
+router.get("/student/:roll", async (req, res) => {
   const roll = req.params.roll;
-  const student = await Students.findOne({rollNo:roll}).lean();
-  if(student)
-  {
+  const student = await Students.findOne({ rollNo: roll }).lean();
+  if (student) {
     // console.log(student)
-    return res.json({status:"ok", details:student})
+    return res.json({ status: "ok", details: student });
   }
-})
+});
 module.exports = router;

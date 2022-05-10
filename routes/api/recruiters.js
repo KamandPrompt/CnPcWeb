@@ -90,7 +90,7 @@ router.post("/login", (req, res) => {
           designation: user.designation,
           telephone: user.telephone,
           mobile: user.mobile,
-          role: user.role
+          role: user.role,
         };
 
         // Sign token
@@ -120,19 +120,17 @@ router.post("/form", (req, res) => {
   console.log("Adding...");
   //Form validation
 
-
   const newForm = new Form({
     title: req.body.title,
     JD: req.body.JD,
     type: req.body.type,
     fields: req.body.fields,
-    CID: req.body.CID
+    CID: req.body.CID,
   });
   newForm
     .save()
     .then((user) => res.json(user))
     .catch((err) => console.log(err));
 });
-
 
 module.exports = router;

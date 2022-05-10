@@ -319,7 +319,7 @@ class StudentDashboard extends Component {
                           ></Form.Control>
                         </Form.Group>
                       </Col>
-                      <Col className="px-1" md="4">
+                      {/* <Col className="px-1" md="4">
                         <Form.Group>
                           <label>Role</label>
                           <Form.Control
@@ -330,14 +330,16 @@ class StudentDashboard extends Component {
                             type="text"
                           ></Form.Control>
                         </Form.Group>
-                      </Col>
+                      </Col> */}
                       <Col className="pl-1" md="4">
                         <Form.Group>
                           <label>Verification status</label>
                           <Form.Control
                             disabled
-                            defaultValue="No"
-                            placeholder="Verification Code"
+                            onChange={this.onchange}
+                            id="verification_status"
+                            defaultValue={verification_status}
+                            placeholder="verification_status"
                             type="text"
                           ></Form.Control>
                         </Form.Group>
