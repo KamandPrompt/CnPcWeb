@@ -237,7 +237,7 @@ class StudentDashboard extends Component {
                             aria-label="Default select example"
                             onChange={this.onchange}
                             id="Gender"
-                            defaultValue={Gender}
+                            value={Gender}
                           >
                             {Gender === "Male" ? (
                               <>
