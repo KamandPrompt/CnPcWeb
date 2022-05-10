@@ -290,4 +290,19 @@ router.get("/noticeboard", async (req,res) => {
   }
 });
 
+router.get("/noticeboard/:id", async (req,res) => {
+  const id = req.params.id; 
+  try {
+    const data = await Form.find({_id:id}).lean();
+    console.log(data);
+    if(data)
+    {
+      // console.log(student)
+      return res.json({data})
+    }
+  } catch (error) {
+    res.send(error);
+  }
+});
+
 module.exports = router;

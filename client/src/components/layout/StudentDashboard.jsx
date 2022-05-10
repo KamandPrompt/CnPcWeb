@@ -129,7 +129,6 @@ class StudentDashboard extends Component {
       dob,
       Gender,
       resume,
-      password,
       verification_status,
       role
     } = this.state;
