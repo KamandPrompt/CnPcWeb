@@ -16,11 +16,6 @@ const AnswerSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
-  fieldID: {
-    type: String,
-    required: true,
-    min: 1,
-  },
   answer: {
     type: String,
     required: true,
@@ -29,9 +24,9 @@ const AnswerSchema = new mongoose.Schema({
 });
 
 const ResponseSchema = new mongoose.Schema({
-  SID: [{ type: mongoose.Schema.Types.ObjectId, ref: "Student" }],
-  FID: [{ type: mongoose.Schema.Types.ObjectId, ref: "Form" }],
-  CID: [{ type: mongoose.Schema.Types.ObjectId, ref: "Recruiter" }],
+  SID: { type: mongoose.Schema.Types.ObjectId, ref: "Student" },
+  FID: { type: mongoose.Schema.Types.ObjectId, ref: "Form" },
+  CID: { type: mongoose.Schema.Types.ObjectId, ref: "Recruiter" },
   isVerified: {
     type: Boolean,
     default: false,
