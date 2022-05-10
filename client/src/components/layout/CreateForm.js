@@ -3,7 +3,74 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser, createFormRecruiter } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
-
+const fixedFields = [
+  {
+    label: "Name",
+    description: "Full Name",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Roll Number",
+    description: "Roll Number",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Batch",
+    description: "Batch",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Degree",
+    description: "Degree",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Branch",
+    description: "Branch",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "CGPA",
+    description: "CGPA",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Email",
+    description: "Email",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Contact Number",
+    description: "Contact Number",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Date of Birth",
+    description: "Date of Birth",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Gender",
+    description: "Gender",
+    isRequired: true,
+    isSelected: true,
+  },
+  {
+    label: "Resume",
+    description: "Resume",
+    isRequired: true,
+    isSelected: true,
+  },
+];
 class CreateForm extends Component {
   constructor(props) {
     super(props);
@@ -11,16 +78,8 @@ class CreateForm extends Component {
       title: "",
       type: "",
       JD: "",
-      // fields: [],
-      fields: [
-        {
-          label: "Name",
-          description: "Full Name",
-          isRequired: "on",
-          isSelected: "on",
-        },
-      ],
-      counter1: 1,
+      fields: fixedFields,
+      counter1: fixedFields.length,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -66,12 +125,7 @@ class CreateForm extends Component {
     e.preventDefault();
     const fields = [];
     for (const [i, obj] of this.state.fields.entries()) {
-      if (obj.isRequired == "on") {
-        obj.isRequired = true;
-      } else {
-        obj.isRequired = false;
-      }
-      if (obj.isSelected == "on") {
+      if (obj.isSelected) {
         fields.push(obj);
       }
     }
@@ -87,11 +141,11 @@ class CreateForm extends Component {
     this.props.createFormRecruiter(newForm, this.props.history);
 
     this.setState({
-      counter1: 0,
       title: "",
       type: "",
       JD: "",
-      fields: [],
+      fields: fixedFields,
+      counter1: fixedFields.length,
     });
   };
 
@@ -177,19 +231,9 @@ class CreateForm extends Component {
 
   render() {
     const { user } = this.props.auth;
-    let counter1 = this.state.counter1;
 
     return (
       <>
-        <button
-          onClick={() => {
-            this.handleAdd1(this.state.counter1);
-          }}
-        >
-          ADD
-        </button>
-        <br />
-        <br />
         <form onSubmit={this.onSubmit}>
           <label>
             Title:
@@ -229,6 +273,13 @@ class CreateForm extends Component {
           <br />
 
           {this.addFields(this.state.counter1)}
+          <button
+            onClick={() => {
+              this.handleAdd1(this.state.counter1);
+            }}
+          >
+            Add new field
+          </button>
           <div
             className="clearfix"
             style={{ textAlign: "center", margin: "10px 0px" }}
