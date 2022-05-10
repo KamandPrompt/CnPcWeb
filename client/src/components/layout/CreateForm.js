@@ -139,7 +139,6 @@ class CreateForm extends Component {
     };
     console.log(newForm);
     this.props.createFormRecruiter(newForm, this.props.history);
-
     this.setState({
       title: "",
       type: "",
