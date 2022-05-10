@@ -51,7 +51,8 @@ class StudentDashboard extends Component {
       await axios
         .get(`/api/admins/student/${roll}`)
         .then((res) => {
-          this.setState({ name: res.data.details.name,
+          this.setState({
+            name: res.data.details.name,
             rollNo: roll,
             batch: res.data.details.batch,
             degree: res.data.details.degree,
@@ -64,7 +65,8 @@ class StudentDashboard extends Component {
             resume: res.data.details.resume,
             verification_status: res.data.details.verification_status,
             role: res.data.details.role,
-            DataisLoaded: true, });
+            DataisLoaded: true,
+          });
           // console.log(this.state.studentsData);
         })
         .catch((err) => {
@@ -83,36 +85,39 @@ class StudentDashboard extends Component {
     // this.setState(e.target.id=e.target.value)
     // console.log(e.target.value);
     // console.log(e.target.id);
-  }
+  };
   updateUser = (userData) => {
     console.log("hello");
-    axios.post("api/students/update", userData).then((res)=>{
-      console.log(res);
-      alert(res.data);
-    }).catch((err)=>{
-      console.log(err);
-    })
+    axios
+      .post("api/students/update", userData)
+      .then((res) => {
+        console.log(res);
+        alert(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   onsubmit = (e) => {
     e.preventDefault();
     const user = {
-        name : this.state.name,
-        rollNo: this.state.rollNo,
-        email : this.state.email,
-        batch:this.state.batch,
-        contactNumber: this.state.contactNumber,
-        branch: this.state.branch,
-        Gender: this.state.Gender,
-        degree: this.state.degree,
-        cgpa: this.state.cgpa,
-        dob: this.state.dob,
-        resume: this.state.resume,
-        verification_status : this.state.verification_status,
-        role : this.state.role
+      name: this.state.name,
+      rollNo: this.state.rollNo,
+      email: this.state.email,
+      batch: this.state.batch,
+      contactNumber: this.state.contactNumber,
+      branch: this.state.branch,
+      Gender: this.state.Gender,
+      degree: this.state.degree,
+      cgpa: this.state.cgpa,
+      dob: this.state.dob,
+      resume: this.state.resume,
+      verification_status: this.state.verification_status,
+      role: this.state.role,
     };
     this.updateUser(user);
-  }
+  };
 
   render() {
     const { user } = this.props.auth;
@@ -130,9 +135,8 @@ class StudentDashboard extends Component {
       Gender,
       resume,
       verification_status,
-      role
+      role,
     } = this.state;
-
     return (
       <>
         <Container fluid>
@@ -226,13 +230,40 @@ class StudentDashboard extends Component {
                       <Col className="pl-1" md="4">
                         <Form.Group>
                           <div>
-                          <label>Gender</label>
+                            <label>Gender</label>
                           </div>
-                          <Form.Select className="btn-sm primary" aria-label="Default select example" onChange={this.onchange} id="Gender">
-                            <option value={Gender} selected>{Gender}</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Others">Others</option>
+                          <Form.Select
+                            className="btn-sm primary"
+                            aria-label="Default select example"
+                            onChange={this.onchange}
+                            id="Gender"
+                            defaultValue={Gender}
+                          >
+                            {Gender === "Male" ? (
+                              <>
+                                <option value="Male" selected>
+                                  Male
+                                </option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                              </>
+                            ) : Gender === "Female" ? (
+                              <>
+                                <option value="Male">Male</option>
+                                <option value="Female" selected>
+                                  Female
+                                </option>
+                                <option value="Others">Others</option>
+                              </>
+                            ) : (
+                              <>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Others" selected>
+                                  Others
+                                </option>
+                              </>
+                            )}
                           </Form.Select>
                         </Form.Group>
                       </Col>
