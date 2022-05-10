@@ -105,9 +105,7 @@ class Noticeboard extends Component {
         answers: this.state.answers,
         CID: this.state.CID,
     };
-    console.log(newForm);
     this.props.createFormStudent(newForm, this.props.history);
-    console.log("hello");
     this.setState({
         FID: "",
         CID: "",
