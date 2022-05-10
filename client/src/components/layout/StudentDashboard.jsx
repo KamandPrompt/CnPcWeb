@@ -212,6 +212,7 @@ class StudentDashboard extends Component {
                             defaultValue={branch}
                             placeholder="Branch"
                             type="text"
+                            disabled
                           ></Form.Control>
                         </Form.Group>
                       </Col>
@@ -290,6 +291,7 @@ class StudentDashboard extends Component {
                             defaultValue={batch}
                             placeholder="batch"
                             type="text"
+                            disabled
                           ></Form.Control>
                         </Form.Group>
                       </Col>
@@ -302,6 +304,7 @@ class StudentDashboard extends Component {
                             defaultValue={cgpa}
                             placeholder="Cgpa"
                             type="text"
+                            disabled
                           ></Form.Control>
                         </Form.Group>
                       </Col>
