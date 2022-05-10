@@ -477,7 +477,7 @@ class AdminDashboard extends Component {
                               ></Form.Control>
                             </Form.Group>
                           </Col>
-                          <Col className="px-1" md="4">
+                          {/* <Col className="px-1" md="4">
                             <Form.Group>
                               <label>Role</label>
                               <Form.Control
@@ -488,7 +488,7 @@ class AdminDashboard extends Component {
                                 type="text"
                               ></Form.Control>
                             </Form.Group>
-                          </Col>
+                          </Col> */}
                           <Col className="pl-1" md="4">
                             <Form.Group>
                               <label>Verification status</label>
