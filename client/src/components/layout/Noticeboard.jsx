@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser } from "../../actions/authActions";
+import { logoutUser, createFormStudent } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "../achievement.css";
@@ -75,7 +75,6 @@ class Noticeboard extends Component {
       await axios
         .get(`/api/students/noticeboard/${id}`)
         .then((res) => {
-          console.log(res.data.data[0].fields);
           this.setState({
             CID: res.data.data[0].CID[0],
             title: res.data.data[0].title,
@@ -84,7 +83,6 @@ class Noticeboard extends Component {
             answers: res.data.data[0].fields,
             DataisLoaded: true,
           });
-          console.log(this.state.fields);
           // this.addNotice(this.state.data.length);
         })
         .catch((err) => {
@@ -108,19 +106,17 @@ class Noticeboard extends Component {
         CID: this.state.CID,
     };
     console.log(newForm);
-    // this.props.createFormRecruiter(newForm, this.props.history);
-    // this.setState({
-    //     counter1: 0,
-    //     title: "",
-    //     type: "",
-    //     JD: "",
-    //     answers: []
-    // });
+    this.props.createFormStudent(newForm, this.props.history);
+    console.log("hello");
+    this.setState({
+        FID: "",
+        CID: "",
+        answers: [],
+    });
   }
 
   render() {
     const { user } = this.props.auth;
-    console.log(this.state.answers);
     if (this.state.id === "") {
       return (
         <>
@@ -173,4 +169,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser })(Noticeboard);
+export default connect(mapStateToProps, { logoutUser,createFormStudent })(Noticeboard);

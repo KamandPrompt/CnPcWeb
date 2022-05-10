@@ -58,6 +58,19 @@ export const createFormRecruiter = (formData, history) => (dispatch) => {
       })
     );
 };
+export const createFormStudent = (formData, history) => (dispatch) => {
+  // console.log("entered!!");
+  console.log("Form Data", formData);
+  axios
+    .post("/api/students/form", formData)
+    .then((res) => console.log("Form submitted successfully"))
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
 
 
 // Login
