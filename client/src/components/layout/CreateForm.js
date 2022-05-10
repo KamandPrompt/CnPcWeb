@@ -8,11 +8,19 @@ class CreateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter1: 0,
       title: "",
       type: "",
       JD: "",
-      fields: [],
+      // fields: [],
+      fields: [
+        {
+          label: "Name",
+          description: "Full Name",
+          isRequired: "on",
+          isSelected: "on",
+        },
+      ],
+      counter1: 1,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,9 +37,18 @@ class CreateForm extends Component {
     this.setState({ [event.target.id]: event.target.value });
   }
   handleChangeField(event, i) {
+    // console.log(event.target.checked);
     const newFields = this.state.fields;
     if (newFields.length < i + 1) newFields.push({});
     newFields[i] = { ...newFields[i], [event.target.id]: event.target.value };
+    this.setState({ fields: newFields });
+    console.log(newFields);
+  }
+  handleChangeBox(event, i) {
+    // console.log(event.target.checked);
+    const newFields = this.state.fields;
+    if (newFields.length < i + 1) newFields.push({});
+    newFields[i] = { ...newFields[i], [event.target.id]: event.target.checked };
     this.setState({ fields: newFields });
     console.log(newFields);
   }
@@ -88,7 +105,8 @@ class CreateForm extends Component {
             Label:
             <input
               id="label"
-              name={"label" + num.toString()}
+              name="label"
+              value={this.state.fields[i].label}
               onChange={(event) => {
                 this.handleChangeField(event, i);
               }}
@@ -98,7 +116,8 @@ class CreateForm extends Component {
             Short Desc:
             <textarea
               id="description"
-              name={"description" + num.toString()}
+              name="description"
+              value={this.state.fields[i].description}
               onChange={(event) => {
                 this.handleChangeField(event, i);
               }}
@@ -106,25 +125,49 @@ class CreateForm extends Component {
           </label>
           <label>
             Required:
-            <input
-              type="checkbox"
-              id="isRequired"
-              name={"isRequired" + num.toString()}
-              onChange={(event) => {
-                this.handleChangeField(event, i);
-              }}
-            />
+            {this.state.fields[i].isRequired ? (
+              <input
+                type="checkbox"
+                id="isRequired"
+                name="isRequired"
+                onChange={(event) => {
+                  this.handleChangeBox(event, i);
+                }}
+                checked
+              />
+            ) : (
+              <input
+                type="checkbox"
+                id="isRequired"
+                name="isRequired"
+                onChange={(event) => {
+                  this.handleChangeBox(event, i);
+                }}
+              />
+            )}
           </label>
           <label>
             Select
-            <input
-              type="checkbox"
-              id="isSelected"
-              name={"select" + num.toString()}
-              onChange={(event) => {
-                this.handleChangeField(event, i);
-              }}
-            />
+            {this.state.fields[i].isRequired ? (
+              <input
+                type="checkbox"
+                id="isSelected"
+                name="isSelected"
+                onChange={(event) => {
+                  this.handleChangeBox(event, i);
+                }}
+                checked
+              />
+            ) : (
+              <input
+                type="checkbox"
+                id="isSelected"
+                name="isSelected"
+                onChange={(event) => {
+                  this.handleChangeBox(event, i);
+                }}
+              />
+            )}
           </label>
         </div>
       );
@@ -149,7 +192,6 @@ class CreateForm extends Component {
         <br />
         <form onSubmit={this.onSubmit}>
           <label>
-            {" "}
             Title:
             <input
               type=""
@@ -181,7 +223,6 @@ class CreateForm extends Component {
           </label>
           <br />
           <label>
-            {" "}
             Job Desc. :
             <textarea name="JD" id="JD" onChange={this.handleChange} />
           </label>
@@ -198,7 +239,7 @@ class CreateForm extends Component {
               type="submit"
               variant="info"
             >
-              Update Profile
+              Create Form
             </Button>
           </div>
         </form>
