@@ -10,7 +10,7 @@ class StudentDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.auth.user.name,
+      name: "",
       rollNo: "",
       batch: "",
       degree: "",
@@ -162,7 +162,7 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="name"
-                            defaultValue={user.name}
+                            defaultValue={name}
                             disabled
                             placeholder="Name"
                             type="text"
