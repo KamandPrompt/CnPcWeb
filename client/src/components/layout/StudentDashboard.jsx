@@ -249,19 +249,19 @@ class StudentDashboard extends Component {
                               </>
                             ) : Gender === "Female" ? (
                               <>
-                                <option value="Male">Male</option>
                                 <option value="Female" selected>
                                   Female
                                 </option>
+                                <option value="Male">Male</option>
                                 <option value="Others">Others</option>
                               </>
                             ) : (
                               <>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
                                 <option value="Others" selected>
                                   Others
                                 </option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                               </>
                             )}
                           </Form.Select>
