@@ -81,6 +81,7 @@ class AdminDashboard extends Component {
       .post("api/students/update", userData)
       .then((res) => {
         console.log(res);
+        alert(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -91,18 +92,18 @@ class AdminDashboard extends Component {
     console.log(this.state);
     const user = {
       name: this.state.name,
-      rollNo: rollNo.value,
-      email: email.value,
-      batch: batch.value,
-      contactNumber: contactNumber.value,
-      branch: branch.value,
-      Gender: Gender.value,
-      degree: degree.value,
-      cgpa: cgpa.value,
-      dob: dob.value,
-      resume: resume.value,
-      verification_status: verification_status.value,
-      role: role.value,
+      rollNo: this.state.rollNo,
+      email: this.state.email,
+      batch: this.state.batch,
+      contactNumber: this.state.contactNumber,
+      branch: this.state.branch,
+      Gender: this.state.Gender,
+      degree: this.state.degree,
+      cgpa: this.state.cgpa,
+      dob: this.state.dob,
+      resume: this.state.resume,
+      verification_status: this.state.verification_status,
+      role: this.state.role,
     };
     console.log(user);
     this.updateUser(user);
@@ -141,6 +142,12 @@ class AdminDashboard extends Component {
       [event.target.name]: event.target.value,
     });
   }
+  onchange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+    // this.setState(e.target.id=e.target.value)
+    // console.log(e.target.value);
+    // console.log(e.target.id);
+  };
   Dataloder = async () => {
     // output.json shd be updated here
     var data = [];
@@ -273,6 +280,22 @@ class AdminDashboard extends Component {
       } else {
         //
         // console.log(values);
+
+        const {
+          name,
+          rollNo,
+          batch,
+          degree,
+          branch,
+          cgpa,
+          email,
+          contactNumber,
+          dob,
+          Gender,
+          resume,
+          verification_status,
+          role,
+        } = this.state;
         return (
           <>
             <Container fluid>
@@ -286,11 +309,12 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>RollNo</label>
                               <Form.Control
-                                defaultValue={this.state.rollNo}
+                                disabled
+                                defaultValue={rollNo}
                                 placeholder="RollNo"
                                 type="text"
                                 id="rollNo"
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                               ></Form.Control>
                             </Form.Group>
                           </Col>
@@ -298,9 +322,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Name</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="name"
-                                defaultValue={this.state.name}
+                                defaultValue={name}
                                 placeholder="Name"
                                 type="text"
                               ></Form.Control>
@@ -312,9 +336,10 @@ class AdminDashboard extends Component {
                                 Email address
                               </label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="email"
-                                defaultValue={this.state.email}
+                                defaultValue={email}
+                                disabled
                                 placeholder="Email"
                                 type="email"
                               ></Form.Control>
@@ -326,9 +351,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Contact number</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="contactNumber"
-                                defaultValue={this.state.contactNumber}
+                                defaultValue={contactNumber}
                                 placeholder="Contact Number"
                                 type="text"
                               ></Form.Control>
@@ -340,9 +365,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Branch</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="branch"
-                                defaultValue={this.state.branch}
+                                defaultValue={branch}
                                 placeholder="Branch"
                                 type="text"
                               ></Form.Control>
@@ -352,9 +377,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Resume</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="resume"
-                                defaultValue={this.state.resume}
+                                defaultValue={resume}
                                 placeholder="Drive link"
                                 type="text"
                               ></Form.Control>
@@ -366,15 +391,37 @@ class AdminDashboard extends Component {
                                 <label>Gender</label>
                               </div>
                               <Form.Select
-                                className="btn-primary"
+                                className="btn-sm primary"
                                 aria-label="Default select example"
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="Gender"
+                                value={Gender}
                               >
-                                <option>Select Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Others">Others</option>
+                                {Gender === "Male" ? (
+                                  <>
+                                    <option value="Male" selected>
+                                      Male
+                                    </option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                  </>
+                                ) : Gender === "Female" ? (
+                                  <>
+                                    <option value="Female" selected>
+                                      Female
+                                    </option>
+                                    <option value="Male">Male</option>
+                                    <option value="Others">Others</option>
+                                  </>
+                                ) : (
+                                  <>
+                                    <option value="Others" selected>
+                                      Others
+                                    </option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                  </>
+                                )}
                               </Form.Select>
                             </Form.Group>
                           </Col>
@@ -384,9 +431,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Degree</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="degree"
-                                defaultValue={this.state.degree}
+                                defaultValue={degree}
                                 placeholder="Degree"
                                 type="text"
                               ></Form.Control>
@@ -396,9 +443,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Batch</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="batch"
-                                defaultValue={this.state.batch}
+                                defaultValue={batch}
                                 placeholder="batch"
                                 type="text"
                               ></Form.Control>
@@ -408,10 +455,10 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>CGPA</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="cgpa"
-                                defaultValue={this.state.cgpa}
-                                placeholder="CGPA"
+                                defaultValue={cgpa}
+                                placeholder="Cgpa"
                                 type="text"
                               ></Form.Control>
                             </Form.Group>
@@ -422,9 +469,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Date of Birth</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="dob"
-                                defaultValue={this.state.dob}
+                                defaultValue={dob}
                                 placeholder="Date of Birth"
                                 type="text"
                               ></Form.Control>
@@ -434,9 +481,9 @@ class AdminDashboard extends Component {
                             <Form.Group>
                               <label>Role</label>
                               <Form.Control
-                                onChange={this.handleChange}
+                                onChange={this.onchange}
                                 id="role"
-                                defaultValue={this.state.role}
+                                defaultValue={role}
                                 placeholder="role"
                                 type="text"
                               ></Form.Control>
@@ -444,19 +491,14 @@ class AdminDashboard extends Component {
                           </Col>
                           <Col className="pl-1" md="4">
                             <Form.Group>
-                              <div>
-                                <label>Verification Status</label>
-                              </div>
-                              <Form.Select
-                                className="btn-primary"
-                                aria-label="Default select example"
-                                onChange={this.handleChange}
+                              <label>Verification status</label>
+                              <Form.Control
+                                onChange={this.onchange}
                                 id="verification_status"
-                              >
-                                {/* <option>Select Status</option> */}
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                              </Form.Select>
+                                defaultValue={verification_status}
+                                placeholder="verification_status"
+                                type="text"
+                              ></Form.Control>
                             </Form.Group>
                           </Col>
                         </Row>
