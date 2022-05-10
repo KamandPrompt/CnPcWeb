@@ -63,7 +63,7 @@ export const createFormStudent = (formData, history) => (dispatch) => {
   console.log("Form Data", formData);
   axios
     .post("/api/students/form", formData)
-    .then((res) => console.log("Form submitted successfully"))
+    .then((res) => alert("Form submitted successfully"))
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,

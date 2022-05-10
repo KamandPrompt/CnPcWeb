@@ -76,7 +76,7 @@ class Noticeboard extends Component {
         .get(`/api/students/noticeboard/${id}`)
         .then((res) => {
           this.setState({
-            CID: res.data.data[0].CID[0],
+            CID: res.data.data[0].CID,
             title: res.data.data[0].title,
             type: res.data.data[0].type,
             JD: res.data.data[0].JD,

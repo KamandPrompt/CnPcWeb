@@ -101,7 +101,7 @@ class CreateForm extends Component {
     if (newFields.length < i + 1) newFields.push({});
     newFields[i] = { ...newFields[i], [event.target.id]: event.target.value };
     this.setState({ fields: newFields });
-    console.log(newFields);
+    // console.log(newFields);
   }
   handleChangeBox(event, i) {
     // console.log(event.target.checked);

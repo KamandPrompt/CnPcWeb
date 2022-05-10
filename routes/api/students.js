@@ -310,8 +310,8 @@ router.post("/form", (req,res)=>{
   // if(!data){
     
   // }
-  console.log("hi");
-  console.log(req.body);
+  // console.log("hi");
+  // console.log(req.body);
   const newForm = new Response({
     SID: req.body.SID,
     CID: req.body.CID,
