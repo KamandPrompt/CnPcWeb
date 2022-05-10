@@ -146,7 +146,7 @@ class StudentDashboard extends Component {
                 <Card.Body>
                   <Form>
                     <Row>
-                      <Col className="pr-1" md="5">
+                      <Col className="pr-1" md="4">
                         <Form.Group>
                           <label>RollNo</label>
                           <Form.Control
@@ -159,7 +159,7 @@ class StudentDashboard extends Component {
                           ></Form.Control>
                         </Form.Group>
                       </Col>
-                      <Col className="px-1" md="3">
+                      <Col className="px-1" md="4">
                         <Form.Group>
                           <label>Name</label>
                           <Form.Control
@@ -172,7 +172,7 @@ class StudentDashboard extends Component {
                           ></Form.Control>
                         </Form.Group>
                       </Col>
-                      <Col className="pl-1" md="4">
+                      <Col className="pr-1" md="4">
                         <Form.Group>
                           <label htmlFor="exampleInputEmail1">
                             Email address
@@ -188,7 +188,7 @@ class StudentDashboard extends Component {
                         </Form.Group>
                       </Col>
                     </Row>
-                    <Row>
+                    {/* <Row>
                       <Col md="12">
                         <Form.Group>
                           <label>Contact number</label>
@@ -201,7 +201,7 @@ class StudentDashboard extends Component {
                           ></Form.Control>
                         </Form.Group>
                       </Col>
-                    </Row>
+                    </Row> */}
                     <Row>
                       <Col className="pr-1" md="4">
                         <Form.Group>
@@ -228,7 +228,19 @@ class StudentDashboard extends Component {
                           ></Form.Control>
                         </Form.Group>
                       </Col>
-                      <Col className="pl-1" md="4">
+                      <Col className="px-1" md="4">
+                        <Form.Group>
+                          <label>Contact number</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="contactNumber"
+                            defaultValue={contactNumber}
+                            placeholder="Contact Number"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      {/* <Col className="pl-1" md="4">
                         <Form.Group>
                           <div>
                             <label>Gender</label>
@@ -267,10 +279,10 @@ class StudentDashboard extends Component {
                             )}
                           </Form.Select>
                         </Form.Group>
-                      </Col>
+                      </Col> */}
                     </Row>
                     <Row>
-                      <Col className="pr-1" md="4">
+                      <Col className="pr-1" md="3">
                         <Form.Group>
                           <label>Degree</label>
                           <Form.Control
@@ -282,7 +294,7 @@ class StudentDashboard extends Component {
                           ></Form.Control>
                         </Form.Group>
                       </Col>
-                      <Col className="px-1" md="4">
+                      <Col className="px-1" md="3">
                         <Form.Group>
                           <label>Batch</label>
                           <Form.Control
@@ -295,7 +307,7 @@ class StudentDashboard extends Component {
                           ></Form.Control>
                         </Form.Group>
                       </Col>
-                      <Col className="pl-1" md="4">
+                      <Col className="pl-1" md="3">
                         <Form.Group>
                           <label>CGPA</label>
                           <Form.Control
@@ -306,6 +318,47 @@ class StudentDashboard extends Component {
                             type="text"
                             disabled
                           ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="pr-1" md="3">
+                        <Form.Group>
+                          <div>
+                            <label>Gender</label>
+                          </div>
+                          <Form.Select
+                            className="btn-sm primary"
+                            aria-label="Default select example"
+                            onChange={this.onchange}
+                            id="Gender"
+                            value={Gender}
+                            style={{"width":"100%","height":"40px"}}
+                          >
+                            {Gender === "Male" ? (
+                              <>
+                                <option value="Male" selected>
+                                  Male
+                                </option>
+                                <option value="Female">Female</option>
+                                <option value="Others">Others</option>
+                              </>
+                            ) : Gender === "Female" ? (
+                              <>
+                                <option value="Female" selected>
+                                  Female
+                                </option>
+                                <option value="Male">Male</option>
+                                <option value="Others">Others</option>
+                              </>
+                            ) : (
+                              <>
+                                <option value="Others" selected>
+                                  Others
+                                </option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </>
+                            )}
+                          </Form.Select>
                         </Form.Group>
                       </Col>
                     </Row>

@@ -137,7 +137,7 @@ class Noticeboard extends Component {
               return (
                 <>
                 <Row>
-                <Col className="pr-1" md="5">
+                <Col className="pr-1 pr-2" md="5">
                 <Form.Group>
                   <label className="noticeForm">
                     {item.isRequired ? item.label + "*" : item.label}
