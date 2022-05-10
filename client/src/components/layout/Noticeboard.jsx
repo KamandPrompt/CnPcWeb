@@ -27,10 +27,12 @@ class Noticeboard extends Component {
     this.handleChangeField = this.handleChangeField.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+  
   onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
   addNotice = (value) => {
     const list = [];
     for (let i = 0; i < value; i++) {
