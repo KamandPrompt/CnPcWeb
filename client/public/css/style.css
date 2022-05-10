@@ -1411,3 +1411,56 @@ hr {
     width: 100%;
   }
 }
+
+.recruiterForm{
+  width: 80%;
+  margin: auto;
+  background-color: rgb(215, 210, 210);
+  padding-top: 30px;
+}
+
+.widget{
+  margin: 20px 50px;
+  background-color: #fff;
+  padding: 30px;
+}
+
+.widgetLabel{
+  font-size: 18px;
+}
+
+.widgetInput{
+  width: 60%;
+  height: 40px;
+  margin: 15px 0px;
+}
+
+.widgetArea{
+  width: 60%;
+  height: 60px;
+  margin: 15px 0px;
+}
+
+.widgetRadio{
+  margin: 0px 10px !important;
+}
+
+.widgetCheck{
+  margin-left: 20px !important;
+}
+
+.widgetButton{
+  width: 100px;
+  height: 50px;
+  background-color: #2196F3;
+  border-radius: 10%;
+  border: 0px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  position: sticky;
+  bottom: 0;
+}
+
+.widgetPlus{
+  color: white;
+}
