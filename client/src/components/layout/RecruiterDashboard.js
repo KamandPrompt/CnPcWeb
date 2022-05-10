@@ -83,7 +83,7 @@ class RecruiterDashboard extends Component {
       email: this.state.email,
       telephone: this.state.telephone,
       mobile: this.state.mobile,
-      isVerified: (this.state.isVerified === "Yes"),
+      isVerified: (this.state.isVerified === "Yes" ? true : false),
       role: this.state.role,
     };
     this.updateUser(user);
@@ -199,25 +199,26 @@ class RecruiterDashboard extends Component {
                             <label>Verification Status</label>
                           </div>
                           <Form.Select
+                            disabled
                             className="btn-sm primary"
                             aria-label="Default select example"
                             onChange={this.onchange}
                             id="isVerified"
                             value={isVerified}
                           >
-                            {isVerified === "Yes" ? (
+                            {isVerified ? (
                               <>
                                 <option value="Yes" selected>
-                                  Yes
+                                  Verified
                                 </option>
-                                <option value="No">No</option>
+                                <option value="No">Not verified</option>
                               </>
                             ) : (
                               <>
                                 <option value="No" selected>
-                                  No
+                                  Not verified
                                 </option>
-                                <option value="Yes">Yes</option>
+                                <option value="Yes">Verified</option>
                               </>
                             )}
                           </Form.Select>
