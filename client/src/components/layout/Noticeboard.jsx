@@ -5,6 +5,7 @@ import { logoutUser, saveResponseStudent } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "../achievement.css";
+import "../admin.css";
 import { Link } from "react-router-dom";
 
 // import { updateUser } from "../../actions/authActions";
@@ -122,75 +123,87 @@ class Noticeboard extends Component {
 
   render() {
     const { user } = this.props.auth;
-    if (this.state.id === "") {
+    if(this.state.DataisLoaded===true)
+    {
+      if (this.state.id === "") {
+        return (
+          <>
+            <div>
+              <h2 style={{ textAlign: "center" }}>Active application forms</h2>
+              <div className="acadmic">{this.state.datalist}</div>
+            </div>
+          </>
+        );
+      } else {
+        return (
+          <>
+            <h3>{this.state.title}</h3>
+            <p>{this.state.JD}</p>
+            <div style={{ width: "60%", margin: "auto" }}>
+              <form onSubmit={this.onSubmit}>
+                {this.state.answers.map((item, i) => {
+                  return (
+                    <>
+                      <Row>
+                        <Col className="pr-1 pr-2" md="5">
+                          <Form.Group>
+                            <label className="noticeForm">
+                              {item.isRequired ? item.label + "*" : item.label}
+                            </label>
+                            <Form.Control
+                              type="text"
+                              id="answer"
+                              placeholder={item.description}
+                              required={item.isRequired}
+                              name={item.label}
+                              onChange={(event) => {
+                                this.handleChangeField(event, i);
+                              }}
+                              style={{ width: "100%" }}
+                            />
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      {/* </label> */}
+                      {/* <p>{item.description}</p> */}
+                      <br />
+                    </>
+                  );
+                })}
+                <center>
+                  <button
+                    style={{
+                      width: "100px",
+                      height: "60px",
+                      marginBottom: "20px",
+                      borderRadius: "6px",
+                      backgroundColor: "#2196F3",
+                      color: "#FFFF",
+                      fontSize: "20px",
+                    }}
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </center>
+              </form>
+            </div>
+          </>
+        );
+      }
+    }
+    else
+    {
       return (
         <>
-          <div>
-            <h2 style={{ textAlign: "center" }}>Active application forms</h2>
-            <div className="acadmic">{this.state.datalist}</div>
-          </div>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <h3>{this.state.title}</h3>
-          <p>{this.state.JD}</p>
-          <div style={{ width: "60%", margin: "auto" }}>
-            <form onSubmit={this.onSubmit}>
-              {this.state.answers.map((item, i) => {
-                return (
-                  <>
-                    <Row>
-                      <Col className="pr-1 pr-2" md="5">
-                        <Form.Group>
-                          <label className="noticeForm">
-                            {item.isRequired ? item.label + "*" : item.label}
-                          </label>
-                          <Form.Control
-                            type="text"
-                            id="answer"
-                            placeholder={item.description}
-                            required={item.isRequired}
-                            name={item.label}
-                            onChange={(event) => {
-                              this.handleChangeField(event, i);
-                            }}
-                            style={{ width: "100%" }}
-                          />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    {/* </label> */}
-                    {/* <p>{item.description}</p> */}
-                    <br />
-                  </>
-                );
-              })}
-              <center>
-                <button
-                  style={{
-                    width: "100px",
-                    height: "60px",
-                    marginBottom: "20px",
-                    borderRadius: "6px",
-                    backgroundColor: "#2196F3",
-                    color: "#FFFF",
-                    fontSize: "20px",
-                  }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </center>
-            </form>
+          <div class="loaderContainer">
+            <div class="loader"></div>
           </div>
         </>
       );
     }
   }
 }
-
 Noticeboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
