@@ -526,7 +526,13 @@ class ManageStudents extends Component {
         );
       }
     } else {
-      return <div>Wait for some time</div>;
+      return (
+        <>
+          <div class="loaderContainer">
+            <div class="loader"></div>
+          </div>
+        </>
+      );
     }
   }
 }
