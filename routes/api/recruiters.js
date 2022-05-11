@@ -180,7 +180,7 @@ router.post("/getFormbyCID", async (req,res)=>{
 
 router.post("/getFormbyCID/:fid", async (req,res)=>{
   const fid = req.params.fid;
-  console.log(req.body.role);
+  // console.log(req.body.role);
   try {
     let data = [];
     if(req.body.role === "recruiter"){
@@ -203,7 +203,7 @@ router.post("/getFormbyCID/:fid", async (req,res)=>{
       }
       student_data.push(newData);
     }
-    console.log(student_data);
+    // console.log(student_data);
     res.send(student_data);
   } catch (error) {
     res.send(error);
