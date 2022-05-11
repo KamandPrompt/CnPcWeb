@@ -69,8 +69,17 @@ class FormResponses extends Component {
       await axios
         .post("/api/recruiters/getFormbyCID", { id: this.state.CID })
         .then((res) => {
-          this.setState({ data: res.data, DataisLoaded: true });
-          console.log(this.state.data);
+          let data = res.data;
+          console.log(data);
+          for(var i=0;i<data.length;i++)
+          {
+            if(data[i].isVerified === true) data[i].isVerified = "Verified";
+            else data[i].isVerified = "Not Verified";
+            
+            if(data[i].formStatus==="open") data[i].formStatus="Open";
+            else data[i].formStatus="Closed";
+          }
+          this.setState({ data: data, DataisLoaded: true });
           // this.addNotice(this.state.data.length);
         })
         .catch((err) => {
