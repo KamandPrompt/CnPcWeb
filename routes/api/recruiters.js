@@ -11,6 +11,8 @@ const validateLoginInput = require("../../validation/loginRecruiter");
 // Load Recruiter model
 const Recruiter = require("../../models/RecruiterSchema");
 const Form = require("../../models/FormSchema");
+const Response = require("../../models/ResponseSchema");
+const Student = require("../../models/StudentSchema");
 
 // @route POST api/recruiters/register
 // @desc Register user
@@ -171,6 +173,38 @@ router.post("/getFormbyCID", async (req,res)=>{
     const data = await Form.find({ CID: req.body.id }).lean();
     // console.log(data);
     res.send(data);
+  } catch (error) {
+    res.send(error);
+  }
+})
+
+router.post("/getFormbyCID/:fid", async (req,res)=>{
+  const fid = req.params.fid;
+  console.log(req.body.role);
+  try {
+    let data = [];
+    if(req.body.role === "recruiter"){
+      data = await Response.find({ FID: fid, isVerified: true }).lean();
+    }
+    else if(req.body.role === "admin")
+    {
+      data = await Response.find({ FID: fid}).lean();   
+    }
+    // console.log(data)
+    let student_data = [];
+    for(let i=0;i<data.length;i++){
+      const studentData = await Student.findOne({_id:(data[i]).SID}).lean();
+      const newData = {
+        name: studentData.name,
+        rollNo: studentData.rollNo,
+        cgpa: studentData.cgpa,
+        id: studentData._id,
+        branch: studentData.branch
+      }
+      student_data.push(newData);
+    }
+    console.log(student_data);
+    res.send(student_data);
   } catch (error) {
     res.send(error);
   }
