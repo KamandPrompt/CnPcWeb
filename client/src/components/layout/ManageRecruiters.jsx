@@ -82,7 +82,7 @@ class ManageRecruiters extends Component {
       email: this.state.email,
       telephone: this.state.telephone,
       mobile: this.state.mobile,
-      isVerified: this.state.isVerified === "Yes",
+      isVerified: this.state.isVerified === "Yes" ? true : false,
       role: this.state.role,
     };
     console.log(user);
@@ -127,24 +127,20 @@ class ManageRecruiters extends Component {
     if (this.state.DataisLoaded === true) {
       if (this.state.email === "") {
         const userRows = this.state.recruitersData;
+        for (const [i, obj] of userRows.entries()) {
+          obj.isVerified = obj.isVerified ? "Verified" : "Not Verified";
+        }
         const columns = [
+          { field: "name", headerName: "Name", hideable: false, width: 100 },
           {
             field: "email",
             headerName: "Email",
             hideable: false,
-            width: 230,
+            width: 200,
           },
-          { field: "name", headerName: "Name", hideable: false, width: 230 },
-          // {
-          //   field: "batch",
-          //   headerName: "Batch",
-          //   type: "number",
-          //   width: 150,
-          //   hideable: false,
-          // },
           {
             field: "isVerified",
-            headerName: "Status",
+            headerName: "Verification Status",
             width: 190,
             hideable: false,
           },
@@ -189,21 +185,12 @@ class ManageRecruiters extends Component {
                       getRowId={(row) => row.email}
                     />
                   </div>
-                  {/* <button
-                  onClick={this.onLogout}
-                  className="btn btn-large btn-light hoverable font-weight-bold"
-                >
-                  Logout
-                </button> */}
                 </div>
               </div>
             </div>
           </>
         );
       } else {
-        //
-        // console.log(values);
-
         const {
           name,
           email,
@@ -313,19 +300,19 @@ class ManageRecruiters extends Component {
                                 id="isVerified"
                                 value={isVerified}
                               >
-                                {isVerified === "Yes" ? (
+                                {isVerified ? (
                                   <>
                                     <option value="Yes" selected>
-                                      Yes
+                                      Verified
                                     </option>
-                                    <option value="No">No</option>
+                                    <option value="No">Not verified</option>
                                   </>
                                 ) : (
                                   <>
                                     <option value="No" selected>
-                                      No
+                                      Not verified
                                     </option>
-                                    <option value="Yes">Yes</option>
+                                    <option value="Yes">Verified</option>
                                   </>
                                 )}
                               </Form.Select>
