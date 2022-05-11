@@ -157,7 +157,7 @@ class FormResponses extends Component {
           renderCell: (params) => {
             return (
               <>
-                <Link to={"/viewResponses/?fid=" + params.row._id} target="_blank">
+                <Link to={"/viewResponses?fid=" + params.row._id} target="_blank">
                   <button className="userEdit">Responses</button>
                 </Link>
               </>

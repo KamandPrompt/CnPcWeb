@@ -42,7 +42,8 @@ import Noticeboard from "./components/layout/Noticeboard";
 import FormResponses from "./components/layout/FormResponses";
 import ManageStudents from "./components/layout/ManageStudents";
 import ManageRecruiters from "./components/layout/ManageRecruiters";
-
+import RecruiterAdminOutlet from "./components/private-route/RecruiterAdminOutlet";
+import ViewResponses from "./components/layout/ViewResponses";
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -144,6 +145,9 @@ class App extends Component {
             </Route>
             <Route exact path="/dashboardAdmin" element={<AdminOutlet />}>
               <Route path="" element={<AdminDashboard />} />
+            </Route>
+            <Route path="/viewResponses" element={<RecruiterAdminOutlet />}>
+              <Route path="" element={<ViewResponses />} />
             </Route>
             <Route exact path="/manageStudents" element={<AdminOutlet />}>
               <Route path="" element={<ManageStudents />} />
