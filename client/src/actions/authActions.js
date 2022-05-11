@@ -49,7 +49,7 @@ export const registerRecruiter = (userData, history) => (dispatch) => {
 };
 export const createFormRecruiter = (formData, history) => (dispatch) => {
   axios
-    .post("/api/recruiters/form", formData)
+    .post("/api/recruiters/createForm", formData)
     .then((res) => alert("Form created successfully!!"))
     .catch((err) =>
       dispatch({
@@ -58,10 +58,10 @@ export const createFormRecruiter = (formData, history) => (dispatch) => {
       })
     );
 };
-export const createFormStudent = (formData, history) => (dispatch) => {
+export const saveResponseStudent = (formData, history) => (dispatch) => {
   axios
-    .post("/api/students/form", formData)
-    .then((res) => alert("Form submitted successfully"))
+    .post("/api/students/saveResponse", formData)
+    .then((res) => alert("Response submitted successfully"))
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,

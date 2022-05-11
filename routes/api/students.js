@@ -281,7 +281,7 @@ router.post("/update", (req, res) => {
   res.send("Profile updated Successfully!");
 });
 
-router.get("/noticeboard", async (req, res) => {
+router.get("/all-forms", async (req, res) => {
   try {
     const data = await Form.find({ formStatus: "open" }).lean();
     // console.log(data);
@@ -291,7 +291,7 @@ router.get("/noticeboard", async (req, res) => {
   }
 });
 
-router.get("/noticeboard/:id", async (req, res) => {
+router.get("/all-forms/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const data = await Form.find({ _id: id }).lean();
@@ -305,20 +305,20 @@ router.get("/noticeboard/:id", async (req, res) => {
   }
 });
 
-router.post("/form", (req,res)=>{
+router.post("/saveResponse", (req, res) => {
   // const data = await Response.find({SID:req.body.SID, FID:req.body.FID});
   // if(!data){
-    
+
   // }
   // console.log("hi");
   // console.log(req.body);
-  const newForm = new Response({
+  const newResponse = new Response({
     SID: req.body.SID,
     CID: req.body.CID,
     FID: req.body.FID,
-    answers: req.body.answers
+    answers: req.body.answers,
   });
-  newForm
+  newResponse
     .save()
     .then((user) => res.json(user))
     .catch((err) => console.log(err));

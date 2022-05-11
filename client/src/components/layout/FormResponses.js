@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser, createFormStudent } from "../../actions/authActions";
+import { logoutUser } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "../achievement.css";
@@ -17,8 +17,8 @@ class FormResponses extends Component {
     this.state = {
       DataisLoaded: false,
       CID: this.props.auth.user.id,
-      data:[],
-      fid : ""
+      data: [],
+      fid: "",
     };
     // this.handleChangeField = this.handleChangeField.bind(this);
     // this.onSubmit = this.onSubmit.bind(this);
@@ -65,9 +65,9 @@ class FormResponses extends Component {
     const search = window.location.search;
     const params = new URLSearchParams(search);
     const fid = params.get("fid");
-    if ( fid === null) {
+    if (fid === null) {
       await axios
-        .post("/api/recruiters/forms", {id:this.state.CID})
+        .post("/api/recruiters/getFormbyCID", { id: this.state.CID })
         .then((res) => {
           this.setState({ data: res.data, DataisLoaded: true });
           console.log(this.state.data);
@@ -77,7 +77,7 @@ class FormResponses extends Component {
           console.log(err);
         });
     } else {
-      this.setState({fid : fid});
+      this.setState({ fid: fid });
       await axios
         .get(`/api/admins/recruiter/${email}`)
         .then((res) => {
@@ -105,121 +105,97 @@ class FormResponses extends Component {
   //   this.setState({ answers: newFields });
   // }
 
-  // onSubmit(e) {
-  //   e.preventDefault();
-  //   const newForm = {
-  //       SID: this.state.SID,
-  //       FID: this.state.id,
-  //       answers: this.state.answers,
-  //       CID: this.state.CID,
-  //   };
-  //   this.props.createFormStudent(newForm, this.props.history);
-  //   this.setState({
-  //       FID: "",
-  //       CID: "",
-  //       answers: [],
-  //   });
-  // }
-
   render() {
     const { user } = this.props.auth;
     // if(this.state.DataisLoaded === true)
     // {
 
     // }
-    if(this.state.fid === "")
-    {
+    if (this.state.fid === "") {
       const userRows = this.state.data;
-        const columns = [
-          {
-            field: "title",
-            headerName: "Title",
-            hideable: false,
-            width: 230,
-          },
-          { 
-            field: "type", 
-            headerName: "Type", 
-            hideable: false, 
-            width: 230 
-          },
-          {
-            field: "status",
-            headerName: "Status",
-            width: 150,
-            hideable: false,
-          },
-          // {
-          //   field: "verification_status",
-          //   headerName: "Status",
-          //   width: 190,
-          //   hideable: false,
-          // },
-          // {
-          //   field: "edit",
-          //   headerName: "Edit/View",
-          //   sortable: false,
-          //   filterable: false,
-          //   hideable: false,
-          //   width: 180,
-          //   renderCell: (params) => {
-          //     return (
-          //       <>
-          //         <Link to={"?roll=" + params.row.rollNo} target="_blank">
-          //           <button className="userEdit">Edit/View</button>
-          //         </Link>
-          //       </>
-          //     );
-          //   },
-          // },
-        ];
-        return (
-          <>
-            <div className="container text-center mt-15">
-              <div className="row">
-                <div className="col-sm-12">
-                  <div>
-                  </div>
-                  <br />
-                  <br />
-                  <br />
-                  <h3>Filled Forms</h3>
-                  <div style={{ height: "400px", width: "90%" }} id="dataGrid">
-                    <DataGrid
-                      rows={userRows}
-                      columns={[
-                        ...columns,
-                        {
-                          field: "edit",
-                          sortable: false,
-                          filterable: false,
-                          hideable: false,
-                        },
-                      ]}
-                      pageSize={10}
-                      rowsPerPageOptions={[10, 20, 30]}
-                      getRowId={(row) => row.rollNo}
-                    />
-                  </div>
-                  {/* <button
+      const columns = [
+        {
+          field: "title",
+          headerName: "Title",
+          hideable: false,
+          width: 230,
+        },
+        {
+          field: "type",
+          headerName: "Type",
+          hideable: false,
+          width: 230,
+        },
+        {
+          field: "status",
+          headerName: "Status",
+          width: 150,
+          hideable: false,
+        },
+        // {
+        //   field: "verification_status",
+        //   headerName: "Status",
+        //   width: 190,
+        //   hideable: false,
+        // },
+        // {
+        //   field: "edit",
+        //   headerName: "Edit/View",
+        //   sortable: false,
+        //   filterable: false,
+        //   hideable: false,
+        //   width: 180,
+        //   renderCell: (params) => {
+        //     return (
+        //       <>
+        //         <Link to={"?roll=" + params.row.rollNo} target="_blank">
+        //           <button className="userEdit">Edit/View</button>
+        //         </Link>
+        //       </>
+        //     );
+        //   },
+        // },
+      ];
+      return (
+        <>
+          <div className="container text-center mt-15">
+            <div className="row">
+              <div className="col-sm-12">
+                <div></div>
+                <br />
+                <br />
+                <br />
+                <h3>Filled Forms</h3>
+                <div style={{ height: "400px", width: "90%" }} id="dataGrid">
+                  <DataGrid
+                    rows={userRows}
+                    columns={[
+                      ...columns,
+                      {
+                        field: "edit",
+                        sortable: false,
+                        filterable: false,
+                        hideable: false,
+                      },
+                    ]}
+                    pageSize={10}
+                    rowsPerPageOptions={[10, 20, 30]}
+                    getRowId={(row) => row.rollNo}
+                  />
+                </div>
+                {/* <button
                   onClick={this.onLogout}
                   className="btn btn-large btn-light hoverable font-weight-bold"
                 >
                   Logout
                 </button> */}
-                </div>
               </div>
             </div>
-          </>
-        );
-    }
-    else
-    {
-      return(
-        <>
-  
+          </div>
         </>
-      )
+      );
+    } else {
+      return <></>;
     }
     // if (this.state.id === "") {
     //   return (
@@ -286,4 +262,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser,createFormStudent })(FormResponses);
+export default connect(mapStateToProps, { logoutUser })(FormResponses);

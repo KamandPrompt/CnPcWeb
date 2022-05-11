@@ -117,7 +117,7 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.post("/form", (req, res) => {
+router.post("/createForm", (req, res) => {
   console.log("Adding...");
   //Form validation
 
@@ -165,7 +165,7 @@ router.get("/:email", async (req, res) => {
   }
 });
 
-router.post("/forms", async (req,res)=>{
+router.post("/getFormbyCID", async (req,res)=>{
   console.log(req.body.id);
   try {
     const data = await Form.find({ CID: req.body.id }).lean();

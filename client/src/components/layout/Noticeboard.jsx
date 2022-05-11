@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logoutUser, createFormStudent } from "../../actions/authActions";
+import { logoutUser, saveResponseStudent } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "../achievement.css";
@@ -37,7 +37,7 @@ class Noticeboard extends Component {
     const list = [];
     for (let i = 0; i < value; i++) {
       let form = this.state.data[i];
-      if (form.isVerified) {
+      if (form.isVerified && form.formStatus === "open") {
         list.push(
           <div className="slot">
             <button id={"year" + i.toString()} className="yearBtn">
@@ -69,7 +69,7 @@ class Noticeboard extends Component {
     const id = params.get("id");
     if (id === null) {
       await axios
-        .get("/api/students/noticeboard")
+        .get("/api/students/all-forms")
         .then((res) => {
           this.setState({ data: res.data, DataisLoaded: true });
           this.addNotice(this.state.data.length);
@@ -80,7 +80,7 @@ class Noticeboard extends Component {
     } else {
       this.setState({ id: id });
       await axios
-        .get(`/api/students/noticeboard/${id}`)
+        .get(`/api/students/all-forms/${id}`)
         .then((res) => {
           this.setState({
             CID: res.data.data[0].CID,
@@ -106,13 +106,13 @@ class Noticeboard extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const newForm = {
+    const newResponse = {
       SID: this.state.SID,
       FID: this.state.id,
       answers: this.state.answers,
       CID: this.state.CID,
     };
-    this.props.createFormStudent(newForm, this.props.history);
+    this.props.saveResponseStudent(newResponse, this.props.history);
     this.setState({
       FID: "",
       CID: "",
@@ -200,6 +200,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser, createFormStudent })(
+export default connect(mapStateToProps, { logoutUser, saveResponseStudent })(
   Noticeboard
 );
