@@ -136,34 +136,34 @@ class FormResponses extends Component {
           width: 230,
         },
         {
-          field: "status",
+          field: "formStatus",
           headerName: "Status",
           width: 150,
           hideable: false,
         },
-        // {
-        //   field: "verification_status",
-        //   headerName: "Status",
-        //   width: 190,
-        //   hideable: false,
-        // },
-        // {
-        //   field: "edit",
-        //   headerName: "Edit/View",
-        //   sortable: false,
-        //   filterable: false,
-        //   hideable: false,
-        //   width: 180,
-        //   renderCell: (params) => {
-        //     return (
-        //       <>
-        //         <Link to={"?roll=" + params.row.rollNo} target="_blank">
-        //           <button className="userEdit">Edit/View</button>
-        //         </Link>
-        //       </>
-        //     );
-        //   },
-        // },
+        {
+          field: "isVerified",
+          headerName: "Verification Status",
+          width: 190,
+          hideable: false,
+        },
+        {
+          field: "responses",
+          headerName: "View Responses",
+          sortable: false,
+          filterable: false,
+          hideable: false,
+          width: 180,
+          renderCell: (params) => {
+            return (
+              <>
+                <Link to={"/viewResponses/?fid=" + params.row._id} target="_blank">
+                  <button className="userEdit">Responses</button>
+                </Link>
+              </>
+            );
+          },
+        },
       ];
       return (
         <>
@@ -181,7 +181,7 @@ class FormResponses extends Component {
                     columns={[
                       ...columns,
                       {
-                        field: "edit",
+                        field: "responses",
                         sortable: false,
                         filterable: false,
                         hideable: false,
@@ -189,7 +189,7 @@ class FormResponses extends Component {
                     ]}
                     pageSize={10}
                     rowsPerPageOptions={[10, 20, 30]}
-                    getRowId={(row) => row.rollNo}
+                    getRowId={(row) => row._id}
                   />
                 </div>
                 {/* <button
