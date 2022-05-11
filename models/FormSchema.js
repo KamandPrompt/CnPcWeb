@@ -86,6 +86,11 @@ const FormSchema = new mongoose.Schema({
       type: FieldSchema,
     },
   ],
+  isVerified: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
 });
 
 module.exports = mongoose.model("forms", FormSchema);

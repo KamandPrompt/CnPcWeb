@@ -78,6 +78,7 @@ class CreateForm extends Component {
       title: "",
       type: "",
       JD: "",
+      isVerified: false,
       fields: fixedFields,
       counter1: fixedFields.length,
     };
@@ -134,6 +135,7 @@ class CreateForm extends Component {
       title: this.state.title,
       JD: this.state.JD,
       type: this.state.type,
+      isVerified: this.state.isVerified,
       fields: fields,
       CID: this.props.auth.user.id,
     };
@@ -142,6 +144,7 @@ class CreateForm extends Component {
     this.setState({
       title: "",
       type: "",
+      isVerified: false,
       JD: "",
       fields: fixedFields,
       counter1: fixedFields.length,

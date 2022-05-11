@@ -125,6 +125,7 @@ router.post("/form", (req, res) => {
     title: req.body.title,
     JD: req.body.JD,
     type: req.body.type,
+    isVerified: req.body.isVerified,
     fields: req.body.fields,
     CID: req.body.CID,
   });
@@ -156,7 +157,6 @@ router.post("/update", (req, res) => {
 });
 
 router.get("/:email", async (req, res) => {
-  console.log("Gelllllo")
   const email = req.params.email;
   const recruiter = await Recruiter.findOne({ email: email }).lean();
   if (recruiter) {
@@ -165,7 +165,7 @@ router.get("/:email", async (req, res) => {
   }
 });
 
-router.post("/responses", async (req,res)=>{
+router.post("/forms", async (req,res)=>{
   console.log(req.body.id);
   try {
     const data = await Form.find({ CID: req.body.id }).lean();

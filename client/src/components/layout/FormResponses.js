@@ -5,7 +5,9 @@ import { logoutUser, createFormStudent } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "../achievement.css";
+import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
+import "../admin.css";
 
 // import { updateUser } from "../../actions/authActions";
 
@@ -16,9 +18,10 @@ class FormResponses extends Component {
       DataisLoaded: false,
       CID: this.props.auth.user.id,
       data:[],
+      fid : ""
     };
-    this.handleChangeField = this.handleChangeField.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    // this.handleChangeField = this.handleChangeField.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
   }
   onLogout = (e) => {
     e.preventDefault();
@@ -45,9 +48,26 @@ class FormResponses extends Component {
   //   this.setState({ datalist: list });
   // };
 
+  // async componentDidMount() {
+  //     await axios
+  //       .post("/api/recruiters/responses", {id:this.state.CID})
+  //       .then((res) => {
+  //         this.setState({ data: res.data, DataisLoaded: true });
+  //         console.log(this.state.data);
+  //         // this.addNotice(this.state.data.length);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  // }
+
   async componentDidMount() {
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const fid = params.get("fid");
+    if ( fid === null) {
       await axios
-        .post("/api/recruiters/responses", {id:this.state.CID})
+        .post("/api/recruiters/forms", {id:this.state.CID})
         .then((res) => {
           this.setState({ data: res.data, DataisLoaded: true });
           console.log(this.state.data);
@@ -56,37 +76,151 @@ class FormResponses extends Component {
         .catch((err) => {
           console.log(err);
         });
+    } else {
+      this.setState({fid : fid});
+      await axios
+        .get(`/api/admins/recruiter/${email}`)
+        .then((res) => {
+          this.setState({
+            name: res.data.details.name,
+            contactPerson: res.data.details.contactPerson,
+            designation: res.data.details.designation,
+            email: email,
+            telephone: res.data.details.telephone,
+            mobile: res.data.details.mobile,
+            isVerified: res.data.details.isVerified,
+            role: res.data.details.role,
+            DataisLoaded: true,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
 
-  handleChangeField(event, i) {
-    const newFields = this.state.answers;
-    newFields[i] = { ...newFields[i], [event.target.id]: event.target.value }
-    this.setState({ answers: newFields });
-  }
+  // handleChangeField(event, i) {
+  //   const newFields = this.state.answers;
+  //   newFields[i] = { ...newFields[i], [event.target.id]: event.target.value }
+  //   this.setState({ answers: newFields });
+  // }
 
-  onSubmit(e) {
-    e.preventDefault();
-    const newForm = {
-        SID: this.state.SID,
-        FID: this.state.id,
-        answers: this.state.answers,
-        CID: this.state.CID,
-    };
-    this.props.createFormStudent(newForm, this.props.history);
-    this.setState({
-        FID: "",
-        CID: "",
-        answers: [],
-    });
-  }
+  // onSubmit(e) {
+  //   e.preventDefault();
+  //   const newForm = {
+  //       SID: this.state.SID,
+  //       FID: this.state.id,
+  //       answers: this.state.answers,
+  //       CID: this.state.CID,
+  //   };
+  //   this.props.createFormStudent(newForm, this.props.history);
+  //   this.setState({
+  //       FID: "",
+  //       CID: "",
+  //       answers: [],
+  //   });
+  // }
 
   render() {
     const { user } = this.props.auth;
-    return(
-      <>
-        {/* {this.state.data} */}
-      </>
-    )
+    // if(this.state.DataisLoaded === true)
+    // {
+
+    // }
+    if(this.state.fid === "")
+    {
+      const userRows = this.state.data;
+        const columns = [
+          {
+            field: "title",
+            headerName: "Title",
+            hideable: false,
+            width: 230,
+          },
+          { 
+            field: "type", 
+            headerName: "Type", 
+            hideable: false, 
+            width: 230 
+          },
+          {
+            field: "status",
+            headerName: "Status",
+            width: 150,
+            hideable: false,
+          },
+          // {
+          //   field: "verification_status",
+          //   headerName: "Status",
+          //   width: 190,
+          //   hideable: false,
+          // },
+          // {
+          //   field: "edit",
+          //   headerName: "Edit/View",
+          //   sortable: false,
+          //   filterable: false,
+          //   hideable: false,
+          //   width: 180,
+          //   renderCell: (params) => {
+          //     return (
+          //       <>
+          //         <Link to={"?roll=" + params.row.rollNo} target="_blank">
+          //           <button className="userEdit">Edit/View</button>
+          //         </Link>
+          //       </>
+          //     );
+          //   },
+          // },
+        ];
+        return (
+          <>
+            <div className="container text-center mt-15">
+              <div className="row">
+                <div className="col-sm-12">
+                  <div>
+                  </div>
+                  <br />
+                  <br />
+                  <br />
+                  <h3>Filled Forms</h3>
+                  <div style={{ height: "400px", width: "90%" }} id="dataGrid">
+                    <DataGrid
+                      rows={userRows}
+                      columns={[
+                        ...columns,
+                        {
+                          field: "edit",
+                          sortable: false,
+                          filterable: false,
+                          hideable: false,
+                        },
+                      ]}
+                      pageSize={10}
+                      rowsPerPageOptions={[10, 20, 30]}
+                      getRowId={(row) => row.rollNo}
+                    />
+                  </div>
+                  {/* <button
+                  onClick={this.onLogout}
+                  className="btn btn-large btn-light hoverable font-weight-bold"
+                >
+                  Logout
+                </button> */}
+                </div>
+              </div>
+            </div>
+          </>
+        );
+    }
+    else
+    {
+      return(
+        <>
+  
+        </>
+      )
+    }
     // if (this.state.id === "") {
     //   return (
     //     <>
