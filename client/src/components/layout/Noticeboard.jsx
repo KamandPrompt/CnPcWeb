@@ -27,7 +27,7 @@ class Noticeboard extends Component {
     this.handleChangeField = this.handleChangeField.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  
+
   onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
@@ -37,23 +37,28 @@ class Noticeboard extends Component {
     const list = [];
     for (let i = 0; i < value; i++) {
       let form = this.state.data[i];
-      list.push(
-        <div className="slot">
-          <button id={"year" + i.toString()} className="yearBtn">
-            <span className="arrow">
-              <i id={"arrow" + i.toString()} className="fas fa-angle-right"></i>
-            </span>
-            {form.title}
-            <Link to={"?id=" + form._id} target="_blank">
-              <button>Apply</button>
-            </Link>
-          </button>
-          <div id={"yr" + i.toString()} className="yearCont">
-            <p>{form.JD}</p>
+      if (form.isVerified) {
+        list.push(
+          <div className="slot">
+            <button id={"year" + i.toString()} className="yearBtn">
+              <span className="arrow">
+                <i
+                  id={"arrow" + i.toString()}
+                  className="fas fa-angle-right"
+                ></i>
+              </span>
+              {form.title}
+              <Link to={"?id=" + form._id} target="_blank">
+                <button>Apply</button>
+              </Link>
+            </button>
+            <div id={"yr" + i.toString()} className="yearCont">
+              <p>{form.JD}</p>
+            </div>
+            {/* <button id={form._id}><a href="" _blank="True">Apply now</a></button> */}
           </div>
-          {/* <button id={form._id}><a href="" _blank="True">Apply now</a></button> */}
-        </div>
-      );
+        );
+      }
     }
     this.setState({ datalist: list });
   };
@@ -95,23 +100,23 @@ class Noticeboard extends Component {
 
   handleChangeField(event, i) {
     const newFields = this.state.answers;
-    newFields[i] = { ...newFields[i], [event.target.id]: event.target.value }
+    newFields[i] = { ...newFields[i], [event.target.id]: event.target.value };
     this.setState({ answers: newFields });
   }
 
   onSubmit(e) {
     e.preventDefault();
     const newForm = {
-        SID: this.state.SID,
-        FID: this.state.id,
-        answers: this.state.answers,
-        CID: this.state.CID,
+      SID: this.state.SID,
+      FID: this.state.id,
+      answers: this.state.answers,
+      CID: this.state.CID,
     };
     this.props.createFormStudent(newForm, this.props.history);
     this.setState({
-        FID: "",
-        CID: "",
-        answers: [],
+      FID: "",
+      CID: "",
+      answers: [],
     });
   }
 
@@ -131,41 +136,54 @@ class Noticeboard extends Component {
         <>
           <h3>{this.state.title}</h3>
           <p>{this.state.JD}</p>
-          <div style={{"width":"60%", "margin":"auto"}}>
-          <form onSubmit={this.onSubmit}>
-            {this.state.answers.map((item, i) => {
-              return (
-                <>
-                <Row>
-                <Col className="pr-1 pr-2" md="5">
-                <Form.Group>
-                  <label className="noticeForm">
-                    {item.isRequired ? item.label + "*" : item.label}
-                    </label>
-                    <Form.Control
-                      type="text"
-                      id="answer"
-                      placeholder={item.description}
-                      required={item.isRequired}
-                      name={item.label}
-                      onChange={(event) => {
-                        this.handleChangeField(event, i);
-                      }}
-                      style={{"width":"100%"}}
-                    />
-                    </Form.Group>
-                    </Col>
+          <div style={{ width: "60%", margin: "auto" }}>
+            <form onSubmit={this.onSubmit}>
+              {this.state.answers.map((item, i) => {
+                return (
+                  <>
+                    <Row>
+                      <Col className="pr-1 pr-2" md="5">
+                        <Form.Group>
+                          <label className="noticeForm">
+                            {item.isRequired ? item.label + "*" : item.label}
+                          </label>
+                          <Form.Control
+                            type="text"
+                            id="answer"
+                            placeholder={item.description}
+                            required={item.isRequired}
+                            name={item.label}
+                            onChange={(event) => {
+                              this.handleChangeField(event, i);
+                            }}
+                            style={{ width: "100%" }}
+                          />
+                        </Form.Group>
+                      </Col>
                     </Row>
-                  {/* </label> */}
-                  {/* <p>{item.description}</p> */}
-                  <br />
-                </>
-              );
-            })}
-            <center>
-            <button style={{"width":"100px", "height":"60px", "marginBottom":"20px", "borderRadius":"6px", "backgroundColor":"#2196F3", "color":"#FFFF", "fontSize":"20px"}} type="submit">Submit</button>
-            </center>
-          </form>
+                    {/* </label> */}
+                    {/* <p>{item.description}</p> */}
+                    <br />
+                  </>
+                );
+              })}
+              <center>
+                <button
+                  style={{
+                    width: "100px",
+                    height: "60px",
+                    marginBottom: "20px",
+                    borderRadius: "6px",
+                    backgroundColor: "#2196F3",
+                    color: "#FFFF",
+                    fontSize: "20px",
+                  }}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </center>
+            </form>
           </div>
         </>
       );
@@ -182,4 +200,6 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser,createFormStudent })(Noticeboard);
+export default connect(mapStateToProps, { logoutUser, createFormStudent })(
+  Noticeboard
+);
