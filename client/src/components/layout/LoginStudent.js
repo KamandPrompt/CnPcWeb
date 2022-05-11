@@ -60,7 +60,7 @@ class Login extends Component{
               </div>
               <div className="formright">
                 <form className="form_container" onSubmit={this.onSubmit}>
-                <h2 style={{"textAlign":"center","color":"white","paddingTop":"40px","paddingBottom":"20px","fontSize":"25px"}}>Login</h2>
+                <h2 style={{"textAlign":"center","color":"white","paddingTop":"40px","paddingBottom":"20px","fontSize":"25px"}}>Student Login</h2>
                 <div className="form-group">
                     <label style={{"color":"white"}}>Roll Number</label>
                     <input type="text" 
@@ -93,7 +93,7 @@ class Login extends Component{
                         {errors.passwordincorrect}
                     </span>
                 </div>
-                <div className="text-center no_account">Don't have an account? <Link to="/registerStudent">Register</Link></div>
+                {/* <div className="text-center no_account">Don't have an account? <Link to="/registerStudent">Register</Link></div> */}
                 <div className="form-group form_sub">
                     <button type="submit" className="btn btn-primary btn-block btn-lg" style={{"backgroundColor":"#CFFFF6","color":"black"}}>Login</button>
                 </div>

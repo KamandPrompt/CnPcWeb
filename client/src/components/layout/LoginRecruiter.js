@@ -59,7 +59,7 @@ class Login extends Component{
               </div>
               <div className="formright">
                 <form className="form_container" onSubmit={this.onSubmit}>
-                <h2 style={{"textAlign":"center","color":"white","paddingTop":"40px","paddingBottom":"20px","fontSize":"25px"}}>Login</h2>
+                <h2 style={{"textAlign":"center","color":"white","paddingTop":"40px","paddingBottom":"20px","fontSize":"25px"}}>Recruiter Login</h2>
                 <div className="form-group">
                     <label style={{"color":"white"}}>Email Address</label>
                     <input type="email" 
