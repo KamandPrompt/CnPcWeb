@@ -98,7 +98,7 @@ class CreateForm extends Component {
   handleChangeField(event, i) {
     // console.log(event.target.checked);
     const newFields = this.state.fields;
-    if (newFields.length < i + 1) newFields.push({});
+    // console.log(newFields);
     newFields[i] = { ...newFields[i], [event.target.id]: event.target.value };
     this.setState({ fields: newFields });
     // console.log(newFields);
@@ -106,10 +106,10 @@ class CreateForm extends Component {
   handleChangeBox(event, i) {
     // console.log(event.target.checked);
     const newFields = this.state.fields;
-    if (newFields.length < i + 1) newFields.push({});
+    // console.log(newFields);
     newFields[i] = { ...newFields[i], [event.target.id]: event.target.checked };
     this.setState({ fields: newFields });
-    console.log(newFields);
+    // console.log(newFields);
   }
 
   handleAdd1(counter1) {
@@ -150,45 +150,43 @@ class CreateForm extends Component {
 
   addFields(counter1) {
     const list = [];
-    for (let i = 0; i < counter1; i++) {
-      let num = i + 1;
+    if (this.state.fields.length < counter1) {
       this.state.fields.push({
         label: "",
         description: "",
         isRequired: false,
         isSelected: true,
       });
+    }
+    for (let i = 0; i < counter1; i++) {
+      let num = i + 1;
       list.push(
         <div className="widget">
-          <label className="widgetLabel">
-            Label:
-          </label>
-          <br/>
-            <input
-              className="widgetInput"
-              id="label"
-              name="label"
-              value={this.state.fields[i].label}
-              onChange={(event) => {
-                this.handleChangeField(event, i);
-              }}
-            />
-            <br/>
-          <label className="widgetLabel">
-            Short Desc:
-          </label>
-          <br/>
-            <textarea
-              className="widgetArea"
-              id="description"
-              name="description"
-              value={this.state.fields[i].description}
-              onChange={(event) => {
-                this.handleChangeField(event, i);
-              }}
-            ></textarea>
-            <br/>
-          <label className="widgetLabel" style={{"marginBottom":"20px"}}>
+          <label className="widgetLabel">Label:</label>
+          <br />
+          <input
+            className="widgetInput"
+            id="label"
+            name="label"
+            value={this.state.fields[i].label}
+            onChange={(event) => {
+              this.handleChangeField(event, i);
+            }}
+          />
+          <br />
+          <label className="widgetLabel">Short Desc:</label>
+          <br />
+          <textarea
+            className="widgetArea"
+            id="description"
+            name="description"
+            value={this.state.fields[i].description}
+            onChange={(event) => {
+              this.handleChangeField(event, i);
+            }}
+          ></textarea>
+          <br />
+          <label className="widgetLabel" style={{ marginBottom: "20px" }}>
             Required:
             {this.state.fields[i].isRequired ? (
               <input
@@ -213,12 +211,12 @@ class CreateForm extends Component {
               />
             )}
           </label>
-          <br/>
+          <br />
           <label className="widgetLabel">
             Select:
             {this.state.fields[i].isSelected ? (
               <input
-              className="widgetCheck"
+                className="widgetCheck"
                 type="checkbox"
                 id="isSelected"
                 name="isSelected"
@@ -229,7 +227,7 @@ class CreateForm extends Component {
               />
             ) : (
               <input
-              className="widgetCheck"
+                className="widgetCheck"
                 type="checkbox"
                 id="isSelected"
                 name="isSelected"
@@ -239,7 +237,7 @@ class CreateForm extends Component {
               />
             )}
           </label>
-          <br/>
+          <br />
         </div>
       );
     }
@@ -253,48 +251,49 @@ class CreateForm extends Component {
       <>
         <form className="recruiterForm" onSubmit={this.onSubmit}>
           <div className="widget">
-            <label className="widgetLabel">
-              Title:
-            </label>
-            <br/>
-              <input
-                type=""
-                id="title"
-                name="title"
-                onChange={this.handleChange}
-                className="widgetInput"
-              />
+            <label className="widgetLabel">Title:</label>
+            <br />
+            <input
+              type=""
+              id="title"
+              name="title"
+              onChange={this.handleChange}
+              className="widgetInput"
+            />
           </div>
           <div className="widget">
-            <label className="widgetLabel" style={{"marginBottom":"15px"}}>
+            <label className="widgetLabel" style={{ marginBottom: "15px" }}>
               Type:
             </label>
-            <br/>
-              INF
-              <input
-                className="widgetRadio"
-                type="radio"
-                id="type"
-                name="type"
-                value="inf"
-                onChange={this.handleChange}
-              />
-              JNF
-              <input
-                className="widgetRadio"
-                type="radio"
-                id="type"
-                name="type"
-                value="jnf"
-                onChange={this.handleChange}
-              />
+            <br />
+            INF
+            <input
+              className="widgetRadio"
+              type="radio"
+              id="type"
+              name="type"
+              value="inf"
+              onChange={this.handleChange}
+            />
+            JNF
+            <input
+              className="widgetRadio"
+              type="radio"
+              id="type"
+              name="type"
+              value="jnf"
+              onChange={this.handleChange}
+            />
           </div>
           <div className="widget">
-            <label className="widgetLabel">
-              Job Description :
-            </label>
-            <br/>
-              <textarea className="widgetArea" name="JD" id="JD" onChange={this.handleChange} />
+            <label className="widgetLabel">Job Description :</label>
+            <br />
+            <textarea
+              className="widgetArea"
+              name="JD"
+              id="JD"
+              onChange={this.handleChange}
+            />
           </div>
           <br />
 
@@ -305,7 +304,7 @@ class CreateForm extends Component {
           >
             <Button
               className="btn-fill"
-              style={{ width: "200px", "marginBottom":"30px" }}
+              style={{ width: "200px", marginBottom: "30px" }}
               type="submit"
               variant="info"
             >
@@ -319,7 +318,7 @@ class CreateForm extends Component {
             this.handleAdd1(this.state.counter1);
           }}
         >
-          <i className="fas fa-plus widgetPlus">  Add Field</i>
+          <i className="fas fa-plus widgetPlus"> Add Field</i>
         </button>
       </>
     );
