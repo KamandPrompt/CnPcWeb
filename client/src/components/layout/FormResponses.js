@@ -18,109 +18,41 @@ class FormResponses extends Component {
       DataisLoaded: false,
       CID: this.props.auth.user.id,
       data: [],
-      fid: "",
     };
-    // this.handleChangeField = this.handleChangeField.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
   }
   onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
-  // addForm = (value) => {
-  //   const list = [];
-  //   for (let i = 0; i < value; i++) {
-  //     let form = this.state.data[i];
-  //     list.push(
-  //       <div className="slot">
-  //         <button id={"year" + i.toString()} className="yearBtn">
-  //           <span className="arrow">
-  //             <i id={"arrow" + i.toString()} className="fas fa-angle-right"></i>
-  //           </span>
-  //           {form.title}
-  //           <Link to={"?id=" + form._id} target="_blank">
-  //             <button>Apply</button>
-  //           </Link>
-  //         </button>
-  //       </div>
-  //     );
-  //   }
-  //   this.setState({ datalist: list });
-  // };
-
-  // async componentDidMount() {
-  //     await axios
-  //       .post("/api/recruiters/responses", {id:this.state.CID})
-  //       .then((res) => {
-  //         this.setState({ data: res.data, DataisLoaded: true });
-  //         console.log(this.state.data);
-  //         // this.addNotice(this.state.data.length);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  // }
 
   async componentDidMount() {
     const search = window.location.search;
     const params = new URLSearchParams(search);
-    const fid = params.get("fid");
-    if (fid === null) {
-      await axios
-        .post("/api/recruiters/getFormbyCID", { id: this.state.CID })
-        .then((res) => {
-          let data = res.data;
-          console.log(data);
-          for(var i=0;i<data.length;i++)
-          {
-            if(data[i].isVerified === true) data[i].isVerified = "Verified";
-            else data[i].isVerified = "Not Verified";
-            
-            if(data[i].formStatus==="open") data[i].formStatus="Open";
-            else data[i].formStatus="Closed";
-          }
-          this.setState({ data: data, DataisLoaded: true });
-          // this.addNotice(this.state.data.length);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      this.setState({ fid: fid });
-      await axios
-        .get(`/api/admins/recruiter/${email}`)
-        .then((res) => {
-          this.setState({
-            name: res.data.details.name,
-            contactPerson: res.data.details.contactPerson,
-            designation: res.data.details.designation,
-            email: email,
-            telephone: res.data.details.telephone,
-            mobile: res.data.details.mobile,
-            isVerified: res.data.details.isVerified,
-            role: res.data.details.role,
-            DataisLoaded: true,
-          });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    await axios
+      .post("/api/recruiters/getFormbyCID", { id: this.state.CID })
+      .then((res) => {
+        let data = res.data;
+        console.log(data);
+        for(var i=0;i<data.length;i++)
+        {
+          if(data[i].isVerified === true) data[i].isVerified = "Verified";
+          else data[i].isVerified = "Not Verified";
+          
+          if(data[i].formStatus==="open") data[i].formStatus="Open";
+          else data[i].formStatus="Closed";
+        }
+        this.setState({ data: data, DataisLoaded: true });
+        // this.addNotice(this.state.data.length);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-
-  // handleChangeField(event, i) {
-  //   const newFields = this.state.answers;
-  //   newFields[i] = { ...newFields[i], [event.target.id]: event.target.value }
-  //   this.setState({ answers: newFields });
-  // }
 
   render() {
     const { user } = this.props.auth;
-    // if(this.state.DataisLoaded === true)
-    // {
-
-    // }
-    if (this.state.fid === "") {
+    if(this.state.DataisLoaded === true)
+    {
       const userRows = this.state.data;
       const columns = [
         {
@@ -203,62 +135,17 @@ class FormResponses extends Component {
           </div>
         </>
       );
-    } else {
-      return <></>;
     }
-    // if (this.state.id === "") {
-    //   return (
-    //     <>
-    //       <div>
-    //         <h2 style={{ textAlign: "center" }}>Active application forms</h2>
-    //         <div className="acadmic">{this.state.datalist}</div>
-    //       </div>
-    //     </>
-    //   );
-    // } else {
-    //   return (
-    //     <>
-    //       <h3>{this.state.title}</h3>
-    //       <p>{this.state.JD}</p>
-    //       <div style={{"width":"60%", "margin":"auto"}}>
-    //       <form onSubmit={this.onSubmit}>
-    //         {this.state.answers.map((item, i) => {
-    //           return (
-    //             <>
-    //             <Row>
-    //             <Col className="pr-1 pr-2" md="5">
-    //             <Form.Group>
-    //               <label className="noticeForm">
-    //                 {item.isRequired ? item.label + "*" : item.label}
-    //                 </label>
-    //                 <Form.Control
-    //                   type="text"
-    //                   id="answer"
-    //                   placeholder={item.description}
-    //                   required={item.isRequired}
-    //                   name={item.label}
-    //                   onChange={(event) => {
-    //                     this.handleChangeField(event, i);
-    //                   }}
-    //                   style={{"width":"100%"}}
-    //                 />
-    //                 </Form.Group>
-    //                 </Col>
-    //                 </Row>
-    //               {/* </label> */}
-    //               {/* <p>{item.description}</p> */}
-    //               <br />
-    //             </>
-    //           );
-    //         })}
-    //         <center>
-    //         <button style={{"width":"100px", "height":"60px", "marginBottom":"20px", "borderRadius":"6px", "backgroundColor":"#2196F3", "color":"#FFFF", "fontSize":"20px"}} type="submit">Submit</button>
-    //         </center>
-    //       </form>
-    //       </div>
-    //     </>
-    //   );
-    // }
+    else
+    {
+      return (
+        <>
+          <div class="loaderContainer">
+            <div class="loader"></div>
+          </div>
+        </>
+      );
+    }
   }
 }
 

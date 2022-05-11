@@ -25,3 +25,26 @@
 .css-q68e8e-MuiFormControl-root-MuiDataGrid-filterFormColumnInput{
     font-size: 15px !important;
 }
+
+.loaderContainer {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+.loader {
+    border: 7px solid #f3f3f3;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+    border-top: 7px solid #555;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+
+    margin: auto;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
