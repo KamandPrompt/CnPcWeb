@@ -137,8 +137,11 @@ class Noticeboard extends Component {
       } else {
         return (
           <>
-            <h3>{this.state.title}</h3>
-            <p>{this.state.JD}</p>
+            <h2 style={{"textAlign":"center"}}>{this.state.title}</h2>
+            <div style={{"width":"60%","margin":"auto","border":"1px solid grey"}}>
+              <h4>Job Description:</h4>
+              <p>{this.state.JD}</p>
+            </div>
             <div style={{ width: "60%", margin: "auto" }}>
               <form onSubmit={this.onSubmit}>
                 {this.state.answers.map((item, i) => {

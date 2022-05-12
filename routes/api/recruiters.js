@@ -195,16 +195,30 @@ router.post("/getFormbyCID/:fid", async (req,res)=>{
     for(let i=0;i<data.length;i++){
       const studentData = await Student.findOne({_id:(data[i]).SID}).lean();
       const newData = {
+        FID: (data[i]).FID,
         name: studentData.name,
         rollNo: studentData.rollNo,
         cgpa: studentData.cgpa,
-        id: studentData._id,
+        SID: studentData._id,
         branch: studentData.branch
       }
       student_data.push(newData);
     }
     // console.log(student_data);
     res.send(student_data);
+  } catch (error) {
+    res.send(error);
+  }
+})
+
+router.post("/getResponsebySID/:fid/:sid",async(req,res)=>{
+  const fid = req.params.fid;
+  const sid = req.params.sid;
+  try {
+    let data = [];
+    // console.log(data)
+    data = await Response.findOne({ FID: fid, isVerified: true, SID: sid }).lean();
+    res.send(data.answers);
   } catch (error) {
     res.send(error);
   }

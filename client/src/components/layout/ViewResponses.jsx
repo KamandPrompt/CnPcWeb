@@ -13,6 +13,7 @@ class ViewResponses extends Component {
     this.state = {
       DataisLoaded: false,
       FID: "",
+      SID: "",
       studentData : [],
       role: this.props.auth.user.role,
     };
@@ -23,18 +24,29 @@ class ViewResponses extends Component {
     const search = window.location.search;
     const params = new URLSearchParams(search);
     const fid = params.get("fid");
-    this.setState({FID:fid});
-    console.log(fid);
-    await axios
-      .post(`/api/recruiters/getFormbyCID/${fid}`, { role: this.state.role })
-      .then((res) => {
-        console.log(res.data);
-        this.setState({studentData:res.data , DataisLoaded:true});
-        // this.addNotice(this.state.data.length);
+    const sid = params.get("sid");
+    if(sid){
+      await axios.post(`/api/recruiters/getResponsebySID/${fid}/${sid}`, {sid: this.state.SID})
+      .then((res)=>{
+        this.setState({studentData:res.data , DataisLoaded:true, FID:fid, SID:sid});
       })
-      .catch((err) => {
+      .catch((err)=>{
         console.log(err);
-      });    
+      })
+      // console.log("HELOO",this.state.FID, this.state.SID);
+    }else{
+      this.setState({FID:fid});
+      await axios
+        .post(`/api/recruiters/getFormbyCID/${fid}`, { role: this.state.role })
+        .then((res) => {
+          console.log(res.data);
+          this.setState({studentData:res.data , DataisLoaded:true, FID:fid});
+          // this.addNotice(this.state.data.length);
+        })
+        .catch((err) => {
+          console.log(err);
+        });    
+    }
   }
 
   onLogout = (e) => {
@@ -45,83 +57,108 @@ class ViewResponses extends Component {
   render() {
     if(this.state.DataisLoaded === true)
     {
-      console.log(this.state.studentData);
-      const userRows = this.state.studentData;
-      const columns = [
-        {
-          field: "name",
-          headerName: "Name",
-          hideable: false,
-          width: 230,
-        },
-        {
-          field: "rollNo",
-          headerName: "Roll No.",
-          hideable: false,
-          width: 230,
-        },
-        {
-          field: "cgpa",
-          headerName: "CGPA",
-          width: 150,
-          hideable: false,
-        },
-        {
-          field: "responses",
-          headerName: "View Responses",
-          sortable: false,
-          filterable: false,
-          hideable: false,
-          width: 180,
-          renderCell: (params) => {
-            return (
-              <>
-                <Link to={"/viewResponses?fid=" + params.row._id} target="_blank">
-                  <button className="userEdit">Responses</button>
-                </Link>
-              </>
-            );
+      if(this.state.SID===""){
+        console.log(this.state.studentData);
+        const userRows = this.state.studentData;
+        const columns = [
+          {
+            field: "name",
+            headerName: "Name",
+            hideable: false,
+            width: 230,
           },
-        },
-      ];
-    return (
-        <>
-          <div className="container text-center mt-15">
-            <div className="row">
-              <div className="col-sm-12">
-                <div></div>
-                <br />
-                <br />
-                <br />
-                <h3>Filled Forms</h3>
-                <div style={{ height: "400px", width: "90%" }} id="dataGrid">
-                  <DataGrid
-                    rows={userRows}
-                    columns={[
-                      ...columns,
-                      // {
-                      //   field: "responses",
-                      //   sortable: false,
-                      //   filterable: false,
-                      //   hideable: false,
-                      // },
-                    ]}
-                    pageSize={10}
-                    rowsPerPageOptions={[10, 20, 30]}
-                    getRowId={(row) => row.rollNo}
-                  />
+          {
+            field: "rollNo",
+            headerName: "Roll No.",
+            hideable: false,
+            width: 230,
+          },
+          {
+            field: "cgpa",
+            headerName: "CGPA",
+            width: 150,
+            hideable: false,
+          },
+          {
+            field: "branch",
+            headerName: "Branch",
+            width: 150,
+            hideable: false,
+          },
+          {
+            field: "responses",
+            headerName: "View Responses",
+            sortable: false,
+            filterable: false,
+            hideable: false,
+            width: 180,
+            renderCell: (params) => {
+              return (
+                <>
+                  <Link to={"/viewResponses?fid=" + params.row.FID+"&sid="+params.row.SID} target="_blank">
+                    <button className="userEdit">Responses</button>
+                  </Link>
+                </>
+              );
+            },
+          },
+        ];
+      return (
+          <>
+            <div className="container text-center mt-15">
+              <div className="row">
+                <div className="col-sm-12">
+                  <div></div>
+                  <br />
+                  <br />
+                  <br />
+                  <h3>Filled Forms</h3>
+                  <div style={{ height: "400px", width: "90%" }} id="dataGrid">
+                    <DataGrid
+                      rows={userRows}
+                      columns={[
+                        ...columns,
+                        // {
+                        //   field: "responses",
+                        //   sortable: false,
+                        //   filterable: false,
+                        //   hideable: false,
+                        // },
+                      ]}
+                      pageSize={10}
+                      rowsPerPageOptions={[10, 20, 30]}
+                      getRowId={(row) => row.rollNo}
+                    />
+                  </div>
+                  {/* <button
+                    onClick={this.onLogout}
+                    className="btn btn-large btn-light hoverable font-weight-bold"
+                  >
+                    Logout
+                  </button> */}
                 </div>
-                {/* <button
-                  onClick={this.onLogout}
-                  className="btn btn-large btn-light hoverable font-weight-bold"
-                >
-                  Logout
-                </button> */}
               </div>
             </div>
-          </div>
-        </>
-      )
+          </>
+        )
+      }else{
+        return (
+          <>
+            <h1 style={{"textAlign":"center","margin":"30px"}}>STUDENT RESPONSE</h1>
+            <form className="recruiterForm" style={{"paddingBottom":"20px","marginBottom":"40px"}}>
+              {this.state.studentData.map((item)=>{
+                return(
+                  <div className="widget">
+                    <label className="widgetLabel">{item.label}</label>
+                    <br />
+                    <input className="widgetInput" value={item.answer} disabled/>
+                  </div>
+                );
+              })}
+            </form>
+          </>
+        );
+      }
     }
     else
     {
