@@ -92,7 +92,7 @@ const accessSpreadsheet = async () => {
         length: 12,
         numbers: true,
       });
-      console.log(item.rollNo);
+      // console.log(item.rollNo);
       // sendPwdMail(item.email, password);
       return (item.password = password);
     });
@@ -124,9 +124,9 @@ router.post("/fetchOutput", (req, res) => {
 
 router.post("/register", async (req, res) => {
   // console.log("hi");
-  const rollNo = req.body.rollNo;
-  console.log(typeof rollNo);
-  var ans = await Student.findOne({ rollNo })
+  const rollNo = validDegree(req.body.rollNo);
+  // console.log(typeof rollNo);
+  await Student.findOne({ rollNo })
     .then((user) => {
       // console.log("h4i");
       if (user) {
@@ -155,7 +155,7 @@ router.post("/register", async (req, res) => {
           resume: req.body.resume,
           password: req.body.password,
         });
-        console.log(req.body.password);
+        // console.log(req.body.password);
         // Hash password before storing in database
         const rounds = 10;
         bcrypt.genSalt(rounds, (err, salt) => {
