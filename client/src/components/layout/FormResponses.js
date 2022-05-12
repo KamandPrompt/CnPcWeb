@@ -59,7 +59,7 @@ class FormResponses extends Component {
           field: "title",
           headerName: "Title",
           hideable: false,
-          width: 230,
+          width: 260,
         },
         {
           field: "type",
