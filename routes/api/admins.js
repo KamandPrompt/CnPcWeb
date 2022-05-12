@@ -11,6 +11,8 @@ const validateLoginInput = require("../../validation/loginAdmin");
 const Admin = require("../../models/AdminSchema");
 const Students = require("../../models/StudentSchema");
 const Recruiters = require("../../models/RecruiterSchema");
+const Forms = require("../../models/FormSchema");
+
 // @route POST api/admins/login
 // @desc Login user and return JWT token
 // @access Public
@@ -95,5 +97,45 @@ router.get("/recruiter/:email", async (req, res) => {
     // console.log(student)
     return res.json({ status: "ok", details: recruiter });
   }
+});
+router.get("/all-forms", async (req,res) => {
+  let allForms = await Forms.find({}).lean();
+  let data = [];
+  for(var i=0;i<allForms.length;i++)
+  {
+    const title= allForms[i].title;
+    const type= allForms[i].type;
+    let openStatus = allForms[i].formStatus;
+    if(allForms[i].formStatus === "open")
+    {
+      openStatus = "Open";
+    }
+    else
+    {
+      openStatus = "Closed";
+    }
+    let isVerified = allForms[i].isVerified;
+    if(allForms[i].isVerified === true)
+    {
+      isVerified = "Verified";
+    }
+    else
+    {
+      isVerified = "Not Verified";
+    }
+    const query = {_id : allForms[i].CID};
+    const recData = await Recruiters.findOne(query).lean();
+    const cname = recData.name;
+    const obj = {
+      fid : allForms[i].CID,
+      title : title,
+      type : type,
+      openStatus : openStatus,
+      isVerified : isVerified,
+      name : cname
+    }
+    data.push(obj);
+  }
+  res.send(data);
 });
 module.exports = router;

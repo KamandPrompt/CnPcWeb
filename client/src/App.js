@@ -44,6 +44,7 @@ import ManageStudents from "./components/layout/ManageStudents";
 import ManageRecruiters from "./components/layout/ManageRecruiters";
 import RecruiterAdminOutlet from "./components/private-route/RecruiterAdminOutlet";
 import ViewResponses from "./components/layout/ViewResponses";
+import ManageCreatedForms from "./components/layout/ManageCreatedForms";
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -154,6 +155,9 @@ class App extends Component {
             </Route>
             <Route exact path="/manageRecruiters" element={<AdminOutlet />}>
               <Route path="" element={<ManageRecruiters />} />
+            </Route>
+            <Route exact path="/manageCreatedForms" element={<AdminOutlet />}>
+              <Route path="" element={<ManageCreatedForms />} />
             </Route>
           </Routes>
           <Footer />
