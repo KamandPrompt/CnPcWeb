@@ -41,10 +41,10 @@ class Noticeboard extends Component {
       if (form.isVerified && form.formStatus === "open") {
         list.push(
           <div className="slot">
-            <button id={"year" + i.toString()} className="yearBtn">
+            <button id={"year" + (i+1).toString()} className="yearBtn">
               <span className="arrow">
                 <i
-                  id={"arrow" + i.toString()}
+                  id={"arrow" + (i+1).toString()}
                   className="fas fa-angle-right"
                 ></i>
               </span>
