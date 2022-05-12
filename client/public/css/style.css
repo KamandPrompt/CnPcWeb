@@ -1464,3 +1464,12 @@ hr {
 .widgetPlus{
   color: white;
 }
+
+.companyCont{
+  border: 1px solid grey;
+  padding: 10px;
+}
+
+.companyBtn{
+  margin-bottom: 20px;
+}

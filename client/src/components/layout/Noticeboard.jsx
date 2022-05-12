@@ -41,20 +41,17 @@ class Noticeboard extends Component {
       if (form.isVerified && form.formStatus === "open") {
         list.push(
           <div className="slot">
-            <button id={"year" + i.toString()} className="yearBtn">
-              <span className="arrow">
-                <i
-                  id={"arrow" + i.toString()}
-                  className="fas fa-angle-right"
-                ></i>
-              </span>
-              {form.title}
-              <Link to={"?id=" + form._id} target="_blank">
-                <button>Apply</button>
-              </Link>
-            </button>
-            <div id={"yr" + i.toString()} className="yearCont">
-              <p>{form.JD}</p>
+            <div id={"company"+(i+1).toString()} className="companyBtn">
+              <h2 style={{"fontSize":"17px","fontWeight":"lighter"}}>{form.title}</h2>
+              <div id={"cp" + (i+1).toString()} className="companyCont">
+                <p style={{"fontSize":"16px"}}>JOB DESC:</p>
+                <p>{form.JD}</p>
+                <Link to={"?id=" + form._id} target="_blank">
+                  <center>
+                    <button style={{"margin":"auto","width":"70px","height":"30px","backgroundColor":"#2196F3","color":"white","borderRadius":"10%","border":"1px solid white"}}>Apply</button>
+                  </center>
+                </Link>
+              </div>
             </div>
             {/* <button id={form._id}><a href="" _blank="True">Apply now</a></button> */}
           </div>
@@ -130,6 +127,8 @@ class Noticeboard extends Component {
           <>
             <div>
               <h2 style={{ textAlign: "center" }}>Active application forms</h2>
+              <br />
+              <br />
               <div className="acadmic">{this.state.datalist}</div>
             </div>
           </>
@@ -138,8 +137,8 @@ class Noticeboard extends Component {
         return (
           <>
             <h2 style={{"textAlign":"center"}}>{this.state.title}</h2>
-            <div style={{"width":"60%","margin":"auto","border":"1px solid grey"}}>
-              <h4>Job Description:</h4>
+            <div style={{"width":"60%","margin":"auto","border":"1px solid grey","padding":"20px","marginBottom":"50px"}}>
+              <p style={{"fontSize":"16px"}}>JOB DESC:</p>
               <p>{this.state.JD}</p>
             </div>
             <div style={{ width: "60%", margin: "auto" }}>
@@ -176,13 +175,14 @@ class Noticeboard extends Component {
                 <center>
                   <button
                     style={{
-                      width: "100px",
-                      height: "60px",
+                      width: "90px",
+                      height: "40px",
                       marginBottom: "20px",
                       borderRadius: "6px",
                       backgroundColor: "#2196F3",
                       color: "#FFFF",
                       fontSize: "20px",
+                      border: "1px solid white"
                     }}
                     type="submit"
                   >
