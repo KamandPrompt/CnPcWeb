@@ -27,8 +27,8 @@ const data00 = [
   { name: "Computer Science and Engineering", value: 106, fill: "#FF6600" },
   { name: "Electrical Engineering", value: 67, fill: "#CE65DF" },
   { name: "Data Science and Engineering", value: 43, fill: "#AFCA54" },
-  { name: "Engineering Physics", value: 20, fill: "#CE65DF" },
-  { name: "Bio-Engineering", value: 15, fill: "#BF65GF" },
+  { name: "Engineering Physics", value: 20, fill: "#990132" },
+  { name: "Bio-Engineering", value: 15, fill: "#ed1727" },
 ];
 const data01 = [
   { name: " Mechanical Engineering", value: 23, fill: "#003399" },
@@ -148,7 +148,7 @@ export const Demo = (props) => {
                     <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data00}
                     cx={170}
                     cy={160}
                     outerRadius={80}
@@ -161,7 +161,7 @@ export const Demo = (props) => {
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data00}
                     cx={230}
                     cy={130}
                     outerRadius={80}
@@ -254,7 +254,7 @@ export const Demo = (props) => {
                     <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data02}
                     cx={170}
                     cy={160}
                     outerRadius={80}
@@ -267,7 +267,7 @@ export const Demo = (props) => {
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data02}
                     cx={230}
                     cy={130}
                     outerRadius={80}
@@ -307,7 +307,7 @@ export const Demo = (props) => {
                     <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data03}
                     cx={170}
                     cy={160}
                     outerRadius={80}
@@ -320,7 +320,7 @@ export const Demo = (props) => {
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data03}
                     cx={230}
                     cy={130}
                     outerRadius={80}
@@ -360,7 +360,7 @@ export const Demo = (props) => {
                     <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data04}
                     cx={170}
                     cy={160}
                     outerRadius={80}
@@ -373,7 +373,7 @@ export const Demo = (props) => {
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data04}
                     cx={230}
                     cy={130}
                     outerRadius={80}
@@ -413,7 +413,7 @@ export const Demo = (props) => {
                     <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data05}
                     cx={170}
                     cy={160}
                     outerRadius={80}
@@ -426,7 +426,7 @@ export const Demo = (props) => {
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data05}
                     cx={230}
                     cy={130}
                     outerRadius={80}
@@ -466,7 +466,7 @@ export const Demo = (props) => {
                     <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data06}
                     cx={220}
                     cy={160}
                     outerRadius={80}
@@ -479,7 +479,7 @@ export const Demo = (props) => {
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data06}
                     cx={230}
                     cy={130}
                     outerRadius={80}
@@ -508,7 +508,7 @@ export const Demo = (props) => {
           </div>
           <div className="sliderItem2">
             <div className="slidePallet2">
-              <h3 style={{ fontSize: "15px" }}>Title</h3>
+              <h3 style={{ fontSize: "15px" }}>MSc</h3>
               <center>
                 <PieChart
                   width={500}
@@ -519,7 +519,7 @@ export const Demo = (props) => {
                     <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data07}
                     cx={220}
                     cy={160}
                     outerRadius={80}
@@ -532,7 +532,7 @@ export const Demo = (props) => {
                   <Pie
                     dataKey="value"
                     isAnimationActive={true}
-                    data={data01}
+                    data={data07}
                     cx={230}
                     cy={130}
                     outerRadius={80}
