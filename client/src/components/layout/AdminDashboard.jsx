@@ -18,7 +18,7 @@ class AdminDashboard extends Component {
         <Link to={"/manageStudents"}>
           <Button
             className="btn-fill"
-            style={{ width: "200px" }}
+            style={{ width: "200px", margin: "40px" }}
             variant="info"
           >
             Manage Students
@@ -27,10 +27,28 @@ class AdminDashboard extends Component {
         <Link to={"/manageRecruiters"}>
           <Button
             className="btn-fill"
-            style={{ width: "200px" }}
+            style={{ width: "200px", margin: "40px" }}
             variant="info"
           >
             Manage Recruiters
+          </Button>
+        </Link>
+        <Link to={"/manageCreatedForms"}>
+          <Button
+            className="btn-fill"
+            style={{ width: "200px", margin: "40px" }}
+            variant="info"
+          >
+            Manage Created Forms
+          </Button>
+        </Link>
+        <Link to={"/manageResponses"}>
+          <Button
+            className="btn-fill"
+            style={{ width: "200px", margin: "40px" }}
+            variant="info"
+          >
+            Manage Responses
           </Button>
         </Link>
       </>

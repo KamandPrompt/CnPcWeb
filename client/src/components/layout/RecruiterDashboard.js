@@ -24,10 +24,10 @@ class RecruiterDashboard extends Component {
 
   async componentDidMount() {
     const email = this.props.auth.user.email;
-    console.log(this.props.auth.user)
-    console.log(email)
+    console.log(this.props.auth.user);
+    console.log(email);
     if (email != null) {
-      console.log("!imp")
+      console.log("!imp");
       await axios
         .get(`/api/recruiters/${email}`)
         .then((res) => {
@@ -82,7 +82,7 @@ class RecruiterDashboard extends Component {
       email: this.state.email,
       telephone: this.state.telephone,
       mobile: this.state.mobile,
-      isVerified: (this.state.isVerified === "Yes" ? true : false),
+      isVerified: this.state.isVerified === "Yes" ? true : false,
       role: this.state.role,
     };
     this.updateUser(user);
@@ -102,10 +102,27 @@ class RecruiterDashboard extends Component {
       role,
     } = this.state;
 
-
     return (
       <>
         <Container fluid>
+          <center>
+            <Button
+              className="btn-fill"
+              style={{ width: "200px", margin: "40px" }}
+              href="/createForm"
+              variant="info"
+            >
+              Create Form
+            </Button>
+            <Button
+              className="btn-fill"
+              style={{ width: "230px", margin: "40px" }}
+              href="/formresponses"
+              variant="info"
+            >
+              View Forms and Responses
+            </Button>
+          </center>
           <Row>
             <Col md="12">
               <Card>
@@ -139,9 +156,7 @@ class RecruiterDashboard extends Component {
                       </Col>
                       <Col className="pl-1" md="4">
                         <Form.Group>
-                          <label >
-                            Email address
-                          </label>
+                          <label>Email address</label>
                           <Form.Control
                             onChange={this.onchange}
                             id="email"
@@ -244,24 +259,7 @@ class RecruiterDashboard extends Component {
             </Col>
           </Row>
         </Container>
-        <Button
-          className="btn-fill"
-          style={{ width: "200px" }}
-          href="/createForm"
-          variant="info"
-        >
-          Create Form
-        </Button>
-        <br />
-        <br />
-        <Button
-          className="btn-fill"
-          style={{ width: "200px" }}
-          href="/formresponses"
-          variant="info"
-        >
-          View form/responses
-        </Button>
+
         <br />
         <br />
       </>
