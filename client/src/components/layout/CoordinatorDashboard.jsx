@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import "../admin.css";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 
-class ManageStudents extends Component {
+class CoordinatorDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -562,7 +562,7 @@ class ManageStudents extends Component {
   }
 }
 
-ManageStudents.propTypes = {
+CoordinatorDashboard.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -571,4 +571,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser })(ManageStudents);
+export default connect(mapStateToProps, { logoutUser })(CoordinatorDashboard);

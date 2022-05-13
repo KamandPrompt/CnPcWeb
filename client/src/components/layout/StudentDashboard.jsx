@@ -233,6 +233,7 @@ class StudentDashboard extends Component {
                             defaultValue={resume1}
                             placeholder="Drive link"
                             type="text"
+                            disabled
                           ></Form.Control>
                         </Form.Group>
                       </Col>
@@ -244,6 +245,7 @@ class StudentDashboard extends Component {
                             id="resume2"
                             defaultValue={resume2}
                             placeholder="Drive link"
+                            disabled
                             type="text"
                           ></Form.Control>
                         </Form.Group>
@@ -257,6 +259,7 @@ class StudentDashboard extends Component {
                             defaultValue={resume3}
                             placeholder="Drive link"
                             type="text"
+                            disabled
                           ></Form.Control>
                         </Form.Group>
                       </Col>
@@ -322,6 +325,7 @@ class StudentDashboard extends Component {
                             id="degree"
                             defaultValue={degree}
                             placeholder="Degree"
+                            disabled
                             type="text"
                           ></Form.Control>
                         </Form.Group>
@@ -332,10 +336,10 @@ class StudentDashboard extends Component {
                           <Form.Control
                             onChange={this.onchange}
                             id="batch"
+                            disabled
                             defaultValue={batch}
                             placeholder="batch"
                             type="text"
-                            disabled
                           ></Form.Control>
                         </Form.Group>
                       </Col>
@@ -362,6 +366,7 @@ class StudentDashboard extends Component {
                             aria-label="Default select example"
                             onChange={this.onchange}
                             id="gender"
+                            disabled
                             value={gender}
                             style={{ width: "100%", height: "40px" }}
                           >
@@ -404,6 +409,7 @@ class StudentDashboard extends Component {
                             defaultValue={dob}
                             placeholder="Date of Birth"
                             type="text"
+                            disabled
                           ></Form.Control>
                         </Form.Group>
                       </Col>

@@ -72,7 +72,7 @@ const FormSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["inf", "jnf"],
+    enum: ["internship", "placement"],
     required: true,
   },
   formStatus: {

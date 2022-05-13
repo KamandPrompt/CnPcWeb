@@ -24,10 +24,9 @@ class RecruiterDashboard extends Component {
 
   async componentDidMount() {
     const email = this.props.auth.user.email;
-    console.log(this.props.auth.user);
-    console.log(email);
+    // console.log(this.props.auth.user);
+    // console.log(email);
     if (email != null) {
-      console.log("!imp");
       await axios
         .get(`/api/recruiters/${email}`)
         .then((res) => {
@@ -61,7 +60,7 @@ class RecruiterDashboard extends Component {
     // console.log(e.target.id);
   };
   updateUser = (userData) => {
-    console.log("hello");
+    // console.log("hello");
     axios
       .post("/api/recruiters/update", userData)
       .then((res) => {
@@ -106,14 +105,7 @@ class RecruiterDashboard extends Component {
       <>
         <Container fluid>
           <center>
-            <Button
-              className="btn-fill"
-              style={{ width: "200px", margin: "40px" }}
-              href="/createForm"
-              variant="info"
-            >
-              Create Form
-            </Button>
+           
             <Button
               className="btn-fill"
               style={{ width: "230px", margin: "40px" }}

@@ -5,24 +5,24 @@ const Schema = mongoose.Schema;
 const AdminSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   role: {
     type: String,
-    default: 'admin',
+    enum: ["coordinator", "volunteer"],
   },
 });
 

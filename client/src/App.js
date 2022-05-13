@@ -32,15 +32,16 @@ import RegisterRecruiter from "./components/layout/RegisterRecruiter";
 import LoginRecruiter from "./components/layout/LoginRecruiter";
 import UnprivateOutlet from "./components/private-route/UnprivateOutlet";
 import RecruiterOutlet from "./components/private-route/RecruiterOutlet";
-import AdminOutlet from "./components/private-route/AdminOutlet";
+import VolunteerOutlet from "./components/private-route/VolunteerOutlet";
+import CoordinatorOutlet from "./components/private-route/CoordinatorOutlet";
 import StudentOutlet from "./components/private-route/StudentOutlet";
 import RecruiterDashboard from "./components/layout/RecruiterDashboard";
 import CreateForm from "./components/layout/CreateForm";
-import AdminDashboard from "./components/layout/AdminDashboard";
+import CoordinatorDashboard from "./components/layout/CoordinatorDashboard";
+import VolunteerDashboard from "./components/layout/VolunteerDashboard";
 import StudentDashboard from "./components/layout/StudentDashboard";
 import Noticeboard from "./components/layout/Noticeboard";
 import FormResponses from "./components/layout/FormResponses";
-import ManageStudents from "./components/layout/ManageStudents";
 import ManageRecruiters from "./components/layout/ManageRecruiters";
 import RecruiterAdminOutlet from "./components/private-route/RecruiterAdminOutlet";
 import ViewResponses from "./components/layout/ViewResponses";
@@ -128,14 +129,10 @@ class App extends Component {
             >
               <Route path="" element={<RecruiterDashboard />} />
             </Route>
-            <Route exact path="/createForm" element={<RecruiterOutlet />}>
+            <Route exact path="/createForm" element={<VolunteerOutlet />}>
               <Route path="" element={<CreateForm />} />
             </Route>
-            <Route
-              exact
-              path="/formresponses"
-              element={<RecruiterOutlet />}
-            >
+            <Route exact path="/formresponses" element={<RecruiterOutlet />}>
               <Route path="" element={<FormResponses />} />
             </Route>
             <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
@@ -144,19 +141,31 @@ class App extends Component {
             <Route exact path="/noticeboard" element={<StudentOutlet />}>
               <Route path="" element={<Noticeboard />} />
             </Route>
-            <Route exact path="/dashboardAdmin" element={<AdminOutlet />}>
-              <Route path="" element={<AdminDashboard />} />
+            <Route
+              exact
+              path="/dashboardCoordinator"
+              element={<CoordinatorOutlet />}
+            >
+              <Route path="" element={<CoordinatorDashboard />} />
+            </Route>
+            <Route
+              exact
+              path="/dashboardVolunteer"
+              element={<VolunteerOutlet />}
+            >
+              <Route path="" element={<VolunteerDashboard />} />
             </Route>
             <Route path="/viewResponses" element={<RecruiterAdminOutlet />}>
               <Route path="" element={<ViewResponses />} />
             </Route>
-            <Route exact path="/manageStudents" element={<AdminOutlet />}>
-              <Route path="" element={<ManageStudents />} />
-            </Route>
-            <Route exact path="/manageRecruiters" element={<AdminOutlet />}>
+            <Route exact path="/manageRecruiters" element={<VolunteerOutlet />}>
               <Route path="" element={<ManageRecruiters />} />
             </Route>
-            <Route exact path="/manageCreatedForms" element={<AdminOutlet />}>
+            <Route
+              exact
+              path="/manageCreatedForms"
+              element={<VolunteerOutlet />}
+            >
               <Route path="" element={<ManageCreatedForms />} />
             </Route>
           </Routes>

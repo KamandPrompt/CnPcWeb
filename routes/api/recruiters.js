@@ -137,7 +137,6 @@ router.post("/createForm", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-
 router.post("/update", (req, res) => {
   Recruiter.updateMany(
     { email: req.body.email },
@@ -167,7 +166,7 @@ router.get("/:email", async (req, res) => {
   }
 });
 
-router.post("/getFormbyCID", async (req,res)=>{
+router.post("/getFormbyCID", async (req, res) => {
   console.log(req.body.id);
   try {
     const data = await Form.find({ CID: req.body.id }).lean();
@@ -176,32 +175,33 @@ router.post("/getFormbyCID", async (req,res)=>{
   } catch (error) {
     res.send(error);
   }
-})
+});
 
-router.post("/getFormbyCID/:fid", async (req,res)=>{
+router.post("/getFormbyCID/:fid", async (req, res) => {
   const fid = req.params.fid;
   // console.log(req.body.role);
   try {
     let data = [];
-    if(req.body.role === "recruiter"){
+    if (req.body.role === "recruiter") {
       data = await Response.find({ FID: fid, isVerified: true }).lean();
-    }
-    else if(req.body.role === "admin")
-    {
-      data = await Response.find({ FID: fid}).lean();   
+    } else if (
+      req.body.role === "coordinator" ||
+      req.body.role === "volunteer"
+    ) {
+      data = await Response.find({ FID: fid }).lean();
     }
     // console.log(data)
     let student_data = [];
-    for(let i=0;i<data.length;i++){
-      const studentData = await Student.findOne({_id:(data[i]).SID}).lean();
+    for (let i = 0; i < data.length; i++) {
+      const studentData = await Student.findOne({ _id: data[i].SID }).lean();
       const newData = {
-        FID: (data[i]).FID,
+        FID: data[i].FID,
         name: studentData.name,
         rollNo: studentData.rollNo,
         cgpa: studentData.cgpa,
         SID: studentData._id,
-        branch: studentData.branch
-      }
+        branch: studentData.branch,
+      };
       student_data.push(newData);
     }
     // console.log(student_data);
@@ -209,19 +209,23 @@ router.post("/getFormbyCID/:fid", async (req,res)=>{
   } catch (error) {
     res.send(error);
   }
-})
+});
 
-router.post("/getResponsebySID/:fid/:sid",async(req,res)=>{
+router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
   const fid = req.params.fid;
   const sid = req.params.sid;
   try {
     let data = [];
     // console.log(data)
-    data = await Response.findOne({ FID: fid, isVerified: true, SID: sid }).lean();
+    data = await Response.findOne({
+      FID: fid,
+      isVerified: true,
+      SID: sid,
+    }).lean();
     res.send(data.answers);
   } catch (error) {
     res.send(error);
   }
-})
+});
 
 module.exports = router;

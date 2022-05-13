@@ -3,14 +3,14 @@ import { Navigate, Outlet } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-const AdminOutlet = ({ component: Component, auth, ...rest }) =>
-  auth.isAuthenticated && auth.user.role === "admin" ? (
+const VolunteerOutlet = ({ component: Component, auth, ...rest }) =>
+  auth.isAuthenticated && auth.user.role === "volunteer" ? (
     <Outlet />
   ) : (
     <Navigate to="/loginAdmin" />
   );
 
-AdminOutlet.propTypes = {
+VolunteerOutlet.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps)(AdminOutlet);
+export default connect(mapStateToProps)(VolunteerOutlet);

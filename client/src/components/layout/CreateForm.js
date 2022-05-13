@@ -269,22 +269,22 @@ class CreateForm extends Component {
               Type:
             </label>
             <br />
-            INF
+            Internship
             <input
               className="widgetRadio"
               type="radio"
               id="type"
               name="type"
-              value="inf"
+              value="internship"
               onChange={this.handleChange}
             />
-            JNF
+            Placement
             <input
               className="widgetRadio"
               type="radio"
               id="type"
               name="type"
-              value="jnf"
+              value="placement"
               onChange={this.handleChange}
             />
           </div>
@@ -295,6 +295,17 @@ class CreateForm extends Component {
               className="widgetArea"
               name="JD"
               id="JD"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="widget">
+            <label className="widgetLabel">Eligibility :</label>
+            <br />
+            <textarea
+              className="widgetArea"
+              name="eligibility"
+              id="eligibility"
+              placeholder="abhi isse ache se krna h boht"
               onChange={this.handleChange}
             />
           </div>
