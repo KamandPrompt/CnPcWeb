@@ -70,7 +70,7 @@ router.post("/login", (req, res) => {
 
 router.get("/all-students", async (req, res) => {
   const allStudents = await Students.find({})
-    .select("rollNo name batch verification_status -_id")
+    .select("rollNo name batch isVerified -_id")
     .lean();
   // console.log(allStudents);
   return res.json(allStudents);

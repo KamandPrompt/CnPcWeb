@@ -62,7 +62,7 @@ class VerifyForm extends Component {
   //     cgpa: this.state.cgpa,
   //     dob: this.state.dob,
   //     resume: this.state.resume,
-  //     verification_status: this.state.verification_status,
+  //     isVerified: this.state.isVerified,
   //     role: this.state.role,
   //   };
   //   console.log(user);
@@ -89,7 +89,7 @@ class VerifyForm extends Component {
   //     twelthPercentage,
   //     advanceRank,
   //     resume,
-  //     verification_status,
+  //     isVerified,
   //   } = this.state;
   //   event.preventDefault();
   //   console.log(this.state);

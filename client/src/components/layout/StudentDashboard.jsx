@@ -19,9 +19,11 @@ class StudentDashboard extends Component {
       email: "",
       contactNumber: "",
       dob: "",
-      Gender: "",
-      resume: "",
-      verification_status: "",
+      gender: "",
+      resume1: "",
+      resume2: "",
+      resume3: "",
+      isVerified: "",
       role: "",
       DataisLoaded: false,
     };
@@ -38,10 +40,10 @@ class StudentDashboard extends Component {
   //     email: this.props.auth.email,
   //     contactNumber: this.props.auth.contactNumber,
   //     dob:this.props.auth.dob,
-  //     Gender: this.props.auth.Gender,
+  //     gender: this.props.auth.gender,
   //     resume: this.props.auth.resume,
   //     password: this.props.auth.password,
-  //     verification_status: this.props.auth.verification_status,
+  //     isVerified: this.props.auth.isVerified,
   //     role: this.props.auth.role,
   //   };
   // }
@@ -61,9 +63,11 @@ class StudentDashboard extends Component {
             email: res.data.details.email,
             contactNumber: res.data.details.contactNumber,
             dob: res.data.details.dob,
-            Gender: res.data.details.Gender,
-            resume: res.data.details.resume,
-            verification_status: res.data.details.verification_status,
+            gender: res.data.details.gender,
+            resume1: res.data.details.resume1,
+            resume2: res.data.details.resume2,
+            resume3: res.data.details.resume3,
+            isVerified: res.data.details.isVerified,
             role: res.data.details.role,
             DataisLoaded: true,
           });
@@ -108,12 +112,14 @@ class StudentDashboard extends Component {
       batch: this.state.batch,
       contactNumber: this.state.contactNumber,
       branch: this.state.branch,
-      Gender: this.state.Gender,
+      gender: this.state.gender,
       degree: this.state.degree,
       cgpa: this.state.cgpa,
       dob: this.state.dob,
-      resume: this.state.resume,
-      verification_status: this.state.verification_status,
+      resume1: this.state.resume1,
+      resume2: this.state.resume2,
+      resume3: this.state.resume3,
+      isVerified: this.state.isVerified,
       role: this.state.role,
     };
     this.updateUser(user);
@@ -132,9 +138,11 @@ class StudentDashboard extends Component {
       email,
       contactNumber,
       dob,
-      Gender,
-      resume,
-      verification_status,
+      gender,
+      resume1,
+      resume2,
+      resume3,
+      isVerified,
       role,
     } = this.state;
     return (
@@ -218,11 +226,35 @@ class StudentDashboard extends Component {
                       </Col>
                       <Col className="px-1" md="4">
                         <Form.Group>
-                          <label>Resume</label>
+                          <label>Resume1</label>
                           <Form.Control
                             onChange={this.onchange}
-                            id="resume"
-                            defaultValue={resume}
+                            id="resume1"
+                            defaultValue={resume1}
+                            placeholder="Drive link"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="4">
+                        <Form.Group>
+                          <label>Resume2</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="resume2"
+                            defaultValue={resume2}
+                            placeholder="Drive link"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="4">
+                        <Form.Group>
+                          <label>Resume3</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="resume3"
+                            defaultValue={resume3}
                             placeholder="Drive link"
                             type="text"
                           ></Form.Control>
@@ -243,16 +275,16 @@ class StudentDashboard extends Component {
                       {/* <Col className="pl-1" md="4">
                         <Form.Group>
                           <div>
-                            <label>Gender</label>
+                            <label>gender</label>
                           </div>
                           <Form.Select
                             className="btn-sm primary"
                             aria-label="Default select example"
                             onChange={this.onchange}
-                            id="Gender"
-                            value={Gender}
+                            id="gender"
+                            value={gender}
                           >
-                            {Gender === "Male" ? (
+                            {gender === "Male" ? (
                               <>
                                 <option value="Male" selected>
                                   Male
@@ -260,7 +292,7 @@ class StudentDashboard extends Component {
                                 <option value="Female">Female</option>
                                 <option value="Others">Others</option>
                               </>
-                            ) : Gender === "Female" ? (
+                            ) : gender === "Female" ? (
                               <>
                                 <option value="Female" selected>
                                   Female
@@ -329,11 +361,11 @@ class StudentDashboard extends Component {
                             className="btn-sm primary"
                             aria-label="Default select example"
                             onChange={this.onchange}
-                            id="Gender"
-                            value={Gender}
-                            style={{"width":"100%","height":"40px"}}
+                            id="gender"
+                            value={gender}
+                            style={{ width: "100%", height: "40px" }}
                           >
-                            {Gender === "Male" ? (
+                            {gender === "Male" ? (
                               <>
                                 <option value="Male" selected>
                                   Male
@@ -341,7 +373,7 @@ class StudentDashboard extends Component {
                                 <option value="Female">Female</option>
                                 <option value="Others">Others</option>
                               </>
-                            ) : Gender === "Female" ? (
+                            ) : gender === "Female" ? (
                               <>
                                 <option value="Female" selected>
                                   Female
@@ -393,9 +425,9 @@ class StudentDashboard extends Component {
                           <Form.Control
                             disabled
                             onChange={this.onchange}
-                            id="verification_status"
-                            defaultValue={verification_status}
-                            placeholder="verification_status"
+                            id="isVerified"
+                            defaultValue={isVerified}
+                            placeholder="isVerified"
                             type="text"
                           ></Form.Control>
                         </Form.Group>

@@ -23,12 +23,11 @@ class ManageStudents extends Component {
       email: "",
       contactNumber: "",
       dob: "",
-      Gender: "",
-      tenthPercentage: "",
-      twelthPercentage: "",
-      advanceRank: "",
-      resume: "",
-      verification_status: "",
+      gender: "",
+      resume1: "",
+      resume2: "",
+      resume3: "",
+      isVerified: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -61,12 +60,11 @@ class ManageStudents extends Component {
             email: res.data.details.email,
             contactNumber: res.data.details.contactNumber,
             dob: res.data.details.dob,
-            Gender: res.data.details.Gender,
-            tenthPercentage: res.data.details.tenthPercentage,
-            twelthPercentage: res.data.details.twelthPercentage,
-            advanceRank: res.data.details.advanceRank,
-            resume: res.data.details.resume,
-            verification_status: res.data.details.verification_status,
+            gender: res.data.details.gender,
+            resume1: res.data.details.resume1,
+            resume2: res.data.details.resume2,
+            resume3: res.data.details.resume3,
+            isVerified: res.data.details.isVerified,
             role: res.data.details.role,
             DataisLoaded: true,
           });
@@ -97,12 +95,14 @@ class ManageStudents extends Component {
       batch: this.state.batch,
       contactNumber: this.state.contactNumber,
       branch: this.state.branch,
-      Gender: this.state.Gender,
+      gender: this.state.gender,
       degree: this.state.degree,
       cgpa: this.state.cgpa,
       dob: this.state.dob,
-      resume: this.state.resume,
-      verification_status: this.state.verification_status,
+      resume1: this.state.resume1,
+      resume2: this.state.resume2,
+      resume3: this.state.resume3,
+      isVerified: this.state.isVerified,
       role: this.state.role,
     };
     console.log(user);
@@ -124,12 +124,11 @@ class ManageStudents extends Component {
       email,
       contactNumber,
       dob,
-      Gender,
-      tenthPercentage,
-      twelthPercentage,
-      advanceRank,
-      resume,
-      verification_status,
+      gender,
+      resume1,
+      resume2,
+      resume3,
+      isVerified,
     } = this.state;
     event.preventDefault();
     console.log(this.state);
@@ -201,7 +200,7 @@ class ManageStudents extends Component {
             hideable: false,
           },
           {
-            field: "verification_status",
+            field: "isVerified",
             headerName: "Status",
             width: 190,
             hideable: false,
@@ -291,9 +290,11 @@ class ManageStudents extends Component {
           email,
           contactNumber,
           dob,
-          Gender,
-          resume,
-          verification_status,
+          gender,
+          resume1,
+          resume2,
+          resume3,
+          isVerified,
           role,
         } = this.state;
         return (
@@ -375,11 +376,35 @@ class ManageStudents extends Component {
                           </Col>
                           <Col className="px-1" md="4">
                             <Form.Group>
-                              <label>Resume</label>
+                              <label>Resume1</label>
                               <Form.Control
                                 onChange={this.onchange}
-                                id="resume"
-                                defaultValue={resume}
+                                id="resume1"
+                                defaultValue={resume1}
+                                placeholder="Drive link"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Resume2</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="resume2"
+                                defaultValue={resume2}
+                                placeholder="Drive link"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Resume3</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="resume3"
+                                defaultValue={resume3}
                                 placeholder="Drive link"
                                 type="text"
                               ></Form.Control>
@@ -394,10 +419,10 @@ class ManageStudents extends Component {
                                 className="btn-sm primary"
                                 aria-label="Default select example"
                                 onChange={this.onchange}
-                                id="Gender"
-                                value={Gender}
+                                id="gender"
+                                value={gender}
                               >
-                                {Gender === "Male" ? (
+                                {gender === "Male" ? (
                                   <>
                                     <option value="Male" selected>
                                       Male
@@ -405,7 +430,7 @@ class ManageStudents extends Component {
                                     <option value="Female">Female</option>
                                     <option value="Others">Others</option>
                                   </>
-                                ) : Gender === "Female" ? (
+                                ) : gender === "Female" ? (
                                   <>
                                     <option value="Female" selected>
                                       Female
@@ -494,9 +519,9 @@ class ManageStudents extends Component {
                               <label>Verification status</label>
                               <Form.Control
                                 onChange={this.onchange}
-                                id="verification_status"
-                                defaultValue={verification_status}
-                                placeholder="verification_status"
+                                id="isVerified"
+                                defaultValue={isVerified}
+                                placeholder="isVerified"
                                 type="text"
                               ></Form.Control>
                             </Form.Group>

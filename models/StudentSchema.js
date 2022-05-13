@@ -64,10 +64,18 @@ const StudentSchema = new Schema({
     type: String,
     required: true,
   },
-  Gender: {
+  gender: {
     type: String,
   },
-  resume: {
+  resume1: {
+    type: String,
+    required: true,
+  },
+  resume2: {
+    type: String,
+    required: true,
+  },
+  resume3: {
     type: String,
     required: true,
   },
@@ -75,7 +83,7 @@ const StudentSchema = new Schema({
     type: String,
     required: true,
   },
-  verification_status: {
+  isVerified: {
     type: String,
     default: "No",
   },

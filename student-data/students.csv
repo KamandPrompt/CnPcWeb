@@ -1,4 +1,4 @@
-name,rollNo,degree,branch,cgpa,email,contactNumber,dob,Gender,tenthPercentage,twelthPercentage,advanceRank,resume
+name,rollNo,degree,branch,cgpa,email,contactNumber,dob,gender,tenthPercentage,twelthPercentage,advanceRank,resume
 Ankit Karan,B18159,B.Tech,EE,8,b18159@students.iitmandi.ac.in,7667911376,10-08-1999,Male,95,91.8,6000,https://drive.google.com/open?id=1VuodiuWuQ7r-gHOl6o6qCuuLTuQR54DL
 Pratik Kumar,B18187,B.Tech,CSE,7.89,b18187@students.iitmandi.ac.in,9939549845,12/30/2000,Male,95,94,6366,https://drive.google.com/open?id=1MLPCokAjRvnrEZDQqxGdXJE0nuMUhtaR
 Kairav Bansal,B18062,B.Tech,CSE,7.75,b18062@students.iitmandi.ac.in,9988154700,02-08-2001,Male,100,91.4,2271,https://drive.google.com/open?id=1mwhHUUWV5X5PDkXmOa8B_WtoAgXgvgr-
