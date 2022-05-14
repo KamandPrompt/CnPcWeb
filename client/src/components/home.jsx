@@ -51,7 +51,13 @@ export const Home = (props) => {
   return (
     <>
       <div className="cont">
-        <div id="front" className="container item">
+        <div className="banner">
+            <div className="message container">
+              <h2 className="cnp_heading">Career and placement cell IIT Mandi</h2>
+              <p className="home_msg">Welcome to the Career and Placement Cell of IIT Mandi. The Career and Placement Cell(CnPC)of the Institute centrally handles all aspects of campus placements and internships.We Welcome the recruiters for the Recruitment drive.</p>
+          </div>
+        </div>
+        {/* <div id="front" className="container item">
           <div className="leftItem">
             <h2 className="faculty-head">About Us</h2>
             <p className="bhashan backG" style={{ "textAlign": "justify" }}>Among the elite technology institutes of the country, IIT Mandi
@@ -73,7 +79,7 @@ export const Home = (props) => {
               <Carousal />
             </div>
           </div>
-        </div>
+        </div> */}
         <h3 className="faculty-head">From the Director</h3>
         <div className="about container row item">
           {/* <div className="col-lg-4 col-md-6 col-sm-12">

@@ -18,7 +18,7 @@ export const Contact = (props) => {
   return (
     <div>
       <div class="content">
-        <div className="banner">
+        {/* <div className="banner">
           <div className="banner__content">
             <div className="contain">
               <a
@@ -29,7 +29,7 @@ export const Contact = (props) => {
               />
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div id="scroll"></div>
         <div className="heading nav-unhide">

@@ -277,6 +277,49 @@ a:focus,
   border: 4px solid #06738A
 }
 
+/* banner starts here */
+/* .banner {
+  background-image: url(../images/iitmandi-north.jpg);
+  height: 50%;
+  width: 100%;
+  display: flex;
+} */
+
+.banner {
+    width: 100%;
+    height: 60vh;
+    background-image: url(../images/iitmandi-north.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.home_msg{
+  font-family: "ubuntu", "roboto", sans-serif;
+  color: rgb(255, 255, 255) !important;
+  font-size: 15px;
+  display: block;
+}
+
+.cnp_heading{
+  font-family: "ubuntu", "roboto", sans-serif;
+  color: rgb(255, 255, 255) !important;
+  display: block;
+  font-size: 20px;
+
+}
+
+.message{
+  /* display: flex; */
+  margin: 3% 10% 3% 10%;
+  border-radius: 30px;
+  padding: 4%;
+  background-color: rgba(0, 0, 0, 0.6);
+
+}
+
 .float{
   float: left;
 }
