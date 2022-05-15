@@ -3,72 +3,84 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser, createFormRecruiter } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
+import Table from 'react-bootstrap/Table'
 const fixedFields = [
   {
     label: "Name",
     description: "name",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Roll Number",
     description: "rollNo",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Batch",
     description: "batch",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Degree",
     description: "degree",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Branch",
     description: "branch",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "CGPA",
     description: "cgpa",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Email",
     description: "email",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Contact Number",
     description: "contactNumber",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Date of Birth",
     description: "dob",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
-    label: "gender",
+    label: "Gender",
     description: "gender",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Resume",
     description: "resume",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
 ];
 class CreateForm extends Component {
@@ -81,6 +93,7 @@ class CreateForm extends Component {
       isVerified: false,
       fields: fixedFields,
       counter1: fixedFields.length,
+      counter2: fixedFields.length,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -151,7 +164,7 @@ class CreateForm extends Component {
     });
   };
 
-  addFields(counter1) {
+  addFields(counter1,counter2) {
     const list = [];
     if (this.state.fields.length < counter1) {
       this.state.fields.push({
@@ -159,14 +172,14 @@ class CreateForm extends Component {
         description: "",
         isRequired: false,
         isSelected: true,
+        isFixed: false,
       });
     }
-    for (let i = 0; i < counter1; i++) {
+    for (let i = counter2; i < counter1; i++) {
       let num = i + 1;
       list.push(
         <div className="widget">
           <label className="widgetLabel">Label:</label>
-          <br />
           <input
             className="widgetInput"
             id="label"
@@ -176,19 +189,6 @@ class CreateForm extends Component {
               this.handleChangeField(event, i);
             }}
           />
-          <br />
-          <label className="widgetLabel">Short Desc:</label>
-          <br />
-          <textarea
-            className="widgetArea"
-            id="description"
-            name="description"
-            value={this.state.fields[i].description}
-            onChange={(event) => {
-              this.handleChangeField(event, i);
-            }}
-          ></textarea>
-          <br />
           <label className="widgetLabel" style={{ marginBottom: "20px" }}>
             Required:
             {this.state.fields[i].isRequired ? (
@@ -214,7 +214,6 @@ class CreateForm extends Component {
               />
             )}
           </label>
-          <br />
           <label className="widgetLabel">
             Select:
             {this.state.fields[i].isSelected ? (
@@ -240,7 +239,6 @@ class CreateForm extends Component {
               />
             )}
           </label>
-          <br />
         </div>
       );
     }
@@ -310,8 +308,73 @@ class CreateForm extends Component {
             />
           </div>
           <br />
-
-          {this.addFields(this.state.counter1)}
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Label</th>
+                <th>Required</th>
+                <th>Select</th>
+              </tr>
+            </thead>
+            <tbody>
+            {this.state.fields.map((item,i)=>{
+              if(item.isFixed){
+                return(
+                  <tr>
+                    <td>{i+1}</td>
+                    <td>{item.label}</td>
+                    <td>{this.state.fields[i].isRequired ? (
+                <input
+                  className="widgetCheck"
+                  type="checkbox"
+                  id="isRequired"
+                  name="isRequired"
+                  onChange={(event) => {
+                    this.handleChangeBox(event, i);
+                  }}
+                  checked
+                />
+              ) : (
+                <input
+                  className="widgetCheck"
+                  type="checkbox"
+                  id="isRequired"
+                  name="isRequired"
+                  onChange={(event) => {
+                    this.handleChangeBox(event, i);
+                  }}
+                />
+              )}</td>
+                    <td>{this.state.fields[i].isSelected ? (
+                <input
+                  className="widgetCheck"
+                  type="checkbox"
+                  id="isSelected"
+                  name="isSelected"
+                  onChange={(event) => {
+                    this.handleChangeBox(event, i);
+                  }}
+                  checked
+                />
+              ) : (
+                <input
+                  className="widgetCheck"
+                  type="checkbox"
+                  id="isSelected"
+                  name="isSelected"
+                  onChange={(event) => {
+                    this.handleChangeBox(event, i);
+                  }}
+                />
+              )}</td>
+                  </tr>
+                )
+              }
+            })}
+            </tbody>
+          </Table>
+          {this.addFields(this.state.counter1,this.state.counter2)}
           <div
             className="clearfix"
             style={{ textAlign: "center", margin: "10px 0px" }}
