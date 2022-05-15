@@ -9,66 +9,77 @@ const fixedFields = [
     description: "Full Name",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Roll Number",
     description: "Roll Number",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Batch",
     description: "Batch",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Degree",
     description: "Degree",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Branch",
     description: "Branch",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "CGPA",
     description: "CGPA",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Email",
     description: "Email",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Contact Number",
     description: "Contact Number",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Date of Birth",
     description: "Date of Birth",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Gender",
     description: "Gender",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
   {
     label: "Resume",
     description: "Resume",
     isRequired: true,
     isSelected: true,
+    isFixed: true,
   },
 ];
 class CreateForm extends Component {
@@ -159,6 +170,7 @@ class CreateForm extends Component {
         description: "",
         isRequired: false,
         isSelected: true,
+        isFixed: false,
       });
     }
     for (let i = 0; i < counter1; i++) {

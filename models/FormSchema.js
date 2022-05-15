@@ -19,6 +19,11 @@ const FieldSchema = new mongoose.Schema({
     required: true,
     default: false
   },
+  isFixed: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
 });
 // const EligibilitySchema = new mongoose.Schema({
 //   program: {
