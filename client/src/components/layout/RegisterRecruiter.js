@@ -133,6 +133,9 @@ class Register extends Component {
                     invalid: errors.name,
                   })}
                   style={{"margin":"0px"}}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                 />
                 <span className="red-text">{errors.name}</span>
                 </div>
@@ -149,6 +152,9 @@ class Register extends Component {
                     invalid: errors.email,
                   })}
                   style={{"margin":"0px"}}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                 />
                 <span className="red-text">{errors.email}</span>
                 </div>
@@ -167,6 +173,9 @@ class Register extends Component {
                     invalid: errors.contactPerson,
                   })}
                   style={{"margin":"0px"}}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                 />
                 <span className="red-text">{errors.contactPerson}</span>
                   </div>
@@ -183,6 +192,9 @@ class Register extends Component {
                     invalid: errors.designation,
                   })}
                   style={{"margin":"0px"}}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                 />
                 <span className="red-text">{errors.designation}</span>
                   </div>
@@ -201,6 +213,9 @@ class Register extends Component {
                     invalid: errors.telephone,
                   })}
                   style={{"margin":"0px"}}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                 />
                 <span className="red-text">{errors.telephone}</span>
                   </div>
@@ -217,6 +232,9 @@ class Register extends Component {
                     invalid: errors.mobile,
                   })}
                   style={{"margin":"0px"}}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                 />
                 <span className="red-text">{errors.mobile}</span>
                   </div>
@@ -235,6 +253,9 @@ class Register extends Component {
                     invalid: errors.password,
                   })}
                   style={{"margin":"0px"}}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                 />
                 {errors.password !== undefined ? errors.password.map((item) => {
                   return (<><span className="red-text">{item}</span><br /></>)
@@ -253,6 +274,9 @@ class Register extends Component {
                     invalid: errors.password2,
                   })}
                   style={{"margin":"0px"}}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                 />
                 <span className="red-text">{errors.password2}</span>
                   </div>

@@ -71,7 +71,10 @@ class Login extends Component{
                            onChange={this.onChange}
                            className={classnames("form-control", {
                             invalid: errors.rollNo || errors.rollNonotfound
-                          })}/>
+                          })}
+                            onKeyPress={e => {
+                              if (e.key === 'Enter') e.preventDefault();
+                            }}/>
                           <span className="red-text">
                             {errors.rollNo}
                             {errors.rollNonotfound}
@@ -87,7 +90,9 @@ class Login extends Component{
                            onChange={this.onChange}
                            className={classnames("form-control", {
                             invalid: errors.password || errors.passwordincorrect })}
-                            />
+                            onKeyPress={e => {
+                              if (e.key === 'Enter') e.preventDefault();
+                            }}/>
                     <span className="red-text">
                         {errors.password}
                         {errors.passwordincorrect}

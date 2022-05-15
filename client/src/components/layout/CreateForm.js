@@ -188,6 +188,9 @@ class CreateForm extends Component {
             onChange={(event) => {
               this.handleChangeField(event, i);
             }}
+            onKeyPress={e => {
+              if (e.key === 'Enter') e.preventDefault();
+            }}
           />
           <label className="widgetLabel" style={{ marginBottom: "20px" }}>
             Required:
@@ -200,6 +203,9 @@ class CreateForm extends Component {
                 onChange={(event) => {
                   this.handleChangeBox(event, i);
                 }}
+                onKeyPress={e => {
+                  if (e.key === 'Enter') e.preventDefault();
+                }}
                 checked
               />
             ) : (
@@ -210,6 +216,9 @@ class CreateForm extends Component {
                 name="isRequired"
                 onChange={(event) => {
                   this.handleChangeBox(event, i);
+                }}
+                onKeyPress={e => {
+                  if (e.key === 'Enter') e.preventDefault();
                 }}
               />
             )}
@@ -225,6 +234,9 @@ class CreateForm extends Component {
                 onChange={(event) => {
                   this.handleChangeBox(event, i);
                 }}
+                onKeyPress={e => {
+                  if (e.key === 'Enter') e.preventDefault();
+                }}
                 checked
               />
             ) : (
@@ -235,6 +247,9 @@ class CreateForm extends Component {
                 name="isSelected"
                 onChange={(event) => {
                   this.handleChangeBox(event, i);
+                }}
+                onKeyPress={e => {
+                  if (e.key === 'Enter') e.preventDefault();
                 }}
               />
             )}
@@ -260,6 +275,9 @@ class CreateForm extends Component {
               name="title"
               onChange={this.handleChange}
               className="widgetInput"
+              onKeyPress={e => {
+                if (e.key === 'Enter') e.preventDefault();
+              }}
             />
           </div>
           <div className="widget">
@@ -275,6 +293,9 @@ class CreateForm extends Component {
               name="type"
               value="internship"
               onChange={this.handleChange}
+              onKeyPress={e => {
+                if (e.key === 'Enter') e.preventDefault();
+              }}
             />
             Placement
             <input
@@ -284,6 +305,9 @@ class CreateForm extends Component {
               name="type"
               value="placement"
               onChange={this.handleChange}
+              onKeyPress={e => {
+                if (e.key === 'Enter') e.preventDefault();
+              }}
             />
           </div>
           <div className="widget">
@@ -294,6 +318,9 @@ class CreateForm extends Component {
               name="JD"
               id="JD"
               onChange={this.handleChange}
+              onKeyPress={e => {
+                if (e.key === 'Enter') e.preventDefault();
+              }}
             />
           </div>
           <div className="widget">
@@ -305,6 +332,9 @@ class CreateForm extends Component {
               id="eligibility"
               placeholder="abhi isse ache se krna h boht"
               onChange={this.handleChange}
+              onKeyPress={e => {
+                if (e.key === 'Enter') e.preventDefault();
+              }}
             />
           </div>
           <br />
@@ -333,6 +363,9 @@ class CreateForm extends Component {
                   onChange={(event) => {
                     this.handleChangeBox(event, i);
                   }}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                   checked
                 />
               ) : (
@@ -343,6 +376,9 @@ class CreateForm extends Component {
                   name="isRequired"
                   onChange={(event) => {
                     this.handleChangeBox(event, i);
+                  }}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
                   }}
                 />
               )}</td>
@@ -355,6 +391,9 @@ class CreateForm extends Component {
                   onChange={(event) => {
                     this.handleChangeBox(event, i);
                   }}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
+                  }}
                   checked
                 />
               ) : (
@@ -365,6 +404,9 @@ class CreateForm extends Component {
                   name="isSelected"
                   onChange={(event) => {
                     this.handleChangeBox(event, i);
+                  }}
+                  onKeyPress={e => {
+                    if (e.key === 'Enter') e.preventDefault();
                   }}
                 />
               )}</td>
