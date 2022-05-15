@@ -28,6 +28,8 @@ class CoordinatorDashboard extends Component {
       resume2: "",
       resume3: "",
       isVerified: "",
+      resgisterSheet: "",
+      updateSheet: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -151,7 +153,7 @@ class CoordinatorDashboard extends Component {
     // output.json shd be updated here
     var data = [];
     await axios
-      .post("/api/students/fetchOutput", "hello")
+      .post("/api/students/fetchOutput", {resgisterSheet: this.state.resgisterSheet})
       .then((res) => {
         console.log(res);
         data = res.data;
@@ -179,6 +181,42 @@ class CoordinatorDashboard extends Component {
         });
     }
   };
+
+  updateStudentResume = async ()=>{
+    var updateData = [];
+    await axios
+      .post("/api/students/updateOutput", {updateSheet: this.state.updateSheet})
+      .then((res) => {
+        console.log(res);
+        updateData = res.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+      console.log(updateData);
+      for (var i = 0; i < updateData.length; i++) {
+        await axios
+          .post("/api/students/updateResume", updateData[i])
+          .then((res) => {
+            console.log("Response", res);
+            if (res.data.isError) {
+              alert(
+                "Roll Number Resume Updation Failed: " +
+                  res.data.rollNo +
+                  "\nError: " +
+                  res.data.error.errors.branch.message
+              );
+            }else{
+              alert("Resume of Students Updated!!!");
+              this.setState({updateSheet:""});
+            }
+          })
+          .catch((e) => {
+            console.log("Error", e);
+          });
+      }
+  }
+
   render() {
     const { user } = this.props.auth;
     if (this.state.DataisLoaded === true) {
@@ -230,6 +268,7 @@ class CoordinatorDashboard extends Component {
                 <div className="col-sm-12">
                   <div>
                     <h4>Register Students</h4>
+                    <input type="text" id="resgisterSheet" onChange={this.onchange}/>
                     <button
                       style={{
                         width: "120px",
@@ -242,6 +281,21 @@ class CoordinatorDashboard extends Component {
                       onClick={this.Dataloder}
                     >
                       Register
+                    </button>
+                    <h4>Update Student's Resume</h4>
+                    <input type="text" id="updateSheet" onChange={this.onchange}/>
+                    <button
+                      style={{
+                        width: "120px",
+                        height: "35px",
+                        borderRadius: "50px",
+                        color: "white",
+                        backgroundColor: "#2196F3",
+                        border: "none",
+                      }}
+                      onClick={this.updateStudentResume}
+                    >
+                      Update
                     </button>
                   </div>
                   <br />

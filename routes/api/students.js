@@ -64,7 +64,7 @@ const sendPwdMail = async (email, pwd) => {
   // console.log("Hello1");
   return "Hello";
 };
-const accessSpreadsheet = async () => {
+const accessSpreadsheet = async (link) => {
   console.log("Running test.js");
   const auth = new google.auth.GoogleAuth({
     keyFile: "fetching_data.json",
@@ -75,7 +75,7 @@ const accessSpreadsheet = async () => {
     version: "v4",
     auth: authClientObject,
   });
-  const spreadsheetId = "1vtDWu_XI6_I2xP-ms6k5AkDjc3Epq9Yq3nhAawQnxQM";
+  const spreadsheetId = link;
   try {
     const readData = await googleSheetsInstance.spreadsheets.values.get({
       auth,
@@ -107,8 +107,56 @@ const accessSpreadsheet = async () => {
   }
 };
 
+const updateSpreadsheet = async (link) => {
+  console.log("Running test.js");
+  const auth = new google.auth.GoogleAuth({
+    keyFile: "fetching_data.json",
+    scopes: "https://www.googleapis.com/auth/spreadsheets",
+  });
+  const authClientObject = await auth.getClient();
+  const googleSheetsInstance = google.sheets({
+    version: "v4",
+    auth: authClientObject,
+  });
+  const spreadsheetId = link;
+  try {
+    const readData = await googleSheetsInstance.spreadsheets.values.get({
+      auth,
+      spreadsheetId,
+      range: "Sheet1",
+    });
+    let arrays = readData.data.values;
+    const [keys, ...values] = arrays;
+    const objects = values.map((array) =>
+      array.reduce((a, v, i) => ({ ...a, [keys[i]]: v }), {})
+    );
+    // fs.writeFileSync(
+    //   "./client/src/output.json",
+    //   JSON.stringify(objects),
+    //   "utf-8"
+    // );
+    return objects;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 router.post("/fetchOutput", (req, res) => {
-  accessSpreadsheet()
+  const link = req.body.updateSheet;
+  console.log(link);
+  let index1 = -1;
+  let index2 = 0;
+  for(let i=2;i<link.length;i++){
+    if(link[i-2]=='/' && link[i-1]=='d' && link[i]=='/'){
+      index1 = i+1;
+    }else if(link[i]=='/' && i>index1 && index1!=-1){
+      index2 = i-1;
+      break;
+    }
+  }
+  let result = link.substr(index1, index2-index1+1);
+  console.log(result);
+  accessSpreadsheet(result)
     .then((a) => {
       // console.log(a);
       return res.json(a);
@@ -118,6 +166,29 @@ router.post("/fetchOutput", (req, res) => {
       return res.status(400);
     });
 });
+
+router.post("/updateOutput", (req,res)=>{
+  const link = req.body.updateSheet;
+  console.log(link);
+  let index1 = -1;
+  let index2 = 0;
+  for(let i=2;i<link.length;i++){
+    if(link[i-2]=='/' && link[i-1]=='d' && link[i]=='/'){
+      index1 = i+1;
+    }else if(link[i]=='/' && i>index1 && index1!=-1){
+      index2 = i-1;
+      break;
+    }
+  }
+  let result = link.substr(index1, index2-index1+1);
+  console.log(result);
+  updateSpreadsheet(result)
+  .then((a) => {
+    return res.json(a);
+  }).catch((err)=>{
+    return res.status(400);
+  })
+})
 // @route POST api/students/register
 // @desc Register user
 // @access Public
@@ -322,6 +393,36 @@ router.post("/saveResponse", (req, res) => {
     .save()
     .then((user) => res.json(user))
     .catch((err) => console.log(err));
+});
+
+router.post("/updateResume", async (req,res)=>{
+  console.log(req.body);
+  try{
+    const data = await Student.findOne({rollNo: req.body.rollNo}).lean();
+    let resume1 = data.resume1, resume2 = data.resume2, resume3 = data.resume3;
+    if(req.body.resume1){
+      if(req.body.resume1!=""){
+        resume1 = req.body.resume1;
+      }
+    }
+    if(req.body.resume2){
+      if(req.body.resume2!=""){
+        resume2 = req.body.resume2;
+      }
+    }
+    if(req.body.resume3){
+      if(req.body.resume3!=""){
+        resume3 = req.body.resume3;
+      }
+    }
+    const updatedData = await Student.updateMany({rollNo: req.body.rollNo},
+      {resume1: resume1, resume2:resume2, resume3:resume3},()=>{
+        console.log("Resume Links Updated!!!!");
+      });
+    res.send(updatedData);
+  }catch(err){
+    res.send(err);
+  }
 });
 
 module.exports = router;
