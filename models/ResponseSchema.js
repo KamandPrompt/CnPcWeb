@@ -16,6 +16,10 @@ const AnswerSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  isSelected: {
+    type: Boolean,
+    required: true,
+  },
   answer: {
     type: String,
     required: true,
@@ -34,9 +38,8 @@ const ResponseSchema = new mongoose.Schema({
   answers: [
     {
       type: AnswerSchema,
-    }
-  ]
+    },
+  ],
 });
-
 
 module.exports = mongoose.model("responses", ResponseSchema);

@@ -11,18 +11,22 @@ const FieldSchema = new mongoose.Schema({
     type: String,
     required: true,
     min: 1,
-    default: ""
-
+    default: "",
   },
   isRequired: {
     type: Boolean,
     required: true,
-    default: false
+    default: false,
   },
   isFixed: {
     type: Boolean,
     required: true,
-    default: false
+    default: false,
+  },
+  isSelected: {
+    type: Boolean,
+    required: true,
+    default: false,
   },
 });
 // const EligibilitySchema = new mongoose.Schema({
@@ -84,7 +88,7 @@ const FormSchema = new mongoose.Schema({
     type: String,
     enum: ["open", "close"],
     required: true,
-    default: "open"
+    default: "open",
   },
   fields: [
     {
@@ -94,7 +98,7 @@ const FormSchema = new mongoose.Schema({
   isVerified: {
     type: Boolean,
     required: true,
-    default: false
+    default: false,
   },
 });
 

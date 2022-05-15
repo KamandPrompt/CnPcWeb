@@ -122,7 +122,6 @@ router.post("/login", (req, res) => {
 router.post("/createForm", (req, res) => {
   console.log("Adding...");
   //Form validation
-
   const newForm = new Form({
     title: req.body.title,
     JD: req.body.JD,
@@ -157,7 +156,7 @@ router.post("/update", (req, res) => {
   res.send("Profile updated Successfully!");
 });
 
-router.post("/updatePassword", async (req,res) => {
+router.post("/updatePassword", async (req, res) => {
   // console.log(req.body);
   const email = req.body.email;
   const currentPassword = req.body.currentPassword;
@@ -166,41 +165,40 @@ router.post("/updatePassword", async (req,res) => {
     if (!user) {
       return res.status(404).json({ message: "Email not found" });
     }
-    await bcrypt.compare(currentPassword, user.password).then(async (isMatch) => {
-      if(isMatch)
-      {
-        // Hash password before storing in database
-        const hashPassword = async (password, rounds=10) => {
-          try {
+    await bcrypt
+      .compare(currentPassword, user.password)
+      .then(async (isMatch) => {
+        if (isMatch) {
+          // Hash password before storing in database
+          const hashPassword = async (password, rounds = 10) => {
+            try {
               // Generate a salt
               const salt = await bcrypt.genSalt(rounds);
               // Hash password
               return await bcrypt.hash(password, salt);
-          } catch (error) {
+            } catch (error) {
               console.log(error);
-          }
-      
-          // Return null if error
-          return null;
-        };
-        const hashedPassword = await hashPassword(newPassword);
-        if(hashedPassword === null)
-          return res.json({message : "Some error occured"});
-        user.password = hashedPassword;
-        await user
-          .save()
-          .then(console.log("Updated"))
-          .catch((err) => console.log(err));
-        console.log("Password Updated Successfully")
-        return res.json({message : "Password Updated Successfully"});
-      }
-      else
-      {
-        return res.json({
-          message : "Current Password is incorrect!"
-        })
-      }
-    });
+            }
+
+            // Return null if error
+            return null;
+          };
+          const hashedPassword = await hashPassword(newPassword);
+          if (hashedPassword === null)
+            return res.json({ message: "Some error occured" });
+          user.password = hashedPassword;
+          await user
+            .save()
+            .then(console.log("Updated"))
+            .catch((err) => console.log(err));
+          console.log("Password Updated Successfully");
+          return res.json({ message: "Password Updated Successfully" });
+        } else {
+          return res.json({
+            message: "Current Password is incorrect!",
+          });
+        }
+      });
   });
 });
 router.get("/:email", async (req, res) => {
