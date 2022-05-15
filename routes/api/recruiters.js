@@ -158,7 +158,7 @@ router.post("/update", (req, res) => {
 });
 
 router.post("/updatePassword", async (req,res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const email = req.body.email;
   const currentPassword = req.body.currentPassword;
   const newPassword = req.body.newPassword;
