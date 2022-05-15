@@ -41,6 +41,8 @@ import CoordinatorDashboard from "./components/layout/CoordinatorDashboard";
 import VolunteerDashboard from "./components/layout/VolunteerDashboard";
 import StudentDashboard from "./components/layout/StudentDashboard";
 import Noticeboard from "./components/layout/Noticeboard";
+import FillJNF from "./components/layout/FillJNF";
+import FillINF from "./components/layout/FillINF";
 import FormResponses from "./components/layout/FormResponses";
 import ManageRecruiters from "./components/layout/ManageRecruiters";
 import RecruiterAdminOutlet from "./components/private-route/RecruiterAdminOutlet";
@@ -134,6 +136,12 @@ class App extends Component {
             </Route>
             <Route exact path="/formresponses" element={<RecruiterOutlet />}>
               <Route path="" element={<FormResponses />} />
+            </Route>
+            <Route exact path="/fillINF" element={<RecruiterOutlet />}>
+              <Route path="" element={<FillINF />} />
+            </Route>
+            <Route exact path="/fillJNF" element={<RecruiterOutlet />}>
+              <Route path="" element={<FillJNF />} />
             </Route>
             <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
               <Route path="" element={<StudentDashboard />} />

@@ -19,9 +19,9 @@ class RecruiterDashboard extends Component {
       role: "",
       DataisLoaded: false,
       CID: this.props.auth.user.id,
-      currrentPassword : "",
-      newPassword : "",
-      confirmNewPassword : "",
+      currrentPassword: "",
+      newPassword: "",
+      confirmNewPassword: "",
     };
   }
 
@@ -92,38 +92,30 @@ class RecruiterDashboard extends Component {
   onSubmitPassword = (e) => {
     const data = {
       email: this.state.email,
-      currentPassword : this.state.currentPassword,
-      newPassword : this.state.newPassword
-    }
+      currentPassword: this.state.currentPassword,
+      newPassword: this.state.newPassword,
+    };
     const newPassword = this.state.newPassword;
-    if(this.state.currentPassword === "" || this.state.newPassword==="")
-    {
+    if (this.state.currentPassword === "" || this.state.newPassword === "") {
       alert("Empty Passwords not allowed!!");
-    }
-    else if(this.state.newPassword != this.state.confirmNewPassword)
-    {
+    } else if (this.state.newPassword != this.state.confirmNewPassword) {
       alert("New Passwords don't match");
-    }
-    else if (newPassword.length < 8) {
-      alert("Your password must be at least 8 characters."); 
-    }
-    else if (newPassword.search(/[a-z]/i) < 0) {
+    } else if (newPassword.length < 8) {
+      alert("Your password must be at least 8 characters.");
+    } else if (newPassword.search(/[a-z]/i) < 0) {
       alert("Your password must contain at least one letter.");
+    } else if (newPassword.search(/[0-9]/) < 0) {
+      alert("Your password must contain at least one digit.");
+    } else if (
+      newPassword.search(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) < 0
+    ) {
+      alert("Your password must contain at least one special character.");
+    } else {
+      axios.post("api/recruiters/updatePassword", data).then((res) => {
+        alert(res.data.message);
+      });
     }
-    else if (newPassword.search(/[0-9]/) < 0) {
-      alert("Your password must contain at least one digit."); 
-    }
-    else if (newPassword.search(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) < 0) {
-      alert("Your password must contain at least one special character."); 
-    }
-    else {
-      axios
-        .post("api/recruiters/updatePassword",data)
-        .then((res) => {
-          alert(res.data.message);
-        })
-    }
-  }
+  };
   render() {
     const { user } = this.props.auth;
 
@@ -142,7 +134,22 @@ class RecruiterDashboard extends Component {
       <>
         <Container fluid>
           <center>
-           
+            <Button
+              className="btn-fill"
+              style={{ width: "230px", margin: "40px" }}
+              href="/fillINF"
+              variant="info"
+            >
+              Fill INF Form
+            </Button>
+            <Button
+              className="btn-fill"
+              style={{ width: "230px", margin: "40px" }}
+              href="/fillJNF"
+              variant="info"
+            >
+              Fill JNF Form
+            </Button>
             <Button
               className="btn-fill"
               style={{ width: "230px", margin: "40px" }}
@@ -283,7 +290,9 @@ class RecruiterDashboard extends Component {
                       </Button>
                     </div>
                     <br></br>
-                    <h3 style={{ marginLeft : "20px 0px"}}>Want to change password?</h3>
+                    <h3 style={{ marginLeft: "20px 0px" }}>
+                      Want to change password?
+                    </h3>
                     <Row>
                       <Col>
                         <Form.Control
