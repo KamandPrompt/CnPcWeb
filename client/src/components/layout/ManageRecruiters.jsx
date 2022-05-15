@@ -34,8 +34,19 @@ class ManageRecruiters extends Component {
       await axios
         .get("/api/admins/all-recruiters")
         .then((res) => {
+          for(var i=0;i<res.data.length;i++)
+          {
+            if(res.data[i].isVerified === true)
+            {
+              res.data[i].isVerified = "Verified";
+            }
+            else
+            {
+              res.data[i].isVerified = "Not Verified";
+            }
+          }
           this.setState({ recruitersData: res.data, DataisLoaded: true });
-          // console.log(this.state.recruitersData);
+          console.log(this.state.recruitersData);
         })
         .catch((err) => {
           console.log(err);
@@ -127,9 +138,6 @@ class ManageRecruiters extends Component {
     if (this.state.DataisLoaded === true) {
       if (this.state.email === "") {
         const userRows = this.state.recruitersData;
-        for (const [i, obj] of userRows.entries()) {
-          obj.isVerified = obj.isVerified ? "Verified" : "Not Verified";
-        }
         const columns = [
           { field: "name", headerName: "Name", hideable: false, width: 100 },
           {
