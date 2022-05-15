@@ -19,6 +19,9 @@ class RecruiterDashboard extends Component {
       role: "",
       DataisLoaded: false,
       CID: this.props.auth.user.id,
+      currrentPassword : "",
+      newPassword : "",
+      confirmNewPassword : "",
     };
   }
 
@@ -86,7 +89,41 @@ class RecruiterDashboard extends Component {
     };
     this.updateUser(user);
   };
-
+  onSubmitPassword = (e) => {
+    const data = {
+      email: this.state.email,
+      currentPassword : this.state.currentPassword,
+      newPassword : this.state.newPassword
+    }
+    const newPassword = this.state.newPassword;
+    if(this.state.currentPassword === "" || this.state.newPassword==="")
+    {
+      alert("Empty Passwords not allowed!!");
+    }
+    else if(this.state.newPassword != this.state.confirmNewPassword)
+    {
+      alert("New Passwords don't match");
+    }
+    else if (newPassword.length < 8) {
+      alert("Your password must be at least 8 characters."); 
+    }
+    else if (newPassword.search(/[a-z]/i) < 0) {
+      alert("Your password must contain at least one letter.");
+    }
+    else if (newPassword.search(/[0-9]/) < 0) {
+      alert("Your password must contain at least one digit."); 
+    }
+    else if (newPassword.search(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/) < 0) {
+      alert("Your password must contain at least one special character."); 
+    }
+    else {
+      axios
+        .post("api/recruiters/updatePassword",data)
+        .then((res) => {
+          alert(res.data.message);
+        })
+    }
+  }
   render() {
     const { user } = this.props.auth;
 
@@ -238,13 +275,49 @@ class RecruiterDashboard extends Component {
                       <Button
                         className="btn-fill"
                         style={{ width: "200px" }}
-                        type="submit"
+                        // type="submit"
                         variant="info"
                         onClick={this.onsubmit}
                       >
                         Update Profile
                       </Button>
                     </div>
+                    <br></br>
+                    <h3 style={{ marginLeft : "20px 0px"}}>Want to change password?</h3>
+                    <Row>
+                      <Col>
+                        <Form.Control
+                          onChange={this.onchange}
+                          id="currentPassword"
+                          placeholder="Current Password"
+                          type="password"
+                        ></Form.Control>
+                      </Col>
+                      <Col>
+                        <Form.Control
+                          onChange={this.onchange}
+                          id="newPassword"
+                          placeholder="New Password"
+                          type="password"
+                        ></Form.Control>
+                      </Col>
+                      <Col>
+                        <Form.Control
+                          onChange={this.onchange}
+                          id="confirmNewPassword"
+                          placeholder="New Password"
+                          type="password"
+                        ></Form.Control>
+                      </Col>
+                    </Row>
+                    <Button
+                      className="btn-fill"
+                      style={{ width: "200px" }}
+                      variant="info"
+                      onClick={this.onSubmitPassword}
+                    >
+                      Update Password
+                    </Button>
                   </Form>
                 </Card.Body>
               </Card>
