@@ -122,7 +122,6 @@ class Noticeboard extends Component {
 
   render() {
     const { user } = this.props.auth;
-    console.log(user);
     if(this.state.DataisLoaded===true)
     {
       if (this.state.id === "") {
@@ -148,9 +147,6 @@ class Noticeboard extends Component {
               <form onSubmit={this.onSubmit}>
                 {this.state.answers.map((item, i) => {
                   const information = item.description;
-                  console.log(information);
-                  console.log(user[information])
-                  console.log(user)
                   return (
                     <>
                       <Row>
