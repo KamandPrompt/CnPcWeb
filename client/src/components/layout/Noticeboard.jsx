@@ -7,6 +7,7 @@ import axios from "axios";
 import "../achievement.css";
 import "../admin.css";
 import { Link } from "react-router-dom";
+import { log } from "util";
 
 // import { updateUser } from "../../actions/authActions";
 
@@ -65,6 +66,7 @@ class Noticeboard extends Component {
     const search = window.location.search;
     const params = new URLSearchParams(search);
     const id = params.get("id");
+    // console.log(this.state.props.auth.user);
     if (id === null) {
       await axios
         .get("/api/students/all-forms")
@@ -120,6 +122,7 @@ class Noticeboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    console.log(user);
     if(this.state.DataisLoaded===true)
     {
       if (this.state.id === "") {
@@ -144,11 +147,16 @@ class Noticeboard extends Component {
             <div style={{ width: "60%", margin: "auto" }}>
               <form onSubmit={this.onSubmit}>
                 {this.state.answers.map((item, i) => {
+                  const information = item.description;
+                  console.log(information);
+                  console.log(user[information])
+                  console.log(user)
                   return (
                     <>
                       <Row>
                         <Col className="pr-1 pr-2" md="5">
                           <Form.Group>
+                            <h1>{item.isFixed}</h1>
                             <label className="noticeForm">
                               {item.isRequired ? item.label + "*" : item.label}
                             </label>
@@ -161,6 +169,8 @@ class Noticeboard extends Component {
                               onChange={(event) => {
                                 this.handleChangeField(event, i);
                               }}
+                              defaultValue = {item.isFixed ? user[information] : ""}
+                              disabled = {item.isFixed}
                               style={{ width: "100%" }}
                             />
                           </Form.Group>
