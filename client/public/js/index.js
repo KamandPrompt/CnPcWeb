@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     $(".page-scroll").css("color","#000000");
-    if(window.location.pathname == '/contact' || window.location.pathname == '/achievement' ||window.location.pathname == '/Kamand'){
+    if(window.location.pathname == '/contact' || window.location.pathname == '/achievement' ||window.location.pathname == '/Kamand' || window.location.pathname=="/"){
         $(window).scroll(function () {
             if ($(document).scrollTop() > 0) {
                 $("#menu").addClass("nav-top");
