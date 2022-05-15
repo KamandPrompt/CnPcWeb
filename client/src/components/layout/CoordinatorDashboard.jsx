@@ -28,7 +28,7 @@ class CoordinatorDashboard extends Component {
       resume2: "",
       resume3: "",
       isVerified: "",
-      resgisterSheet: "",
+      registerSheet: "",
       updateSheet: "",
     };
     this.handleChange = this.handleChange.bind(this);
@@ -153,7 +153,7 @@ class CoordinatorDashboard extends Component {
     // output.json shd be updated here
     var data = [];
     await axios
-      .post("/api/students/fetchOutput", {resgisterSheet: this.state.resgisterSheet})
+      .post("/api/students/fetchOutput", {registerSheet: this.state.registerSheet})
       .then((res) => {
         console.log(res);
         data = res.data;
@@ -180,6 +180,8 @@ class CoordinatorDashboard extends Component {
           console.log("Error", e);
         });
     }
+    alert("Students Registered!!!");
+    this.setState({registerSheet:""});
   };
 
   updateStudentResume = async ()=>{
@@ -206,15 +208,14 @@ class CoordinatorDashboard extends Component {
                   "\nError: " +
                   res.data.error.errors.branch.message
               );
-            }else{
-              alert("Resume of Students Updated!!!");
-              this.setState({updateSheet:""});
             }
           })
           .catch((e) => {
             console.log("Error", e);
           });
       }
+      alert("Resume of Students Updated!!!");
+      this.setState({updateSheet:""});
   }
 
   render() {
@@ -268,7 +269,7 @@ class CoordinatorDashboard extends Component {
                 <div className="col-sm-12">
                   <div>
                     <h4>Register Students</h4>
-                    <input type="text" id="resgisterSheet" onChange={this.onchange}/>
+                    <input type="text" id="registerSheet" onChange={this.onchange} value={this.state.registerSheet}/>
                     <button
                       style={{
                         width: "120px",
@@ -283,7 +284,7 @@ class CoordinatorDashboard extends Component {
                       Register
                     </button>
                     <h4>Update Student's Resume</h4>
-                    <input type="text" id="updateSheet" onChange={this.onchange}/>
+                    <input type="text" id="updateSheet" onChange={this.onchange} value={this.state.updateSheet}/>
                     <button
                       style={{
                         width: "120px",
