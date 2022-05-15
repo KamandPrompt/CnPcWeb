@@ -42,14 +42,14 @@ class Noticeboard extends Component {
       if (form.isVerified && form.formStatus === "open") {
         list.push(
           <div className="slot">
-            <div id={"company"+(i+1).toString()} className="companyBtn">
-              <h2 style={{"fontSize":"17px","fontWeight":"lighter"}}>{form.title}</h2>
-              <div id={"cp" + (i+1).toString()} className="companyCont">
-                <p style={{"fontSize":"16px"}}>JOB DESC:</p>
+            <div id={"company" + (i + 1).toString()} className="companyBtn">
+              <h2 style={{ "fontSize": "17px", "fontWeight": "lighter" }}>{form.title}</h2>
+              <div id={"cp" + (i + 1).toString()} className="companyCont">
+                <p style={{ "fontSize": "16px" }}>JOB DESC:</p>
                 <p>{form.JD}</p>
                 <Link to={"?id=" + form._id} target="_blank">
                   <center>
-                    <button style={{"margin":"auto","width":"70px","height":"30px","backgroundColor":"#2196F3","color":"white","borderRadius":"10%","border":"1px solid white"}}>Apply</button>
+                    <button style={{ "margin": "auto", "width": "70px", "height": "30px", "backgroundColor": "#2196F3", "color": "white", "borderRadius": "10%", "border": "1px solid white" }}>Apply</button>
                   </center>
                 </Link>
               </div>
@@ -103,9 +103,22 @@ class Noticeboard extends Component {
     newFields[i] = { ...newFields[i], [event.target.id]: event.target.value };
     this.setState({ answers: newFields });
   }
+  addPreFilledAnswers() {
+    const { user } = this.props.auth;
+    const newFields = this.state.answers;
+    // newFields[i] = { ...newFields[i], [event.target.id]: event.target.value };
+    for (var i = 0; i < newFields.length; i = i + 1) {
+      if(newFields[i].isFixed === true && newFields[i].description != "resume")
+      {
+        newFields[i] = { ...newFields[i], answer: user[newFields[i].description] }
+      }
+    }
+    this.setState({ answers: newFields });
+  }
 
   onSubmit(e) {
     e.preventDefault();
+    this.addPreFilledAnswers();
     const newResponse = {
       SID: this.state.SID,
       FID: this.state.id,
@@ -122,8 +135,7 @@ class Noticeboard extends Component {
 
   render() {
     const { user } = this.props.auth;
-    if(this.state.DataisLoaded===true)
-    {
+    if (this.state.DataisLoaded === true) {
       if (this.state.id === "") {
         return (
           <>
@@ -138,45 +150,85 @@ class Noticeboard extends Component {
       } else {
         return (
           <>
-            <h2 style={{"textAlign":"center"}}>{this.state.title}</h2>
-            <div style={{"width":"60%","margin":"auto","border":"1px solid grey","padding":"20px","marginBottom":"50px"}}>
-              <p style={{"fontSize":"16px"}}>JOB DESC:</p>
+            <h2 style={{ "textAlign": "center" }}>{this.state.title}</h2>
+            <div style={{ "width": "60%", "margin": "auto", "border": "1px solid grey", "padding": "20px", "marginBottom": "50px" }}>
+              <p style={{ "fontSize": "16px" }}>JOB DESC:</p>
               <p>{this.state.JD}</p>
             </div>
             <div style={{ width: "60%", margin: "auto" }}>
               <form onSubmit={this.onSubmit}>
                 {this.state.answers.map((item, i) => {
                   const information = item.description;
-                  return (
-                    <>
-                      <Row>
-                        <Col className="pr-1 pr-2" md="5">
-                          <Form.Group>
-                            <h1>{item.isFixed}</h1>
-                            <label className="noticeForm">
-                              {item.isRequired ? item.label + "*" : item.label}
-                            </label>
-                            <Form.Control
-                              type="text"
-                              id="answer"
-                              placeholder={item.description}
-                              required={item.isRequired}
-                              name={item.label}
-                              onChange={(event) => {
-                                this.handleChangeField(event, i);
-                              }}
-                              defaultValue = {item.isFixed ? user[information] : ""}
-                              disabled = {item.isFixed}
-                              style={{ width: "100%" }}
-                            />
-                          </Form.Group>
-                        </Col>
-                      </Row>
-                      {/* </label> */}
-                      {/* <p>{item.description}</p> */}
-                      <br />
-                    </>
-                  );
+                  if (information === "resume") {
+                    return (
+                      <>
+                        <Row>
+                          <Col className="pr-1 pr-2" md="5">
+                            <Form.Group>
+                              <h1>{item.isFixed}</h1>
+                              <label className="noticeForm">
+                                {item.isRequired ? item.label + "*" : item.label}
+                              </label>
+                              <br></br>
+                              <input type="radio" name="resume" id="answer" value={user.resume1}
+                                onChange={(event) => {
+                                  this.handleChangeField(event, i);
+                                }}
+                              />
+                              <a href={user.resume1}>Resume 1</a>
+                              <br></br>
+                              <input type="radio" name="resume" id="answer" value={user.resume2}
+                                onChange={(event) => {
+                                  this.handleChangeField(event, i);
+                                }}
+                              />
+                              <a href={user.resume2}>Resume 2</a>
+                              <br></br>
+                              <input type="radio" name="resume" id="answer" value={user.resume3}
+                                onChange={(event) => {
+                                  this.handleChangeField(event, i);
+                                }}
+                              />
+                              <a href={user.resume3}>Resume 3</a>
+                              <br></br>
+                            </Form.Group>
+                          </Col>
+                        </Row>
+                      </>
+                    );
+                  }
+                  else {
+                    return (
+                      <>
+                        <Row>
+                          <Col className="pr-1 pr-2" md="5">
+                            <Form.Group>
+                              <h1>{item.isFixed}</h1>
+                              <label className="noticeForm">
+                                {item.isRequired ? item.label + "*" : item.label}
+                              </label>
+                              <Form.Control
+                                type="text"
+                                id="answer"
+                                placeholder={item.description}
+                                required={item.isRequired}
+                                name={item.label}
+                                onChange={(event) => {
+                                  this.handleChangeField(event, i);
+                                }}
+                                defaultValue={item.isFixed ? user[information] : ""}
+                                disabled={item.isFixed}
+                                style={{ width: "100%" }}
+                              />
+                            </Form.Group>
+                          </Col>
+                        </Row>
+                        {/* </label> */}
+                        {/* <p>{item.description}</p> */}
+                        <br />
+                      </>
+                    );
+                  }
                 })}
                 <center>
                   <button
@@ -201,8 +253,7 @@ class Noticeboard extends Component {
         );
       }
     }
-    else
-    {
+    else {
       return (
         <>
           <div class="loaderContainer">

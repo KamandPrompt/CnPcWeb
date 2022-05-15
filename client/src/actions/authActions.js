@@ -59,6 +59,7 @@ export const createFormRecruiter = (formData, history) => (dispatch) => {
     );
 };
 export const saveResponseStudent = (formData, history) => (dispatch) => {
+  console.log(formData);
   axios
     .post("/api/students/saveResponse", formData)
     .then((res) => alert("Response submitted successfully"))
