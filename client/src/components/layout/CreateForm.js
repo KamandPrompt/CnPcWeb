@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser, createFormRecruiter } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
-import Table from 'react-bootstrap/Table'
+import Table from "react-bootstrap/Table";
 const fixedFields = [
   {
     label: "Name",
@@ -83,6 +83,35 @@ const fixedFields = [
     isFixed: true,
   },
 ];
+const programs = [
+  {
+    name: "BTECH",
+    branches: [
+      "Computer Science and Engineering",
+      "Data Science and Engineering",
+      "Electrical Engineering",
+      "Mechanical Engineering",
+      "Civil Engineering",
+      "Engineering Physics",
+      "Bio-Engineering (B.Tech.-M.Tech. Integrated Dual Degree)",
+    ],
+    branchIDs: ["CSE", "DSE", "EE", "ME", "CE", "EP", "BIOE"],
+  },
+  {
+    name: "MTECH",
+    branches: [
+      "Energy Engineering with specialization in Materials (EEM)",
+      "Mechanical Engineering with specialization in Energy systems (MES)",
+      "EE (VLSI)",
+      "Biotech",
+      "Power Electronics and Drives",
+      "Communications and Signal Processing",
+      "Structural Engineering",
+    ],
+    branchIDs: ["EEM", "MES", "VLSI", "BIOT", "PED", "CSP", "SE"],
+  },
+];
+
 class CreateForm extends Component {
   constructor(props) {
     super(props);
@@ -91,9 +120,11 @@ class CreateForm extends Component {
       type: "",
       JD: "",
       isVerified: false,
+      eligibility: [],
       fields: fixedFields,
       counter1: fixedFields.length,
       counter2: fixedFields.length,
+      isChecked: Array(programs.length).fill(false),
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -108,6 +139,14 @@ class CreateForm extends Component {
 
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
+  }
+
+  handleChangeChecked(event, position) {
+    const updatedCheckedState = this.state.isChecked.map((item, index) =>
+      index === position ? !item : item
+    );
+    this.setState({ isChecked: updatedCheckedState });
+    // console.log(this.state.isChecked);
   }
   handleChangeField(event, i) {
     // console.log(event.target.checked);
@@ -149,6 +188,7 @@ class CreateForm extends Component {
       JD: this.state.JD,
       type: this.state.type,
       isVerified: this.state.isVerified,
+      eligibility: this.state.eligibility,
       fields: fields,
       CID: this.props.auth.user.id,
     };
@@ -159,12 +199,13 @@ class CreateForm extends Component {
       type: "",
       isVerified: false,
       JD: "",
+      eligibility: [],
       fields: fixedFields,
       counter1: fixedFields.length,
     });
   };
 
-  addFields(counter1,counter2) {
+  addFields(counter1, counter2) {
     const list = [];
     if (this.state.fields.length < counter1) {
       this.state.fields.push({
@@ -188,8 +229,8 @@ class CreateForm extends Component {
             onChange={(event) => {
               this.handleChangeField(event, i);
             }}
-            onKeyPress={e => {
-              if (e.key === 'Enter') e.preventDefault();
+            onKeyPress={(e) => {
+              if (e.key === "Enter") e.preventDefault();
             }}
           />
           <label className="widgetLabel" style={{ marginBottom: "20px" }}>
@@ -203,8 +244,8 @@ class CreateForm extends Component {
                 onChange={(event) => {
                   this.handleChangeBox(event, i);
                 }}
-                onKeyPress={e => {
-                  if (e.key === 'Enter') e.preventDefault();
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") e.preventDefault();
                 }}
                 checked
               />
@@ -217,8 +258,8 @@ class CreateForm extends Component {
                 onChange={(event) => {
                   this.handleChangeBox(event, i);
                 }}
-                onKeyPress={e => {
-                  if (e.key === 'Enter') e.preventDefault();
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") e.preventDefault();
                 }}
               />
             )}
@@ -234,8 +275,8 @@ class CreateForm extends Component {
                 onChange={(event) => {
                   this.handleChangeBox(event, i);
                 }}
-                onKeyPress={e => {
-                  if (e.key === 'Enter') e.preventDefault();
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") e.preventDefault();
                 }}
                 checked
               />
@@ -248,8 +289,8 @@ class CreateForm extends Component {
                 onChange={(event) => {
                   this.handleChangeBox(event, i);
                 }}
-                onKeyPress={e => {
-                  if (e.key === 'Enter') e.preventDefault();
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") e.preventDefault();
                 }}
               />
             )}
@@ -275,8 +316,8 @@ class CreateForm extends Component {
               name="title"
               onChange={this.handleChange}
               className="widgetInput"
-              onKeyPress={e => {
-                if (e.key === 'Enter') e.preventDefault();
+              onKeyPress={(e) => {
+                if (e.key === "Enter") e.preventDefault();
               }}
             />
           </div>
@@ -293,8 +334,8 @@ class CreateForm extends Component {
               name="type"
               value="internship"
               onChange={this.handleChange}
-              onKeyPress={e => {
-                if (e.key === 'Enter') e.preventDefault();
+              onKeyPress={(e) => {
+                if (e.key === "Enter") e.preventDefault();
               }}
             />
             Placement
@@ -305,8 +346,8 @@ class CreateForm extends Component {
               name="type"
               value="placement"
               onChange={this.handleChange}
-              onKeyPress={e => {
-                if (e.key === 'Enter') e.preventDefault();
+              onKeyPress={(e) => {
+                if (e.key === "Enter") e.preventDefault();
               }}
             />
           </div>
@@ -318,24 +359,71 @@ class CreateForm extends Component {
               name="JD"
               id="JD"
               onChange={this.handleChange}
-              onKeyPress={e => {
-                if (e.key === 'Enter') e.preventDefault();
+              onKeyPress={(e) => {
+                if (e.key === "Enter") e.preventDefault();
               }}
             />
           </div>
           <div className="widget">
             <label className="widgetLabel">Eligibility :</label>
             <br />
-            <textarea
-              className="widgetArea"
-              name="eligibility"
+            {programs.map((item, i) => {
+              return (
+                <>
+                  {item.name}
+                  <input
+                    className="widgetCheckbox"
+                    type="checkbox"
+                    id="eligibility"
+                    name="eligibility"
+                    value={item.name}
+                    checked={this.state.isChecked[i]}
+                    onChange={(event) => {
+                      this.handleChangeChecked(event, i);
+                    }}
+                    onKeyPress={(e) => {
+                      if (e.key === "Enter") e.preventDefault();
+                    }}
+                  />
+
+                  {this.state.isChecked[i]
+                    ? item.branches.map((branch, j) => {
+                        return (
+                          <>
+                            {branch}
+                            <input
+                              className="widgetCheckbox"
+                              type="checkbox"
+                              id="eligibility"
+                              name="eligibility"
+                              value={branch}
+                              // checked={this.state.isChecked[i]}
+                              // onChange={(event) => {
+                              //   this.handleChangeChecked(event, i);
+                              // }}
+                              onKeyPress={(e) => {
+                                if (e.key === "Enter") e.preventDefault();
+                              }}
+                            />
+                          </>
+                        );
+                      })
+                    : null}
+                </>
+              );
+            })}
+            {/* BTECH
+            <input
+              className="widgetCheckbox"
+              type="checkbox"
               id="eligibility"
-              placeholder="abhi isse ache se krna h boht"
+              name="eligibility"
+              value="BTECH"
               onChange={this.handleChange}
-              onKeyPress={e => {
-                if (e.key === 'Enter') e.preventDefault();
+              onKeyPress={(e) => {
+                if (e.key === "Enter") e.preventDefault();
               }}
-            />
+            /> */}
           </div>
           <br />
           <Table striped bordered hover>
@@ -348,75 +436,79 @@ class CreateForm extends Component {
               </tr>
             </thead>
             <tbody>
-            {this.state.fields.map((item,i)=>{
-              if(item.isFixed){
-                return(
-                  <tr>
-                    <td>{i+1}</td>
-                    <td>{item.label}</td>
-                    <td>{this.state.fields[i].isRequired ? (
-                <input
-                  className="widgetCheck"
-                  type="checkbox"
-                  id="isRequired"
-                  name="isRequired"
-                  onChange={(event) => {
-                    this.handleChangeBox(event, i);
-                  }}
-                  onKeyPress={e => {
-                    if (e.key === 'Enter') e.preventDefault();
-                  }}
-                  checked
-                />
-              ) : (
-                <input
-                  className="widgetCheck"
-                  type="checkbox"
-                  id="isRequired"
-                  name="isRequired"
-                  onChange={(event) => {
-                    this.handleChangeBox(event, i);
-                  }}
-                  onKeyPress={e => {
-                    if (e.key === 'Enter') e.preventDefault();
-                  }}
-                />
-              )}</td>
-                    <td>{this.state.fields[i].isSelected ? (
-                <input
-                  className="widgetCheck"
-                  type="checkbox"
-                  id="isSelected"
-                  name="isSelected"
-                  onChange={(event) => {
-                    this.handleChangeBox(event, i);
-                  }}
-                  onKeyPress={e => {
-                    if (e.key === 'Enter') e.preventDefault();
-                  }}
-                  checked
-                />
-              ) : (
-                <input
-                  className="widgetCheck"
-                  type="checkbox"
-                  id="isSelected"
-                  name="isSelected"
-                  onChange={(event) => {
-                    this.handleChangeBox(event, i);
-                  }}
-                  onKeyPress={e => {
-                    if (e.key === 'Enter') e.preventDefault();
-                  }}
-                />
-              )}</td>
-                  </tr>
-                )
-              }
-            })}
+              {this.state.fields.map((item, i) => {
+                if (item.isFixed) {
+                  return (
+                    <tr>
+                      <td>{i + 1}</td>
+                      <td>{item.label}</td>
+                      <td>
+                        {this.state.fields[i].isRequired ? (
+                          <input
+                            className="widgetCheck"
+                            type="checkbox"
+                            id="isRequired"
+                            name="isRequired"
+                            onChange={(event) => {
+                              this.handleChangeBox(event, i);
+                            }}
+                            onKeyPress={(e) => {
+                              if (e.key === "Enter") e.preventDefault();
+                            }}
+                            checked
+                          />
+                        ) : (
+                          <input
+                            className="widgetCheck"
+                            type="checkbox"
+                            id="isRequired"
+                            name="isRequired"
+                            onChange={(event) => {
+                              this.handleChangeBox(event, i);
+                            }}
+                            onKeyPress={(e) => {
+                              if (e.key === "Enter") e.preventDefault();
+                            }}
+                          />
+                        )}
+                      </td>
+                      <td>
+                        {this.state.fields[i].isSelected ? (
+                          <input
+                            className="widgetCheck"
+                            type="checkbox"
+                            id="isSelected"
+                            name="isSelected"
+                            onChange={(event) => {
+                              this.handleChangeBox(event, i);
+                            }}
+                            onKeyPress={(e) => {
+                              if (e.key === "Enter") e.preventDefault();
+                            }}
+                            checked
+                          />
+                        ) : (
+                          <input
+                            className="widgetCheck"
+                            type="checkbox"
+                            id="isSelected"
+                            name="isSelected"
+                            onChange={(event) => {
+                              this.handleChangeBox(event, i);
+                            }}
+                            onKeyPress={(e) => {
+                              if (e.key === "Enter") e.preventDefault();
+                            }}
+                          />
+                        )}
+                      </td>
+                    </tr>
+                  );
+                }
+              })}
             </tbody>
           </Table>
-          {this.addFields(this.state.counter1,this.state.counter2)}
+          {this.addFields(this.state.counter1, this.state.counter2)}
           <div
             className="clearfix"
             style={{ textAlign: "center", margin: "10px 0px" }}

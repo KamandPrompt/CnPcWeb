@@ -29,42 +29,46 @@ const FieldSchema = new mongoose.Schema({
     default: false,
   },
 });
-// const EligibilitySchema = new mongoose.Schema({
-//   program: {
-//     type: String,
-//     enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
-//     required: true,
-//   },
-//   batch: {
-//     type: String,
-//     required: true,
-//   },
-//   branch: {
-//     type: String,
-//     enum: [
-//       "CSE",
-//       "EP",
-//       "DSE",
-//       "ME",
-//       "CE",
-//       "EE",
-//       "BIOE",
-//       "CSP",
-//       "MES",
-//       "EEM",
-//       "STE",
-//       "VLSI",
-//       "PED",
-//       "BIOT",
-//       "DS",
-//       "PY",
-//       "CM",
-//       "",
-//       "AM",
-//     ],
-//     required: true,
-//   },
-// });
+const EligibilitySchema = new mongoose.Schema({
+  program: {
+    type: String,
+    enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
+    required: true,
+  },
+  batch: {
+    type: String,
+    required: true,
+  },
+  branch: {
+    type: String,
+    enum: [
+      "CSE",
+      "EP",
+      "DSE",
+      "ME",
+      "CE",
+      "EE",
+      "BIOE",
+      "CSP",
+      "MES",
+      "EEM",
+      "STE",
+      "VLSI",
+      "PED",
+      "BIOT",
+      "DS",
+      "PY",
+      "CM",
+      "",
+      "AM",
+      "SE",
+      "SCEE",
+      "SBS",
+      "SHS",
+    ],
+    required: true,
+  },
+});
 const FormSchema = new mongoose.Schema({
   CID: { type: mongoose.Schema.Types.ObjectId, ref: "Recruiter" },
   title: {
