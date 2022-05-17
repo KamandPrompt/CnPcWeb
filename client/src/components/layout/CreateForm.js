@@ -110,6 +110,40 @@ const programs = [
     ],
     branchIDs: ["EEM", "MES", "VLSI", "BIOT", "PED", "CSP", "SE"],
   },
+  {
+    name: "MSC",
+    branches: [
+      "Chemistry",
+      "Applied Mathematics",
+      "Physics",
+    ],
+    branchIDs: ["CM", "AM", "PY"],
+  },
+  {
+    name: "MA",
+    branches: [
+      "Development Studies",
+    ],
+    branchIDs: ["DS"],
+  },
+  {
+    name: "MS",
+    branches: [
+      "School of Engineering",
+      "School of Computing & Electrical   Engineering",
+    ],
+    branchIDs: ["SE","SCEE"],
+  },
+  {
+    name: "PHD",
+    branches: [
+      "School of Engineering",
+      "School of Computing & Electrical Engineering",
+      "School of Basic Sciences",
+      "School of Humanities and Social Sciences",
+    ],
+    branchIDs: ["SE","SCEE","SBS","SHS"],
+  },
 ];
 
 class CreateForm extends Component {
@@ -125,13 +159,26 @@ class CreateForm extends Component {
       counter1: fixedFields.length,
       counter2: fixedFields.length,
       isChecked: Array(programs.length).fill(false),
+      batch: Array(programs.length).fill(null),
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.showData = this.showData.bind(this);
+    this.handleChangeCheckedBranch = this.handleChangeCheckedBranch.bind(this);
+    this.handleChangeCheckedBatch = this.handleChangeCheckedBatch.bind(this);
+    this.handleChangeChecked = this.handleChangeChecked.bind(this);
     // this.changeCountry = this.changeCountry.bind(this);
     // this.changeState = this.changeState.bind(this);
   }
+  componentDidMount(){
+    let arr = [];
+    programs.map((item,i)=>{
+      arr.push(Array(item.branches.length).fill(false));
+    });
+    this.setState({eligibility:arr});
+  }
+
   onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
@@ -148,6 +195,23 @@ class CreateForm extends Component {
     this.setState({ isChecked: updatedCheckedState });
     // console.log(this.state.isChecked);
   }
+
+  handleChangeCheckedBranch(event,i,j){
+    let arr = this.state.eligibility;
+    arr[i][j] = !arr[i][j];
+    this.setState({eligibility:arr});
+  }
+
+  handleChangeCheckedBatch(event,i){
+    let arr = this.state.batch;
+    if(event.target.value==''){
+      arr[i] = null;
+    }else{
+      arr[i] = event.target.value;
+    }
+    this.setState({batch:arr});
+  }
+
   handleChangeField(event, i) {
     // console.log(event.target.checked);
     const newFields = this.state.fields;
@@ -301,9 +365,31 @@ class CreateForm extends Component {
     return <div>{list}</div>;
   }
 
+  showData(){
+    let arr = [];
+    let len1 = programs.length;
+    for(let i=0;i<len1;i++){
+      if((this.state.isChecked)[i]){
+        let arr2 = (this.state.eligibility)[i];
+        let arr3 = [];
+        for(let j=0;j<arr2.length;j++){
+          if(arr2[j]){
+            arr3.push(programs[i].branchIDs[j]);
+          }
+        }
+        let newData = {
+          program: programs[i].name,
+          branch: arr3,
+          batch: this.state.batch[i]
+        }
+        arr.push(newData);
+      }
+    }
+    console.log(arr);
+  }
+
   render() {
     const { user } = this.props.auth;
-
     return (
       <>
         <form className="recruiterForm" onSubmit={this.onSubmit}>
@@ -367,16 +453,16 @@ class CreateForm extends Component {
           <div className="widget">
             <label className="widgetLabel">Eligibility :</label>
             <br />
-            {programs.map((item, i) => {
+            {programs.map((program, i) => {
               return (
                 <>
-                  {item.name}
+                  {program.name}
                   <input
                     className="widgetCheckbox"
                     type="checkbox"
                     id="eligibility"
                     name="eligibility"
-                    value={item.name}
+                    value={program.name}
                     checked={this.state.isChecked[i]}
                     onChange={(event) => {
                       this.handleChangeChecked(event, i);
@@ -385,9 +471,11 @@ class CreateForm extends Component {
                       if (e.key === "Enter") e.preventDefault();
                     }}
                   />
+                  <br/>
 
                   {this.state.isChecked[i]
-                    ? item.branches.map((branch, j) => {
+                    ? <>
+                      {program.branches.map((branch, j) => {
                         return (
                           <>
                             {branch}
@@ -397,21 +485,31 @@ class CreateForm extends Component {
                               id="eligibility"
                               name="eligibility"
                               value={branch}
-                              // checked={this.state.isChecked[i]}
-                              // onChange={(event) => {
-                              //   this.handleChangeChecked(event, i);
-                              // }}
+                              onChange={(event) => {
+                                this.handleChangeCheckedBranch(event, i,j);
+                              }}
                               onKeyPress={(e) => {
                                 if (e.key === "Enter") e.preventDefault();
                               }}
                             />
+                            <br/>
                           </>
                         );
-                      })
-                    : null}
+                      })}
+                      <input type="text" id="batch" name="batch" onChange={(event) => {
+                                this.handleChangeCheckedBatch(event, i);
+                              }}
+                        className="widgetInput"
+                        onKeyPress={(e) => {
+                          if (e.key === "Enter") e.preventDefault();
+                        }}/>
+                    </>
+                    
+                      : null}
                 </>
               );
             })}
+            <button onClick={this.showData}>Click</button>
             {/* BTECH
             <input
               className="widgetCheckbox"
