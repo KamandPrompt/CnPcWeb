@@ -309,7 +309,7 @@ export const Achievement = () => {
                   </ul>
                 </li>
                 <li>
-                  <strong>Students Achievements - </strong>
+                  <strong>Student's Achievements - </strong>
                   <ul>
                     <li>
                       Rashpreet Singh, B. Tech. (Electrical Engineering), batch
@@ -353,7 +353,7 @@ export const Achievement = () => {
                   </ul>
                 </li>
                 <li>
-                  <strong>Students Achievements - </strong>
+                  <strong>Student's Achievements - </strong>
                   <ul>
                     <li>
                       Mr. Anil Jhajharia have secured 431st Rank in the final
@@ -466,7 +466,7 @@ export const Achievement = () => {
                   </ul>
                 </li>
                 <li>
-                  <strong>Students Achievements - </strong>
+                  <strong>Student's Achievements - </strong>
                   <ul>
                     <li>
                       Mr. Dushyant Singh, an IIT Mandi Alumni of class 2015
@@ -593,7 +593,7 @@ export const Achievement = () => {
                   </ul>
                 </li>
                 <li>
-                  <strong>Students Achievements - </strong>
+                  <strong>Student's Achievements - </strong>
                   <ul>
                     <li>
                       Pradeep Seervi, a 4th year B.Tech. (Electrical
@@ -632,7 +632,7 @@ export const Achievement = () => {
             <div id="yr7" className="yearCont">
               <ul>
                 <li>
-                  <strong>Students achievements - </strong>
+                  <strong>Student's Achievements - </strong>
                   <ul>
                     <li>
                       Aditya Chauhan received the Young Scientist Award
@@ -664,7 +664,7 @@ export const Achievement = () => {
             <div id="yr8" className="yearCont">
               <ul>
                 <li>
-                  <strong>Students achievements - </strong>
+                  <strong>Student's Achievements - </strong>
                   <ul>
                     <li>
                       The Project-Junior is the name given to a new form of
