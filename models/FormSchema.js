@@ -40,7 +40,7 @@ const EligibilitySchema = new mongoose.Schema({
     required: true,
   },
   branch: {
-    type: String,
+    type: [String],
     enum: [
       "CSE",
       "EP",
@@ -66,7 +66,7 @@ const EligibilitySchema = new mongoose.Schema({
       "SBS",
       "SHS",
     ],
-    required: true,
+    // required: true,
   },
 });
 const FormSchema = new mongoose.Schema({
@@ -97,6 +97,11 @@ const FormSchema = new mongoose.Schema({
   fields: [
     {
       type: FieldSchema,
+    },
+  ],
+  eligibility: [
+    {
+      type: EligibilitySchema,
     },
   ],
   isVerified: {
