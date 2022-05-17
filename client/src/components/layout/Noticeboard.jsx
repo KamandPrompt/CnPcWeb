@@ -175,21 +175,21 @@ class Noticeboard extends Component {
                                   this.handleChangeField(event, i);
                                 }}
                               />
-                              <a href={user.resume1}>Resume 1</a>
+                              <a target="_blank" href={user.resume1}>Resume 1</a>
                               <br></br>
                               <input type="radio" name="resume" id="answer" value={user.resume2}
                                 onChange={(event) => {
                                   this.handleChangeField(event, i);
                                 }}
                               />
-                              <a href={user.resume2}>Resume 2</a>
+                              <a target="_blank" href={user.resume2}>Resume 2</a>
                               <br></br>
                               <input type="radio" name="resume" id="answer" value={user.resume3}
                                 onChange={(event) => {
                                   this.handleChangeField(event, i);
                                 }}
                               />
-                              <a href={user.resume3}>Resume 3</a>
+                              <a target="_blank" href={user.resume3}>Resume 3</a>
                               <br></br>
                             </Form.Group>
                           </Col>
