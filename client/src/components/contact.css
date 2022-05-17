@@ -200,7 +200,7 @@
     text-align: center;
 }
 
-/* .banner {
+.banner {
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/team_cnp.jpeg);
@@ -217,7 +217,7 @@
     align-items: center;
     height: 100vh;
     color: #fff;
-} */
+}
 
 .contain {
     width: 1200px;

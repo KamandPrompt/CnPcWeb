@@ -51,7 +51,7 @@ export const Home = (props) => {
   return (
     <>
       <div className="cont">
-        <div className="banner">
+        <div className="bannerhome">
             <div className="message container">
               <h2 className="cnp_heading">Career and placement cell IIT Mandi</h2>
               <p className="home_msg">Welcome to the Career and Placement Cell of IIT Mandi. The Career and Placement Cell(CnPC)of the Institute centrally handles all aspects of campus placements and internships.We Welcome the recruiters for the Recruitment drive.</p>
