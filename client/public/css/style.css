@@ -92,6 +92,10 @@ ol {
   transition: all 0.8s;
 }
 
+label{
+  padding: 10px;
+}
+
 .nav-top{
   background-image: linear-gradient(#031B31, #031B31,#031B31);
 }
@@ -285,7 +289,7 @@ a:focus,
   display: flex;
 } */
 
-.banner {
+.bannerhome {
     width: 100%;
     height: 60vh;
     background-image: url(../images/iitmandi-north.jpg);
