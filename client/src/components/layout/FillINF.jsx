@@ -71,6 +71,14 @@ class INF extends Component {
         const { user } = this.props.auth;
         const orgs = ["Govt. Owned", "MNC(Indian origin)", "MNC(Indian origin)", "Private sector", "Public sector", "Start-up", "Others"];
         const buisness = ["Analytics", "Consulting", "Core (Technical)", "I.T/ITES", "FMCG", "Finance", "Management", "Research", "Education (Teaching)", "Others"];
+        const test =["Paper Based", "Online","Aptitude test","Technical test"]
+        const interview =["In Person", "Video Conferencing","Skype","Technical Interview","HR Interview"]
+        const btech =["Computer Science and Engineering","Data Science and Engineering","Electrical Engineering","Mechanical Engineering","Civil Engineering","Engineering Physics","Bio-Engineering (B.Tech.-M.Tech. Dual Degree)"]
+        const mtech =["Energy Engineering with specialization in Materials (EEM)","Mechanical Engineering with specialization in Energy systems (MES)","EE (VLSI)","Biotech","Power Electronics and Drives","Communications and Signal Processing","Structural Engineering"]
+        const msc =["Chemistry","Applied Mathematics","Physics"]
+        const ms =["School of Engineering","School of Computing & Electrical Engineering"]
+        const phd =["School of Engineering","School of Computing & Electrical Engineering","School of Basic Sciences","School of Humanities and Social Sciences"]
+        const internDuration =["2 months winter","2 months Summer","6 months winter","6 months Summer"]
 
         // const {
         //   name,
@@ -373,7 +381,369 @@ class INF extends Component {
                                                     ></Form.Control>
                                                 </Form.Group>
                                             </Col>
+                                            <Col className="pl-1" md="12">
+                                                <Form.Group>
+                                                    <label>Duration of Internship</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            {internDuration.map((item, i) => {
+                                                                return (
+                                                                    <Col className="px-1" md="12" >
+                                                                        <Form.Check
+                                                                            inline
+                                                                            label={item}
+                                                                            name="group1"
+                                                                            type="checkbox"
+                                                                            id={`inline-checkbox-${i}`}
+                                                                        />
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
                                         </Row>
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <h2>Selection Process</h2>
+                                        {/* <br /> */}
+                                        <Row>
+                                            <Col className="px-1" md="12">
+                                                <Form.Group>
+                                                    <label>Eligibility Criteria( like minimum CGPA, etc.. )</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="eligibility"
+                                                        // defaultValue={contactPerson}
+                                                        placeholder="Eligibility Criteria"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="4">
+                                                <Form.Group>
+                                                    <label>Resuume Shortlisting</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="resumeShortlist"
+                                                        // defaultValue={email}
+                                                        placeholder="Criteria for resume shortlisting"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pr-1" md="4">
+                                                <Form.Group>
+                                                    <label>Pre-Placement Talk</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="placementTalk"
+                                                        // Value={designation}
+                                                        placeholder="Number of Interns"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="px-1" md="4">
+                                                <Form.Group>
+                                                    <label>Group Discussion</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="groupDiscussion"
+                                                        // defaultValue={telephone}
+                                                        placeholder="Mention group size and other details"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="12">
+                                            <Form.Group>
+                                                    <br />
+                                                    <label>Mode of Test</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            {test.map((item, i) => {
+                                                                return (
+                                                                    <Col className="px-1" md="2" >
+                                                                        <Form.Check
+                                                                            inline
+                                                                            label={item}
+                                                                            name="group1"
+                                                                            type="checkbox"
+                                                                            id={`inline-checkbox-${i}`}
+                                                                        />
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="px-1" md="4">
+                                                <Form.Group>
+                                                    <label>Test Duration</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="testDuration"
+                                                        // defaultValue={telephone}
+                                                        placeholder="Please specify the duration for the selected tests."
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="12">
+                                            <Form.Group>
+                                                    <br />
+                                                    <label>Mode of Interview</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            {interview.map((item, i) => {
+                                                                return (
+                                                                    <Col className="px-1" md="2" >
+                                                                        <Form.Check
+                                                                            inline
+                                                                            label={item}
+                                                                            name="group1"
+                                                                            type="checkbox"
+                                                                            id={`inline-checkbox-${i}`}
+                                                                        />
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="px-1" md="12">
+                                                <Form.Group>
+                                                    <br />
+                                                    <label>Interview Duration and rounds</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="testDuration"
+                                                        // defaultValue={telephone}
+                                                        placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                                        as="textarea"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                        </Row>
+                                        <br />
+                                        <br />
+                                        <h2>Programme Details</h2>
+                                        <p>Please tick mark the required degree and discipline in which you are interested to recruit</p>
+                                        <br />
+                                        <Row>
+                                            <Col className="pl-1" md="12">
+                                            <Form.Group>
+                                                    <br />
+                                                    <label>B.Tech</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            {btech.map((item, i) => {
+                                                                return (
+                                                                    <Col className="px-1" md="4" >
+                                                                        <Form.Check
+                                                                            inline
+                                                                            label={item}
+                                                                            name="group1"
+                                                                            type="checkbox"
+                                                                            id={`inline-checkbox-${i}`}
+                                                                        />
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="12">
+                                            <Form.Group>
+                                                    <br />
+                                                    <label>M.Tech</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            {mtech.map((item, i) => {
+                                                                return (
+                                                                    <Col className="px-1" md="6" >
+                                                                        <Form.Check
+                                                                            inline
+                                                                            label={item}
+                                                                            name="group1"
+                                                                            type="checkbox"
+                                                                            id={`inline-checkbox-${i}`}
+                                                                        />
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="12">
+                                            <Form.Group>
+                                                    <br />
+                                                    <label>M.Sc</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            {msc.map((item, i) => {
+                                                                return (
+                                                                    <Col className="px-1" md="4" >
+                                                                        <Form.Check
+                                                                            inline
+                                                                            label={item}
+                                                                            name="group1"
+                                                                            type="checkbox"
+                                                                            id={`inline-checkbox-${i}`}
+                                                                        />
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="12">
+                                            <Form.Group>
+                                                    <br />
+                                                    <label>M.A.</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            <Col className="px-1" md="4" >
+                                                                <Form.Check
+                                                                    inline
+                                                                    label="Development Studies"
+                                                                    name="group1"
+                                                                    type="checkbox"
+                                                                    id={`inline-checkbox-1`}
+                                                                />
+                                                            </Col>
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="12">
+                                            <Form.Group>
+                                                    <br />
+                                                    <label>M.S.</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            {ms.map((item, i) => {
+                                                                return (
+                                                                    <Col className="px-1" md="4" >
+                                                                        <Form.Check
+                                                                            inline
+                                                                            label={item}
+                                                                            name="group1"
+                                                                            type="checkbox"
+                                                                            id={`inline-checkbox-${i}`}
+                                                                        />
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="12">
+                                            <Form.Group>
+                                                    <br />
+                                                    <label>PhD.</label>
+                                                    <br />
+                                                    <div className="container">
+                                                        <Row>
+                                                            {phd.map((item, i) => {
+                                                                return (
+                                                                    <Col className="px-1" md="4" >
+                                                                        <Form.Check
+                                                                            inline
+                                                                            label={item}
+                                                                            name="group1"
+                                                                            type="checkbox"
+                                                                            id={`inline-checkbox-${i}`}
+                                                                        />
+                                                                    </Col>
+                                                                )
+                                                            })}
+                                                        </Row>
+                                                    </div>
+                                                </Form.Group>
+                                            </Col>
+                                        </Row>
+                                        <br />
+                                        <br />
+                                        <h3>Logistic Requirements (on Campus Drive)</h3>
+                                        <br />
+                                        <Row>
+                                            <Col className="px-1" md="6">
+                                                <Form.Group>
+                                                    <label>Number of Members</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="members"
+                                                        // defaultValue={contactPerson}
+                                                        placeholder="Contact Person"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pl-1" md="6">
+                                                <Form.Group>
+                                                    <label>Number of Rooms required for selection process</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="rooms"
+                                                        // defaultValue={email}
+                                                        placeholder="No of rooms"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                            <Col className="pr-1" md="12">
+                                                <Form.Group>
+                                                    <label>Other Requirments</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="designation"
+                                                        // Value={designation}
+                                                        placeholder="Other Requirements"
+                                                        as="textarea"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                        </Row>
+                                        <br />
+                                        <br />
+                                        <h3>Logistic Requirements (Virtual Drive)</h3>
+                                        <br />
+                                        <Row>
+                                            <Col className="pr-1" md="12">
+                                                <Form.Group>
+                                                    <label>Virtual Drive Requirments</label>
+                                                    <Form.Control
+                                                        onChange={this.onchange}
+                                                        id="designation"
+                                                        // Value={designation}
+                                                        placeholder="Virtual Drive Requirments"
+                                                        as="textarea"
+                                                        type="text"
+                                                    ></Form.Control>
+                                                </Form.Group>
+                                            </Col>
+                                        </Row>
+                                        
                                         <div
                                             className="clearfix"
                                             style={{ textAlign: "center", margin: "10px 0px" }}
@@ -394,6 +764,12 @@ class INF extends Component {
                         </Col>
                     </Row>
                 </Container>
+                <div>
+                Students' choices will be governed by the information you provide in this form. Therefore, please be as clear and detailed as possible.
+Before filling the form kindly refer to the placement brochure and placement website for selection process and rules & regulations.
+For any queries, you may contact the placement cell.
+
+                </div>
             </>
         );
     }
