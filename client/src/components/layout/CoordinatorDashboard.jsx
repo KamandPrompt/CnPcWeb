@@ -42,6 +42,13 @@ class CoordinatorDashboard extends Component {
       await axios
         .get("/api/admins/all-students")
         .then((res) => {
+          for (var i = 0; i < res.data.length; i++) {
+            if (res.data[i].isVerified === true) {
+              res.data[i].isVerified = "Verified";
+            } else {
+              res.data[i].isVerified = "Not Verified";
+            }
+          }
           this.setState({ studentsData: res.data, DataisLoaded: true });
           // console.log(this.state.studentsData);
         })
@@ -104,7 +111,7 @@ class CoordinatorDashboard extends Component {
       resume1: this.state.resume1,
       resume2: this.state.resume2,
       resume3: this.state.resume3,
-      isVerified: this.state.isVerified,
+      isVerified: this.state.isVerified === "Yes" ? true : false,
       role: this.state.role,
     };
     console.log(user);
@@ -153,7 +160,9 @@ class CoordinatorDashboard extends Component {
     // output.json shd be updated here
     var data = [];
     await axios
-      .post("/api/students/fetchOutput", {registerSheet: this.state.registerSheet})
+      .post("/api/students/fetchOutput", {
+        registerSheet: this.state.registerSheet,
+      })
       .then((res) => {
         console.log(res);
         data = res.data;
@@ -181,13 +190,15 @@ class CoordinatorDashboard extends Component {
         });
     }
     alert("Students Registered!!!");
-    this.setState({registerSheet:""});
+    this.setState({ registerSheet: "" });
   };
 
-  updateStudentResume = async ()=>{
+  updateStudentResume = async () => {
     var updateData = [];
     await axios
-      .post("/api/students/updateOutput", {updateSheet: this.state.updateSheet})
+      .post("/api/students/updateOutput", {
+        updateSheet: this.state.updateSheet,
+      })
       .then((res) => {
         console.log(res);
         updateData = res.data;
@@ -195,28 +206,28 @@ class CoordinatorDashboard extends Component {
       .catch((e) => {
         console.log(e);
       });
-      console.log(updateData);
-      for (var i = 0; i < updateData.length; i++) {
-        await axios
-          .post("/api/students/updateResume", updateData[i])
-          .then((res) => {
-            console.log("Response", res);
-            if (res.data.isError) {
-              alert(
-                "Roll Number Resume Updation Failed: " +
-                  res.data.rollNo +
-                  "\nError: " +
-                  res.data.error.errors.branch.message
-              );
-            }
-          })
-          .catch((e) => {
-            console.log("Error", e);
-          });
-      }
-      alert("Resume of Students Updated!!!");
-      this.setState({updateSheet:""});
-  }
+    console.log(updateData);
+    for (var i = 0; i < updateData.length; i++) {
+      await axios
+        .post("/api/students/updateResume", updateData[i])
+        .then((res) => {
+          console.log("Response", res);
+          if (res.data.isError) {
+            alert(
+              "Roll Number Resume Updation Failed: " +
+                res.data.rollNo +
+                "\nError: " +
+                res.data.error.errors.branch.message
+            );
+          }
+        })
+        .catch((e) => {
+          console.log("Error", e);
+        });
+    }
+    alert("Resume of Students Updated!!!");
+    this.setState({ updateSheet: "" });
+  };
 
   render() {
     const { user } = this.props.auth;
@@ -269,7 +280,12 @@ class CoordinatorDashboard extends Component {
                 <div className="col-sm-12">
                   <div>
                     <h4>Register Students</h4>
-                    <input type="text" id="registerSheet" onChange={this.onchange} value={this.state.registerSheet}/>
+                    <input
+                      type="text"
+                      id="registerSheet"
+                      onChange={this.onchange}
+                      value={this.state.registerSheet}
+                    />
                     <button
                       style={{
                         width: "120px",
@@ -284,7 +300,12 @@ class CoordinatorDashboard extends Component {
                       Register
                     </button>
                     <h4>Update Student's Resume</h4>
-                    <input type="text" id="updateSheet" onChange={this.onchange} value={this.state.updateSheet}/>
+                    <input
+                      type="text"
+                      id="updateSheet"
+                      onChange={this.onchange}
+                      value={this.state.updateSheet}
+                    />
                     <button
                       style={{
                         width: "120px",
@@ -571,14 +592,32 @@ class CoordinatorDashboard extends Component {
                           </Col> */}
                           <Col className="pl-1" md="4">
                             <Form.Group>
-                              <label>Verification status</label>
-                              <Form.Control
+                              <div>
+                                <label>Verification Status</label>
+                              </div>
+                              <Form.Select
+                                className="btn-sm primary"
+                                aria-label="Default select example"
                                 onChange={this.onchange}
                                 id="isVerified"
-                                defaultValue={isVerified}
-                                placeholder="isVerified"
-                                type="text"
-                              ></Form.Control>
+                                value={isVerified}
+                              >
+                                {isVerified ? (
+                                  <>
+                                    <option value="Yes" selected>
+                                      Verified
+                                    </option>
+                                    <option value="No">Not verified</option>
+                                  </>
+                                ) : (
+                                  <>
+                                    <option value="No" selected>
+                                      Not verified
+                                    </option>
+                                    <option value="Yes">Verified</option>
+                                  </>
+                                )}
+                              </Form.Select>
                             </Form.Group>
                           </Col>
                         </Row>

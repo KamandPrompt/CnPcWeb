@@ -427,15 +427,33 @@ class StudentDashboard extends Component {
                       </Col> */}
                       <Col className="pl-1" md="4">
                         <Form.Group>
-                          <label>Verification status</label>
-                          <Form.Control
+                          <div>
+                            <label>Verification Status</label>
+                          </div>
+                          <Form.Select
                             disabled
+                            className="btn-sm primary"
+                            aria-label="Default select example"
                             onChange={this.onchange}
                             id="isVerified"
-                            defaultValue={isVerified}
-                            placeholder="isVerified"
-                            type="text"
-                          ></Form.Control>
+                            value={isVerified}
+                          >
+                            {isVerified ? (
+                              <>
+                                <option value="Yes" selected>
+                                  Verified
+                                </option>
+                                <option value="No">Not verified</option>
+                              </>
+                            ) : (
+                              <>
+                                <option value="No" selected>
+                                  Not verified
+                                </option>
+                                <option value="Yes">Verified</option>
+                              </>
+                            )}
+                          </Form.Select>
                         </Form.Group>
                       </Col>
                     </Row>
