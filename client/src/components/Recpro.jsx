@@ -3,11 +3,11 @@ import "./contact.css";
 import presentation from "../images/presentation.png";
 import check from "../images/checklist.png";
 import mail from "../images/mail.png";
-import gupta from "../images/ankit-gupta.jpg";
-import saksham from "../images/saksham.jpeg";
-import pratik from "../images/pratik.jpg";
+import sharing from "../images/sharing.png";
+import folder from "../images/folder.png";
+import interview from "../images/interview.png";
 import calendar from "../images/calendar.png";
-import bhumanyu from "../images/bhumanyu.jpg";
+import quiz from "../images/quiz.png";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 export const Recpro = () => {
   return (
@@ -80,7 +80,7 @@ export const Recpro = () => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={gupta} alt="Ankit Gupta" className="image" />
+                <img src={sharing} alt="Ankit Gupta" className="image" />
                 <h3 className="person">Step 5</h3>
               </div>
               <br />
@@ -94,7 +94,7 @@ export const Recpro = () => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={saksham} alt="saksham" className="image" />
+                <img src={folder} alt="saksham" className="image" />
                 <h3 className="person">Step 6</h3>
               </div>
               <br />
@@ -108,7 +108,7 @@ export const Recpro = () => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={bhumanyu} alt="Bhumanyu" className="image" />
+                <img src={quiz} alt="Bhumanyu" className="image" />
                 <h3 className="person">Step 7</h3>
               </div>
               <br />
@@ -125,7 +125,7 @@ export const Recpro = () => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={pratik} alt="Pratik" className="image" />
+                <img src={interview} alt="Pratik" className="image" />
                 <h3 className="person">Step 8</h3>
               </div>
               <br />
