@@ -1,6 +1,6 @@
 import React from "react";
 import dummy from "../images/ravinder.png";
-import "./contact.css";
+import "./Recpro.css";
 import nimisha from "../images/nimisha.jpg";
 import parmod from "../images/parmod.jpg";
 import kairav from "../images/kairav.jpeg";

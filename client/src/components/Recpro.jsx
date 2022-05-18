@@ -1,170 +1,145 @@
 import React from "react";
-// import { layout } from "react-bootstrap";
-import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
-import "./Recpro.css";
-
+import "./contact.css";
+import presentation from "../images/presentation.png";
+import check from "../images/checklist.png";
+import mail from "../images/mail.png";
+import gupta from "../images/ankit-gupta.jpg";
+import saksham from "../images/saksham.jpeg";
+import pratik from "../images/pratik.jpg";
+import calendar from "../images/calendar.png";
+import bhumanyu from "../images/bhumanyu.jpg";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 export const Recpro = () => {
   return (
     <>
-      <div>
-        <hr className="left-lg" />
-        <h3 className="homeHead homeHead-lg">Recruitment process</h3>
-        <hr className="right-lg" />
-      </div>
-      <br />
-      <br />
-      <Container>
-        <center>
-          <Row>
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 1</h3>
-                  <p class="card-text">
-                    Invitation for placements, along with Placement brochure, are sent to recruiting organizations by CDC/ Companies approaches CDC for placements.
-                  </p>
+    <h2 className="Recrui" style={{"textAlign":"center"}}>
+      Recruitement Process
+    </h2>
+       <div className="container-snip">
+          <figure className="snip1559">
+            <figcaption className="snip1560">
+              <div className="profile-image">
+                <img src={mail} className="image" />
+                <h3 className="person">Step 1</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <p className="text">
+                  Career and Placement Cell of IIT Mandi (CnPC) sends formal invitation regarding Campus Placement to the companies.
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={check} alt="Ankit Karan" className="image" />
+                <h3 className="person">Step 2</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <p className="text">
+                  Companies can register on the Online Portal at "www.example.iitmandi.ac.in" by filling the Internship Notificatrion Form (INF)/ Job Notification Form (JNF).
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={presentation} alt="Kairav Bansal" className="image" />
+                <h3 className="person">Step 3</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <p className="text">
+                  Any Compnay, if interested in organizing a Pre-Placement Talk (PPT) can share their request along with relevant details.
+                </p>
+              </div>
+              <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img
+                  src={calendar}
+                  alt="Sudhanshu Chauhan"
+                  className="image"
+                />
+                <h3 className="person">Step 4</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <p className="text">
+                  The Cnp Cell decides the final placement schedule of tests with companies after mutual discussion and consent.
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={gupta} alt="Ankit Gupta" className="image" />
+                <h3 className="person">Step 5</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <p className="text">
+                  All the appropriate details regarding the companiesand opportunity offered is shared with students.
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={saksham} alt="saksham" className="image" />
+                <h3 className="person">Step 6</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <p className="text">
+                  Interested students can apply for the recruitement process through the online portal and thereafter, their resumes are shared with the company.
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={bhumanyu} alt="Bhumanyu" className="image" />
+                <h3 className="person">Step 7</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <div className="text">
+                {/* <p className="text"> */}
+                Recruiters can conduct any kind of test or shortlist on the basis of resume before moving forward with the interviews.
+                {/* </p> */}
                 </div>
               </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 2</h3>
-                  <p class="card-text">
-                    Job Notification Form (JNF)/ Internship Notification Form (INF) are sent to the recruiters for registration.
-                  </p>
+              <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={pratik} alt="Pratik" className="image" />
+                <h3 className="person">Step 8</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <div className="text">
+                {/* <p className="text">  */}
+                  The company can interview the shortlisted students and finally submit the list of the selected students.
+                {/* </p> */}
                 </div>
               </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 3</h3>
-                  <p class="card-text">
-                    Recruiters submit filled JNF and/or INF.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 4</h3>
-                  <p class="card-text">
-                    Data of eligible students is shared with the companies.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 5</h3>
-                  <p class="card-text">
-                    Pre-Placement Talks are scheduled for registered candidates.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 6</h3>
-                  <p class="card-text">
-                    Slots are provided to companies for Online Test/ GD Process etc.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 7</h3>
-                  <p class="card-text">
-                    Company provides the list of shortlisted candidates to CDC for final interview process.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 8</h3>
-                  <p class="card-text">
-                    CDC allots dates to organizations for campus interviews based on various details given by companies.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 9</h3>
-                  <p class="card-text">
-                    In case a student is shortlisted for more than one company in a given slot, he/she is to provide a preference at least an hour before the start of the interviews.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 10</h3>
-                  <p class="card-text">
-                    Shortlisted candidates participate in the hiring process of the company.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 11</h3>
-                  <p class="card-text">
-                    Company submits a list of finally selected students, to CDC, along with a waitlist at the end of the day/ slot.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 12</h3>
-                  <p class="card-text">
-                    CDC confirms the offer acceptance to company based on the student preference collected in Step 9. The confirmation is given within 3 hours of result submission by the company.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-            <Col lg={3} md={4} sm={6} xs={12}>
-              <div class="card2 text-center">
-                <div class="card-body">
-                  <h3 class="card-title">STEP 13</h3>
-                  <p class="card-text">
-                    Selected students are taken out from further placement process, in compliance with our One Student, One Job Policy.
-                  </p>
-                </div>
-              </div>
-            </Col>
-
-          </Row>
-
-        </center>
-
-      </Container>
-      <br></br>
+              <br />
+            </figcaption>
+          </figure>
+        </div>
     </>
   );
 };
