@@ -70,7 +70,7 @@ class INF extends Component {
     render() {
         const { user } = this.props.auth;
         const orgs = ["Govt. Owned", "MNC(Indian origin)", "MNC(Indian origin)", "Private sector", "Public sector", "Start-up", "Others"];
-        const buisness = ["Analytics", "Consulting", "Core (Technical)", "I.T/ITES", "FMCG", "Finance", "Management", "Research", "Education (Teaching)", "Others"];
+        const business = ["Analytics", "Consulting", "Core (Technical)", "I.T/ITES", "FMCG", "Finance", "Management", "Research", "Education (Teaching)", "Others"];
         const test =["Paper Based", "Online","Aptitude test","Technical test"]
         const interview =["In Person", "Video Conferencing","Skype","Technical Interview","HR Interview"]
         const btech =["Computer Science and Engineering","Data Science and Engineering","Electrical Engineering","Mechanical Engineering","Civil Engineering","Engineering Physics","Bio-Engineering (B.Tech.-M.Tech. Dual Degree)"]
@@ -114,7 +114,7 @@ class INF extends Component {
                                                         // defaultValue={rollNo}
                                                         placeholder="Company name"
                                                         type="text"
-                                                        id="companyName"
+                                                        id="nameOfTheCompany"
                                                         onChange={this.onchange}
                                                     ></Form.Control>
                                                 </Form.Group>
@@ -164,7 +164,7 @@ class INF extends Component {
                                                     <label>Pin/Zip code</label>
                                                     <Form.Control
                                                         onChange={this.onchange}
-                                                        id="code"
+                                                        id="PINZIP"
                                                         // defaultValue={name}
                                                         placeholder="Pin/Zip code"
                                                         type="text"
@@ -201,11 +201,11 @@ class INF extends Component {
                                         <Row>
                                             <Col className="px-1" md="12">
                                                 <Form.Group>
-                                                    <label>Nature of Buisness</label>
+                                                    <label>Nature of Business</label>
                                                     <br />
                                                     <div className="container">
                                                         <Row>
-                                                            {buisness.map((item, i) => {
+                                                            {business.map((item, i) => {
                                                                 return (
                                                                     <Col className="px-1" md="3" >
                                                                         <Form.Check
