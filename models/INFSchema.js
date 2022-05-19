@@ -11,8 +11,8 @@ const RoundSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-
 });
+
 const EligibilitySchema = new mongoose.Schema({
     program: {
         type: String,
@@ -126,10 +126,6 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    accommodationProvided: {
-        type: String,
-        required: true,
-    },
     durationOfInternship: {
         type: String,
         required: true,
@@ -166,10 +162,16 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    typeOfInterview: {
+    modeOfInterview: {
         type: String,
         required: true,
     },
+    typeOfInterview: [
+        {
+            type: String,
+            required: true,
+        }
+    ],
     technicalInterview: {
         type: RoundSchema,
         required: true

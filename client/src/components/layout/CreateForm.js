@@ -240,6 +240,25 @@ class CreateForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    let arr = [];
+    let len1 = programs.length;
+    for(let i=0;i<len1;i++){
+      if((this.state.isChecked)[i]){
+        let arr2 = (this.state.eligibility)[i];
+        let arr3 = [];
+        for(let j=0;j<arr2.length;j++){
+          if(arr2[j]){
+            arr3.push(programs[i].branchIDs[j]);
+          }
+        }
+        let newData = {
+          program: programs[i].name,
+          branch: arr3,
+          batch: this.state.batch[i]
+        }
+        arr.push(newData);
+      }
+    }
     const fields = [];
     for (const [i, obj] of this.state.fields.entries()) {
       if (obj.isSelected) {
@@ -252,7 +271,7 @@ class CreateForm extends Component {
       JD: this.state.JD,
       type: this.state.type,
       isVerified: this.state.isVerified,
-      eligibility: this.state.eligibility,
+      eligibility: arr,
       fields: fields,
       CID: this.props.auth.user.id,
     };
