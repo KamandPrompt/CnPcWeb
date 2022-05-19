@@ -8,6 +8,8 @@ import "../achievement.css";
 import "../admin.css";
 import { Link } from "react-router-dom";
 import { log } from "util";
+import { DataGrid } from "@mui/x-data-grid";
+import "../admin.css";
 
 // import { updateUser } from "../../actions/authActions";
 
@@ -35,32 +37,32 @@ class Noticeboard extends Component {
     this.props.logoutUser();
   };
 
-  addNotice = (value) => {
-    const list = [];
-    for (let i = 0; i < value; i++) {
-      let form = this.state.data[i];
-      if (form.isVerified && form.formStatus === "open") {
-        list.push(
-          <div className="slot">
-            <div id={"company" + (i + 1).toString()} className="companyBtn">
-              <h2 style={{ "fontSize": "17px", "fontWeight": "lighter" }}>{form.title}</h2>
-              <div id={"cp" + (i + 1).toString()} className="companyCont">
-                <p style={{ "fontSize": "16px" }}>JOB DESC:</p>
-                <p>{form.JD}</p>
-                <Link to={"?id=" + form._id} target="_blank">
-                  <center>
-                    <button style={{ "margin": "auto", "width": "70px", "height": "30px", "backgroundColor": "#2196F3", "color": "white", "borderRadius": "10%", "border": "1px solid white" }}>Apply</button>
-                  </center>
-                </Link>
-              </div>
-            </div>
-            {/* <button id={form._id}><a href="" _blank="True">Apply now</a></button> */}
-          </div>
-        );
-      }
-    }
-    this.setState({ datalist: list });
-  };
+  // addNotice = (value) => {
+  //   const list = [];
+  //   for (let i = 0; i < value; i++) {
+  //     let form = this.state.data[i];
+  //     if (form.isVerified && form.formStatus === "open") {
+  //       list.push(
+  //         <div className="slot">
+  //           <div id={"company" + (i + 1).toString()} className="companyBtn">
+  //             <h2 style={{ "fontSize": "17px", "fontWeight": "lighter" }}>{form.title}</h2>
+  //             <div id={"cp" + (i + 1).toString()} className="companyCont">
+  //               <p style={{ "fontSize": "16px" }}>JOB DESC:</p>
+  //               <p>{form.JD}</p>
+  //               <Link to={"?id=" + form._id} target="_blank">
+  //                 <center>
+  //                   <button style={{ "margin": "auto", "width": "70px", "height": "30px", "backgroundColor": "#2196F3", "color": "white", "borderRadius": "10%", "border": "1px solid white" }}>Apply</button>
+  //                 </center>
+  //               </Link>
+  //             </div>
+  //           </div>
+  //           {/* <button id={form._id}><a href="" _blank="True">Apply now</a></button> */}
+  //         </div>
+  //       );
+  //     }
+  //   }
+  //   this.setState({ datalist: list });
+  // };
 
   async componentDidMount() {
     const search = window.location.search;
@@ -72,7 +74,7 @@ class Noticeboard extends Component {
         .get("/api/students/all-forms")
         .then((res) => {
           this.setState({ data: res.data, DataisLoaded: true });
-          this.addNotice(this.state.data.length);
+          // console.log(res.data)
         })
         .catch((err) => {
           console.log(err);
@@ -137,13 +139,65 @@ class Noticeboard extends Component {
     const { user } = this.props.auth;
     if (this.state.DataisLoaded === true) {
       if (this.state.id === "") {
+        const rows = this.state.data;
+        const columns = [
+          {
+            field: "companyName",
+            headerName: "Company Name",
+            hideable: false,
+            width: 200,
+          },
+          { field: "title", headerName: "Title", hideable: false, width: 100 },
+          {
+            field: "JD",
+            headerName: "Job Description",
+            width: 190,
+            hideable: false,
+          },
+          {
+            field: "apply",
+            headerName: "Apply",
+            sortable: false,
+            filterable: false,
+            hideable: false,
+            width: 180,
+            renderCell: (params) => {
+              // console.log(params.row._id);
+              return (
+                <>
+                  <Link to={"?id=" + params.row._id} target="_blank">
+                    <button className="userEdit">Apply</button>
+                  </Link>
+                </>
+              );
+            },
+          },
+        ];
         return (
           <>
-            <div>
-              <h2 style={{ textAlign: "center" }}>Active application forms</h2>
-              <br />
-              <br />
-              <div className="acadmic">{this.state.datalist}</div>
+            <div className="container text-center mt-15">
+              <div className="row">
+                <div className="col-sm-12">
+                  <h3>Active Application Forms</h3>
+                  <div style={{ height: "400px", width: "90%" }} id="dataGrid">
+                    <DataGrid
+                      rows={rows}
+                      columns={[
+                        ...columns,
+                        {
+                          field: "apply",
+                          sortable: false,
+                          filterable: false,
+                          hideable: false,
+                        },
+                      ]}
+                      pageSize={10}
+                      rowsPerPageOptions={[10, 20, 30]}
+                      getRowId={(row) => row._id}
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </>
         );

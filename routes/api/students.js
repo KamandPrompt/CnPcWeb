@@ -40,6 +40,8 @@ contactEmail.verify((error) => {
 const Student = require("../../models/StudentSchema");
 const Form = require("../../models/FormSchema");
 const Response = require("../../models/ResponseSchema");
+const Recruiters = require("../../models/RecruiterSchema");
+
 const sendPwdMail = async (email, pwd) => {
   // const email = req.body.email;
   console.log("Sending Mail");
@@ -355,7 +357,13 @@ router.post("/update", (req, res) => {
 router.get("/all-forms", async (req, res) => {
   try {
     const data = await Form.find({ formStatus: "open" }).lean();
-    // console.log(data);
+    for(var i=0;i<data.length;i++)
+    {
+      const query = {_id : data[i].CID};
+      const company = await Recruiters.findOne(query).lean();
+      data[i].companyName = company.name;
+    }
+    console.log(data);
     res.send(data);
   } catch (error) {
     res.send(error);
