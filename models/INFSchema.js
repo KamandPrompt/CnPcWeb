@@ -126,10 +126,12 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    durationOfInternship: {
-        type: String,
-        required: true,
-    },
+    durationOfInternship:[ 
+        {
+            type: String,
+            required: true,
+        }
+    ],
     eligibilityCriteria: {
         type: String,
         required: true,
@@ -150,10 +152,10 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    typeOfTest: {
+    typeOfTest:[ {
         type: String,
         required: true,
-    },
+    }],
     aptitudeTest: {
         type: String,
         required: true,

@@ -10,6 +10,7 @@ const validateLoginInput = require("../../validation/loginRecruiter");
 
 // Load Recruiter model
 const Recruiter = require("../../models/RecruiterSchema");
+const INF = require("../../models/INFSchema");
 const Form = require("../../models/FormSchema");
 const Response = require("../../models/ResponseSchema");
 const Student = require("../../models/StudentSchema");
@@ -271,5 +272,13 @@ router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
     res.send(error);
   }
 });
+
+router.post("/fillINF", (req,res)=>{
+  const INFform = new INF(req.body);
+  INFform
+    .save()
+    .then((user) => res.json(user))
+    .catch((err) => console.log(err));
+})
 
 module.exports = router;

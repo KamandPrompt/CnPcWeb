@@ -47,6 +47,18 @@ export const registerRecruiter = (userData, history) => (dispatch) => {
       })
     );
 };
+
+export const fillINF = (userData, history) => (dispatch) =>{
+  axios.post("/api/recruiters/fillINF", userData).then((res)=>{
+    alert("INF Form submitted!!!");
+  }).catch((err)=>{
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
+    });
+  })
+}
+
 export const createFormRecruiter = (formData, history) => (dispatch) => {
   axios
     .post("/api/recruiters/createForm", formData)

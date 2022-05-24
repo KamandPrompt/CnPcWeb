@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { fillINF } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 // import { updateUser } from "../../actions/authActions";
@@ -29,13 +30,13 @@ class INF extends Component {
       stipendPerMonth: "",
       accommodationProvided: "",
       bonusPerksTravel: "",
-      accommodationProvided: "",
       durationOfInternship: Array(4).fill(false),
       eligibilityCriteria: "",
       prePlacementTalk: "",
       resumeShortlisting: "",
       groupDiscussion: "",
       modeOfTest: "",
+      modeOfInterview: "",
       typeOfTest: Array(2).fill(false),
       aptitudeTest: "",
       technicalTest: "",
@@ -44,8 +45,10 @@ class INF extends Component {
       numberOfRoomsRequired: "",
       otherRequirements: "",
       virtualDriveRequirements: "",
-      technicalInterview: "",
-      hRInterview: "",
+      durationOfEachRoundHR: "",
+      durationOfEachRoundTech: "",
+      noOfRoundsHR: "",
+      noOfRoundsTech: "",
       eligibility: [],
       btech: Array(7).fill(false),
       mtech: Array(7).fill(false),
@@ -86,27 +89,170 @@ class INF extends Component {
     arr1[idx] = !arr1[idx];
     this.setState({[e.target.name]:arr1}); 
   }
-  //   onsubmit = (e) => {
-  //     e.preventDefault();
-  //     const user = {
-  //       name: this.state.name,
-  //       rollNo: this.state.rollNo,
-  //       email: this.state.email,
-  //       batch: this.state.batch,
-  //       contactNumber: this.state.contactNumber,
-  //       branch: this.state.branch,
-  //       gender: this.state.gender,
-  //       degree: this.state.degree,
-  //       cgpa: this.state.cgpa,
-  //       dob: this.state.dob,
-  //       resume1: this.state.resume1,
-  //       resume2: this.state.resume2,
-  //       resume3: this.state.resume3,
-  //       isVerified: this.state.isVerified,
-  //       role: this.state.role,
-  //     };
-  //     this.updateUser(user);
-  //   };
+
+  onsubmit = (e) => {
+    e.preventDefault();
+    let duration = [];
+    let internDuration = [
+      "2 months winter",
+      "2 months Summer",
+      "6 months winter",
+      "6 months Summer",
+    ];
+    for(let i=0;i<(this.state.durationOfInternship).length;i++){
+      if(this.state.durationOfInternship[i]){
+        duration.push(internDuration[i]);
+      }
+    } 
+    let typeofTest = ["Aptitude test", "Technical test"];
+    let test = [];
+    for(let i=0;i<(typeofTest.length);i++){
+      if(this.state.typeOfTest[i]){
+        test.push(typeofTest[i]);
+      }
+    }
+    let typeOfInterview = ["Technical Interview",
+    "HR Interview",];
+    let interviewType = [];
+    for(let i=0;i<(typeOfInterview.length);i++){
+      if(this.state.typeOfInterview[i]){
+        interviewType.push(typeofTest[i]);
+      }
+    }
+    const programs = [
+      {
+        name: "BTECH",
+        branches: [
+          "Computer Science and Engineering",
+          "Data Science and Engineering",
+          "Electrical Engineering",
+          "Mechanical Engineering",
+          "Civil Engineering",
+          "Engineering Physics",
+          "Bio-Engineering (B.Tech.-M.Tech. Integrated Dual Degree)",
+        ],
+        branchIDs: ["CSE", "DSE", "EE", "ME", "CE", "EP", "BIOE"],
+      },
+      {
+        name: "MTECH",
+        branches: [
+          "Energy Engineering with specialization in Materials (EEM)",
+          "Mechanical Engineering with specialization in Energy systems (MES)",
+          "EE (VLSI)",
+          "Biotech",
+          "Power Electronics and Drives",
+          "Communications and Signal Processing",
+          "Structural Engineering",
+        ],
+        branchIDs: ["EEM", "MES", "VLSI", "BIOT", "PED", "CSP", "SE"],
+      },
+      {
+        name: "MSC",
+        branches: [
+          "Chemistry",
+          "Applied Mathematics",
+          "Physics",
+        ],
+        branchIDs: ["CM", "AM", "PY"],
+      },
+      {
+        name: "MS",
+        branches: [
+          "School of Engineering",
+          "School of Computing & Electrical   Engineering",
+        ],
+        branchIDs: ["SE","SCEE"],
+      },
+      {
+        name: "MA",
+        branches: [
+          "Development Studies",
+        ],
+        branchIDs: ["DS"],
+      },
+      {
+        name: "PHD",
+        branches: [
+          "School of Engineering",
+          "School of Computing & Electrical Engineering",
+          "School of Basic Sciences",
+          "School of Humanities and Social Sciences",
+        ],
+        branchIDs: ["SE","SCEE","SBS","SHS"],
+      },
+    ];
+    let dept = [];
+    for(let i=0;i<programs.length;i++){
+      dept.push(programs[i].branchIDs);
+    }
+    let deptName = ["btech","mtech","msc","ms","ma","phd"];
+    let eligibility = [];
+    for(let i=0;i<deptName.length;i++){
+      let deptArr = [];
+      let temp = this.state[deptName[i]];
+      for(let j=0;j<temp.length;j++){
+        if(temp[j]){
+          deptArr.push(dept[i][j]);
+        }
+      }
+      const newData = {
+        program: deptName[i].toUpperCase(),
+        branch: deptArr,
+      }
+      eligibility.push(newData);
+    }
+    let technicalInterview = {
+      noOfRounds: this.state.noOfRoundsTech,
+      durationOfEachRound: this.state.durationOfEachRoundTech
+    }
+    let hRInterview = {
+      noOfRounds: this.state.noOfRoundsHR,
+      durationOfEachRound: this.state.durationOfEachRoundHR
+    }
+    const user = {
+      technicalInterview : technicalInterview,
+      hRInterview: hRInterview,
+      nameOfTheCompany: this.state.nameOfTheCompany,
+      postalAddress: this.state.postalAddress,
+      country: this.state.country,
+      PINZIP: this.state.PINZIP,
+      website: this.state.website,
+      typeOfOrganization: this.state.typeOfOrganization,
+      natureOfBusiness: this.state.natureOfBusiness,
+      contactPerson: this.state.contactPerson,
+      designation: this.state.designation,
+      emailAddress: this.state.emailAddress,
+      telephone: this.state.telephone,
+      mobile: this.state.mobile,
+      internshipProfile: this.state.internshipProfile,
+      skillSetRequired: this.state.skillSetRequired,
+      tentativeNoOfInterns: this.state.tentativeNoOfInterns,
+      tentativeJobLocations: this.state.tentativeJobLocations,
+      stipendPerMonth: this.state.stipendPerMonth,
+      accommodationProvided: this.state.accommodationProvided,
+      bonusPerksTravel: this.state.bonusPerksTravel,
+      eligibilityCriteria: this.state.eligibilityCriteria,
+      prePlacementTalk: this.state.prePlacementTalk,
+      resumeShortlisting: this.state.resumeShortlisting,
+      groupDiscussion: this.state.groupDiscussion,
+      modeOfTest: this.state.modeOfTest,
+      durationOfInternship: duration,
+      typeOfTest: test,
+      aptitudeTest: this.state.aptitudeTest,
+      technicalTest: this.state.technicalTest,
+      modeOfInterview: this.state.modeOfInterview,
+      typeOfInterview: interviewType,
+      numberOfMembers: this.state.numberOfMembers,
+      numberOfRoomsRequired: this.state.numberOfRoomsRequired,
+      otherRequirements: this.state.otherRequirements,
+      virtualDriveRequirements: this.state.virtualDriveRequirements,
+      technicalInterview: technicalInterview,
+      hRInterview: hRInterview,
+      eligibility: eligibility
+    };
+    this.props
+      .fillINF(user, this.props.history)
+  };
 
   render() {
     const { user } = this.props.auth;
@@ -529,7 +675,7 @@ class INF extends Component {
                           </label>
                           <Form.Control
                             onChange={this.onchange}
-                            id="eligibility"
+                            id="eligibilityCriteria"
                             // defaultValue={contactPerson}
                             placeholder="Eligibility Criteria"
                             type="text"
@@ -714,7 +860,7 @@ class INF extends Component {
                           <label>HR Interview Duration</label>
                           <Form.Control
                             onChange={this.onchange}
-                            id="durationOfEachRound"
+                            id="durationOfEachRoundHR"
                             // defaultValue={telephone}
                             placeholder="Please specify the and number of rounds for the selected mode of Interviews."
                             as="textarea"
@@ -728,7 +874,7 @@ class INF extends Component {
                           <label>HR Interview Rounds</label>
                           <Form.Control
                             onChange={this.onchange}
-                            id="noOfRounds"
+                            id="noOfRoundsHR"
                             // defaultValue={telephone}
                             placeholder="Please specify the and number of rounds for the selected mode of Interviews."
                             as="textarea"
@@ -742,7 +888,7 @@ class INF extends Component {
                           <label>Technical Interview Duration</label>
                           <Form.Control
                             onChange={this.onchange}
-                            id="durationOfEachRound"
+                            id="durationOfEachRoundTech"
                             // defaultValue={telephone}
                             placeholder="Please specify the and number of rounds for the selected mode of Interviews."
                             as="textarea"
@@ -756,7 +902,7 @@ class INF extends Component {
                           <label>Technical Interview Rounds</label>
                           <Form.Control
                             onChange={this.onchange}
-                            id="noOfRounds"
+                            id="noOfRoundsTech"
                             // defaultValue={telephone}
                             placeholder="Please specify the and number of rounds for the selected mode of Interviews."
                             as="textarea"
@@ -1049,4 +1195,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser })(INF);
+export default connect(mapStateToProps, { logoutUser,fillINF })(INF);
