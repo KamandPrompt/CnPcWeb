@@ -294,11 +294,11 @@ class INF extends Component {
     console.log(this.state);
     const rows = [
       this.createData('B.Tech.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
-      this.createData('M.Tech.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
-      this.createData('M.Sc', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
-      this.createData('M.S.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
-      this.createData('PhD', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
-      this.createData('M.A.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
+      this.createData('M.Tech.', this.createInput('ctcMtech', "Cost to company"), this.createInput('grossMtech', "Gross compentation"), this.createInput('takeHomeMtech', "Take Home"), this.createInput('bonusMtech', "Bonus M.tech")),
+      this.createData('M.Sc', this.createInput('ctcMSc', "Cost to company"), this.createInput('grossMSc', "Gross compentation"), this.createInput('takeHomeMSc', "Take Home"), this.createInput('bonusMSc', "Bonus M.Sc")),
+      this.createData('M.S.', this.createInput('ctcMS', "Cost to company"), this.createInput('grossMS', "Gross compentation"), this.createInput('takeHomeMS', "Take Home"), this.createInput('bonusMS', "Bonus MS")),
+      this.createData('PhD', this.createInput('ctcPhD', "Cost to company"), this.createInput('grossPhD', "Gross compentation"), this.createInput('takeHomePhD', "Take Home"), this.createInput('bonusPhD', "Bonus PhD")),
+      this.createData('M.A.', this.createInput('ctcMA', "Cost to company"), this.createInput('grossMA', "Gross compentation"), this.createInput('takeHomeMA', "Take Home"), this.createInput('bonusMA', "Bonus MA")),
     ];
     const orgs = [
       "Govt. Owned",
