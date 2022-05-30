@@ -11,6 +11,7 @@ class INF extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      CID: this.props.auth.user.id,
       nameOfTheCompany: "",
       postalAddress: "",
       country: "",
@@ -210,6 +211,7 @@ class INF extends Component {
       durationOfEachRound: this.state.durationOfEachRoundHR
     }
     const user = {
+      CID : this.state.CID,
       technicalInterview : technicalInterview,
       hRInterview: hRInterview,
       nameOfTheCompany: this.state.nameOfTheCompany,
@@ -256,6 +258,7 @@ class INF extends Component {
 
   render() {
     const { user } = this.props.auth;
+    console.log(this.state.CID);
     console.log(this.state);
     const orgs = [
       "Govt. Owned",

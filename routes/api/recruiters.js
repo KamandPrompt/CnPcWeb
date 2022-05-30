@@ -11,6 +11,7 @@ const validateLoginInput = require("../../validation/loginRecruiter");
 // Load Recruiter model
 const Recruiter = require("../../models/RecruiterSchema");
 const INF = require("../../models/INFSchema");
+const JNF = require("../../models/JNFSchema");
 const Form = require("../../models/FormSchema");
 const Response = require("../../models/ResponseSchema");
 const Student = require("../../models/StudentSchema");
@@ -214,9 +215,26 @@ router.get("/:email", async (req, res) => {
 router.post("/getFormbyCID", async (req, res) => {
   console.log(req.body.id);
   try {
-    const data = await Form.find({ CID: req.body.id }).lean();
-    // console.log(data);
-    res.send(data);
+    const dataINF = await INF.find({ CID: req.body.id }).lean();
+    const dataJNF = await JNF.find({CID: req.body.id}).lean();
+    // console.log(dataINF);
+    const objArr = [];
+    for(let i=0;i<dataINF.length;i++){
+      const obj = {
+        id: dataINF[i]._id,
+        type: "INF"
+      }
+      objArr.push(obj);
+    }
+    for(let i=0;i<dataJNF.length;i++){
+      const obj = {
+        id: dataJNF[i]._id,
+        type: "JNF"
+      }
+      objArr.push(obj);
+    }
+    // console.log(objArr);
+    res.send(objArr);
   } catch (error) {
     res.send(error);
   }

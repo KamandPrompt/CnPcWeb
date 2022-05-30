@@ -50,6 +50,9 @@ const EligibilitySchema = new mongoose.Schema({
     },
 });
 const INFSchema = new Schema({
+    CID: { 
+        type: mongoose.Schema.Types.ObjectId, ref: "Recruiter"
+    },
     nameOfTheCompany: {
         type: String,
         required: true,
@@ -126,7 +129,7 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    durationOfInternship:[ 
+    durationOfInternship: [
         {
             type: String,
             required: true,
@@ -152,7 +155,7 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    typeOfTest:[ {
+    typeOfTest: [{
         type: String,
         required: true,
     }],
@@ -187,19 +190,19 @@ const INFSchema = new Schema({
             type: EligibilitySchema,
         },
     ],
-    numberOfMembers : {
+    numberOfMembers: {
         type: String,
         required: true,
     },
-    numberOfRoomsRequired : {
+    numberOfRoomsRequired: {
         type: String,
         required: true,
     },
-    otherRequirements : {
+    otherRequirements: {
         type: String,
         required: true,
     },
-    virtualDriveRequirements : {
+    virtualDriveRequirements: {
         type: String,
         required: true,
     },
