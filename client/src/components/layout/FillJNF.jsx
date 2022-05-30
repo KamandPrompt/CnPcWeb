@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { fillINF } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
-import axios from "axios";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 // import { updateUser } from "../../actions/authActions";
 
 class INF extends Component {
@@ -64,12 +70,38 @@ class INF extends Component {
     this.onchangeRadio = this.onchangeRadio.bind(this);
   }
 
-  async componentDidMount() {}
+  async componentDidMount() { }
 
   onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+  createData = (
+    programme,
+    ctc,
+    grossCompensation,
+    takeHomeCompensation,
+    bonus,
+  ) => {
+    return { programme, ctc, grossCompensation, takeHomeCompensation, bonus };
+  }
+  createInput = (
+    ID,
+    Placeholder,
+  ) => {
+    return (
+      <>
+        <Form.Control
+          onChange={this.onchange}
+          id={ID}
+          // defaultValue={name}
+          placeholder={Placeholder}
+          type="text"
+        ></Form.Control></>
+    );
+  }
+
 
   onchange = (e) => {
     this.setState({ [e.target.id]: e.target.value });
@@ -78,17 +110,17 @@ class INF extends Component {
     // console.log(e.target.id);
   };
 
-  onchangeRadio = (e,arr) => {
+  onchangeRadio = (e, arr) => {
     let idx = e.target.value;
-    this.setState({[e.target.name]:arr[idx]});
+    this.setState({ [e.target.name]: arr[idx] });
   }
 
-  onchangeCheck = (e,arr)=>{
+  onchangeCheck = (e, arr) => {
     let idx = e.target.value;
     let val = e.target.name;
     let arr1 = this.state[val];
     arr1[idx] = !arr1[idx];
-    this.setState({[e.target.name]:arr1}); 
+    this.setState({ [e.target.name]: arr1 });
   }
 
   onsubmit = (e) => {
@@ -100,23 +132,23 @@ class INF extends Component {
       "6 months winter",
       "6 months Summer",
     ];
-    for(let i=0;i<(this.state.durationOfInternship).length;i++){
-      if(this.state.durationOfInternship[i]){
+    for (let i = 0; i < (this.state.durationOfInternship).length; i++) {
+      if (this.state.durationOfInternship[i]) {
         duration.push(internDuration[i]);
       }
-    } 
+    }
     let typeofTest = ["Aptitude test", "Technical test"];
     let test = [];
-    for(let i=0;i<(typeofTest.length);i++){
-      if(this.state.typeOfTest[i]){
+    for (let i = 0; i < (typeofTest.length); i++) {
+      if (this.state.typeOfTest[i]) {
         test.push(typeofTest[i]);
       }
     }
     let typeOfInterview = ["Technical Interview",
-    "HR Interview",];
+      "HR Interview",];
     let interviewType = [];
-    for(let i=0;i<(typeOfInterview.length);i++){
-      if(this.state.typeOfInterview[i]){
+    for (let i = 0; i < (typeOfInterview.length); i++) {
+      if (this.state.typeOfInterview[i]) {
         interviewType.push(typeofTest[i]);
       }
     }
@@ -162,7 +194,7 @@ class INF extends Component {
           "School of Engineering",
           "School of Computing & Electrical   Engineering",
         ],
-        branchIDs: ["SE","SCEE"],
+        branchIDs: ["SE", "SCEE"],
       },
       {
         name: "MA",
@@ -179,20 +211,20 @@ class INF extends Component {
           "School of Basic Sciences",
           "School of Humanities and Social Sciences",
         ],
-        branchIDs: ["SE","SCEE","SBS","SHS"],
+        branchIDs: ["SE", "SCEE", "SBS", "SHS"],
       },
     ];
     let dept = [];
-    for(let i=0;i<programs.length;i++){
+    for (let i = 0; i < programs.length; i++) {
       dept.push(programs[i].branchIDs);
     }
-    let deptName = ["btech","mtech","msc","ms","ma","phd"];
+    let deptName = ["btech", "mtech", "msc", "ms", "ma", "phd"];
     let eligibility = [];
-    for(let i=0;i<deptName.length;i++){
+    for (let i = 0; i < deptName.length; i++) {
       let deptArr = [];
       let temp = this.state[deptName[i]];
-      for(let j=0;j<temp.length;j++){
-        if(temp[j]){
+      for (let j = 0; j < temp.length; j++) {
+        if (temp[j]) {
           deptArr.push(dept[i][j]);
         }
       }
@@ -211,8 +243,8 @@ class INF extends Component {
       durationOfEachRound: this.state.durationOfEachRoundHR
     }
     const user = {
-      CID : this.state.CID,
-      technicalInterview : technicalInterview,
+      CID: this.state.CID,
+      technicalInterview: technicalInterview,
       hRInterview: hRInterview,
       nameOfTheCompany: this.state.nameOfTheCompany,
       postalAddress: this.state.postalAddress,
@@ -260,6 +292,14 @@ class INF extends Component {
     const { user } = this.props.auth;
     console.log(this.state.CID);
     console.log(this.state);
+    const rows = [
+      this.createData('B.Tech.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
+      this.createData('M.Tech.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
+      this.createData('M.Sc', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
+      this.createData('M.S.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
+      this.createData('PhD', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
+      this.createData('M.A.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
+    ];
     const orgs = [
       "Govt. Owned",
       "MNC(Indian origin)",
@@ -287,10 +327,10 @@ class INF extends Component {
       "In Person",
       "Video Conferencing",
       "Skype",
-      
+
     ];
     const typeOfInterview = ["Technical Interview",
-    "HR Interview",];
+      "HR Interview",];
     const btech = [
       "Computer Science and Engineering",
       "Data Science and Engineering",
@@ -437,8 +477,8 @@ class INF extends Component {
                                       name="typeOfOrganization"
                                       type="radio"
                                       id={`org${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeRadio(e,orgs);
+                                      onChange={(e) => {
+                                        this.onchangeRadio(e, orgs);
                                       }}
                                     />
                                   </Col>
@@ -467,8 +507,8 @@ class INF extends Component {
                                       value={i}
                                       type="radio"
                                       id={`business${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeRadio(e,business);
+                                      onChange={(e) => {
+                                        this.onchangeRadio(e, business);
                                       }}
                                     />
                                   </Col>
@@ -610,6 +650,39 @@ class INF extends Component {
                         </Form.Group>
                       </Col>
                     </Row>
+                    <h2>Sallery Details</h2>
+                    <br />
+                    <Row>
+                      <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                          <TableHead>
+                            <TableRow>
+                              <TableCell>Programmes</TableCell>
+                              <TableCell align="right">Cost to Company</TableCell>
+                              <TableCell align="right">Gross Compensation(INR)</TableCell>
+                              <TableCell align="right">Take Home Compensation(INR)</TableCell>
+                              <TableCell align="right">Bonus/Incentives(if any)</TableCell>
+                            </TableRow>
+                          </TableHead>
+                          <TableBody>
+                            {rows.map((row) => (
+                              <TableRow
+                                key={row.programme}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                              >
+                                <TableCell component="th" scope="row">
+                                  {row.programme}
+                                </TableCell>
+                                <TableCell align="right">{row.ctc}</TableCell>
+                                <TableCell align="right">{row.grossCompensation}</TableCell>
+                                <TableCell align="right">{row.takeHomeCompensation}</TableCell>
+                                <TableCell align="right">{row.bonus}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </TableContainer>
+                    </Row>
                     <br />
                     <br />
                     <br />
@@ -683,8 +756,8 @@ class INF extends Component {
                                       value={i}
                                       type="radio"
                                       id={`test${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeRadio(e,test);
+                                      onChange={(e) => {
+                                        this.onchangeRadio(e, test);
                                       }}
                                     />
                                   </Col>
@@ -711,8 +784,8 @@ class INF extends Component {
                                       type="checkbox"
                                       id={`typeOfTest${i}`}
                                       value={i}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,typeofTest);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, typeofTest);
                                       }}
                                     />
                                   </Col>
@@ -763,8 +836,8 @@ class INF extends Component {
                                       name="modeOfInterview"
                                       type="radio"
                                       id={`interview${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeRadio(e,interview);
+                                      onChange={(e) => {
+                                        this.onchangeRadio(e, interview);
                                       }}
                                     />
                                   </Col>
@@ -791,8 +864,8 @@ class INF extends Component {
                                       type="checkbox"
                                       value={i}
                                       id={`typeOfInterview${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,typeOfInterview);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, typeOfInterview);
                                       }}
                                     />
                                   </Col>
@@ -885,8 +958,8 @@ class INF extends Component {
                                       name="btech"
                                       type="checkbox"
                                       id={`btech${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,btech);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, btech);
                                       }}
                                     />
                                   </Col>
@@ -903,7 +976,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {mtech.map((item, i) => {
+                              {mtech.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -913,8 +986,8 @@ class INF extends Component {
                                       name="mtech"
                                       type="checkbox"
                                       id={`mtech${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,mtech);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, mtech);
                                       }}
                                     />
                                   </Col>
@@ -931,7 +1004,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {msc.map((item, i) => {
+                              {msc.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -941,8 +1014,8 @@ class INF extends Component {
                                       name="msc"
                                       type="checkbox"
                                       id={`msc${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,msc);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, msc);
                                       }}
                                     />
                                   </Col>
@@ -959,7 +1032,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {ma.map((item, i) => {
+                              {ma.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -969,8 +1042,8 @@ class INF extends Component {
                                       name="ma"
                                       type="checkbox"
                                       id={`ma${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,ma);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, ma);
                                       }}
                                     />
                                   </Col>
@@ -987,7 +1060,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {ms.map((item, i) => {
+                              {ms.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -997,8 +1070,8 @@ class INF extends Component {
                                       name="ms"
                                       type="checkbox"
                                       id={`ms${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,ms);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, ms);
                                       }}
                                     />
                                   </Col>
@@ -1015,7 +1088,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {phd.map((item, i) => {
+                              {phd.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -1025,8 +1098,8 @@ class INF extends Component {
                                       name="phd"
                                       type="checkbox"
                                       id={`phd${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,phd);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, phd);
                                       }}
                                     />
                                   </Col>
@@ -1143,4 +1216,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser,fillINF })(INF);
+export default connect(mapStateToProps, { logoutUser, fillINF })(INF);
