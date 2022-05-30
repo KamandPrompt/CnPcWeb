@@ -213,7 +213,7 @@ router.get("/:email", async (req, res) => {
 });
 
 router.post("/getFormbyCID", async (req, res) => {
-  console.log(req.body.id);
+  // console.log(req.body.id);
   try {
     const dataINF = await INF.find({ CID: req.body.id }).lean();
     const dataJNF = await JNF.find({CID: req.body.id}).lean();
@@ -242,25 +242,26 @@ router.post("/getFormbyCID", async (req, res) => {
   }
 });
 
-router.post("/getFormbyCID/:fid", async (req, res) => {
+router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
   const fid = req.params.fid;
   // console.log(req.body.role);
   try {
     let data = [];
     if (req.body.role === "recruiter") {
-      data = await Response.find({ FID: fid, isVerified: true }).lean();
+      data = await Response.find({ "FID.FID" : fid, isVerified: true }).lean();
+      // console.log(data);
     } else if (
       req.body.role === "coordinator" ||
       req.body.role === "volunteer"
     ) {
-      data = await Response.find({ FID: fid }).lean();
+      data = await Response.find({ "FID.FID" : fid }).lean();
     }
     // console.log(data)
     let student_data = [];
     for (let i = 0; i < data.length; i++) {
       const studentData = await Student.findOne({ _id: data[i].SID }).lean();
       const newData = {
-        FID: data[i].FID,
+        FID: data[i].FID.FID,
         name: studentData.name,
         rollNo: studentData.rollNo,
         cgpa: studentData.cgpa,
@@ -269,7 +270,6 @@ router.post("/getFormbyCID/:fid", async (req, res) => {
       };
       student_data.push(newData);
     }
-    // console.log(student_data);
     res.send(student_data);
   } catch (error) {
     res.send(error);
@@ -283,7 +283,7 @@ router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
     let data = [];
     // console.log(data)
     data = await Response.findOne({
-      FID: fid,
+      "FID.FID": fid,
       isVerified: true,
       SID: sid,
     }).lean();
