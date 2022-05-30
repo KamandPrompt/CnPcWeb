@@ -29,6 +29,14 @@ const FieldSchema = new mongoose.Schema({
     default: false,
   },
 });
+const FIDSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    required: true,
+    enum: ["INF", "JNF"],
+  },
+  FID: { type: mongoose.Schema.Types.ObjectId },
+});
 const EligibilitySchema = new mongoose.Schema({
   program: {
     type: String,
@@ -71,6 +79,7 @@ const EligibilitySchema = new mongoose.Schema({
 });
 const FormSchema = new mongoose.Schema({
   CID: { type: mongoose.Schema.Types.ObjectId, ref: "Recruiter" },
+  FID: { type: FIDSchema },
   title: {
     type: String,
     required: true,

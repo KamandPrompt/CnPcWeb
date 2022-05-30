@@ -1,6 +1,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const FIDSchema = new mongoose.Schema({
+  type: {
+    type: String,
+    required: true,
+    enum: ["INF", "JNF"],
+  },
+  FID: { type: mongoose.Schema.Types.ObjectId },
+});
+
 const AnswerSchema = new mongoose.Schema({
   label: {
     type: String,
@@ -29,7 +38,8 @@ const AnswerSchema = new mongoose.Schema({
 
 const ResponseSchema = new mongoose.Schema({
   SID: { type: mongoose.Schema.Types.ObjectId, ref: "Student" },
-  FID: { type: mongoose.Schema.Types.ObjectId, ref: "Form" },
+  GID: { type: mongoose.Schema.Types.ObjectId, ref: "Form" },
+  FID: { type: FIDSchema },
   CID: { type: mongoose.Schema.Types.ObjectId, ref: "Recruiter" },
   isVerified: {
     type: Boolean,
