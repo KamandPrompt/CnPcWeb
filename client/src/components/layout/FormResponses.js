@@ -33,16 +33,7 @@ class FormResponses extends Component {
       .then((res) => {
         let Data = res.data;
         console.log(Data);
-        // for(var i=0;i<data.length;i++)
-        // {
-        //   if(data[i].isVerified === true) data[i].isVerified = "Verified";
-        //   else data[i].isVerified = "Not Verified";
-          
-        //   if(data[i].formStatus==="open") data[i].formStatus="Open";
-        //   else data[i].formStatus="Closed";
-        // }
-        // this.setState({ data: data, DataisLoaded: true });
-        // this.addNotice(this.state.data.length);
+        this.setState({ data: Data, DataisLoaded: true });
       })
       .catch((err) => {
         console.log(err);
@@ -56,8 +47,8 @@ class FormResponses extends Component {
       const userRows = this.state.data;
       const columns = [
         {
-          field: "title",
-          headerName: "Title",
+          field: "id",
+          headerName: "ID",
           hideable: false,
           width: 260,
         },
@@ -66,18 +57,6 @@ class FormResponses extends Component {
           headerName: "Type",
           hideable: false,
           width: 230,
-        },
-        {
-          field: "formStatus",
-          headerName: "Status",
-          width: 150,
-          hideable: false,
-        },
-        {
-          field: "isVerified",
-          headerName: "Verification Status",
-          width: 190,
-          hideable: false,
         },
         {
           field: "responses",
@@ -89,7 +68,7 @@ class FormResponses extends Component {
           renderCell: (params) => {
             return (
               <>
-                <Link to={"/viewResponses?fid=" + params.row._id} target="_blank">
+                <Link to={"/viewResponses?fid=" + params.row.id + "&type=" + params.row.type} target="_blank">
                   <button className="userEdit">Responses</button>
                 </Link>
               </>
@@ -121,7 +100,7 @@ class FormResponses extends Component {
                     ]}
                     pageSize={10}
                     rowsPerPageOptions={[10, 20, 30]}
-                    getRowId={(row) => row._id}
+                    getRowId={(row) => row.id}
                   />
                 </div>
                 {/* <button
