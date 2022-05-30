@@ -222,14 +222,16 @@ router.post("/getFormbyCID", async (req, res) => {
     for(let i=0;i<dataINF.length;i++){
       const obj = {
         id: dataINF[i]._id,
-        type: "INF"
+        type: "INF",
+        year : dataINF[i].year,
       }
       objArr.push(obj);
     }
     for(let i=0;i<dataJNF.length;i++){
       const obj = {
         id: dataJNF[i]._id,
-        type: "JNF"
+        type: "JNF",
+        year : dataJNF[i].year,
       }
       objArr.push(obj);
     }

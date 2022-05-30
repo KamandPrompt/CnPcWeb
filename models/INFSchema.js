@@ -53,6 +53,10 @@ const INFSchema = new Schema({
     CID: { 
         type: mongoose.Schema.Types.ObjectId, ref: "Recruiter"
     },
+    year: {
+        type: Date,
+        default: Date.getFullYear,
+    },
     nameOfTheCompany: {
         type: String,
         required: true,
