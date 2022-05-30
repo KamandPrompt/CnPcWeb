@@ -262,6 +262,7 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
       const studentData = await Student.findOne({ _id: data[i].SID }).lean();
       const newData = {
         FID: data[i].FID.FID,
+        CID : data[i].CID,
         name: studentData.name,
         rollNo: studentData.rollNo,
         cgpa: studentData.cgpa,

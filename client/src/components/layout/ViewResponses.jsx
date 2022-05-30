@@ -25,6 +25,7 @@ class ViewResponses extends Component {
     const params = new URLSearchParams(search);
     const fid = params.get("fid");
     const sid = params.get("sid");
+    // console.log(this.props.auth.user);
     console.log(fid)
     if(sid){
       await axios.post(`/api/recruiters/getResponsebySID/${fid}/${sid}`, {sid: this.state.SID})
