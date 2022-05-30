@@ -301,4 +301,16 @@ router.post("/fillINF", (req,res)=>{
     .catch((err) => console.log(err));
 })
 
+router.post("/viewFilledForm", async (req,res)=>{
+  const fid = req.body.fid;
+  const type = req.body.type;
+  if(type=="INF"){
+    const data = await INF.findOne({_id: fid}).lean();
+    res.send(data);
+  }else{
+    const data = await JNF.findOne({_id: fid}).lean();
+    res.send(data);
+  }
+});
+
 module.exports = router;

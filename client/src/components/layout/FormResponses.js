@@ -32,7 +32,6 @@ class FormResponses extends Component {
       .post("/api/recruiters/getFormbyCID", { id: this.state.CID })
       .then((res) => {
         let Data = res.data;
-        console.log(Data);
         this.setState({ data: Data, DataisLoaded: true });
       })
       .catch((err) => {
@@ -74,7 +73,7 @@ class FormResponses extends Component {
           renderCell: (params) => {
             return (
               <>
-                <Link to={"/viewFilledForm?fid=" + params.row.id} target="_blank">
+                <Link to={"/viewFilledForm?fid=" + params.row.id + "&type=" + params.row.type} target="_blank">
                   <button className="userEdit">View</button>
                 </Link>
               </>

@@ -47,6 +47,7 @@ import FormResponses from "./components/layout/FormResponses";
 import ManageRecruiters from "./components/layout/ManageRecruiters";
 import RecruiterAdminOutlet from "./components/private-route/RecruiterAdminOutlet";
 import ViewResponses from "./components/layout/ViewResponses";
+import ViewFilledForm from "./components/layout/viewFilledForm";
 import ManageCreatedForms from "./components/layout/ManageCreatedForms";
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
@@ -142,6 +143,9 @@ class App extends Component {
             </Route>
             <Route exact path="/fillJNF" element={<RecruiterOutlet />}>
               <Route path="" element={<FillJNF />} />
+            </Route>
+            <Route path="/viewFilledForm" element={<RecruiterOutlet />}>
+              <Route path="" element={<ViewFilledForm />} />
             </Route>
             <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
               <Route path="" element={<StudentDashboard />} />
