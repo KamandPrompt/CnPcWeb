@@ -1168,7 +1168,7 @@ class INF extends Component {
                         variant="info"
                         onClick={this.onsubmit}
                       >
-                        Update Profile
+                        Submit
                       </Button>
                     </div>
                   </Form>

@@ -302,6 +302,15 @@ router.post("/fillINF", (req,res)=>{
     .catch((err) => console.log(err));
 })
 
+router.post("/fillJNF", (req,res)=>{
+  // console.log(req.body);
+  const JNFform = new JNF(req.body);
+  JNFform
+    .save()
+    .then((user) => res.json(user))
+    .catch((err) => console.log(err));
+})
+
 router.post("/viewFilledForm", async (req,res)=>{
   const fid = req.body.fid;
   const type = req.body.type;

@@ -59,6 +59,17 @@ export const fillINF = (userData, history) => (dispatch) =>{
   })
 }
 
+export const fillJNF = (userData, history) => (dispatch) =>{
+  axios.post("/api/recruiters/fillJNF", userData).then((res)=>{
+    alert("JNF Form submitted!!!");
+  }).catch((err)=>{
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
+    });
+  })
+}
+
 export const createFormRecruiter = (formData, history) => (dispatch) => {
   axios
     .post("/api/recruiters/createForm", formData)

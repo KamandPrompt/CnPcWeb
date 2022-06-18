@@ -54,8 +54,12 @@ const INFSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId, ref: "Recruiter"
     },
     year: {
-        type: Date,
-        default: Date.getFullYear,
+        type: String,
+        default: ()=>{
+            const today = new Date();
+            const year = today.getFullYear();
+            return year;
+        },
     },
     nameOfTheCompany: {
         type: String,

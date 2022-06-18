@@ -5,33 +5,27 @@ const Schema = mongoose.Schema;
 const RoundSchema = new mongoose.Schema({
   noOfRounds: {
     type: String,
-    required: true,
   },
   durationOfEachRound: {
     type: String,
-    required: true,
   },
 });
 const CompensationSchema = new mongoose.Schema({
   program: {
     type: String,
-    required: true,
+    enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
   },
   CTC: {
     type: String,
-    required: true,
   },
   gross: {
     type: String,
-    required: true,
   },
   takeHome: {
     type: String,
-    required: true,
   },
   bonusIncentives: {
     type: String,
-    required: true,
   },
 });
 const EligibilitySchema = new mongoose.Schema({
@@ -76,8 +70,12 @@ const JNFSchema = new Schema({
     ref: "Recruiter",
   },
   year: {
-    type: Date,
-    default: Date.getFullYear,
+    type: String,
+    default: ()=>{
+      const today = new Date();
+      const year = today.getFullYear();
+      return year;
+    },
   },
   nameOfTheCompany: {
     type: String,
@@ -152,10 +150,6 @@ const JNFSchema = new Schema({
       type: CompensationSchema,
     },
   ],
-  bond: {
-    type: String,
-    required: true,
-  },
   eligibilityCriteria: {
     type: String,
     required: true,
@@ -176,10 +170,14 @@ const JNFSchema = new Schema({
     type: String,
     required: true,
   },
-  typeOfTest: {
+  modeOfInterview: {
     type: String,
     required: true,
   },
+  typeOfTest: [{
+    type: String,
+    required: true,
+  }],
   aptitudeTest: {
     type: String,
     required: true,
@@ -188,17 +186,15 @@ const JNFSchema = new Schema({
     type: String,
     required: true,
   },
-  typeOfInterview: {
+  typeOfInterview: [{
     type: String,
     required: true,
-  },
+  }],
   technicalInterview: {
     type: RoundSchema,
-    required: true,
   },
   hRInterview: {
     type: RoundSchema,
-    required: true,
   },
   eligibility: [
     {
@@ -215,11 +211,9 @@ const JNFSchema = new Schema({
   },
   otherRequirements: {
     type: String,
-    required: true,
   },
   virtualDriveRequirements: {
     type: String,
-    required: true,
   },
 });
 

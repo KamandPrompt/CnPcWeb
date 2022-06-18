@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import { fillINF } from "../../actions/authActions";
+import { fillJNF } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 // import { updateUser } from "../../actions/authActions";
 
-class INF extends Component {
+class JNF extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,14 +30,12 @@ class INF extends Component {
       emailAddress: "",
       telephone: "",
       mobile: "",
-      jobDesignation: "",
+      jobDesignationOffered: "",
       skillSetRequired: "",
       tentativeNoOfVacancies: "",
       tentativeJobLocations: "",
-      dateOfJoining: "",
-      accommodationProvided: "",
+      tentativeDateOfJoining: "",
       bonusPerksTravel: "",
-      durationOfInternship: Array(4).fill(false),
       eligibilityCriteria: "",
       prePlacementTalk: "",
       resumeShortlisting: "",
@@ -63,14 +61,36 @@ class INF extends Component {
       ms: Array(2).fill(false),
       phd: Array(4).fill(false),
       ma: Array(1).fill(false),
+      ctcBtech: "",
+      grossBtech: "",
+      takeHomeBtech: "",
+      bonusBtech: "",
+      ctcMtech: "",
+      grossMtech: "",
+      takeHomeMtech: "",
+      bonusMtech: "",
+      ctcMSc: "",
+      grossMSc: "",
+      takeHomeMSc: "",
+      bonusMSc: "",
+      ctcMS: "",
+      grossMS: "",
+      takeHomeMS: "",
+      bonusMS: "",
+      ctcPhD: "",
+      grossPhD: "",
+      takeHomePhD: "",
+      bonusPhD: "",
+      ctcMA: "",
+      grossMA: "",
+      takeHomeMA: "",
+      bonusMA: "",
       DataisLoaded: false,
 
     };
     this.onchange = this.onchange.bind(this);
     this.onchangeRadio = this.onchangeRadio.bind(this);
   }
-
-  async componentDidMount() { }
 
   onLogout = (e) => {
     e.preventDefault();
@@ -125,18 +145,6 @@ class INF extends Component {
 
   onsubmit = (e) => {
     e.preventDefault();
-    let duration = [];
-    let internDuration = [
-      "2 months winter",
-      "2 months Summer",
-      "6 months winter",
-      "6 months Summer",
-    ];
-    for (let i = 0; i < (this.state.durationOfInternship).length; i++) {
-      if (this.state.durationOfInternship[i]) {
-        duration.push(internDuration[i]);
-      }
-    }
     let typeofTest = ["Aptitude test", "Technical test"];
     let test = [];
     for (let i = 0; i < (typeofTest.length); i++) {
@@ -242,6 +250,50 @@ class INF extends Component {
       noOfRounds: this.state.noOfRoundsHR,
       durationOfEachRound: this.state.durationOfEachRoundHR
     }
+    let compensation = [
+      {
+        program: "BTECH",
+        CTC: this.state.ctcBtech,
+        gross: this.state.grossBtech,
+        takeHome: this.state.takeHomeBtech,
+        bonusIncentives: this.state.bonusBtech
+      },
+      {
+        program: "MTECH",
+        CTC: this.state.ctcMtech,
+        gross: this.state.grossMtech,
+        takeHome: this.state.takeHomeMtech,
+        bonusIncentives: this.state.bonusMtech
+      },
+      {
+        program: "MSC",
+        CTC: this.state.ctcMSc,
+        gross: this.state.grossMSc,
+        takeHome: this.state.takeHomeMSc,
+        bonusIncentives: this.state.bonusMSc
+      },
+      {
+        program: "MS",
+        CTC: this.state.ctcMS,
+        gross: this.state.grossMS,
+        takeHome: this.state.takeHomeMS,
+        bonusIncentives: this.state.bonusMS
+      },
+      {
+        program: "PHD",
+        CTC: this.state.ctcPhD,
+        gross: this.state.grossPhD,
+        takeHome: this.state.takeHomePhD,
+        bonusIncentives: this.state.bonusPhD
+      },
+      {
+        program: "MA",
+        CTC: this.state.ctcMA,
+        gross: this.state.grossMA,
+        takeHome: this.state.takeHomeMA,
+        bonusIncentives: this.state.bonusMA
+      },
+    ];
     const user = {
       CID: this.state.CID,
       technicalInterview: technicalInterview,
@@ -258,19 +310,16 @@ class INF extends Component {
       emailAddress: this.state.emailAddress,
       telephone: this.state.telephone,
       mobile: this.state.mobile,
-      jobDesignation: this.state.jobDesignation,
+      jobDesignationOffered: this.state.jobDesignationOffered,
       skillSetRequired: this.state.skillSetRequired,
       tentativeNoOfVacancies: this.state.tentativeNoOfVacancies,
       tentativeJobLocations: this.state.tentativeJobLocations,
-      dateOfJoining: this.state.dateOfJoining,
-      accommodationProvided: this.state.accommodationProvided,
-      bonusPerksTravel: this.state.bonusPerksTravel,
+      tentativeDateOfJoining: this.state.tentativeDateOfJoining,
       eligibilityCriteria: this.state.eligibilityCriteria,
       prePlacementTalk: this.state.prePlacementTalk,
       resumeShortlisting: this.state.resumeShortlisting,
       groupDiscussion: this.state.groupDiscussion,
       modeOfTest: this.state.modeOfTest,
-      durationOfInternship: duration,
       typeOfTest: test,
       aptitudeTest: this.state.aptitudeTest,
       technicalTest: this.state.technicalTest,
@@ -282,23 +331,24 @@ class INF extends Component {
       virtualDriveRequirements: this.state.virtualDriveRequirements,
       technicalInterview: technicalInterview,
       hRInterview: hRInterview,
-      eligibility: eligibility
+      eligibility: eligibility,
+      compensation: compensation,
     };
+    // console.log(user);
     this.props
-      .fillINF(user, this.props.history)
+      .fillJNF(user, this.props.history)
   };
 
   render() {
     const { user } = this.props.auth;
-    console.log(this.state.CID);
     console.log(this.state);
     const rows = [
-      this.createData('B.Tech.', this.createInput('ctcBtech', "Cost to company"), this.createInput('grossBtech', "Gross compentation"), this.createInput('takeHomeBtech', "Take Home"), this.createInput('bonusBtech', "Bonus B.tech")),
-      this.createData('M.Tech.', this.createInput('ctcMtech', "Cost to company"), this.createInput('grossMtech', "Gross compentation"), this.createInput('takeHomeMtech', "Take Home"), this.createInput('bonusMtech', "Bonus M.tech")),
-      this.createData('M.Sc', this.createInput('ctcMSc', "Cost to company"), this.createInput('grossMSc', "Gross compentation"), this.createInput('takeHomeMSc', "Take Home"), this.createInput('bonusMSc', "Bonus M.Sc")),
-      this.createData('M.S.', this.createInput('ctcMS', "Cost to company"), this.createInput('grossMS', "Gross compentation"), this.createInput('takeHomeMS', "Take Home"), this.createInput('bonusMS', "Bonus MS")),
-      this.createData('PhD', this.createInput('ctcPhD', "Cost to company"), this.createInput('grossPhD', "Gross compentation"), this.createInput('takeHomePhD', "Take Home"), this.createInput('bonusPhD', "Bonus PhD")),
-      this.createData('M.A.', this.createInput('ctcMA', "Cost to company"), this.createInput('grossMA', "Gross compentation"), this.createInput('takeHomeMA', "Take Home"), this.createInput('bonusMA', "Bonus MA")),
+      this.createData('B.Tech.', this.createInput('ctcBtech', "Cost to company",this.onchange), this.createInput('grossBtech', "Gross compentation",this.onchange), this.createInput('takeHomeBtech', "Take Home",this.onchange), this.createInput('bonusBtech', "Bonus B.tech",this.onchange)),
+      this.createData('M.Tech.', this.createInput('ctcMtech', "Cost to company",this.onchange), this.createInput('grossMtech', "Gross compentation",this.onchange), this.createInput('takeHomeMtech', "Take Home",this.onchange), this.createInput('bonusMtech', "Bonus M.tech",this.onchange)),
+      this.createData('M.Sc', this.createInput('ctcMSc', "Cost to company",this.onchange), this.createInput('grossMSc', "Gross compentation",this.onchange), this.createInput('takeHomeMSc', "Take Home",this.onchange), this.createInput('bonusMSc', "Bonus M.Sc",this.onchange)),
+      this.createData('M.S.', this.createInput('ctcMS', "Cost to company",this.onchange), this.createInput('grossMS', "Gross compentation",this.onchange), this.createInput('takeHomeMS', "Take Home",this.onchange), this.createInput('bonusMS', "Bonus MS",this.onchange)),
+      this.createData('PhD', this.createInput('ctcPhD', "Cost to company",this.onchange), this.createInput('grossPhD', "Gross compentation",this.onchange), this.createInput('takeHomePhD', "Take Home",this.onchange), this.createInput('bonusPhD', "Bonus PhD", this.onchange)),
+      this.createData('M.A.', this.createInput('ctcMA', "Cost to company",this.onchange), this.createInput('grossMA', "Gross compentation",this.onchange), this.createInput('takeHomeMA', "Take Home",this.onchange), this.createInput('bonusMA', "Bonus MA",this.onchange)),
     ];
     const orgs = [
       "Govt. Owned",
@@ -329,8 +379,8 @@ class INF extends Component {
       "Skype",
 
     ];
-    const typeOfInterview = ["Technical Interview",
-      "HR Interview",];
+    const typeofInterview = ["Technical Interview",
+            "HR Interview",];
     const btech = [
       "Computer Science and Engineering",
       "Data Science and Engineering",
@@ -361,12 +411,7 @@ class INF extends Component {
       "School of Humanities and Social Sciences",
     ];
     const ma = ["Development Studies"]
-    const internDuration = [
-      "2 months winter",
-      "2 months Summer",
-      "6 months winter",
-      "6 months Summer",
-    ];
+    
 
     // const {
     //   name,
@@ -385,6 +430,7 @@ class INF extends Component {
     //   isVerified,
     //   role,
     // } = this.state;
+    // console.log(this.state);
     return (
       <>
         <Container fluid>
@@ -593,7 +639,7 @@ class INF extends Component {
                           <label>Job Designation Offered</label>
                           <Form.Control
                             onChange={this.onchange}
-                            id="jobDesignation"
+                            id="jobDesignationOffered"
                             // defaultValue={contactPerson}
                             placeholder="Job Designation"
                             type="text"
@@ -642,7 +688,7 @@ class INF extends Component {
                           <label>Tentative Date of Joining</label>
                           <Form.Control
                             onChange={this.onchange}
-                            id="dateOfJoining"
+                            id="tentativeDateOfJoining"
                             // defaultValue={mobile}
                             placeholder="Tentative Date of joining"
                             type="text"
@@ -665,6 +711,7 @@ class INF extends Component {
                             </TableRow>
                           </TableHead>
                           <TableBody>
+                            {console.log(rows)}
                             {rows.map((row) => (
                               <TableRow
                                 key={row.programme}
@@ -1186,7 +1233,7 @@ class INF extends Component {
                         variant="info"
                         onClick={this.onsubmit}
                       >
-                        Update Profile
+                        Submit
                       </Button>
                     </div>
                   </Form>
@@ -1207,7 +1254,7 @@ class INF extends Component {
   }
 }
 
-INF.propTypes = {
+JNF.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -1216,4 +1263,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser, fillINF })(INF);
+export default connect(mapStateToProps, { logoutUser, fillJNF })(JNF);
