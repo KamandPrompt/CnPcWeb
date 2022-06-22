@@ -48,6 +48,12 @@ const RecruiterSchema = new Schema({
     type : Boolean,
     default : false,
   },
+  POCName: {
+    type: String,
+  },
+  POCMobile: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("recruiters", RecruiterSchema);
