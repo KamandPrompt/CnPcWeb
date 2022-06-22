@@ -1808,7 +1808,7 @@ class ViewFilledFormVolunteer extends Component {
                                           </Col>
                                         );
                                       }
-                                      else if(this.state.typeOfOrganization==i){
+                                      else if(this.state.typeOfOrganization[i]){
                                           return (
                                             <Col className="px-1" md="2">
                                               <Form.Check
