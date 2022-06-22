@@ -46,9 +46,12 @@ import FillINF from "./components/layout/FillINF";
 import FormResponses from "./components/layout/FormResponses";
 import ManageRecruiters from "./components/layout/ManageRecruiters";
 import RecruiterAdminOutlet from "./components/private-route/RecruiterAdminOutlet";
-import ViewResponses from "./components/layout/ViewResponses";
-import ViewFilledForm from "./components/layout/viewFilledForm";
+import ViewResponsesRecruiter from "./components/layout/ViewResponsesRecruiter";
+import ViewFilledFormRecruiter from "./components/layout/viewFilledFormRecruiter";
+import ViewResponsesVolunteer from "./components/layout/ViewResponsesVolunteer";
+import ViewFilledFormVolunteer from "./components/layout/viewFilledFormVolunteer";
 import ManageCreatedForms from "./components/layout/ManageCreatedForms";
+import ManageINFJNF from "./components/layout/ManageINFJNF";
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -144,8 +147,11 @@ class App extends Component {
             <Route exact path="/fillJNF" element={<RecruiterOutlet />}>
               <Route path="" element={<FillJNF />} />
             </Route>
-            <Route path="/viewFilledForm" element={<RecruiterOutlet />}>
-              <Route path="" element={<ViewFilledForm />} />
+            <Route path="/viewFilledFormRecruiter" element={<RecruiterOutlet />}>
+              <Route path="" element={<ViewFilledFormRecruiter />} />
+            </Route>
+            <Route path="/viewFilledFormVolunteer" element={<VolunteerOutlet />}>
+              <Route path="" element={<ViewFilledFormVolunteer />} />
             </Route>
             <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
               <Route path="" element={<StudentDashboard />} />
@@ -167,11 +173,17 @@ class App extends Component {
             >
               <Route path="" element={<VolunteerDashboard />} />
             </Route>
-            <Route path="/viewResponses" element={<RecruiterAdminOutlet />}>
-              <Route path="" element={<ViewResponses />} />
+            <Route path="/viewResponsesRecruiter" element={<RecruiterOutlet />}>
+              <Route path="" element={<ViewResponsesRecruiter />} />
+            </Route>
+            <Route path="/viewResponsesVolunteer" element={<VolunteerOutlet />}>
+              <Route path="" element={<ViewResponsesVolunteer />} />
             </Route>
             <Route exact path="/manageRecruiters" element={<VolunteerOutlet />}>
               <Route path="" element={<ManageRecruiters />} />
+            </Route>
+            <Route exact path="/manageINFJNF" element={<VolunteerOutlet />}>
+              <Route path="" element={<ManageINFJNF />} />
             </Route>
             <Route
               exact

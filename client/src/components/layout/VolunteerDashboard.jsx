@@ -51,6 +51,15 @@ class VolunteerDashboard extends Component {
             Create Form
           </Button>
         </Link>
+        <Link to={"/manageINFJNF"}>
+          <Button
+            className="btn-fill"
+            style={{ width: "200px", margin: "40px" }}
+            variant="info"
+          >
+            Manage INF/JNF
+          </Button>
+        </Link>
       </>
     );
   }

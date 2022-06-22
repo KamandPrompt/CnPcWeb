@@ -11,12 +11,12 @@ import "../admin.css";
 
 // import { updateUser } from "../../actions/authActions";
 
-class FormResponses extends Component {
+class ManageINFJNF extends Component {
   constructor(props) {
     super(props);
     this.state = {
       DataisLoaded: false,
-      CID: this.props.auth.user.id,
+      // CID: this.props.auth.user.id,
       data: [],
     };
   }
@@ -29,7 +29,7 @@ class FormResponses extends Component {
     const search = window.location.search;
     const params = new URLSearchParams(search);
     await axios
-      .post("/api/recruiters/getFormbyCID", { id: this.state.CID })
+      .post("/api/recruiters/getAllForms", { id: this.state.CID })
       .then((res) => {
         let Data = res.data;
         this.setState({ data: Data, DataisLoaded: true });
@@ -73,7 +73,7 @@ class FormResponses extends Component {
           renderCell: (params) => {
             return (
               <>
-                <Link to={"/viewFilledFormRecruiter?fid=" + params.row.id + "&type=" + params.row.type} target="_blank">
+                <Link to={"/viewFilledFormVolunteer?fid=" + params.row.id + "&type=" + params.row.type} target="_blank">
                   <button className="userEdit">View</button>
                 </Link>
               </>
@@ -91,7 +91,7 @@ class FormResponses extends Component {
               return (
                 <>
                   {/* Here we have to send GID which will be implemented later */}
-                  <Link to={"/viewResponsesRecruiter?fid=" + params.row.id} target="_blank"> 
+                  <Link to={"/viewResponsesVolunteer?fid=" + params.row.id} target="_blank"> 
                     <button className="userEdit">Responses</button>
                   </Link>
                 </>
@@ -157,7 +157,7 @@ class FormResponses extends Component {
   }
 }
 
-FormResponses.propTypes = {
+ManageINFJNF.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -166,4 +166,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser })(FormResponses);
+export default connect(mapStateToProps, { logoutUser })(ManageINFJNF);

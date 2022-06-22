@@ -241,6 +241,35 @@ router.post("/getFormbyCID", async (req, res) => {
     res.send(error);
   }
 });
+router.post("/getAllForms", async (req, res) => {
+  // console.log(req.body.id);
+  try {
+    const dataINF = await INF.find().lean();
+    const dataJNF = await JNF.find().lean();
+    // console.log(dataINF);
+    const objArr = [];
+    for(let i=0;i<dataINF.length;i++){
+      const obj = {
+        id: dataINF[i]._id,
+        type: "INF",
+        year : dataINF[i].year,
+      }
+      objArr.push(obj);
+    }
+    for(let i=0;i<dataJNF.length;i++){
+      const obj = {
+        id: dataJNF[i]._id,
+        type: "JNF",
+        year : dataJNF[i].year,
+      }
+      objArr.push(obj);
+    }
+    // console.log(objArr);
+    res.send(objArr);
+  } catch (error) {
+    res.send(error);
+  }
+});
 
 router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
   const fid = req.params.fid;

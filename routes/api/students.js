@@ -16,26 +16,26 @@ const validDegree = (degree) => {
   var str = degree.replace(/\s/g, "");
   return str.toUpperCase();
 };
-const contactEmail = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  // service: "gmail",
-  auth: {
-    user: "capibulladvisors@gmail.com",
-    pass: "capibull9550",
-    // user: "cpdashboard11@gmail.com",
-    // pass: "cp-dash@",
-  },
-});
+// const contactEmail = nodemailer.createTransport({
+//   host: "smtp.gmail.com",
+//   port: 465,
+//   secure: true,
+//   service: "gmail",
+//   auth: {
+//     // user: "capibulladvisors@gmail.com",
+//     // pass: "capibull9550",
+//     user: "cpdashboard11@gmail.com",
+//     pass: "cp-dash@",
+//   },
+// });
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
-});
+// contactEmail.verify((error) => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log("Ready to Send");
+//   }
+// });
 // Load Student model
 const Student = require("../../models/StudentSchema");
 const Form = require("../../models/FormSchema");

@@ -14,7 +14,7 @@ import Paper from '@mui/material/Paper';
 import axios from "axios";
 // import { updateUser } from "../../actions/authActions";
 
-class ViewFilledForm extends Component {
+class ViewFilledFormRecruiter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -2476,7 +2476,7 @@ class ViewFilledForm extends Component {
   }
 }
 
-ViewFilledForm.propTypes = {
+ViewFilledFormRecruiter.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -2485,4 +2485,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser })(ViewFilledForm);
+export default connect(mapStateToProps, { logoutUser })(ViewFilledFormRecruiter);
