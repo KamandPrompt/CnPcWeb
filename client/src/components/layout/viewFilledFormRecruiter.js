@@ -25,8 +25,8 @@ class ViewFilledFormRecruiter extends Component {
       country: "",
       PINZIP: "",
       website: "",
-      typeOfOrganization: "",
-      natureOfBusiness: "",
+      typeOfOrganization: Array(7).fill(false),
+      natureOfBusiness: Array(10).fill(false),
       contactPerson: "",
       designation: "",
       emailAddress: "",
@@ -47,8 +47,8 @@ class ViewFilledFormRecruiter extends Component {
       prePlacementTalk: "",
       resumeShortlisting: "",
       groupDiscussion: "",
-      modeOfTest: "",
-      modeOfInterview: "",
+      modeOfTest: Array(2).fill(false),
+      modeOfInterview: Array(3).fill(false),
       typeOfTest: Array(2).fill(false),
       typeOfInterview: Array(2).fill(false),
       aptitudeTest: "",
@@ -93,6 +93,8 @@ class ViewFilledFormRecruiter extends Component {
       takeHomeMA: "",
       bonusMA: "",
       DataisLoaded: false,
+      otherOrgs: "",
+      otherBusi: "",
     };
   }
 
@@ -189,6 +191,95 @@ class ViewFilledFormRecruiter extends Component {
               }
             }
           }
+          const orgs = [
+            "Govt. Owned",
+            "MNC(Indian origin)",
+            "MNC(Foreign origin)",
+            "Private sector",
+            "Public sector",
+            "Start-up",
+            "Others",
+          ];
+          let otherOrgs = "";
+          const typeOrgs = Array(7).fill(false);
+          for(let i=0;i<(typeOrgs.length);i++){
+            for(let j=0;j<(data.typeOfOrganization.length);j++){
+              if(data.typeOfOrganization[j]==orgs[i]){
+                typeOrgs[i] = true;
+              }
+            }
+          }
+          let c = 0;
+          for(let i=0;i<(data.typeOfOrganization.length);i++){
+            for(let j=0;j<(orgs.length);j++){
+              if(data.typeOfOrganization[i]!=orgs[j]){
+                c++;
+              }
+            }
+            if(c==7){
+              otherOrgs = data.typeOfOrganization[i];
+            }
+          }
+          if(otherOrgs){
+            typeOrgs[6] = true;
+          }
+          const business = [
+            "Analytics",
+            "Consulting",
+            "Core (Technical)",
+            "I.T/ITES",
+            "FMCG",
+            "Finance",
+            "Management",
+            "Research",
+            "Education (Teaching)",
+            "Others",
+          ];
+          let otherBusi = "";
+          const natureBusi = Array(10).fill(false);
+          for(let i=0;i<(natureBusi.length);i++){
+            for(let j=0;j<(data.natureOfBusiness.length);j++){
+              if(data.natureOfBusiness[j]==business[i]){
+                natureBusi[i] = true;
+              }
+            }
+          }
+          c = 0;
+          for(let i=0;i<(data.natureOfBusiness.length);i++){
+            for(let j=0;j<(business.length);j++){
+              if(data.natureOfBusiness[i]!=business[j]){
+                c++;
+              }
+            }
+            if(c==10){
+              otherBusi = data.natureOfBusiness[i];
+            }
+          }
+          if(otherBusi){
+            natureBusi[9] = true;
+          }
+          const Test = ["Paper Based", "Online"];
+          const typeTest = Array(2).fill(false);
+          for(let i=0;i<(typeTest.length);i++){
+            for(let j=0;j<(data.modeOfTest.length);j++){
+              if(data.modeOfTest[j]==Test[i]){
+                typeTest[i] = true;
+              }
+            }
+          }
+          const interview = [
+            "In Person",
+            "Video Conferencing",
+            "Skype",
+          ];
+          const modeInterview = Array(3).fill(false);
+          for(let i=0;i<(modeInterview.length);i++){
+            for(let j=0;j<(data.modeOfInterview.length);j++){
+              if(data.modeOfInterview[j]==interview[i]){
+                modeInterview[i] = true;
+              }
+            }
+          }
           this.setState({
               type: type,
               nameOfTheCompany: data.nameOfTheCompany,
@@ -205,8 +296,8 @@ class ViewFilledFormRecruiter extends Component {
               ms: Arr1[3],
               ma: Arr1[4],
               phd: Arr1[5],
-              typeOfOrganization: data.typeOfOrganization,
-              natureOfBusiness: data.natureOfBusiness,
+              typeOfOrganization: typeOrgs,
+              natureOfBusiness: natureBusi,
               contactPerson: data.contactPerson,
               designation: data.designation,
               emailAddress: data.emailAddress,
@@ -223,8 +314,8 @@ class ViewFilledFormRecruiter extends Component {
               prePlacementTalk: data.prePlacementTalk,
               resumeShortlisting: data.resumeShortlisting,
               groupDiscussion: data.groupDiscussion,
-              modeOfTest: data.modeOfTest,
-              modeOfInterview: data.modeOfInterview,
+              modeOfTest: typeTest,
+              modeOfInterview: modeInterview,
               aptitudeTest: data.aptitudeTest,
               technicalTest: data.technicalTest,
               numberOfMembers: data.numberOfMembers,
@@ -236,6 +327,8 @@ class ViewFilledFormRecruiter extends Component {
               noOfRoundsHR: data.hRInterview.noOfRounds,
               noOfRoundsTech: data.technicalInterview.noOfRounds,
               DataisLoaded: true,
+              otherOrgs: otherOrgs,
+              otherBusi: otherBusi
           })
         }else if(type=="JNF"){
           const test = Array(2).fill(false);
@@ -304,6 +397,95 @@ class ViewFilledFormRecruiter extends Component {
               }
             }
           }
+          const orgs = [
+            "Govt. Owned",
+            "MNC(Indian origin)",
+            "MNC(Foreign origin)",
+            "Private sector",
+            "Public sector",
+            "Start-up",
+            "Others",
+          ];
+          let otherOrgs = "";
+          const typeOrgs = Array(7).fill(false);
+          for(let i=0;i<(typeOrgs.length);i++){
+            for(let j=0;j<(data.typeOfOrganization.length);j++){
+              if(data.typeOfOrganization[j]==orgs[i]){
+                typeOrgs[i] = true;
+              }
+            }
+          }
+          let c = 0;
+          for(let i=0;i<(data.typeOfOrganization.length);i++){
+            for(let j=0;j<(orgs.length);j++){
+              if(data.typeOfOrganization[i]!=orgs[j]){
+                c++;
+              }
+            }
+            if(c==7){
+              otherOrgs = data.typeOfOrganization[i];
+            }
+          }
+          if(otherOrgs){
+            typeOrgs[6] = true;
+          }
+          const business = [
+            "Analytics",
+            "Consulting",
+            "Core (Technical)",
+            "I.T/ITES",
+            "FMCG",
+            "Finance",
+            "Management",
+            "Research",
+            "Education (Teaching)",
+            "Others",
+          ];
+          let otherBusi = "";
+          const natureBusi = Array(10).fill(false);
+          for(let i=0;i<(natureBusi.length);i++){
+            for(let j=0;j<(data.natureOfBusiness.length);j++){
+              if(data.natureOfBusiness[j]==business[i]){
+                natureBusi[i] = true;
+              }
+            }
+          }
+          c = 0;
+          for(let i=0;i<(data.natureOfBusiness.length);i++){
+            for(let j=0;j<(business.length);j++){
+              if(data.natureOfBusiness[i]!=business[j]){
+                c++;
+              }
+            }
+            if(c==10){
+              otherBusi = data.natureOfBusiness[i];
+            }
+          }
+          if(otherBusi){
+            natureBusi[9] = true;
+          }
+          const Test = ["Paper Based", "Online"];
+          const typeTest = Array(2).fill(false);
+          for(let i=0;i<(typeTest.length);i++){
+            for(let j=0;j<(data.modeOfTest.length);j++){
+              if(data.modeOfTest[j]==Test[i]){
+                typeTest[i] = true;
+              }
+            }
+          }
+          const interview = [
+            "In Person",
+            "Video Conferencing",
+            "Skype",
+          ];
+          const modeInterview = Array(3).fill(false);
+          for(let i=0;i<(modeInterview.length);i++){
+            for(let j=0;j<(data.modeOfInterview.length);j++){
+              if(data.modeOfInterview[j]==interview[i]){
+                modeInterview[i] = true;
+              }
+            }
+          }
           this.setState({
             type: type,
             nameOfTheCompany: data.nameOfTheCompany,
@@ -319,8 +501,8 @@ class ViewFilledFormRecruiter extends Component {
             ms: Arr1[3],
             ma: Arr1[4],
             phd: Arr1[5],
-            typeOfOrganization: data.typeOfOrganization,
-            natureOfBusiness: data.natureOfBusiness,
+            typeOfOrganization: typeOrgs,
+            natureOfBusiness: natureBusi,
             contactPerson: data.contactPerson,
             designation: data.designation,
             emailAddress: data.emailAddress,
@@ -336,8 +518,8 @@ class ViewFilledFormRecruiter extends Component {
             prePlacementTalk: data.prePlacementTalk,
             resumeShortlisting: data.resumeShortlisting,
             groupDiscussion: data.groupDiscussion,
-            modeOfTest: data.modeOfTest,
-            modeOfInterview: data.modeOfInterview,
+            modeOfTest: typeTest,
+            modeOfInterview: modeInterview,
             aptitudeTest: data.aptitudeTest,
             technicalTest: data.technicalTest,
             numberOfMembers: data.numberOfMembers,
@@ -373,6 +555,8 @@ class ViewFilledFormRecruiter extends Component {
             takeHomeMA: data.compensation[5].takeHome,
             bonusMA: data.compensation[5].bonusIncentives,
             DataisLoaded: true,
+            otherOrgs: otherOrgs,
+            otherBusi: otherBusi
         });
         }
     }).catch((e)=>{
@@ -441,13 +625,12 @@ class ViewFilledFormRecruiter extends Component {
       "Others",
     ];
     const test = ["Paper Based", "Online"];
-    const typeofTest = ["Aptitude test", "Technical test"];
     const interview = [
       "In Person",
       "Video Conferencing",
       "Skype",
-      
     ];
+    const typeofTest = ["Aptitude test", "Technical test"];
     const typeofInterview = ["Technical Interview",
     "HR Interview",];
     const btech = [
@@ -486,6 +669,7 @@ class ViewFilledFormRecruiter extends Component {
       "6 months winter",
       "6 months Summer",
     ];
+    console.log(this.state);
     if(this.state.DataisLoaded == true){
       if(this.state.type=="INF"){
         return (
@@ -571,7 +755,24 @@ class ViewFilledFormRecruiter extends Component {
                               <div className="container">
                                 <Row>
                                   {orgs.map((item, i) => {
-                                      if(this.state.typeOfOrganization==item){
+                                      if(this.state.typeOfOrganization[i] && i==6){
+                                        return (
+                                          <Col className="px-1" md="2">
+                                            <Form.Check
+                                              inline
+                                              label={item}
+                                              value={i}
+                                              name="typeOfOrganization"
+                                              type="checkbox"
+                                              id={`org${i}`}
+                                              disabled
+                                              checked
+                                            />
+                                            <input type="text" defaultValue={this.state.otherOrgs}/>
+                                          </Col>
+                                        );
+                                      }
+                                      else if(this.state.typeOfOrganization[i]){
                                           return (
                                             <Col className="px-1" md="2">
                                               <Form.Check
@@ -579,7 +780,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 label={item}
                                                 value={i}
                                                 name="typeOfOrganization"
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`org${i}`}
                                                 disabled
                                                 checked
@@ -594,7 +795,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 label={item}
                                                 value={i}
                                                 name="typeOfOrganization"
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`org${i}`}
                                                 disabled
                                               //   checked="false"
@@ -617,7 +818,24 @@ class ViewFilledFormRecruiter extends Component {
                               <div className="container">
                                 <Row>
                                   {business.map((item, i) => {
-                                      if(this.state.natureOfBusiness==item){
+                                      if(this.state.natureOfBusiness[i] && i==9){
+                                        return (
+                                          <Col className="px-1" md="3">
+                                            <Form.Check
+                                              inline
+                                              label={item}
+                                              name="natureOfBusiness"
+                                              value={i}
+                                              type="checkbox"
+                                              id={`business${i}`}
+                                              disabled
+                                              checked
+                                            />
+                                            <input type="text" defaultValue={this.state.otherBusi}/>
+                                          </Col>
+                                        );
+                                      }
+                                      else if(this.state.natureOfBusiness[i]){
                                         return (
                                             <Col className="px-1" md="3">
                                               <Form.Check
@@ -625,7 +843,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 label={item}
                                                 name="natureOfBusiness"
                                                 value={i}
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`business${i}`}
                                                 disabled
                                                 checked
@@ -640,7 +858,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 label={item}
                                                 name="natureOfBusiness"
                                                 value={i}
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`business${i}`}
                                                 disabled
                                               />
@@ -919,15 +1137,14 @@ class ViewFilledFormRecruiter extends Component {
                               <div className="container">
                                 <Row>
                                   {test.map((item, i) => {
-                                      if(this.state.modeOfTest==item){
+                                      if(this.state.modeOfTest[i]){
                                         return (
                                             <Col className="px-1" md="2">
                                               <Form.Check
                                                 inline
                                                 label={item}
                                                 name="modeOfTest"
-                                                value={i}
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`test${i}`}
                                                 disabled
                                                 checked
@@ -941,8 +1158,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 inline
                                                 label={item}
                                                 name="modeOfTest"
-                                                value={i}
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`test${i}`}
                                                 disabled
                                               />
@@ -1030,7 +1246,7 @@ class ViewFilledFormRecruiter extends Component {
                               <div className="container">
                                 <Row>
                                   {interview.map((item, i) => {
-                                      if(this.state.modeOfInterview==item){
+                                      if(this.state.modeOfInterview[i]){
                                         return (
                                             <Col className="px-1" md="2">
                                               <Form.Check
@@ -1038,7 +1254,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 label={item}
                                                 value={i}
                                                 name="modeOfInterview"
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`interview${i}`}
                                                 disabled
                                                 checked
@@ -1053,7 +1269,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 label={item}
                                                 value={i}
                                                 name="modeOfInterview"
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`interview${i}`}
                                                 disabled
                                               />
@@ -1584,40 +1800,58 @@ class ViewFilledFormRecruiter extends Component {
                             <label>Type of organization</label>
                             <br />
                             <div className="container">
-                              <Row>
-                                {orgs.map((item, i) => {
-                                  if(this.state.typeOfOrganization==item){
-                                    return (
-                                      <Col className="px-1" md="2">
-                                        <Form.Check
-                                          inline
-                                          label={item}
-                                          value={i}
-                                          name="typeOfOrganization"
-                                          type="radio"
-                                          id={`org${i}`}
-                                          disabled
-                                          checked
-                                        />
-                                      </Col>
-                                    );
-                                  }else{
-                                    return (
-                                      <Col className="px-1" md="2">
-                                        <Form.Check
-                                          inline
-                                          label={item}
-                                          value={i}
-                                          name="typeOfOrganization"
-                                          type="radio"
-                                          id={`org${i}`}
-                                          disabled
-                                        />
-                                      </Col>
-                                    );
-                                  }
-                                })}
-                              </Row>
+                            <Row>
+                                  {orgs.map((item, i) => {
+                                      if(this.state.typeOfOrganization[i] && i==6){
+                                        return (
+                                          <Col className="px-1" md="2">
+                                            <Form.Check
+                                              inline
+                                              label={item}
+                                              value={i}
+                                              name="typeOfOrganization"
+                                              type="checkbox"
+                                              id={`org${i}`}
+                                              disabled
+                                              checked
+                                            />
+                                            <input type="text" defaultValue={this.state.otherOrgs}/>
+                                          </Col>
+                                        );
+                                      }
+                                      else if(this.state.typeOfOrganization[i]){
+                                          return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="typeOfOrganization"
+                                                type="checkbox"
+                                                id={`org${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="typeOfOrganization"
+                                                type="checkbox"
+                                                id={`org${i}`}
+                                                disabled
+                                              //   checked="false"
+                                              />
+                                            </Col>
+                                          );
+                                      }
+                                  })}
+                                </Row>
                             </div>
                           </Form.Group>
                         </Col>
@@ -1629,40 +1863,58 @@ class ViewFilledFormRecruiter extends Component {
                             <label>Nature of Business</label>
                             <br />
                             <div className="container">
-                              <Row>
-                                {business.map((item, i) => {
-                                  if(this.state.natureOfBusiness==item){
-                                    return (
-                                      <Col className="px-1" md="3">
-                                        <Form.Check
-                                          inline
-                                          label={item}
-                                          name="natureOfBusiness"
-                                          value={i}
-                                          type="radio"
-                                          id={`business${i}`}
-                                          disabled
-                                          checked
-                                        />
-                                      </Col>
-                                    );
-                                  }else{
-                                    return (
-                                      <Col className="px-1" md="3">
-                                        <Form.Check
-                                          inline
-                                          label={item}
-                                          name="natureOfBusiness"
-                                          value={i}
-                                          type="radio"
-                                          id={`business${i}`}
-                                          disabled
-                                        />
-                                      </Col>
-                                    );
-                                  }
-                                })}
-                              </Row>
+                            <Row>
+                                  {business.map((item, i) => {
+                                      if(this.state.natureOfBusiness[i] && i==9){
+                                        return (
+                                          <Col className="px-1" md="3">
+                                            <Form.Check
+                                              inline
+                                              label={item}
+                                              name="natureOfBusiness"
+                                              value={i}
+                                              type="checkbox"
+                                              id={`business${i}`}
+                                              disabled
+                                              checked
+                                            />
+                                            <input type="text" defaultValue={this.state.otherBusi}/>
+                                          </Col>
+                                        );
+                                      }
+                                      else if(this.state.natureOfBusiness[i]){
+                                        return (
+                                            <Col className="px-1" md="3">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="natureOfBusiness"
+                                                value={i}
+                                                type="checkbox"
+                                                id={`business${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="3">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="natureOfBusiness"
+                                                value={i}
+                                                type="checkbox"
+                                                id={`business${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
+                
+                                  })}
+                                </Row>
                             </div>
                           </Form.Group>
                         </Col>
@@ -1881,7 +2133,7 @@ class ViewFilledFormRecruiter extends Component {
                             <div className="container">
                               <Row>
                                 {test.map((item, i) => {
-                                  if(this.state.modeOfTest==item){
+                                  if(this.state.modeOfTest[i]){
                                     return (
                                       <Col className="px-1" md="2">
                                         <Form.Check
@@ -1889,7 +2141,7 @@ class ViewFilledFormRecruiter extends Component {
                                           label={item}
                                           name="modeOfTest"
                                           value={i}
-                                          type="radio"
+                                          type="checkbox"
                                           id={`test${i}`}
                                           disabled
                                           checked
@@ -1904,7 +2156,7 @@ class ViewFilledFormRecruiter extends Component {
                                           label={item}
                                           name="modeOfTest"
                                           value={i}
-                                          type="radio"
+                                          type="checkbox"
                                           id={`test${i}`}
                                           disabled
                                         />
@@ -1990,7 +2242,7 @@ class ViewFilledFormRecruiter extends Component {
                               <div className="container">
                                 <Row>
                                   {interview.map((item, i) => {
-                                      if(this.state.modeOfInterview==item){
+                                      if(this.state.modeOfInterview[i]){
                                         return (
                                             <Col className="px-1" md="2">
                                               <Form.Check
@@ -1998,7 +2250,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 label={item}
                                                 value={i}
                                                 name="modeOfInterview"
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`interview${i}`}
                                                 disabled
                                                 checked
@@ -2013,7 +2265,7 @@ class ViewFilledFormRecruiter extends Component {
                                                 label={item}
                                                 value={i}
                                                 name="modeOfInterview"
-                                                type="radio"
+                                                type="checkbox"
                                                 id={`interview${i}`}
                                                 disabled
                                               />

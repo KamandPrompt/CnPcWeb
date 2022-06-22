@@ -17,8 +17,8 @@ class INF extends Component {
       country: "",
       PINZIP: "",
       website: "",
-      typeOfOrganization: "",
-      natureOfBusiness: "",
+      typeOfOrganization: Array(7).fill(false),
+      natureOfBusiness: Array(10).fill(false),
       contactPerson: "",
       designation: "",
       emailAddress: "",
@@ -36,8 +36,8 @@ class INF extends Component {
       prePlacementTalk: "",
       resumeShortlisting: "",
       groupDiscussion: "",
-      modeOfTest: "",
-      modeOfInterview: "",
+      modeOfTest: Array(2).fill(false),
+      modeOfInterview: Array(3).fill(false),
       typeOfTest: Array(2).fill(false),
       aptitudeTest: "",
       technicalTest: "",
@@ -57,8 +57,9 @@ class INF extends Component {
       ms: Array(2).fill(false),
       phd: Array(4).fill(false),
       ma: Array(1).fill(false),
+      otherOrgs: "",
+      otherBusi: "",
       DataisLoaded: false,
-
     };
     this.onchange = this.onchange.bind(this);
     this.onchangeRadio = this.onchangeRadio.bind(this);
@@ -78,18 +79,18 @@ class INF extends Component {
     // console.log(e.target.id);
   };
 
-  onchangeRadio = (e,arr) => {
+  onchangeRadio = (e, arr) => {
     let idx = e.target.value;
-    this.setState({[e.target.name]:arr[idx]});
-  }
+    this.setState({ [e.target.name]: arr[idx] });
+  };
 
-  onchangeCheck = (e,arr)=>{
+  onchangeCheck = (e, arr) => {
     let idx = e.target.value;
     let val = e.target.name;
     let arr1 = this.state[val];
     arr1[idx] = !arr1[idx];
-    this.setState({[e.target.name]:arr1}); 
-  }
+    this.setState({ [e.target.name]: arr1 });
+  };
 
   onsubmit = (e) => {
     e.preventDefault();
@@ -100,23 +101,22 @@ class INF extends Component {
       "6 months winter",
       "6 months Summer",
     ];
-    for(let i=0;i<(this.state.durationOfInternship).length;i++){
-      if(this.state.durationOfInternship[i]){
+    for (let i = 0; i < this.state.durationOfInternship.length; i++) {
+      if (this.state.durationOfInternship[i]) {
         duration.push(internDuration[i]);
       }
-    } 
+    }
     let typeofTest = ["Aptitude test", "Technical test"];
     let test = [];
-    for(let i=0;i<(typeofTest.length);i++){
-      if(this.state.typeOfTest[i]){
+    for (let i = 0; i < typeofTest.length; i++) {
+      if (this.state.typeOfTest[i]) {
         test.push(typeofTest[i]);
       }
     }
-    let typeofInterview = ["Technical Interview",
-    "HR Interview",];
+    let typeofInterview = ["Technical Interview", "HR Interview"];
     let interviewType = [];
-    for(let i=0;i<(typeofInterview.length);i++){
-      if(this.state.typeOfInterview[i]){
+    for (let i = 0; i < typeofInterview.length; i++) {
+      if (this.state.typeOfInterview[i]) {
         interviewType.push(typeofInterview[i]);
       }
     }
@@ -149,11 +149,7 @@ class INF extends Component {
       },
       {
         name: "MSC",
-        branches: [
-          "Chemistry",
-          "Applied Mathematics",
-          "Physics",
-        ],
+        branches: ["Chemistry", "Applied Mathematics", "Physics"],
         branchIDs: ["CM", "AM", "PY"],
       },
       {
@@ -162,13 +158,11 @@ class INF extends Component {
           "School of Engineering",
           "School of Computing & Electrical   Engineering",
         ],
-        branchIDs: ["SE","SCEE"],
+        branchIDs: ["SE", "SCEE"],
       },
       {
         name: "MA",
-        branches: [
-          "Development Studies",
-        ],
+        branches: ["Development Studies"],
         branchIDs: ["DS"],
       },
       {
@@ -179,48 +173,101 @@ class INF extends Component {
           "School of Basic Sciences",
           "School of Humanities and Social Sciences",
         ],
-        branchIDs: ["SE","SCEE","SBS","SHS"],
+        branchIDs: ["SE", "SCEE", "SBS", "SHS"],
       },
     ];
+    const orgs = [
+      "Govt. Owned",
+      "MNC(Indian origin)",
+      "MNC(Foreign origin)",
+      "Private sector",
+      "Public sector",
+      "Start-up",
+      "Others",
+    ];
+    const typeOrgs = [];
+    for (let i = 0; i < orgs.length; i++) {
+      if(this.state.typeOfOrganization[i] && i==6){
+        typeOrgs.push(this.state.otherOrgs);
+      }
+      if (this.state.typeOfOrganization[i] && i!=6) {
+        typeOrgs.push(orgs[i]);
+      }
+    }
+    const business = [
+      "Analytics",
+      "Consulting",
+      "Core (Technical)",
+      "I.T/ITES",
+      "FMCG",
+      "Finance",
+      "Management",
+      "Research",
+      "Education (Teaching)",
+      "Others",
+    ];
+    const natureBusi = [];
+    for (let i = 0; i < business.length; i++) {
+      if(this.state.natureOfBusiness[i] && i==9){
+        natureBusi.push(this.state.otherBusi);
+      }
+      if (this.state.natureOfBusiness[i] && i!=9) {
+        natureBusi.push(business[i]);
+      }
+    }
+    const typeTest = [];
+    const Test = ["Paper Based", "Online"];
+    for (let i = 0; i < Test.length; i++) {
+      if (this.state.modeOfTest[i]) {
+        typeTest.push(Test[i]);
+      }
+    }
+    const interview = ["In Person", "Video Conferencing", "Skype"];
+    const modeInterview = [];
+    for (let i = 0; i < interview.length; i++) {
+      if (this.state.modeOfInterview[i]) {
+        modeInterview.push(interview[i]);
+      }
+    }
     let dept = [];
-    for(let i=0;i<programs.length;i++){
+    for (let i = 0; i < programs.length; i++) {
       dept.push(programs[i].branchIDs);
     }
-    let deptName = ["btech","mtech","msc","ms","ma","phd"];
+    let deptName = ["btech", "mtech", "msc", "ms", "ma", "phd"];
     let eligibility = [];
-    for(let i=0;i<deptName.length;i++){
+    for (let i = 0; i < deptName.length; i++) {
       let deptArr = [];
       let temp = this.state[deptName[i]];
-      for(let j=0;j<temp.length;j++){
-        if(temp[j]){
+      for (let j = 0; j < temp.length; j++) {
+        if (temp[j]) {
           deptArr.push(dept[i][j]);
         }
       }
       const newData = {
         program: deptName[i].toUpperCase(),
         branch: deptArr,
-      }
+      };
       eligibility.push(newData);
     }
     let technicalInterview = {
       noOfRounds: this.state.noOfRoundsTech,
-      durationOfEachRound: this.state.durationOfEachRoundTech
-    }
+      durationOfEachRound: this.state.durationOfEachRoundTech,
+    };
     let hRInterview = {
       noOfRounds: this.state.noOfRoundsHR,
-      durationOfEachRound: this.state.durationOfEachRoundHR
-    }
+      durationOfEachRound: this.state.durationOfEachRoundHR,
+    };
     const user = {
-      CID : this.state.CID,
-      technicalInterview : technicalInterview,
+      CID: this.state.CID,
+      technicalInterview: technicalInterview,
       hRInterview: hRInterview,
       nameOfTheCompany: this.state.nameOfTheCompany,
       postalAddress: this.state.postalAddress,
       country: this.state.country,
       PINZIP: this.state.PINZIP,
       website: this.state.website,
-      typeOfOrganization: this.state.typeOfOrganization,
-      natureOfBusiness: this.state.natureOfBusiness,
+      typeOfOrganization: typeOrgs,
+      natureOfBusiness: natureBusi,
       contactPerson: this.state.contactPerson,
       designation: this.state.designation,
       emailAddress: this.state.emailAddress,
@@ -237,12 +284,12 @@ class INF extends Component {
       prePlacementTalk: this.state.prePlacementTalk,
       resumeShortlisting: this.state.resumeShortlisting,
       groupDiscussion: this.state.groupDiscussion,
-      modeOfTest: this.state.modeOfTest,
+      modeOfTest: typeTest,
       durationOfInternship: duration,
       typeOfTest: test,
       aptitudeTest: this.state.aptitudeTest,
       technicalTest: this.state.technicalTest,
-      modeOfInterview: this.state.modeOfInterview,
+      modeOfInterview: modeInterview,
       typeOfInterview: interviewType,
       numberOfMembers: this.state.numberOfMembers,
       numberOfRoomsRequired: this.state.numberOfRoomsRequired,
@@ -250,10 +297,9 @@ class INF extends Component {
       virtualDriveRequirements: this.state.virtualDriveRequirements,
       technicalInterview: technicalInterview,
       hRInterview: hRInterview,
-      eligibility: eligibility
+      eligibility: eligibility,
     };
-    this.props
-      .fillINF(user, this.props.history)
+    this.props.fillINF(user, this.props.history);
   };
 
   render() {
@@ -283,14 +329,8 @@ class INF extends Component {
     ];
     const test = ["Paper Based", "Online"];
     const typeofTest = ["Aptitude test", "Technical test"];
-    const interview = [
-      "In Person",
-      "Video Conferencing",
-      "Skype",
-      
-    ];
-    const typeofInterview = ["Technical Interview",
-    "HR Interview",];
+    const interview = ["In Person", "Video Conferencing", "Skype"];
+    const typeofInterview = ["Technical Interview", "HR Interview"];
     const btech = [
       "Computer Science and Engineering",
       "Data Science and Engineering",
@@ -320,7 +360,7 @@ class INF extends Component {
       "School of Basic Sciences",
       "School of Humanities and Social Sciences",
     ];
-    const ma = ["Development Studies"]
+    const ma = ["Development Studies"];
     const internDuration = [
       "2 months winter",
       "2 months Summer",
@@ -428,21 +468,40 @@ class INF extends Component {
                           <div className="container">
                             <Row>
                               {orgs.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="2">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="typeOfOrganization"
-                                      type="radio"
-                                      id={`org${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeRadio(e,orgs);
-                                      }}
-                                    />
-                                  </Col>
-                                );
+                                if(this.state.typeOfOrganization[6] && i==6){
+                                  return (
+                                    <Col className="px-1" md="2">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        value={i}
+                                        type="checkbox"
+                                        name="typeOfOrganization"
+                                        id={`org${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, orgs);
+                                        }}
+                                      />
+                                      <input type="text" id="otherOrgs" onChange={this.onchange}/>
+                                    </Col>
+                                  );
+                                }else{
+                                  return (
+                                    <Col className="px-1" md="2">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        value={i}
+                                        type="checkbox"
+                                        name="typeOfOrganization"
+                                        id={`org${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, orgs);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                }
                               })}
                             </Row>
                           </div>
@@ -458,21 +517,40 @@ class INF extends Component {
                           <div className="container">
                             <Row>
                               {business.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="3">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      name="natureOfBusiness"
-                                      value={i}
-                                      type="radio"
-                                      id={`business${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeRadio(e,business);
-                                      }}
-                                    />
-                                  </Col>
-                                );
+                                if(this.state.natureOfBusiness[i]&&i==9){
+                                  return (
+                                    <Col className="px-1" md="3">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        name="natureOfBusiness"
+                                        value={i}
+                                        type="checkbox"
+                                        id={`business${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, business);
+                                        }}
+                                      />
+                                      <input type="text" id="otherBusi" onChange={this.onchange}/>
+                                    </Col>
+                                  );
+                                }else{
+                                  return (
+                                    <Col className="px-1" md="3">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        name="natureOfBusiness"
+                                        value={i}
+                                        type="checkbox"
+                                        id={`business${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, business);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                }
                               })}
                             </Row>
                           </div>
@@ -653,8 +731,8 @@ class INF extends Component {
                                       value={i}
                                       type="checkbox"
                                       id={`duration${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,internDuration);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, internDuration);
                                       }}
                                     />
                                   </Col>
@@ -736,10 +814,10 @@ class INF extends Component {
                                       label={item}
                                       name="modeOfTest"
                                       value={i}
-                                      type="radio"
+                                      type="checkbox"
                                       id={`test${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeRadio(e,test);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, test);
                                       }}
                                     />
                                   </Col>
@@ -766,8 +844,8 @@ class INF extends Component {
                                       type="checkbox"
                                       id={`typeOfTest${i}`}
                                       value={i}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,typeofTest);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, typeofTest);
                                       }}
                                     />
                                   </Col>
@@ -777,30 +855,119 @@ class INF extends Component {
                           </div>
                         </Form.Group>
                       </Col>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Aptitude Test Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="aptitudeTest"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the duration for the selected tests."
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Technical Test Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="technicalTest"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the duration for the selected tests."
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
+                      {this.state.typeOfTest[0] && this.state.typeOfTest[1] ? (
+                        <>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Aptitude Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="aptitudeTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Technical Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="technicalTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : this.state.typeOfTest[0] ? (
+                        <>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Aptitude Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="aptitudeTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Technical Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="technicalTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : this.state.typeOfTest[1] ? (
+                        <>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Aptitude Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="aptitudeTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Technical Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="technicalTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : (
+                        <>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Aptitude Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="aptitudeTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Technical Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="technicalTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      )}
                       <Col className="pl-1" md="12">
                         <Form.Group>
                           <br />
@@ -816,10 +983,10 @@ class INF extends Component {
                                       label={item}
                                       value={i}
                                       name="modeOfInterview"
-                                      type="radio"
+                                      type="checkbox"
                                       id={`interview${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeRadio(e,interview);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, interview);
                                       }}
                                     />
                                   </Col>
@@ -846,8 +1013,8 @@ class INF extends Component {
                                       type="checkbox"
                                       value={i}
                                       id={`typeOfInterview${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,typeofInterview);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, typeofInterview);
                                       }}
                                     />
                                   </Col>
@@ -857,7 +1024,7 @@ class INF extends Component {
                           </div>
                         </Form.Group>
                       </Col>
-                      <Col className="px-1" md="12">
+                      {this.state.typeOfInterview[0]&&this.state.typeOfInterview[1]?(<><Col className="px-1" md="12">
                         <Form.Group>
                           <br />
                           <label>HR Interview Duration</label>
@@ -912,7 +1079,184 @@ class INF extends Component {
                             type="text"
                           ></Form.Control>
                         </Form.Group>
+                      </Col></>):(
+                        this.state.typeOfInterview[0]?(<><Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>HR Interview Duration</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="durationOfEachRoundHR"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
                       </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>HR Interview Rounds</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="noOfRoundsHR"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>Technical Interview Duration</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="durationOfEachRoundTech"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>Technical Interview Rounds</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="noOfRoundsTech"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col></>):(
+                          this.state.typeOfInterview[1]?(<><Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>HR Interview Duration</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="durationOfEachRoundHR"
+                              // defaultValue={telephone}
+                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                              as="textarea"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>HR Interview Rounds</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="noOfRoundsHR"
+                              // defaultValue={telephone}
+                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                              as="textarea"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Technical Interview Duration</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="durationOfEachRoundTech"
+                              // defaultValue={telephone}
+                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Technical Interview Rounds</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="noOfRoundsTech"
+                              // defaultValue={telephone}
+                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col></>):(<><Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>HR Interview Duration</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="durationOfEachRoundHR"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>HR Interview Rounds</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="noOfRoundsHR"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>Technical Interview Duration</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="durationOfEachRoundTech"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>Technical Interview Rounds</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="noOfRoundsTech"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col></>)
+                        )
+                      )}
                     </Row>
                     <br />
                     <br />
@@ -940,8 +1284,8 @@ class INF extends Component {
                                       name="btech"
                                       type="checkbox"
                                       id={`btech${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,btech);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, btech);
                                       }}
                                     />
                                   </Col>
@@ -958,7 +1302,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {mtech.map((item, i) => {
+                              {mtech.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -968,8 +1312,8 @@ class INF extends Component {
                                       name="mtech"
                                       type="checkbox"
                                       id={`mtech${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,mtech);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, mtech);
                                       }}
                                     />
                                   </Col>
@@ -986,7 +1330,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {msc.map((item, i) => {
+                              {msc.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -996,8 +1340,8 @@ class INF extends Component {
                                       name="msc"
                                       type="checkbox"
                                       id={`msc${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,msc);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, msc);
                                       }}
                                     />
                                   </Col>
@@ -1014,7 +1358,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {ma.map((item, i) => {
+                              {ma.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -1024,8 +1368,8 @@ class INF extends Component {
                                       name="ma"
                                       type="checkbox"
                                       id={`ma${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,ma);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, ma);
                                       }}
                                     />
                                   </Col>
@@ -1042,7 +1386,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {ms.map((item, i) => {
+                              {ms.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -1052,8 +1396,8 @@ class INF extends Component {
                                       name="ms"
                                       type="checkbox"
                                       id={`ms${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,ms);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, ms);
                                       }}
                                     />
                                   </Col>
@@ -1070,7 +1414,7 @@ class INF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                            {phd.map((item, i) => {
+                              {phd.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="4">
                                     <Form.Check
@@ -1080,8 +1424,8 @@ class INF extends Component {
                                       name="phd"
                                       type="checkbox"
                                       id={`phd${i}`}
-                                      onChange={(e)=>{
-                                        this.onchangeCheck(e,phd);
+                                      onChange={(e) => {
+                                        this.onchangeCheck(e, phd);
                                       }}
                                     />
                                   </Col>
@@ -1198,4 +1542,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { logoutUser,fillINF })(INF);
+export default connect(mapStateToProps, { logoutUser, fillINF })(INF);

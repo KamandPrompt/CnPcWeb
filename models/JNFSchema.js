@@ -180,11 +180,9 @@ modeOfInterview: [{
   }],
   aptitudeTest: {
     type: String,
-    required: true,
   },
   technicalTest: {
     type: String,
-    required: true,
   },
   typeOfInterview: [{
     type: String,

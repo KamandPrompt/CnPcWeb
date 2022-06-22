@@ -23,8 +23,8 @@ class JNF extends Component {
       country: "",
       PINZIP: "",
       website: "",
-      typeOfOrganization: "",
-      natureOfBusiness: "",
+      typeOfOrganization: Array(7).fill(false),
+      natureOfBusiness: Array(10).fill(false),
       contactPerson: "",
       designation: "",
       emailAddress: "",
@@ -40,8 +40,8 @@ class JNF extends Component {
       prePlacementTalk: "",
       resumeShortlisting: "",
       groupDiscussion: "",
-      modeOfTest: "",
-      modeOfInterview: "",
+      modeOfTest: Array(2).fill(false),
+      modeOfInterview: Array(3).fill(false),
       typeOfTest: Array(2).fill(false),
       aptitudeTest: "",
       technicalTest: "",
@@ -86,7 +86,8 @@ class JNF extends Component {
       takeHomeMA: "",
       bonusMA: "",
       DataisLoaded: false,
-
+      otherBusi: "",
+      otherOrgs: "",
     };
     this.onchange = this.onchange.bind(this);
     this.onchangeRadio = this.onchangeRadio.bind(this);
@@ -152,12 +153,12 @@ class JNF extends Component {
         test.push(typeofTest[i]);
       }
     }
-    let typeOfInterview = ["Technical Interview",
+    let typeofInterview = ["Technical Interview",
       "HR Interview",];
     let interviewType = [];
-    for (let i = 0; i < (typeOfInterview.length); i++) {
+    for (let i = 0; i < (typeofInterview.length); i++) {
       if (this.state.typeOfInterview[i]) {
-        interviewType.push(typeofTest[i]);
+        interviewType.push(typeofInterview[i]);
       }
     }
     const programs = [
@@ -222,6 +223,64 @@ class JNF extends Component {
         branchIDs: ["SE", "SCEE", "SBS", "SHS"],
       },
     ];
+    const orgs = [
+      "Govt. Owned",
+      "MNC(Indian origin)",
+      "MNC(Foreign origin)",
+      "Private sector",
+      "Public sector",
+      "Start-up",
+      "Others",
+    ];
+    const typeOrgs = [];
+    for (let i = 0; i < orgs.length; i++) {
+      if(this.state.typeOfOrganization[i] && i==6){
+        typeOrgs.push(this.state.otherOrgs);
+      }
+      if (this.state.typeOfOrganization[i] && i!=6) {
+        typeOrgs.push(orgs[i]);
+      }
+    }
+    const business = [
+      "Analytics",
+      "Consulting",
+      "Core (Technical)",
+      "I.T/ITES",
+      "FMCG",
+      "Finance",
+      "Management",
+      "Research",
+      "Education (Teaching)",
+      "Others",
+    ];
+    const natureBusi = [];
+    for (let i = 0; i < business.length; i++) {
+      if(this.state.natureOfBusiness[i] && i==9){
+        natureBusi.push(this.state.otherBusi);
+      }
+      if (this.state.natureOfBusiness[i] && i!=9) {
+        natureBusi.push(business[i]);
+      }
+    }
+    const typeTest = [];
+    const Test = ["Paper Based", "Online"];
+    for(let i=0;i<(Test.length);i++){
+      if(this.state.modeOfTest[i]){
+        typeTest.push(Test[i]);
+      }
+    }
+    const interview = [
+      "In Person",
+      "Video Conferencing",
+      "Skype",
+      
+    ];
+    const modeInterview = [];
+    for(let i=0;i<(interview.length);i++){
+      if(this.state.modeOfInterview[i]){
+        modeInterview.push(interview[i]);
+      }
+    }
     let dept = [];
     for (let i = 0; i < programs.length; i++) {
       dept.push(programs[i].branchIDs);
@@ -303,8 +362,8 @@ class JNF extends Component {
       country: this.state.country,
       PINZIP: this.state.PINZIP,
       website: this.state.website,
-      typeOfOrganization: this.state.typeOfOrganization,
-      natureOfBusiness: this.state.natureOfBusiness,
+      typeOfOrganization: typeOrgs,
+      natureOfBusiness: natureBusi,
       contactPerson: this.state.contactPerson,
       designation: this.state.designation,
       emailAddress: this.state.emailAddress,
@@ -319,11 +378,11 @@ class JNF extends Component {
       prePlacementTalk: this.state.prePlacementTalk,
       resumeShortlisting: this.state.resumeShortlisting,
       groupDiscussion: this.state.groupDiscussion,
-      modeOfTest: this.state.modeOfTest,
+      modeOfTest: typeTest,
       typeOfTest: test,
       aptitudeTest: this.state.aptitudeTest,
       technicalTest: this.state.technicalTest,
-      modeOfInterview: this.state.modeOfInterview,
+      modeOfInterview: modeInterview,
       typeOfInterview: interviewType,
       numberOfMembers: this.state.numberOfMembers,
       numberOfRoomsRequired: this.state.numberOfRoomsRequired,
@@ -512,23 +571,42 @@ class JNF extends Component {
                           <label>Type of organization</label>
                           <br />
                           <div className="container">
-                            <Row>
+                          <Row>
                               {orgs.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="2">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="typeOfOrganization"
-                                      type="radio"
-                                      id={`org${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeRadio(e, orgs);
-                                      }}
-                                    />
-                                  </Col>
-                                );
+                                if(this.state.typeOfOrganization[6] && i==6){
+                                  return (
+                                    <Col className="px-1" md="2">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        value={i}
+                                        type="checkbox"
+                                        name="typeOfOrganization"
+                                        id={`org${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, orgs);
+                                        }}
+                                      />
+                                      <input type="text" id="otherOrgs" onChange={this.onchange}/>
+                                    </Col>
+                                  );
+                                }else{
+                                  return (
+                                    <Col className="px-1" md="2">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        value={i}
+                                        type="checkbox"
+                                        name="typeOfOrganization"
+                                        id={`org${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, orgs);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                }
                               })}
                             </Row>
                           </div>
@@ -544,21 +622,40 @@ class JNF extends Component {
                           <div className="container">
                             <Row>
                               {business.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="3">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      name="natureOfBusiness"
-                                      value={i}
-                                      type="radio"
-                                      id={`business${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeRadio(e, business);
-                                      }}
-                                    />
-                                  </Col>
-                                );
+                                if(this.state.natureOfBusiness[i]&&i==9){
+                                  return (
+                                    <Col className="px-1" md="3">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        name="natureOfBusiness"
+                                        value={i}
+                                        type="checkbox"
+                                        id={`business${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, business);
+                                        }}
+                                      />
+                                      <input type="text" id="otherBusi" onChange={this.onchange}/>
+                                    </Col>
+                                  );
+                                }else{
+                                  return (
+                                    <Col className="px-1" md="3">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        name="natureOfBusiness"
+                                        value={i}
+                                        type="checkbox"
+                                        id={`business${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, business);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                }
                               })}
                             </Row>
                           </div>
@@ -801,10 +898,10 @@ class JNF extends Component {
                                       label={item}
                                       name="modeOfTest"
                                       value={i}
-                                      type="radio"
+                                      type="checkbox"
                                       id={`test${i}`}
                                       onChange={(e) => {
-                                        this.onchangeRadio(e, test);
+                                        this.onchangeCheck(e, test);
                                       }}
                                     />
                                   </Col>
@@ -842,30 +939,119 @@ class JNF extends Component {
                           </div>
                         </Form.Group>
                       </Col>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Aptitude Test Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="aptitudeTest"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the duration for the selected tests."
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Technical Test Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="technicalTest"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the duration for the selected tests."
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
+                      {this.state.typeOfTest[0] && this.state.typeOfTest[1] ? (
+                        <>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Aptitude Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="aptitudeTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Technical Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="technicalTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : this.state.typeOfTest[0] ? (
+                        <>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Aptitude Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="aptitudeTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Technical Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="technicalTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : this.state.typeOfTest[1] ? (
+                        <>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Aptitude Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="aptitudeTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Technical Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="technicalTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : (
+                        <>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Aptitude Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="aptitudeTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Technical Test Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="technicalTest"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the duration for the selected tests."
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      )}
                       <Col className="pl-1" md="12">
                         <Form.Group>
                           <br />
@@ -881,10 +1067,10 @@ class JNF extends Component {
                                       label={item}
                                       value={i}
                                       name="modeOfInterview"
-                                      type="radio"
+                                      type="checkbox"
                                       id={`interview${i}`}
                                       onChange={(e) => {
-                                        this.onchangeRadio(e, interview);
+                                        this.onchangeCheck(e, interview);
                                       }}
                                     />
                                   </Col>
@@ -901,7 +1087,7 @@ class JNF extends Component {
                           <br />
                           <div className="container">
                             <Row>
-                              {typeOfInterview.map((item, i) => {
+                              {typeofInterview.map((item, i) => {
                                 return (
                                   <Col className="px-1" md="2">
                                     <Form.Check
@@ -912,7 +1098,7 @@ class JNF extends Component {
                                       value={i}
                                       id={`typeOfInterview${i}`}
                                       onChange={(e) => {
-                                        this.onchangeCheck(e, typeOfInterview);
+                                        this.onchangeCheck(e, typeofInterview);
                                       }}
                                     />
                                   </Col>
@@ -922,7 +1108,7 @@ class JNF extends Component {
                           </div>
                         </Form.Group>
                       </Col>
-                      <Col className="px-1" md="12">
+                      {this.state.typeOfInterview[0]&&this.state.typeOfInterview[1]?(<><Col className="px-1" md="12">
                         <Form.Group>
                           <br />
                           <label>HR Interview Duration</label>
@@ -977,7 +1163,184 @@ class JNF extends Component {
                             type="text"
                           ></Form.Control>
                         </Form.Group>
+                      </Col></>):(
+                        this.state.typeOfInterview[0]?(<><Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>HR Interview Duration</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="durationOfEachRoundHR"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
                       </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>HR Interview Rounds</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="noOfRoundsHR"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>Technical Interview Duration</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="durationOfEachRoundTech"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>Technical Interview Rounds</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="noOfRoundsTech"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col></>):(
+                          this.state.typeOfInterview[1]?(<><Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>HR Interview Duration</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="durationOfEachRoundHR"
+                              // defaultValue={telephone}
+                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                              as="textarea"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>HR Interview Rounds</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="noOfRoundsHR"
+                              // defaultValue={telephone}
+                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                              as="textarea"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Technical Interview Duration</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="durationOfEachRoundTech"
+                              // defaultValue={telephone}
+                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Technical Interview Rounds</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="noOfRoundsTech"
+                              // defaultValue={telephone}
+                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col></>):(<><Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>HR Interview Duration</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="durationOfEachRoundHR"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>HR Interview Rounds</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="noOfRoundsHR"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>Technical Interview Duration</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="durationOfEachRoundTech"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col>
+                      <Col className="px-1" md="12">
+                        <Form.Group>
+                          <br />
+                          <label>Technical Interview Rounds</label>
+                          <Form.Control
+                            onChange={this.onchange}
+                            id="noOfRoundsTech"
+                            // defaultValue={telephone}
+                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                            as="textarea"
+                            type="text"
+                            disabled
+                          ></Form.Control>
+                        </Form.Group>
+                      </Col></>)
+                        )
+                      )}
                     </Row>
                     <br />
                     <br />

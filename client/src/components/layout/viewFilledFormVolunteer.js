@@ -22,14 +22,14 @@ class ViewFilledFormVolunteer extends Component {
     this.state = {
       type: "",
       FID: "",
-      CID: this.props.auth.user.id,
+      CID: "",   
       nameOfTheCompany: "",
       postalAddress: "",
       country: "",
       PINZIP: "",
       website: "",
-      typeOfOrganization: "",
-      natureOfBusiness: "",
+      typeOfOrganization: Array(7).fill(false),
+      natureOfBusiness: Array(10).fill(false),
       contactPerson: "",
       designation: "",
       emailAddress: "",
@@ -50,8 +50,8 @@ class ViewFilledFormVolunteer extends Component {
       prePlacementTalk: "",
       resumeShortlisting: "",
       groupDiscussion: "",
-      modeOfTest: "",
-      modeOfInterview: "",
+      modeOfTest: Array(2).fill(false),
+      modeOfInterview: Array(3).fill(false),
       typeOfTest: Array(2).fill(false),
       typeOfInterview: Array(2).fill(false),
       aptitudeTest: "",
@@ -96,6 +96,8 @@ class ViewFilledFormVolunteer extends Component {
       takeHomeMA: "",
       bonusMA: "",
       DataisLoaded: false,
+      otherOrgs: "",
+      otherBusi: "",
     };
   }
 
@@ -168,9 +170,99 @@ class ViewFilledFormVolunteer extends Component {
               }
             }
           }
+          const orgs = [
+            "Govt. Owned",
+            "MNC(Indian origin)",
+            "MNC(Foreign origin)",
+            "Private sector",
+            "Public sector",
+            "Start-up",
+            "Others",
+          ];
+          let otherOrgs = "";
+          const typeOrgs = Array(7).fill(false);
+          for(let i=0;i<(typeOrgs.length);i++){
+            for(let j=0;j<(data.typeOfOrganization.length);j++){
+              if(data.typeOfOrganization[j]==orgs[i]){
+                typeOrgs[i] = true;
+              }
+            }
+          }
+          let c = 0;
+          for(let i=0;i<(data.typeOfOrganization.length);i++){
+            for(let j=0;j<(orgs.length);j++){
+              if(data.typeOfOrganization[i]!=orgs[j]){
+                c++;
+              }
+            }
+            if(c==7){
+              otherOrgs = data.typeOfOrganization[i];
+            }
+          }
+          if(otherOrgs){
+            typeOrgs[6] = true;
+          }
+          const business = [
+            "Analytics",
+            "Consulting",
+            "Core (Technical)",
+            "I.T/ITES",
+            "FMCG",
+            "Finance",
+            "Management",
+            "Research",
+            "Education (Teaching)",
+            "Others",
+          ];
+          let otherBusi = "";
+          const natureBusi = Array(10).fill(false);
+          for(let i=0;i<(natureBusi.length);i++){
+            for(let j=0;j<(data.natureOfBusiness.length);j++){
+              if(data.natureOfBusiness[j]==business[i]){
+                natureBusi[i] = true;
+              }
+            }
+          }
+          c = 0;
+          for(let i=0;i<(data.natureOfBusiness.length);i++){
+            for(let j=0;j<(business.length);j++){
+              if(data.natureOfBusiness[i]!=business[j]){
+                c++;
+              }
+            }
+            if(c==10){
+              otherBusi = data.natureOfBusiness[i];
+            }
+          }
+          if(otherBusi){
+            natureBusi[9] = true;
+          }
+          const Test = ["Paper Based", "Online"];
+          const typeTest = Array(2).fill(false);
+          for(let i=0;i<(typeTest.length);i++){
+            for(let j=0;j<(data.modeOfTest.length);j++){
+              if(data.modeOfTest[j]==Test[i]){
+                typeTest[i] = true;
+              }
+            }
+          }
+          const interview = [
+            "In Person",
+            "Video Conferencing",
+            "Skype",
+          ];
+          const modeInterview = Array(3).fill(false);
+          for(let i=0;i<(modeInterview.length);i++){
+            for(let j=0;j<(data.modeOfInterview.length);j++){
+              if(data.modeOfInterview[j]==interview[i]){
+                modeInterview[i] = true;
+              }
+            }
+          }
           this.setState({
             type: type,
             FID: FID,
+            CID: data.CID,
             nameOfTheCompany: data.nameOfTheCompany,
             postalAddress: data.postalAddress,
             country: data.country,
@@ -185,8 +277,8 @@ class ViewFilledFormVolunteer extends Component {
             ms: Arr1[3],
             ma: Arr1[4],
             phd: Arr1[5],
-            typeOfOrganization: data.typeOfOrganization,
-            natureOfBusiness: data.natureOfBusiness,
+            typeOfOrganization: typeOrgs,
+            natureOfBusiness: natureBusi,
             contactPerson: data.contactPerson,
             designation: data.designation,
             emailAddress: data.emailAddress,
@@ -203,8 +295,8 @@ class ViewFilledFormVolunteer extends Component {
             prePlacementTalk: data.prePlacementTalk,
             resumeShortlisting: data.resumeShortlisting,
             groupDiscussion: data.groupDiscussion,
-            modeOfTest: data.modeOfTest,
-            modeOfInterview: data.modeOfInterview,
+            modeOfTest: typeTest,
+            modeOfInterview: modeInterview,
             aptitudeTest: data.aptitudeTest,
             technicalTest: data.technicalTest,
             numberOfMembers: data.numberOfMembers,
@@ -217,6 +309,8 @@ class ViewFilledFormVolunteer extends Component {
             noOfRoundsHR: data.hRInterview.noOfRounds,
             noOfRoundsTech: data.technicalInterview.noOfRounds,
             DataisLoaded: true,
+            otherOrgs: otherOrgs,
+            otherBusi: otherBusi,
           });
         } else if (type == "JNF") {
           const test = Array(2).fill(false);
@@ -260,9 +354,99 @@ class ViewFilledFormVolunteer extends Component {
               }
             }
           }
+          const orgs = [
+            "Govt. Owned",
+            "MNC(Indian origin)",
+            "MNC(Foreign origin)",
+            "Private sector",
+            "Public sector",
+            "Start-up",
+            "Others",
+          ];
+          let otherOrgs = "";
+          const typeOrgs = Array(7).fill(false);
+          for(let i=0;i<(typeOrgs.length);i++){
+            for(let j=0;j<(data.typeOfOrganization.length);j++){
+              if(data.typeOfOrganization[j]==orgs[i]){
+                typeOrgs[i] = true;
+              }
+            }
+          }
+          let c = 0;
+          for(let i=0;i<(data.typeOfOrganization.length);i++){
+            for(let j=0;j<(orgs.length);j++){
+              if(data.typeOfOrganization[i]!=orgs[j]){
+                c++;
+              }
+            }
+            if(c==7){
+              otherOrgs = data.typeOfOrganization[i];
+            }
+          }
+          if(otherOrgs){
+            typeOrgs[6] = true;
+          }
+          const business = [
+            "Analytics",
+            "Consulting",
+            "Core (Technical)",
+            "I.T/ITES",
+            "FMCG",
+            "Finance",
+            "Management",
+            "Research",
+            "Education (Teaching)",
+            "Others",
+          ];
+          let otherBusi = "";
+          const natureBusi = Array(10).fill(false);
+          for(let i=0;i<(natureBusi.length);i++){
+            for(let j=0;j<(data.natureOfBusiness.length);j++){
+              if(data.natureOfBusiness[j]==business[i]){
+                natureBusi[i] = true;
+              }
+            }
+          }
+          c = 0;
+          for(let i=0;i<(data.natureOfBusiness.length);i++){
+            for(let j=0;j<(business.length);j++){
+              if(data.natureOfBusiness[i]!=business[j]){
+                c++;
+              }
+            }
+            if(c==10){
+              otherBusi = data.natureOfBusiness[i];
+            }
+          }
+          if(otherBusi){
+            natureBusi[9] = true;
+          }
+          const Test = ["Paper Based", "Online"];
+          const typeTest = Array(2).fill(false);
+          for(let i=0;i<(typeTest.length);i++){
+            for(let j=0;j<(data.modeOfTest.length);j++){
+              if(data.modeOfTest[j]==Test[i]){
+                typeTest[i] = true;
+              }
+            }
+          }
+          const interview = [
+            "In Person",
+            "Video Conferencing",
+            "Skype",
+          ];
+          const modeInterview = Array(3).fill(false);
+          for(let i=0;i<(modeInterview.length);i++){
+            for(let j=0;j<(data.modeOfInterview.length);j++){
+              if(data.modeOfInterview[j]==interview[i]){
+                modeInterview[i] = true;
+              }
+            }
+          }
           this.setState({
             type: type,
             FID: FID,
+            CID: data.CID,
             nameOfTheCompany: data.nameOfTheCompany,
             postalAddress: data.postalAddress,
             country: data.country,
@@ -276,8 +460,8 @@ class ViewFilledFormVolunteer extends Component {
             ms: Arr1[3],
             ma: Arr1[4],
             phd: Arr1[5],
-            typeOfOrganization: data.typeOfOrganization,
-            natureOfBusiness: data.natureOfBusiness,
+            typeOfOrganization: typeOrgs,
+            natureOfBusiness: natureBusi,
             contactPerson: data.contactPerson,
             designation: data.designation,
             emailAddress: data.emailAddress,
@@ -293,8 +477,8 @@ class ViewFilledFormVolunteer extends Component {
             prePlacementTalk: data.prePlacementTalk,
             resumeShortlisting: data.resumeShortlisting,
             groupDiscussion: data.groupDiscussion,
-            modeOfTest: data.modeOfTest,
-            modeOfInterview: data.modeOfInterview,
+            modeOfTest: typeTest,
+            modeOfInterview: modeInterview,
             aptitudeTest: data.aptitudeTest,
             technicalTest: data.technicalTest,
             numberOfMembers: data.numberOfMembers,
@@ -331,6 +515,8 @@ class ViewFilledFormVolunteer extends Component {
             takeHomeMA: data.compensation[5].takeHome,
             bonusMA: data.compensation[5].bonusIncentives,
             DataisLoaded: true,
+            otherBusi: otherBusi,
+            otherOrgs: otherOrgs,
           });
         }
       })
@@ -473,8 +659,8 @@ class ViewFilledFormVolunteer extends Component {
       "6 months winter",
       "6 months Summer",
     ];
-    if (this.state.DataisLoaded == true) {
-      if (this.state.type == "INF") {
+    if(this.state.DataisLoaded == true){
+      if(this.state.type=="INF"){
         return (
           <>
             <Container fluid>
@@ -484,17 +670,6 @@ class ViewFilledFormVolunteer extends Component {
                     <Card.Body>
                       <Form>
                         <h2>Company Details</h2>
-                        <Link
-                          to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
-                        >
-                          <Button
-                            className="btn-fill"
-                            style={{ width: "200px", margin: "40px" }}
-                            variant="info"
-                          >
-                            Create Form
-                          </Button>
-                        </Link>
                         <Row>
                           <Col className="pr-1" md="6">
                             <Form.Group>
@@ -569,37 +744,54 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {orgs.map((item, i) => {
-                                    if (this.state.typeOfOrganization == item) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="typeOfOrganization"
-                                            type="radio"
-                                            id={`org${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="typeOfOrganization"
-                                            type="radio"
-                                            id={`org${i}`}
-                                            disabled
-                                            //   checked="false"
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.typeOfOrganization[i] && i==6){
+                                        return (
+                                          <Col className="px-1" md="2">
+                                            <Form.Check
+                                              inline
+                                              label={item}
+                                              value={i}
+                                              name="typeOfOrganization"
+                                              type="checkbox"
+                                              id={`org${i}`}
+                                              disabled
+                                              checked
+                                            />
+                                            <input type="text" defaultValue={this.state.otherOrgs}/>
+                                          </Col>
+                                        );
+                                      }
+                                      else if(this.state.typeOfOrganization[i]){
+                                          return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="typeOfOrganization"
+                                                type="checkbox"
+                                                id={`org${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="typeOfOrganization"
+                                                type="checkbox"
+                                                id={`org${i}`}
+                                                disabled
+                                              //   checked="false"
+                                              />
+                                            </Col>
+                                          );
+                                      }
                                   })}
                                 </Row>
                               </div>
@@ -615,36 +807,54 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {business.map((item, i) => {
-                                    if (this.state.natureOfBusiness == item) {
-                                      return (
-                                        <Col className="px-1" md="3">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="natureOfBusiness"
-                                            value={i}
-                                            type="radio"
-                                            id={`business${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="3">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="natureOfBusiness"
-                                            value={i}
-                                            type="radio"
-                                            id={`business${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.natureOfBusiness[i] && i==9){
+                                        return (
+                                          <Col className="px-1" md="3">
+                                            <Form.Check
+                                              inline
+                                              label={item}
+                                              name="natureOfBusiness"
+                                              value={i}
+                                              type="checkbox"
+                                              id={`business${i}`}
+                                              disabled
+                                              checked
+                                            />
+                                            <input type="text" defaultValue={this.state.otherBusi}/>
+                                          </Col>
+                                        );
+                                      }
+                                      else if(this.state.natureOfBusiness[i]){
+                                        return (
+                                            <Col className="px-1" md="3">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="natureOfBusiness"
+                                                value={i}
+                                                type="checkbox"
+                                                id={`business${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="3">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="natureOfBusiness"
+                                                value={i}
+                                                type="checkbox"
+                                                id={`business${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
+                
                                   })}
                                 </Row>
                               </div>
@@ -816,36 +1026,36 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {internDuration.map((item, i) => {
-                                    if (this.state.durationOfInternship[i]) {
-                                      return (
-                                        <Col className="px-1" md="12">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="durationOfInternship"
-                                            value={i}
-                                            type="checkbox"
-                                            id={`duration${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="12">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="durationOfInternship"
-                                            value={i}
-                                            type="checkbox"
-                                            id={`duration${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.durationOfInternship[i]){
+                                        return (
+                                            <Col className="px-1" md="12">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="durationOfInternship"
+                                                value={i}
+                                                type="checkbox"
+                                                id={`duration${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="12">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="durationOfInternship"
+                                                value={i}
+                                                type="checkbox"
+                                                id={`duration${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
                                   })}
                                 </Row>
                               </div>
@@ -916,36 +1126,34 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {test.map((item, i) => {
-                                    if (this.state.modeOfTest == item) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="modeOfTest"
-                                            value={i}
-                                            type="radio"
-                                            id={`test${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="modeOfTest"
-                                            value={i}
-                                            type="radio"
-                                            id={`test${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.modeOfTest[i]){
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="modeOfTest"
+                                                type="checkbox"
+                                                id={`test${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="modeOfTest"
+                                                type="checkbox"
+                                                id={`test${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
                                   })}
                                 </Row>
                               </div>
@@ -959,36 +1167,37 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {typeofTest.map((item, i) => {
-                                    if (this.state.typeOfTest[i]) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="typeOfTest"
-                                            type="checkbox"
-                                            id={`typeOfTest${i}`}
-                                            value={i}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="typeOfTest"
-                                            type="checkbox"
-                                            id={`typeOfTest${i}`}
-                                            value={i}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.typeOfTest[i]){
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="typeOfTest"
+                                                type="checkbox"
+                                                id={`typeOfTest${i}`}
+                                                value={i}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="typeOfTest"
+                                                type="checkbox"
+                                                id={`typeOfTest${i}`}
+                                                value={i}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
+                                      
                                   })}
                                 </Row>
                               </div>
@@ -1026,36 +1235,36 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {interview.map((item, i) => {
-                                    if (this.state.modeOfInterview == item) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="modeOfInterview"
-                                            type="radio"
-                                            id={`interview${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="modeOfInterview"
-                                            type="radio"
-                                            id={`interview${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.modeOfInterview[i]){
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="modeOfInterview"
+                                                type="checkbox"
+                                                id={`interview${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="modeOfInterview"
+                                                type="checkbox"
+                                                id={`interview${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
                                   })}
                                 </Row>
                               </div>
@@ -1069,36 +1278,36 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {typeofInterview.map((item, i) => {
-                                    if (this.state.typeOfInterview[i]) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="typeOfInterview"
-                                            type="checkbox"
-                                            value={i}
-                                            id={`typeOfInterview${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="typeOfInterview"
-                                            type="checkbox"
-                                            value={i}
-                                            id={`typeOfInterview${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.typeOfInterview[i]){
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="typeOfInterview"
+                                                type="checkbox"
+                                                value={i}
+                                                id={`typeOfInterview${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="typeOfInterview"
+                                                type="checkbox"
+                                                value={i}
+                                                id={`typeOfInterview${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
                                   })}
                                 </Row>
                               </div>
@@ -1137,9 +1346,7 @@ class ViewFilledFormVolunteer extends Component {
                               <Form.Control
                                 disabled
                                 id="durationOfEachRoundTech"
-                                defaultValue={
-                                  this.state.durationOfEachRoundTech
-                                }
+                                defaultValue={this.state.durationOfEachRoundTech}
                                 as="textarea"
                                 type="text"
                               ></Form.Control>
@@ -1176,7 +1383,7 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {btech.map((item, i) => {
-                                    if (this.state.btech[i]) {
+                                    if(this.state.btech[i]){
                                       return (
                                         <Col className="px-1" md="4">
                                           <Form.Check
@@ -1191,7 +1398,7 @@ class ViewFilledFormVolunteer extends Component {
                                           />
                                         </Col>
                                       );
-                                    } else {
+                                    }else{
                                       return (
                                         <Col className="px-1" md="4">
                                           <Form.Check
@@ -1218,37 +1425,37 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {mtech.map((item, i) => {
-                                    if (this.state.mtech[i]) {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="mtech"
-                                            type="checkbox"
-                                            id={`mtech${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="mtech"
-                                            type="checkbox"
-                                            id={`mtech${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                {mtech.map((item, i) => {
+                                  if(this.state.mtech[i]){
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="mtech"
+                                          type="checkbox"
+                                          id={`mtech${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="mtech"
+                                          type="checkbox"
+                                          id={`mtech${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
                                   })}
                                 </Row>
                               </div>
@@ -1261,37 +1468,37 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {msc.map((item, i) => {
-                                    if (this.state.msc[i]) {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="msc"
-                                            type="checkbox"
-                                            id={`msc${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="msc"
-                                            type="checkbox"
-                                            id={`msc${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                {msc.map((item, i) => {
+                                  if(this.state.msc[i]){
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="msc"
+                                          type="checkbox"
+                                          id={`msc${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="msc"
+                                          type="checkbox"
+                                          id={`msc${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
                                   })}
                                 </Row>
                               </div>
@@ -1304,37 +1511,37 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {ma.map((item, i) => {
-                                    if (this.state.ma[i]) {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="ma"
-                                            type="checkbox"
-                                            id={`ma${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="ma"
-                                            type="checkbox"
-                                            id={`ma${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                {ma.map((item, i) => {
+                                  if(this.state.ma[i]){
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="ma"
+                                          type="checkbox"
+                                          id={`ma${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="ma"
+                                          type="checkbox"
+                                          id={`ma${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
                                   })}
                                 </Row>
                               </div>
@@ -1347,8 +1554,8 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {ms.map((item, i) => {
-                                    if (this.state.ms[i]) {
+                                {ms.map((item, i) => {
+                                    if(this.state.ms[i]){
                                       return (
                                         <Col className="px-1" md="4">
                                           <Form.Check
@@ -1363,7 +1570,7 @@ class ViewFilledFormVolunteer extends Component {
                                           />
                                         </Col>
                                       );
-                                    } else {
+                                    }else{
                                       return (
                                         <Col className="px-1" md="4">
                                           <Form.Check
@@ -1390,37 +1597,37 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {phd.map((item, i) => {
-                                    if (this.state.phd[i]) {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="phd"
-                                            type="checkbox"
-                                            id={`phd${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="phd"
-                                            type="checkbox"
-                                            id={`phd${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                {phd.map((item, i) => {
+                                  if(this.state.phd[i]){
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="phd"
+                                          type="checkbox"
+                                          id={`phd${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="phd"
+                                          type="checkbox"
+                                          id={`phd${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
                                   })}
                                 </Row>
                               </div>
@@ -1483,9 +1690,7 @@ class ViewFilledFormVolunteer extends Component {
                               <Form.Control
                                 disabled
                                 id="virtualDriveRequirements"
-                                defaultValue={
-                                  this.state.virtualDriveRequirements
-                                }
+                                defaultValue={this.state.virtualDriveRequirements}
                                 placeholder="Virtual Drive Requirements"
                                 as="textarea"
                                 type="text"
@@ -1493,541 +1698,532 @@ class ViewFilledFormVolunteer extends Component {
                             </Form.Group>
                           </Col>
                         </Row>
-
+    
                         <div
                           className="clearfix"
                           style={{ textAlign: "center", margin: "10px 0px" }}
-                        ></div>
+                        >
+                        </div>
                       </Form>
                     </Card.Body>
                   </Card>
-                  <Link
-                    to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
-                  >
-                    <Button
-                      className="btn-fill"
-                      style={{ width: "200px", margin: "40px" }}
-                      variant="info"
-                    >
-                      Create Form
-                    </Button>
-                  </Link>
                 </Col>
               </Row>
             </Container>
           </>
         );
-      } else if (this.state.type == "JNF") {
-        return (
+      }else if(this.state.type=="JNF"){
+        return(
           <>
-            <Container fluid>
-              <Row>
-                <Col md="12">
-                  <Card>
-                    <Card.Body>
-                      <Form>
-                        <h2>Company Details</h2>
-                        <Link
-                          to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
-                        >
-                          <Button
-                            className="btn-fill"
-                            style={{ width: "200px", margin: "40px" }}
-                            variant="info"
-                          >
-                            Create Form
-                          </Button>
-                        </Link>
-                        <Row>
-                          <Col className="pr-1" md="6">
-                            <Form.Group>
-                              <label>Company name</label>
-                              <Form.Control
-                                defaultValue={this.state.nameOfTheCompany}
-                                type="text"
-                                id="nameOfTheCompany"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="6">
-                            <Form.Group>
-                              <label>Website</label>
-                              <Form.Control
-                                id="website"
-                                defaultValue={this.state.website}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col md="12">
-                            <Form.Group>
-                              <label>Postal Address</label>
-                              <Form.Control
-                                id="postalAddress"
-                                defaultValue={this.state.postalAddress}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col className="px-1" md="6">
-                            <Form.Group>
-                              <label>Country</label>
-                              <Form.Control
-                                id="country"
-                                defaultValue={this.state.country}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="6">
-                            <Form.Group>
-                              <label>Pin/Zip code</label>
-                              <Form.Control
-                                id="PINZIP"
-                                defaultValue={this.state.PINZIP}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <Row>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <label>Type of organization</label>
-                              <br />
-                              <div className="container">
-                                <Row>
+          <Container fluid>
+            <Row>
+              <Col md="12">
+                <Card>
+                  <Card.Body>
+                    <Form>
+                      <h2>Company Details</h2>
+                      <Row>
+                        <Col className="pr-1" md="6">
+                          <Form.Group>
+                            <label>Company name</label>
+                            <Form.Control
+                              defaultValue={this.state.nameOfTheCompany}
+                              type="text"
+                              id="nameOfTheCompany"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="6">
+                          <Form.Group>
+                            <label>Website</label>
+                            <Form.Control
+                              id="website"
+                              defaultValue={this.state.website}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md="12">
+                          <Form.Group>
+                            <label>Postal Address</label>
+                            <Form.Control
+                              id="postalAddress"
+                              defaultValue={this.state.postalAddress}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className="px-1" md="6">
+                          <Form.Group>
+                            <label>Country</label>
+                            <Form.Control
+                              id="country"
+                              defaultValue={this.state.country}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="6">
+                          <Form.Group>
+                            <label>Pin/Zip code</label>
+                            <Form.Control
+                              id="PINZIP"
+                              defaultValue={this.state.PINZIP}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <label>Type of organization</label>
+                            <br />
+                            <div className="container">
+                            <Row>
                                   {orgs.map((item, i) => {
-                                    if (this.state.typeOfOrganization == item) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="typeOfOrganization"
-                                            type="radio"
-                                            id={`org${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="typeOfOrganization"
-                                            type="radio"
-                                            id={`org${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.typeOfOrganization[i] && i==6){
+                                        return (
+                                          <Col className="px-1" md="2">
+                                            <Form.Check
+                                              inline
+                                              label={item}
+                                              value={i}
+                                              name="typeOfOrganization"
+                                              type="checkbox"
+                                              id={`org${i}`}
+                                              disabled
+                                              checked
+                                            />
+                                            <input type="text" defaultValue={this.state.otherOrgs}/>
+                                          </Col>
+                                        );
+                                      }
+                                      else if(this.state.typeOfOrganization==i){
+                                          return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="typeOfOrganization"
+                                                type="checkbox"
+                                                id={`org${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="typeOfOrganization"
+                                                type="checkbox"
+                                                id={`org${i}`}
+                                                disabled
+                                              //   checked="false"
+                                              />
+                                            </Col>
+                                          );
+                                      }
                                   })}
                                 </Row>
-                              </div>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <br />
-                        <Row>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <label>Nature of Business</label>
-                              <br />
-                              <div className="container">
-                                <Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <Row>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <label>Nature of Business</label>
+                            <br />
+                            <div className="container">
+                            <Row>
                                   {business.map((item, i) => {
-                                    if (this.state.natureOfBusiness == item) {
-                                      return (
-                                        <Col className="px-1" md="3">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="natureOfBusiness"
-                                            value={i}
-                                            type="radio"
-                                            id={`business${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="3">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="natureOfBusiness"
-                                            value={i}
-                                            type="radio"
-                                            id={`business${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.natureOfBusiness[i] && i==9){
+                                        return (
+                                          <Col className="px-1" md="3">
+                                            <Form.Check
+                                              inline
+                                              label={item}
+                                              name="natureOfBusiness"
+                                              value={i}
+                                              type="checkbox"
+                                              id={`business${i}`}
+                                              disabled
+                                              checked
+                                            />
+                                            <input type="text" defaultValue={this.state.otherBusi}/>
+                                          </Col>
+                                        );
+                                      }
+                                      else if(this.state.natureOfBusiness[i]){
+                                        return (
+                                            <Col className="px-1" md="3">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="natureOfBusiness"
+                                                value={i}
+                                                type="checkbox"
+                                                id={`business${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="3">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="natureOfBusiness"
+                                                value={i}
+                                                type="checkbox"
+                                                id={`business${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
+                
                                   })}
                                 </Row>
-                              </div>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <br />
-                        <br />
-                        <h2>Contact Details</h2>
-                        <br />
-                        <Row>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Contact Person</label>
-                              <Form.Control
-                                id="contactPerson"
-                                defaultValue={this.state.contactPerson}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="4">
-                            <Form.Group>
-                              <label>Email address</label>
-                              <Form.Control
-                                id="emailAddress"
-                                defaultValue={this.state.emailAddress}
-                                type="email"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pr-1" md="4">
-                            <Form.Group>
-                              <label>Designation</label>
-                              <Form.Control
-                                id="designation"
-                                Value={this.state.designation}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Telephone</label>
-                              <Form.Control
-                                id="telephone"
-                                defaultValue={this.state.telephone}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="4">
-                            <Form.Group>
-                              <label>Mobile</label>
-                              <Form.Control
-                                id="mobile"
-                                defaultValue={this.state.mobile}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <h2>Job Profile</h2>
-                        <br />
-                        <Row>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Job Designation Offered</label>
-                              <Form.Control
-                                id="jobDesignationOffered"
-                                defaultValue={this.state.jobDesignationOffered}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="4">
-                            <Form.Group>
-                              <label>
-                                Job Description (Skill set required)
-                              </label>
-                              <Form.Control
-                                id="skillSetRequired"
-                                defaultValue={this.state.skillSetRequired}
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pr-1" md="4">
-                            <Form.Group>
-                              <label>Tentative number Vacancies</label>
-                              <Form.Control
-                                id="tentativeNoOfVacancies"
-                                defaultValue={this.state.tentativeNoOfVacancies}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Tentative Job Location(s)</label>
-                              <Form.Control
-                                id="tentativeJobLocations"
-                                defaultValue={this.state.tentativeJobLocations}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="4">
-                            <Form.Group>
-                              <label>Tentative Date of Joining</label>
-                              <Form.Control
-                                id="tentativeDateOfJoining"
-                                defaultValue={this.state.tentativeDateOfJoining}
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <h2>Sallery Details</h2>
-                        <br />
-                        <Row>
-                          <TableContainer component={Paper}>
-                            <Table
-                              sx={{ minWidth: 650 }}
-                              aria-label="simple table"
-                            >
-                              <TableHead>
-                                <TableRow>
-                                  <TableCell>Programmes</TableCell>
-                                  <TableCell align="right">
-                                    Cost to Company
+                            </div>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <br />
+                      <h2>Contact Details</h2>
+                      <br />
+                      <Row>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Contact Person</label>
+                            <Form.Control
+                              id="contactPerson"
+                              defaultValue={this.state.contactPerson}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Email address</label>
+                            <Form.Control
+                              id="emailAddress"
+                              defaultValue={this.state.emailAddress}
+                              type="email"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Designation</label>
+                            <Form.Control
+                              id="designation"
+                              Value={this.state.designation}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Telephone</label>
+                            <Form.Control
+                              id="telephone"
+                              defaultValue={this.state.telephone}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Mobile</label>
+                            <Form.Control
+                              id="mobile"
+                              defaultValue={this.state.mobile}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <h2>Job Profile</h2>
+                      <br />
+                      <Row>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Job Designation Offered</label>
+                            <Form.Control
+                              id="jobDesignationOffered"
+                              defaultValue={this.state.jobDesignationOffered}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Job Description (Skill set required)</label>
+                            <Form.Control
+                              id="skillSetRequired"
+                              defaultValue={this.state.skillSetRequired}
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Tentative number Vacancies</label>
+                            <Form.Control
+                              id="tentativeNoOfVacancies"
+                              defaultValue={this.state.tentativeNoOfVacancies}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Tentative Job Location(s)</label>
+                            <Form.Control
+                              id="tentativeJobLocations"
+                              defaultValue={this.state.tentativeJobLocations}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Tentative Date of Joining</label>
+                            <Form.Control
+                              id="tentativeDateOfJoining"
+                              defaultValue={this.state.tentativeDateOfJoining}
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <h2>Sallery Details</h2>
+                      <br />
+                      <Row>
+                        <TableContainer component={Paper}>
+                          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Programmes</TableCell>
+                                <TableCell align="right">Cost to Company</TableCell>
+                                <TableCell align="right">Gross Compensation(INR)</TableCell>
+                                <TableCell align="right">Take Home Compensation(INR)</TableCell>
+                                <TableCell align="right">Bonus/Incentives(if any)</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableBody>
+                              {console.log(rows)}
+                              {rows.map((row) => (
+                                <TableRow
+                                  key={row.programme}
+                                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                >
+                                  <TableCell component="th" scope="row">
+                                    {row.programme}
                                   </TableCell>
-                                  <TableCell align="right">
-                                    Gross Compensation(INR)
-                                  </TableCell>
-                                  <TableCell align="right">
-                                    Take Home Compensation(INR)
-                                  </TableCell>
-                                  <TableCell align="right">
-                                    Bonus/Incentives(if any)
-                                  </TableCell>
+                                  <TableCell align="right">{row.ctc}</TableCell>
+                                  <TableCell align="right">{row.grossCompensation}</TableCell>
+                                  <TableCell align="right">{row.takeHomeCompensation}</TableCell>
+                                  <TableCell align="right">{row.bonus}</TableCell>
                                 </TableRow>
-                              </TableHead>
-                              <TableBody>
-                                {/* {console.log(rows)} */}
-                                {rows.map((row) => (
-                                  <TableRow
-                                    key={row.programme}
-                                    sx={{
-                                      "&:last-child td, &:last-child th": {
-                                        border: 0,
-                                      },
-                                    }}
-                                  >
-                                    <TableCell component="th" scope="row">
-                                      {row.programme}
-                                    </TableCell>
-                                    <TableCell align="right">
-                                      {row.ctc}
-                                    </TableCell>
-                                    <TableCell align="right">
-                                      {row.grossCompensation}
-                                    </TableCell>
-                                    <TableCell align="right">
-                                      {row.takeHomeCompensation}
-                                    </TableCell>
-                                    <TableCell align="right">
-                                      {row.bonus}
-                                    </TableCell>
-                                  </TableRow>
-                                ))}
-                              </TableBody>
-                            </Table>
-                          </TableContainer>
-                        </Row>
-                        <br />
-                        <br />
-                        <br />
-                        <h2>Selection Process</h2>
-                        {/* <br /> */}
-                        <Row>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <label>
-                                Eligibility Criteria( like minimum CGPA, etc.. )
-                              </label>
-                              <Form.Control
-                                id="eligibilityCriteria"
-                                defaultValue={this.state.eligibilityCriteria}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="4">
-                            <Form.Group>
-                              <label>Resume Shortlisting</label>
-                              <Form.Control
-                                id="resumeShortlisting"
-                                defaultValue={this.state.resumeShortlisting}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pr-1" md="4">
-                            <Form.Group>
-                              <label>Pre-Placement Talk</label>
-                              <Form.Control
-                                id="prePlacementTalk"
-                                defaultValue={this.state.prePlacementTalk}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Group Discussion</label>
-                              <Form.Control
-                                id="groupDiscussion"
-                                defaultValue={this.state.groupDiscussion}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Mode of Test</label>
-                              <br />
-                              <div className="container">
-                                <Row>
-                                  {test.map((item, i) => {
-                                    if (this.state.modeOfTest == item) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="modeOfTest"
-                                            value={i}
-                                            type="radio"
-                                            id={`test${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="modeOfTest"
-                                            value={i}
-                                            type="radio"
-                                            id={`test${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
-                                  })}
-                                </Row>
-                              </div>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Type of Test</label>
-                              <br />
-                              <div className="container">
-                                <Row>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </TableContainer>
+                      </Row>
+                      <br />
+                      <br />
+                      <br />
+                      <h2>Selection Process</h2>
+                      {/* <br /> */}
+                      <Row>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <label>
+                              Eligibility Criteria( like minimum CGPA, etc.. )
+                            </label>
+                            <Form.Control
+                              id="eligibilityCriteria"
+                              defaultValue={this.state.eligibilityCriteria}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Resume Shortlisting</label>
+                            <Form.Control
+                              id="resumeShortlisting"
+                              defaultValue={this.state.resumeShortlisting}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Pre-Placement Talk</label>
+                            <Form.Control
+                              id="prePlacementTalk"
+                              defaultValue={this.state.prePlacementTalk}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Group Discussion</label>
+                            <Form.Control
+                              id="groupDiscussion"
+                              defaultValue={this.state.groupDiscussion}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Mode of Test</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {test.map((item, i) => {
+                                  if(this.state.modeOfTest[i]){
+                                    return (
+                                      <Col className="px-1" md="2">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          name="modeOfTest"
+                                          value={i}
+                                          type="checkbox"
+                                          id={`test${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="2">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          name="modeOfTest"
+                                          value={i}
+                                          type="checkbox"
+                                          id={`test${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Type of Test</label>
+                            <br />
+                            <div className="container">
+                            <Row>
                                   {typeofTest.map((item, i) => {
-                                    if (this.state.typeOfTest[i]) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="typeOfTest"
-                                            type="checkbox"
-                                            id={`typeOfTest${i}`}
-                                            value={i}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="typeOfTest"
-                                            type="checkbox"
-                                            id={`typeOfTest${i}`}
-                                            value={i}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.typeOfTest[i]){
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="typeOfTest"
+                                                type="checkbox"
+                                                id={`typeOfTest${i}`}
+                                                value={i}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="typeOfTest"
+                                                type="checkbox"
+                                                id={`typeOfTest${i}`}
+                                                value={i}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
+                                      
                                   })}
                                 </Row>
-                              </div>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Aptitude Test Duration</label>
-                              <Form.Control
-                                id="aptitudeTest"
-                                defaultValue={this.state.aptitudeTest}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Technical Test Duration</label>
-                              <Form.Control
-                                id="technicalTest"
-                                defaultValue={this.state.technicalTest}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="12">
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Aptitude Test Duration</label>
+                            <Form.Control
+                              id="aptitudeTest"
+                              defaultValue={this.state.aptitudeTest}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Technical Test Duration</label>
+                            <Form.Control
+                              id="technicalTest"
+                              defaultValue={this.state.technicalTest}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
                             <Form.Group>
                               <br />
                               <label>Mode of Interview</label>
@@ -2035,36 +2231,36 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {interview.map((item, i) => {
-                                    if (this.state.modeOfInterview == item) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="modeOfInterview"
-                                            type="radio"
-                                            id={`interview${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="modeOfInterview"
-                                            type="radio"
-                                            id={`interview${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.modeOfInterview[i]){
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="modeOfInterview"
+                                                type="checkbox"
+                                                id={`interview${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                value={i}
+                                                name="modeOfInterview"
+                                                type="checkbox"
+                                                id={`interview${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
                                   })}
                                 </Row>
                               </div>
@@ -2078,105 +2274,103 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {typeofInterview.map((item, i) => {
-                                    if (this.state.typeOfInterview[i]) {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="typeOfInterview"
-                                            type="checkbox"
-                                            value={i}
-                                            id={`typeOfInterview${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="2">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            name="typeOfInterview"
-                                            type="checkbox"
-                                            value={i}
-                                            id={`typeOfInterview${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                      if(this.state.typeOfInterview[i]){
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="typeOfInterview"
+                                                type="checkbox"
+                                                value={i}
+                                                id={`typeOfInterview${i}`}
+                                                disabled
+                                                checked
+                                              />
+                                            </Col>
+                                          );
+                                      }else{
+                                        return (
+                                            <Col className="px-1" md="2">
+                                              <Form.Check
+                                                inline
+                                                label={item}
+                                                name="typeOfInterview"
+                                                type="checkbox"
+                                                value={i}
+                                                id={`typeOfInterview${i}`}
+                                                disabled
+                                              />
+                                            </Col>
+                                          );
+                                      }
                                   })}
                                 </Row>
                               </div>
                             </Form.Group>
                           </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Duration</label>
-                              <Form.Control
-                                id="durationOfEachRoundHR"
-                                defaultValue={this.state.durationOfEachRoundHR}
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Rounds</label>
-                              <Form.Control
-                                id="noOfRoundsHR"
-                                defaultValue={this.state.noOfRoundsHR}
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Duration</label>
-                              <Form.Control
-                                id="durationOfEachRoundTech"
-                                defaultValue={
-                                  this.state.durationOfEachRoundTech
-                                }
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Rounds</label>
-                              <Form.Control
-                                id="noOfRoundsTech"
-                                defaultValue={this.state.noOfRoundsTech}
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <br />
-                        <br />
-                        <h2>Programme Details</h2>
-                        <p>
-                          Please tick mark the required degree and discipline in
-                          which you are interested to recruit
-                        </p>
-                        <br />
-                        <Row>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>HR Interview Duration</label>
+                            <Form.Control
+                              id="durationOfEachRoundHR"
+                              defaultValue={this.state.durationOfEachRoundHR}
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>HR Interview Rounds</label>
+                            <Form.Control
+                              id="noOfRoundsHR"
+                              defaultValue={this.state.noOfRoundsHR}
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Technical Interview Duration</label>
+                            <Form.Control
+                              id="durationOfEachRoundTech"
+                              defaultValue={this.state.durationOfEachRoundTech}
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Technical Interview Rounds</label>
+                            <Form.Control
+                              id="noOfRoundsTech"
+                              defaultValue={this.state.noOfRoundsTech}
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <br />
+                      <h2>Programme Details</h2>
+                      <p>
+                        Please tick mark the required degree and discipline in
+                        which you are interested to recruit
+                      </p>
+                      <br />
+                      <Row>
                           <Col className="pl-1" md="12">
                             <Form.Group>
                               <br />
@@ -2185,7 +2379,7 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {btech.map((item, i) => {
-                                    if (this.state.btech[i]) {
+                                    if(this.state.btech[i]){
                                       return (
                                         <Col className="px-1" md="4">
                                           <Form.Check
@@ -2200,7 +2394,7 @@ class ViewFilledFormVolunteer extends Component {
                                           />
                                         </Col>
                                       );
-                                    } else {
+                                    }else{
                                       return (
                                         <Col className="px-1" md="4">
                                           <Form.Check
@@ -2227,37 +2421,37 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {mtech.map((item, i) => {
-                                    if (this.state.mtech[i]) {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="mtech"
-                                            type="checkbox"
-                                            id={`mtech${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="mtech"
-                                            type="checkbox"
-                                            id={`mtech${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                {mtech.map((item, i) => {
+                                  if(this.state.mtech[i]){
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="mtech"
+                                          type="checkbox"
+                                          id={`mtech${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="mtech"
+                                          type="checkbox"
+                                          id={`mtech${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
                                   })}
                                 </Row>
                               </div>
@@ -2270,37 +2464,37 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {msc.map((item, i) => {
-                                    if (this.state.msc[i]) {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="msc"
-                                            type="checkbox"
-                                            id={`msc${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="msc"
-                                            type="checkbox"
-                                            id={`msc${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                {msc.map((item, i) => {
+                                  if(this.state.msc[i]){
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="msc"
+                                          type="checkbox"
+                                          id={`msc${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="msc"
+                                          type="checkbox"
+                                          id={`msc${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
                                   })}
                                 </Row>
                               </div>
@@ -2313,37 +2507,37 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {ma.map((item, i) => {
-                                    if (this.state.ma[i]) {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="ma"
-                                            type="checkbox"
-                                            id={`ma${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="ma"
-                                            type="checkbox"
-                                            id={`ma${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                {ma.map((item, i) => {
+                                  if(this.state.ma[i]){
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="ma"
+                                          type="checkbox"
+                                          id={`ma${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="ma"
+                                          type="checkbox"
+                                          id={`ma${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
                                   })}
                                 </Row>
                               </div>
@@ -2356,8 +2550,8 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {ms.map((item, i) => {
-                                    if (this.state.ms[i]) {
+                                {ms.map((item, i) => {
+                                    if(this.state.ms[i]){
                                       return (
                                         <Col className="px-1" md="4">
                                           <Form.Check
@@ -2372,7 +2566,7 @@ class ViewFilledFormVolunteer extends Component {
                                           />
                                         </Col>
                                       );
-                                    } else {
+                                    }else{
                                       return (
                                         <Col className="px-1" md="4">
                                           <Form.Check
@@ -2399,131 +2593,119 @@ class ViewFilledFormVolunteer extends Component {
                               <br />
                               <div className="container">
                                 <Row>
-                                  {phd.map((item, i) => {
-                                    if (this.state.phd[i]) {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="phd"
-                                            type="checkbox"
-                                            id={`phd${i}`}
-                                            disabled
-                                            checked
-                                          />
-                                        </Col>
-                                      );
-                                    } else {
-                                      return (
-                                        <Col className="px-1" md="4">
-                                          <Form.Check
-                                            inline
-                                            label={item}
-                                            value={i}
-                                            name="phd"
-                                            type="checkbox"
-                                            id={`phd${i}`}
-                                            disabled
-                                          />
-                                        </Col>
-                                      );
-                                    }
+                                {phd.map((item, i) => {
+                                  if(this.state.phd[i]){
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="phd"
+                                          type="checkbox"
+                                          id={`phd${i}`}
+                                          disabled
+                                          checked
+                                        />
+                                      </Col>
+                                    );
+                                  }else{
+                                    return (
+                                      <Col className="px-1" md="4">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          name="phd"
+                                          type="checkbox"
+                                          id={`phd${i}`}
+                                          disabled
+                                        />
+                                      </Col>
+                                    );
+                                  }
                                   })}
                                 </Row>
                               </div>
                             </Form.Group>
                           </Col>
                         </Row>
-                        <br />
-                        <br />
-                        <h3>Logistic Requirements (on Campus Drive)</h3>
-                        <br />
-                        <Row>
-                          <Col className="px-1" md="6">
-                            <Form.Group>
-                              <label>Number of Members</label>
-                              <Form.Control
-                                id="numberOfMembers"
-                                defaultValue={this.state.numberOfMembers}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pl-1" md="6">
-                            <Form.Group>
-                              <label>
-                                Number of Rooms required for selection process
-                              </label>
-                              <Form.Control
-                                id="numberOfRoomsRequired"
-                                defaultValue={this.state.numberOfRoomsRequired}
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="pr-1" md="12">
-                            <Form.Group>
-                              <label>Other Requirements</label>
-                              <Form.Control
-                                id="otherRequirements"
-                                defaultValue={this.state.otherRequirements}
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
-                        <br />
-                        <br />
-                        <h3>Logistic Requirements (Virtual Drive)</h3>
-                        <br />
-                        <Row>
-                          <Col className="pr-1" md="12">
-                            <Form.Group>
-                              <label>Virtual Drive Requirements</label>
-                              <Form.Control
-                                id="virtualDriveRequirements"
-                                defaultValue={
-                                  this.state.virtualDriveRequirements
-                                }
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </Row>
+                      <br />
+                      <br />
+                      <h3>Logistic Requirements (on Campus Drive)</h3>
+                      <br />
+                      <Row>
+                        <Col className="px-1" md="6">
+                          <Form.Group>
+                            <label>Number of Members</label>
+                            <Form.Control
+                              id="numberOfMembers"
+                              defaultValue={this.state.numberOfMembers}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="6">
+                          <Form.Group>
+                            <label>
+                              Number of Rooms required for selection process
+                            </label>
+                            <Form.Control
+                              id="numberOfRoomsRequired"
+                              defaultValue={this.state.numberOfRoomsRequired}
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pr-1" md="12">
+                          <Form.Group>
+                            <label>Other Requirements</label>
+                            <Form.Control
+                              id="otherRequirements"
+                              defaultValue={this.state.otherRequirements}
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <br />
+                      <h3>Logistic Requirements (Virtual Drive)</h3>
+                      <br />
+                      <Row>
+                        <Col className="pr-1" md="12">
+                          <Form.Group>
+                            <label>Virtual Drive Requirements</label>
+                            <Form.Control
+                              id="virtualDriveRequirements"
+                              defaultValue={this.state.virtualDriveRequirements}
+                              as="textarea"
+                              type="text"
+                              disabled
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
 
-                        <div
-                          className="clearfix"
-                          style={{ textAlign: "center", margin: "10px 0px" }}
-                        ></div>
-                      </Form>
-                    </Card.Body>
-                  </Card>
-                  <Link
-                    to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
-                  >
-                    <Button
-                      className="btn-fill"
-                      style={{ width: "200px", margin: "40px" }}
-                      variant="info"
-                    >
-                      Create Form
-                    </Button>
-                  </Link>
-                </Col>
-              </Row>
-            </Container>
-          </>
+                      <div
+                        className="clearfix"
+                        style={{ textAlign: "center", margin: "10px 0px" }}
+                      >
+                      </div>
+                    </Form>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </>
         );
       }
-    } else {
+    }else{
       return (
         <>
           <div class="loaderContainer">

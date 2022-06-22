@@ -5,11 +5,9 @@ const Schema = mongoose.Schema;
 const RoundSchema = new mongoose.Schema({
     noOfRounds: {
         type: String,
-        required: true,
     },
     durationOfEachRound: {
         type: String,
-        required: true,
     },
 });
 
@@ -169,11 +167,9 @@ const INFSchema = new Schema({
     }],
     aptitudeTest: {
         type: String,
-        required: true,
     },
     technicalTest: {
         type: String,
-        required: true,
     },
     modeOfInterview: [{
         type: String,
@@ -208,11 +204,9 @@ const INFSchema = new Schema({
     },
     otherRequirements: {
         type: String,
-        required: true,
     },
     virtualDriveRequirements: {
         type: String,
-        required: true,
     },
 });
 
