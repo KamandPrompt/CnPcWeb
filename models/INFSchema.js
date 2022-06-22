@@ -81,14 +81,14 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    typeOfOrganization: {
+    typeOfOrganization: [{
         type: String,
         required: true,
-    },
-    natureOfBusiness: {
+    }],
+    natureOfBusiness: [{
         type: String,
         required: true,
-    },
+    }],
     contactPerson: {
         type: String,
         required: true,
@@ -159,10 +159,10 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    modeOfTest: {
+    modeOfTest: [{
         type: String,
         required: true,
-    },
+    }],
     typeOfTest: [{
         type: String,
         required: true,
@@ -175,10 +175,10 @@ const INFSchema = new Schema({
         type: String,
         required: true,
     },
-    modeOfInterview: {
+    modeOfInterview: [{
         type: String,
         required: true,
-    },
+    }],
     typeOfInterview: [
         {
             type: String,

@@ -22,10 +22,10 @@ const contactEmail = nodemailer.createTransport({
   secure: true,
   // service: "gmail",
   auth: {
-    // user: "capibulladvisors@gmail.com",
-    // pass: "capibull9550",
-    user: "cpdashboard11@gmail.com",
-    pass: "cp-dash@",
+    user: "capibulladvisors@gmail.com",
+    pass: "capibull9550",
+    // user: "cpdashboard11@gmail.com",
+    // pass: "cp-dash@",
   },
 });
 
