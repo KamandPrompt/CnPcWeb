@@ -54,7 +54,7 @@ export const Home = (props) => {
         <div className="bannerhome">
             <div className="message container">
               <h2 className="cnp_heading">Career and placement cell IIT Mandi</h2>
-              <p className="home_msg">Welcome to the Career and Placement Cell of IIT Mandi. The Career and Placement Cell (CnPC) of the Institute centrally handles all the aspects of Campus Placements and Internships.We welcome the Recruiters for the Recruitment Drive.</p>
+              <p className="home_msg">Welcome to the Career and Placement Cell of IIT Mandi. The CnP cell facilitates companies and students by ensuring a smooth recruitment process. It handles all aspects right from establishing contact with recruiters to making logistical arrangements for pre-placement talks, tests, and final interviews. The functioning of the CnP cell allows for an efficient and hassle-free recruitment.</p>
           </div>
         </div>
         {/* <div id="front" className="container item">
