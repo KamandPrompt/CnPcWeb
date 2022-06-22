@@ -130,6 +130,7 @@ router.post("/createForm", (req, res) => {
     type: req.body.type,
     isVerified: req.body.isVerified,
     fields: req.body.fields,
+    FID: req.body.FID,
     CID: req.body.CID,
   });
   newForm

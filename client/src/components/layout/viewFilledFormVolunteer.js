@@ -21,6 +21,7 @@ class ViewFilledFormVolunteer extends Component {
     super(props);
     this.state = {
       type: "",
+      FID: "",
       CID: this.props.auth.user.id,
       nameOfTheCompany: "",
       postalAddress: "",
@@ -103,14 +104,14 @@ class ViewFilledFormVolunteer extends Component {
     const params = new URLSearchParams(search);
     const FID = params.get("fid");
     const type = params.get("type");
-    console.log(type);
-    console.log(FID);
-    console.log(this.state.type);
+    // console.log(type);
+    // console.log(FID);
+    // console.log(this.state.type);
     await axios
       .post("api/recruiters/viewFilledForm", { fid: FID, type: type })
       .then((res) => {
         let data = res.data;
-        console.log(data);
+        // console.log(data);
         if (type == "INF") {
           const test = Array(2).fill(false);
           const typeofTest = ["Aptitude test", "Technical test"];
@@ -169,6 +170,7 @@ class ViewFilledFormVolunteer extends Component {
           }
           this.setState({
             type: type,
+            FID: FID,
             nameOfTheCompany: data.nameOfTheCompany,
             postalAddress: data.postalAddress,
             country: data.country,
@@ -260,6 +262,7 @@ class ViewFilledFormVolunteer extends Component {
           }
           this.setState({
             type: type,
+            FID: FID,
             nameOfTheCompany: data.nameOfTheCompany,
             postalAddress: data.postalAddress,
             country: data.country,
@@ -481,7 +484,9 @@ class ViewFilledFormVolunteer extends Component {
                     <Card.Body>
                       <Form>
                         <h2>Company Details</h2>
-                        <Link to={"/createForm"}>
+                        <Link
+                          to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
+                        >
                           <Button
                             className="btn-fill"
                             style={{ width: "200px", margin: "40px" }}
@@ -1496,7 +1501,9 @@ class ViewFilledFormVolunteer extends Component {
                       </Form>
                     </Card.Body>
                   </Card>
-                  <Link to={"/createForm"}>
+                  <Link
+                    to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
+                  >
                     <Button
                       className="btn-fill"
                       style={{ width: "200px", margin: "40px" }}
@@ -1520,7 +1527,9 @@ class ViewFilledFormVolunteer extends Component {
                     <Card.Body>
                       <Form>
                         <h2>Company Details</h2>
-                        <Link to={"/createForm"}>
+                        <Link
+                          to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
+                        >
                           <Button
                             className="btn-fill"
                             style={{ width: "200px", margin: "40px" }}
@@ -1827,7 +1836,7 @@ class ViewFilledFormVolunteer extends Component {
                                 </TableRow>
                               </TableHead>
                               <TableBody>
-                                {console.log(rows)}
+                                {/* {console.log(rows)} */}
                                 {rows.map((row) => (
                                   <TableRow
                                     key={row.programme}
@@ -2497,7 +2506,9 @@ class ViewFilledFormVolunteer extends Component {
                       </Form>
                     </Card.Body>
                   </Card>
-                  <Link to={"/createForm"}>
+                  <Link
+                    to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
+                  >
                     <Button
                       className="btn-fill"
                       style={{ width: "200px", margin: "40px" }}

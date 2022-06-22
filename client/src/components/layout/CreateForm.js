@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser, createFormRecruiter } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+
 const fixedFields = [
   {
     label: "Name",
@@ -112,18 +113,12 @@ const programs = [
   },
   {
     name: "MSC",
-    branches: [
-      "Chemistry",
-      "Applied Mathematics",
-      "Physics",
-    ],
+    branches: ["Chemistry", "Applied Mathematics", "Physics"],
     branchIDs: ["CM", "AM", "PY"],
   },
   {
     name: "MA",
-    branches: [
-      "Development Studies",
-    ],
+    branches: ["Development Studies"],
     branchIDs: ["DS"],
   },
   {
@@ -132,7 +127,7 @@ const programs = [
       "School of Engineering",
       "School of Computing & Electrical   Engineering",
     ],
-    branchIDs: ["SE","SCEE"],
+    branchIDs: ["SE", "SCEE"],
   },
   {
     name: "PHD",
@@ -142,7 +137,7 @@ const programs = [
       "School of Basic Sciences",
       "School of Humanities and Social Sciences",
     ],
-    branchIDs: ["SE","SCEE","SBS","SHS"],
+    branchIDs: ["SE", "SCEE", "SBS", "SHS"],
   },
 ];
 
@@ -150,6 +145,8 @@ class CreateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      FID: "",
+      formType: "",
       title: "",
       type: "",
       JD: "",
@@ -171,12 +168,18 @@ class CreateForm extends Component {
     // this.changeCountry = this.changeCountry.bind(this);
     // this.changeState = this.changeState.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
     let arr = [];
-    programs.map((item,i)=>{
+    programs.map((item, i) => {
       arr.push(Array(item.branches.length).fill(false));
     });
-    this.setState({eligibility:arr});
+    this.setState({ eligibility: arr });
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+    const FID = params.get("fid");
+    const type = params.get("type");
+
+    this.setState({ FID: FID, formType: type });
   }
 
   onLogout = (e) => {
@@ -196,20 +199,20 @@ class CreateForm extends Component {
     // console.log(this.state.isChecked);
   }
 
-  handleChangeCheckedBranch(event,i,j){
+  handleChangeCheckedBranch(event, i, j) {
     let arr = this.state.eligibility;
     arr[i][j] = !arr[i][j];
-    this.setState({eligibility:arr});
+    this.setState({ eligibility: arr });
   }
 
-  handleChangeCheckedBatch(event,i){
+  handleChangeCheckedBatch(event, i) {
     let arr = this.state.batch;
-    if(event.target.value==''){
+    if (event.target.value == "") {
       arr[i] = null;
-    }else{
+    } else {
       arr[i] = event.target.value;
     }
-    this.setState({batch:arr});
+    this.setState({ batch: arr });
   }
 
   handleChangeField(event, i) {
@@ -230,7 +233,7 @@ class CreateForm extends Component {
   }
 
   handleAdd1(counter1) {
-    console.log(counter1);
+    // console.log(counter1);
     this.setState({ counter1: counter1 + 1 });
   }
 
@@ -242,20 +245,20 @@ class CreateForm extends Component {
     e.preventDefault();
     let arr = [];
     let len1 = programs.length;
-    for(let i=0;i<len1;i++){
-      if((this.state.isChecked)[i]){
-        let arr2 = (this.state.eligibility)[i];
+    for (let i = 0; i < len1; i++) {
+      if (this.state.isChecked[i]) {
+        let arr2 = this.state.eligibility[i];
         let arr3 = [];
-        for(let j=0;j<arr2.length;j++){
-          if(arr2[j]){
+        for (let j = 0; j < arr2.length; j++) {
+          if (arr2[j]) {
             arr3.push(programs[i].branchIDs[j]);
           }
         }
         let newData = {
           program: programs[i].name,
           branch: arr3,
-          batch: this.state.batch[i]
-        }
+          batch: this.state.batch[i],
+        };
         arr.push(newData);
       }
     }
@@ -265,17 +268,19 @@ class CreateForm extends Component {
         fields.push(obj);
       }
     }
-    console.log(fields);
+    // console.log(fields);
     const newForm = {
       title: this.state.title,
       JD: this.state.JD,
       type: this.state.type,
+      formType: this.state.formType,
+      FID: { type: this.state.formType, FID: this.state.FID },
       isVerified: this.state.isVerified,
       eligibility: arr,
       fields: fields,
       CID: this.props.auth.user.id,
     };
-    console.log(newForm);
+    // console.log(newForm);
     this.props.createFormRecruiter(newForm, this.props.history);
     this.setState({
       title: "",
@@ -384,27 +389,27 @@ class CreateForm extends Component {
     return <div>{list}</div>;
   }
 
-  showData(){
+  showData() {
     let arr = [];
     let len1 = programs.length;
-    for(let i=0;i<len1;i++){
-      if((this.state.isChecked)[i]){
-        let arr2 = (this.state.eligibility)[i];
+    for (let i = 0; i < len1; i++) {
+      if (this.state.isChecked[i]) {
+        let arr2 = this.state.eligibility[i];
         let arr3 = [];
-        for(let j=0;j<arr2.length;j++){
-          if(arr2[j]){
+        for (let j = 0; j < arr2.length; j++) {
+          if (arr2[j]) {
             arr3.push(programs[i].branchIDs[j]);
           }
         }
         let newData = {
           program: programs[i].name,
           branch: arr3,
-          batch: this.state.batch[i]
-        }
+          batch: this.state.batch[i],
+        };
         arr.push(newData);
       }
     }
-    console.log(arr);
+    // console.log(arr);
   }
 
   render() {
@@ -490,10 +495,10 @@ class CreateForm extends Component {
                       if (e.key === "Enter") e.preventDefault();
                     }}
                   />
-                  <br/>
+                  <br />
 
-                  {this.state.isChecked[i]
-                    ? <>
+                  {this.state.isChecked[i] ? (
+                    <>
                       {program.branches.map((branch, j) => {
                         return (
                           <>
@@ -505,30 +510,34 @@ class CreateForm extends Component {
                               name="eligibility"
                               value={branch}
                               onChange={(event) => {
-                                this.handleChangeCheckedBranch(event, i,j);
+                                this.handleChangeCheckedBranch(event, i, j);
                               }}
                               onKeyPress={(e) => {
                                 if (e.key === "Enter") e.preventDefault();
                               }}
                             />
-                            <br/>
+                            <br />
                           </>
                         );
                       })}
-                      <input type="text" id="batch" name="batch" onChange={(event) => {
-                                this.handleChangeCheckedBatch(event, i);
-                              }}
+                      <input
+                        type="text"
+                        id="batch"
+                        name="batch"
+                        onChange={(event) => {
+                          this.handleChangeCheckedBatch(event, i);
+                        }}
                         className="widgetInput"
                         onKeyPress={(e) => {
                           if (e.key === "Enter") e.preventDefault();
-                        }}/>
+                        }}
+                      />
                     </>
-                    
-                      : null}
+                  ) : null}
                 </>
               );
             })}
-            <button onClick={this.showData}>Click</button>
+            {/* <button onClick={this.showData}>Click</button> */}
             {/* BTECH
             <input
               className="widgetCheckbox"
