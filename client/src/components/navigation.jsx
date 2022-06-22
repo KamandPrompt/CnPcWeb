@@ -36,7 +36,7 @@ class Navigation extends Component {
               <span className="icon-bar"></span>{" "}
             </button>
             <a className="navbar-brand page-scroll" href="/">
-              CnP,IIT Mandi
+              CnP, IIT Mandi
             </a>{" "}
           </div>
 
