@@ -333,7 +333,7 @@ a:focus,
 
 .cont{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -365,7 +365,7 @@ a:focus,
 
 .faculty-head {
   font-size: 30px;
-  text-align: center;
+  text-align: left;
   color: #093660
 }
 
@@ -763,6 +763,18 @@ hr {
   display: inline-block !important;
   width: 40%;
 }
+.left-light{
+  display: inline-block !important;
+  width: 20%;
+  border-top: 2px solid #a1aab1;
+  margin: 0.55em 0;
+}
+.right-light{
+  margin: 0.55em 0;
+  border-top: 2px solid #a1aab1;
+  display: inline-block !important;
+  width: 20%;
+}
 .left-lg{
   display: inline-block !important;
   width: 35%;
@@ -791,6 +803,16 @@ hr {
   display: inline-block !important;
   width: 20%;
   text-align: center;
+}
+.light{
+  justify-content: center;
+}
+.homeHead-light{
+  display: inline-block !important;
+  width: 20%;
+  text-align: center;
+  color: #a1aab1 !important;
+  font-size: 15px;
 }
 .homeHead-lg{
   display: inline-block !important;

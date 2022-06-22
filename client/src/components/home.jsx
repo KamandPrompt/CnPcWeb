@@ -50,7 +50,7 @@ export const Home = (props) => {
   const items = [adobe, amazon, digilytic, flipkart, microsoft, google, samsung, siemens, sprinklr, suzlon, swiggy, indeed, pharma, walmart, uber, texes, raam_g, practical];
   return (
     <>
-      <div className="cont">
+      <div>
         <div className="bannerhome">
             <div className="message container">
               <h2 className="cnp_heading">Career and placement cell IIT Mandi</h2>
@@ -80,100 +80,114 @@ export const Home = (props) => {
             </div>
           </div>
         </div> */}
-        <h3 className="faculty-head">From the Director</h3>
-        <div className="about container row item">
-          {/* <div className="col-lg-4 col-md-6 col-sm-12">
-              <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
-          </div> */}
-          {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
-          <div className="col-lg-3 col-md-3 col-sm-12">
-            <img
-              className="faculty-advisor"
-              src={director}
-              alt="Dr. Laxmidhar Behera"
-            />
-            <h4 className="profile">Dr. Laxmidhar Behera</h4>
-            <h5 className="profile">Director</h5>
-            <h5 className="profile">IIT Mandi</h5>
-          </div>
-          <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
-            During a short span of ten years of its existence, Indian Institute of
-            Technology Mandi (IIT Mandi) has gained a reputation for its cutting
-            edge research and innovative teaching programs. The institute prides
-            itself on creating an environment that empowers young minds by
-            developing intellect, versatility, broadening horizons of creativity,
-            and honing inter-personal skills. With an aim of shaping the students
-            into responsible engineers and scientists, the innovative
-            undergraduate curriculum at IIT Mandi strives to expose students to
-            strong fundamentals of engineering, basic sciences, and humanities,
-            while simultaneously sensitizing them about human values and
-            surroundings.
-          </p>
-          <br />
-          <br />
-          {/* </div> */}
-          <br />
+        <div className="light container cont">
+          <hr className="left-light" />
+          <h3 className="homeHead-light">Director's Address</h3>
+          <hr className="right-light" />
         </div>
-        <br />
-        <h3 className="faculty-head">From the Faculty Advisor</h3>
-        <div className="about container row item">
-          {/* <div className="col-lg-4 col-md-6 col-sm-12">
-              <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
-          </div> */}
-          {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
-          <div className="col-lg-3 col-md-3 col-sm-12">
-            <img
-              className="faculty-advisor"
-              src={tushar_jain}
-              alt="Dr. Tushar Jain"
-            />
-            <h4 className="profile">Dr. Tushar Jain</h4>
-            <h5 className="profile">Faculty Advisor</h5>
-            <h5 className="profile">IIT Mandi</h5>
+        <div className="container">
+          <h3 className="faculty-head">From the Director</h3>
+          <div className="about container row item">
+            {/* <div className="col-lg-4 col-md-6 col-sm-12">
+                <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
+            </div> */}
+            {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
+            <div className="col-lg-3 col-md-3 col-sm-12">
+              <img
+                className="faculty-advisor"
+                src={director}
+                alt="Dr. Laxmidhar Behera"
+              />
+              <h4 className="profile">Dr. Laxmidhar Behera</h4>
+              <h5 className="profile">Director</h5>
+              <h5 className="profile">IIT Mandi</h5>
+            </div>
+            <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
+              During a short span of ten years of its existence, Indian Institute of
+              Technology Mandi (IIT Mandi) has gained a reputation for its cutting
+              edge research and innovative teaching programs. The institute prides
+              itself on creating an environment that empowers young minds by
+              developing intellect, versatility, broadening horizons of creativity,
+              and honing inter-personal skills. With an aim of shaping the students
+              into responsible engineers and scientists, the innovative
+              undergraduate curriculum at IIT Mandi strives to expose students to
+              strong fundamentals of engineering, basic sciences, and humanities,
+              while simultaneously sensitizing them about human values and
+              surroundings.
+            </p>
+            <br />
+            <br />
+            {/* </div> */}
+            <br />
           </div>
-          <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
-            During a short span of ten years of its existence, Indian Institute of
-            Technology Mandi (IIT Mandi) has gained a reputation for its cutting
-            edge research and innovative teaching programs. The institute prides
-            itself on creating an environment that empowers young minds by
-            developing intellect, versatility, broadening horizons of creativity,
-            and honing inter-personal skills. With an aim of shaping the students
-            into responsible engineers and scientists, the innovative
-            undergraduate curriculum at IIT Mandi strives to expose students to
-            strong fundamentals of engineering, basic sciences, and humanities,
-            while simultaneously sensitizing them about human values and
-            surroundings.
-            <span id="dots">...</span>
-            <span id="more">
-              {" "}
-              Similarly, the institute's focus on research at the fore-fronts of
-              various areas of science and technology has resulted in significant
-              contributions, and excellent and responsible researchers. The Career
-              and Placement (CnP) cell invites organizations which have recruited
-              our alumni and have witnessed them deliver well on high expectations
-              placed on them, as well as those whom our students have not yet got
-              an opportunity to serve. The CnP cell strives to facilitate the best
-              possible match between the aspirations of recruiting organizations
-              and the abilities of our students, and we welcome suggestions from
-              your organization that will help us realize it. I can assure you of
-              prodigious talent of our students and feel elated to invite your
-              esteemed organizations to recruit our students. We look forward to
-              enthusiastic participation of your organization in our forthcoming
-              campus placement session and lasting and mutually satisfying
-              relation with your organization.
-            </span>
-            <button
-              className="btn btn-primary btn-sm"
-              onClick={myFunction}
-              id="myBtn"
-            >
-              <em><b>Read More</b></em>
-            </button>
-          </p>
-          {/* <br /> */}
-          {/* <br /> */}
-          {/* </div> */}
-          <br />
+        <br />
+        </div>
+        <div className="light container cont">
+          <hr className="left-light" />
+          <h3 className="homeHead-light">FA's Address</h3>
+          <hr className="right-light" />
+        </div>
+        <div className="container">
+          <h3 className="faculty-head">From the Faculty Advisor</h3>
+          <div className="about container row item">
+            {/* <div className="col-lg-4 col-md-6 col-sm-12">
+                <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
+            </div> */}
+            {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
+            <div className="col-lg-3 col-md-3 col-sm-12">
+              <img
+                className="faculty-advisor"
+                src={tushar_jain}
+                alt="Dr. Tushar Jain"
+              />
+              <h4 className="profile">Dr. Tushar Jain</h4>
+              <h5 className="profile">Faculty Advisor</h5>
+              <h5 className="profile">IIT Mandi</h5>
+            </div>
+            <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
+              During a short span of ten years of its existence, Indian Institute of
+              Technology Mandi (IIT Mandi) has gained a reputation for its cutting
+              edge research and innovative teaching programs. The institute prides
+              itself on creating an environment that empowers young minds by
+              developing intellect, versatility, broadening horizons of creativity,
+              and honing inter-personal skills. With an aim of shaping the students
+              into responsible engineers and scientists, the innovative
+              undergraduate curriculum at IIT Mandi strives to expose students to
+              strong fundamentals of engineering, basic sciences, and humanities,
+              while simultaneously sensitizing them about human values and
+              surroundings.
+              <span id="dots">...</span>
+              <span id="more">
+                {" "}
+                Similarly, the institute's focus on research at the fore-fronts of
+                various areas of science and technology has resulted in significant
+                contributions, and excellent and responsible researchers. The Career
+                and Placement (CnP) cell invites organizations which have recruited
+                our alumni and have witnessed them deliver well on high expectations
+                placed on them, as well as those whom our students have not yet got
+                an opportunity to serve. The CnP cell strives to facilitate the best
+                possible match between the aspirations of recruiting organizations
+                and the abilities of our students, and we welcome suggestions from
+                your organization that will help us realize it. I can assure you of
+                prodigious talent of our students and feel elated to invite your
+                esteemed organizations to recruit our students. We look forward to
+                enthusiastic participation of your organization in our forthcoming
+                campus placement session and lasting and mutually satisfying
+                relation with your organization.
+              </span>
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={myFunction}
+                id="myBtn"
+              >
+                <em><b>Read More</b></em>
+              </button>
+            </p>
+            {/* <br /> */}
+            {/* <br /> */}
+            {/* </div> */}
+            <br />
+          </div>
         </div>
       </div>
       <div>
