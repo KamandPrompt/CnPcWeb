@@ -130,6 +130,7 @@ router.post("/createForm", (req, res) => {
     type: req.body.type,
     isVerified: req.body.isVerified,
     fields: req.body.fields,
+    FID: req.body.FID,
     CID: req.body.CID,
   });
   newForm
@@ -216,23 +217,23 @@ router.post("/getFormbyCID", async (req, res) => {
   // console.log(req.body.id);
   try {
     const dataINF = await INF.find({ CID: req.body.id }).lean();
-    const dataJNF = await JNF.find({CID: req.body.id}).lean();
+    const dataJNF = await JNF.find({ CID: req.body.id }).lean();
     // console.log(dataINF);
     const objArr = [];
-    for(let i=0;i<dataINF.length;i++){
+    for (let i = 0; i < dataINF.length; i++) {
       const obj = {
         id: dataINF[i]._id,
         type: "INF",
-        year : dataINF[i].year,
-      }
+        year: dataINF[i].year,
+      };
       objArr.push(obj);
     }
-    for(let i=0;i<dataJNF.length;i++){
+    for (let i = 0; i < dataJNF.length; i++) {
       const obj = {
         id: dataJNF[i]._id,
         type: "JNF",
-        year : dataJNF[i].year,
-      }
+        year: dataJNF[i].year,
+      };
       objArr.push(obj);
     }
     // console.log(objArr);
@@ -248,20 +249,22 @@ router.post("/getAllForms", async (req, res) => {
     const dataJNF = await JNF.find().lean();
     // console.log(dataINF);
     const objArr = [];
-    for(let i=0;i<dataINF.length;i++){
+    for (let i = 0; i < dataINF.length; i++) {
       const obj = {
         id: dataINF[i]._id,
         type: "INF",
-        year : dataINF[i].year,
-      }
+        year: dataINF[i].year,
+        nameOfTheCompany: dataINF[i].nameOfTheCompany,
+      };
       objArr.push(obj);
     }
-    for(let i=0;i<dataJNF.length;i++){
+    for (let i = 0; i < dataJNF.length; i++) {
       const obj = {
         id: dataJNF[i]._id,
         type: "JNF",
-        year : dataJNF[i].year,
-      }
+        year: dataJNF[i].year,
+        nameOfTheCompany: dataJNF[i].nameOfTheCompany,
+      };
       objArr.push(obj);
     }
     // console.log(objArr);
@@ -277,13 +280,13 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
   try {
     let data = [];
     if (req.body.role === "recruiter") {
-      data = await Response.find({ "FID.FID" : fid, isVerified: true }).lean();
+      data = await Response.find({ "FID.FID": fid, isVerified: true }).lean();
       // console.log(data);
     } else if (
       req.body.role === "coordinator" ||
       req.body.role === "volunteer"
     ) {
-      data = await Response.find({ "FID.FID" : fid }).lean();
+      data = await Response.find({ "FID.FID": fid }).lean();
     }
     // console.log(data)
     let student_data = [];
@@ -291,7 +294,7 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
       const studentData = await Student.findOne({ _id: data[i].SID }).lean();
       const newData = {
         FID: data[i].FID.FID,
-        CID : data[i].CID,
+        CID: data[i].CID,
         name: studentData.name,
         rollNo: studentData.rollNo,
         cgpa: studentData.cgpa,
@@ -323,31 +326,29 @@ router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
   }
 });
 
-router.post("/fillINF", (req,res)=>{
+router.post("/fillINF", (req, res) => {
   const INFform = new INF(req.body);
-  INFform
-    .save()
+  INFform.save()
     .then((user) => res.json(user))
     .catch((err) => console.log(err));
-})
+});
 
-router.post("/fillJNF", (req,res)=>{
+router.post("/fillJNF", (req, res) => {
   // console.log(req.body);
   const JNFform = new JNF(req.body);
-  JNFform
-    .save()
+  JNFform.save()
     .then((user) => res.json(user))
     .catch((err) => console.log(err));
-})
+});
 
-router.post("/viewFilledForm", async (req,res)=>{
+router.post("/viewFilledForm", async (req, res) => {
   const fid = req.body.fid;
   const type = req.body.type;
-  if(type=="INF"){
-    const data = await INF.findOne({_id: fid}).lean();
+  if (type == "INF") {
+    const data = await INF.findOne({ _id: fid }).lean();
     res.send(data);
-  }else{
-    const data = await JNF.findOne({_id: fid}).lean();
+  } else {
+    const data = await JNF.findOne({ _id: fid }).lean();
     res.send(data);
   }
 });

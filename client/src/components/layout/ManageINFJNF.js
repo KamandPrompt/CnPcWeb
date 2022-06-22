@@ -44,6 +44,7 @@ class ManageINFJNF extends Component {
     if(this.state.DataisLoaded === true)
     {
       const userRows = this.state.data;
+      // console.log(userRows, "Debugging")
       const columns = [
         {
           field: "id",
@@ -54,6 +55,12 @@ class ManageINFJNF extends Component {
         {
           field: "type",
           headerName: "Type",
+          hideable: false,
+          width: 230,
+        },
+        {
+          field: "nameOfTheCompany",
+          headerName: "Company Name",
           hideable: false,
           width: 230,
         },
