@@ -282,8 +282,8 @@ router.post("/getAllForms", async (req, res) => {
 
 router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
   const fid = req.params.fid;
-  console.log(req.body.role);
-  console.log(fid);
+  // console.log(req.body.role);
+  // console.log(fid);
   try {
     let data = [];
     if (req.body.role === "recruiter") {
@@ -292,7 +292,7 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
     } else if (req.body.role === "coordinator" || req.body.role === "volunteer") {
       data = await Response.find({ "FID.FID": fid }).lean();
     }
-    console.log(data);
+    // console.log(data);
     let student_data = [];
     for (let i = 0; i < data.length; i++) {
       const studentData = await Student.findOne({ _id: data[i].SID }).lean();

@@ -16,6 +16,7 @@ class viewResponsesVolunteer extends Component {
       SID: "",
       studentData : [],
       role: this.props.auth.user.role,
+      isVerified : false,
     };
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,11 +29,10 @@ class viewResponsesVolunteer extends Component {
     // console.log(this.props.auth.user);
     // console.log(fid)
     if(sid){
-      console.log("hi")
       await axios.post(`/api/admins/getResponsebySID/${fid}/${sid}`, {sid: this.state.SID})
       .then((res)=>{
-        this.setState({studentData:res.data , DataisLoaded:true, FID:fid, SID:sid});
-        console.log(this.state.studentData);
+        this.setState({studentData:res.data.answers , DataisLoaded:true, FID:fid, SID:sid ,isVerified : res.data.isVerified});
+        // console.log(this.state.isVerified);
       })
       .catch((err)=>{
         console.log(err);
@@ -43,8 +43,8 @@ class viewResponsesVolunteer extends Component {
       await axios
         .post(`/api/recruiters/getFormResponsesbyCID/${fid}`, { role: this.state.role })
         .then((res) => {
-          console.log(res.data);
-          this.setState({studentData:res.data , DataisLoaded:true, FID:fid});
+          // console.log(res.data);
+          this.setState({studentData:res.data.answers , DataisLoaded:true, FID:fid, isVerified : res.data.isVerified});
           // this.addNotice(this.state.data.length);
         })
         .catch((err) => {
@@ -52,12 +52,35 @@ class viewResponsesVolunteer extends Component {
         });    
     }
   }
-
+  onchange = (e) => {
+    this.setState({ [e.target.id]: e.target.value });
+    // this.setState(e.target.id=e.target.value)
+    // console.log(e.target.value);
+    // console.log(e.target.id);
+  };
   onLogout = (e) => {
     e.preventDefault();
     this.props.logoutUser();
   };
-
+  onsubmit = async (e) => {
+    e.preventDefault();
+    console.log(this.state.isVerified)
+    
+    if(this.state.isVerified === "true" || this.state.isVerified===true)
+    {
+      axios.post(`api/admins/verifyResponse/${this.state.FID}/${this.state.SID}`,{isVerified : true})
+      .then((res) => {
+        alert(res.data);
+      })
+    }
+    else
+    {
+      axios.post(`api/admins/verifyResponse/${this.state.FID}/${this.state.SID}`,{isVerified : false})
+      .then((res) => {
+        alert(res.data)
+      })
+    }
+  }
   render() {
     if(this.state.DataisLoaded === true)
     {
@@ -159,7 +182,44 @@ class viewResponsesVolunteer extends Component {
                   </div>
                 );
               })}
+              <Form.Group style = {{"textAlign":"center"}}>
+                <div>
+                  <label>Verification Status</label>
+                </div>
+                <Form.Select
+                  className="btn-sm primary"
+                  aria-label="Default select example"
+                  onChange={this.onchange}
+                  id="isVerified"
+                  value={this.state.isVerified}
+                >
+                  {this.state.isVerified ? (
+                    <>
+                      <option value={true} selected>
+                        Verified
+                      </option>
+                      <option value={false}>Not verified</option>
+                    </>
+                  ) : (
+                    <>
+                      <option value={false} selected>
+                        Not verified
+                      </option>
+                      <option value={true}>Verified</option>
+                    </>
+                  )}
+                </Form.Select>
+              </Form.Group>
             </form>
+            <Button
+              className="btn-fill"
+              style={{ width: "200px"}}
+              type="submit"
+              variant="info"
+              onClick={this.onsubmit}
+            >
+              Update Response
+            </Button>
           </>
         );
       }

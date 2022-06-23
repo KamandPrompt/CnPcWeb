@@ -165,9 +165,27 @@ router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
       "FID.FID": fid,
       SID: sid,
     }).lean();
-    res.send(data.answers);
+    // console.log(data);
+    res.send(data);
   } catch (error) {
     res.send(error);
   }
 });
+router.post("/verifyResponse/:fid/:sid" , async(req,res) => {
+  const fid = req.params.fid;
+  const sid = req.params.sid;
+  // console.log(req.body);
+  try {
+    Response.updateOne(
+      { "FID.FID": fid, SID: sid},
+      {isVerified : req.body.isVerified},
+        function () {
+          console.log("Updated Response!!!");
+        }
+    );
+    res.send("Updated Successfully");
+  } catch (error) {
+    res.send(error);
+  }
+})
 module.exports = router;
