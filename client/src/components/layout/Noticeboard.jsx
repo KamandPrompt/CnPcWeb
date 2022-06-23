@@ -84,6 +84,7 @@ class Noticeboard extends Component {
       await axios
         .get(`/api/students/all-forms/${id}`)
         .then((res) => {
+          console.log(res.data.data);
           this.setState({
             CID: res.data.data[0].CID,
             title: res.data.data[0].title,
@@ -91,6 +92,7 @@ class Noticeboard extends Component {
             JD: res.data.data[0].JD,
             answers: res.data.data[0].fields,
             DataisLoaded: true,
+            FID : res.data.data[0].FID
           });
           // this.addNotice(this.state.data.length);
         })
@@ -123,7 +125,7 @@ class Noticeboard extends Component {
     this.addPreFilledAnswers();
     const newResponse = {
       SID: this.state.SID,
-      FID: this.state.id,
+      FID: {FID : this.state.FID.FID,type : (this.state.type === "internship") ? "INF" : "JNF"},
       answers: this.state.answers,
       CID: this.state.CID,
     };

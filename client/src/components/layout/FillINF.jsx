@@ -31,7 +31,7 @@ class INF extends Component {
       stipendPerMonth: "",
       accommodationProvided: "",
       bonusPerksTravel: "",
-      durationOfInternship: Array(4).fill(false),
+      durationOfInternship: Array(3).fill(false),
       eligibilityCriteria: "",
       prePlacementTalk: "",
       resumeShortlisting: "",
@@ -96,10 +96,9 @@ class INF extends Component {
     e.preventDefault();
     let duration = [];
     let internDuration = [
-      "2 months winter",
-      "2 months Summer",
-      "6 months winter",
-      "6 months Summer",
+      "2 months - Internship period: 50-60 days depending on semester date - Summer Internship (mid-June 2023 to 1st week of August 2023)",
+      "2 months - Internship period: 50-60 days depending on semester date - Winter Internship (Mid Dec 2022 to Mid Feb 2023)",
+      "6 Months - Jan 2023 to June 2023 or June 2023 to Dec 2023",
     ];
     for (let i = 0; i < this.state.durationOfInternship.length; i++) {
       if (this.state.durationOfInternship[i]) {
@@ -187,10 +186,10 @@ class INF extends Component {
     ];
     const typeOrgs = [];
     for (let i = 0; i < orgs.length; i++) {
-      if(this.state.typeOfOrganization[i] && i==6){
+      if (this.state.typeOfOrganization[i] && i == 6) {
         typeOrgs.push(this.state.otherOrgs);
       }
-      if (this.state.typeOfOrganization[i] && i!=6) {
+      if (this.state.typeOfOrganization[i] && i != 6) {
         typeOrgs.push(orgs[i]);
       }
     }
@@ -208,10 +207,10 @@ class INF extends Component {
     ];
     const natureBusi = [];
     for (let i = 0; i < business.length; i++) {
-      if(this.state.natureOfBusiness[i] && i==9){
+      if (this.state.natureOfBusiness[i] && i == 9) {
         natureBusi.push(this.state.otherBusi);
       }
-      if (this.state.natureOfBusiness[i] && i!=9) {
+      if (this.state.natureOfBusiness[i] && i != 9) {
         natureBusi.push(business[i]);
       }
     }
@@ -362,10 +361,9 @@ class INF extends Component {
     ];
     const ma = ["Development Studies"];
     const internDuration = [
-      "2 months winter",
-      "2 months Summer",
-      "6 months winter",
-      "6 months Summer",
+      "2 months - Internship period: 50-60 days depending on semester date - Summer Internship (mid-June 2023 to 1st week of August 2023)",
+      "2 months - Internship period: 50-60 days depending on semester date - Winter Internship (Mid Dec 2022 to Mid Feb 2023)",
+      "6 Months - Jan 2023 to June 2023 or June 2023 to Dec 2023",
     ];
 
     // const {
@@ -468,7 +466,10 @@ class INF extends Component {
                           <div className="container">
                             <Row>
                               {orgs.map((item, i) => {
-                                if(this.state.typeOfOrganization[6] && i==6){
+                                if (
+                                  this.state.typeOfOrganization[6] &&
+                                  i == 6
+                                ) {
                                   return (
                                     <Col className="px-1" md="2">
                                       <Form.Check
@@ -482,10 +483,14 @@ class INF extends Component {
                                           this.onchangeCheck(e, orgs);
                                         }}
                                       />
-                                      <input type="text" id="otherOrgs" onChange={this.onchange}/>
+                                      <input
+                                        type="text"
+                                        id="otherOrgs"
+                                        onChange={this.onchange}
+                                      />
                                     </Col>
                                   );
-                                }else{
+                                } else {
                                   return (
                                     <Col className="px-1" md="2">
                                       <Form.Check
@@ -517,7 +522,7 @@ class INF extends Component {
                           <div className="container">
                             <Row>
                               {business.map((item, i) => {
-                                if(this.state.natureOfBusiness[i]&&i==9){
+                                if (this.state.natureOfBusiness[i] && i == 9) {
                                   return (
                                     <Col className="px-1" md="3">
                                       <Form.Check
@@ -531,10 +536,14 @@ class INF extends Component {
                                           this.onchangeCheck(e, business);
                                         }}
                                       />
-                                      <input type="text" id="otherBusi" onChange={this.onchange}/>
+                                      <input
+                                        type="text"
+                                        id="otherBusi"
+                                        onChange={this.onchange}
+                                      />
                                     </Col>
                                   );
-                                }else{
+                                } else {
                                   return (
                                     <Col className="px-1" md="3">
                                       <Form.Check
@@ -1024,238 +1033,251 @@ class INF extends Component {
                           </div>
                         </Form.Group>
                       </Col>
-                      {this.state.typeOfInterview[0]&&this.state.typeOfInterview[1]?(<><Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>HR Interview Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="durationOfEachRoundHR"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>HR Interview Rounds</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="noOfRoundsHR"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Technical Interview Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="durationOfEachRoundTech"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Technical Interview Rounds</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="noOfRoundsTech"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col></>):(
-                        this.state.typeOfInterview[0]?(<><Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>HR Interview Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="durationOfEachRoundHR"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                            disabled
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>HR Interview Rounds</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="noOfRoundsHR"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                            disabled
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Technical Interview Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="durationOfEachRoundTech"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Technical Interview Rounds</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="noOfRoundsTech"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col></>):(
-                          this.state.typeOfInterview[1]?(<><Col className="px-1" md="12">
-                          <Form.Group>
-                            <br />
-                            <label>HR Interview Duration</label>
-                            <Form.Control
-                              onChange={this.onchange}
-                              id="durationOfEachRoundHR"
-                              // defaultValue={telephone}
-                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                              as="textarea"
-                              type="text"
-                            ></Form.Control>
-                          </Form.Group>
-                        </Col>
-                        <Col className="px-1" md="12">
-                          <Form.Group>
-                            <br />
-                            <label>HR Interview Rounds</label>
-                            <Form.Control
-                              onChange={this.onchange}
-                              id="noOfRoundsHR"
-                              // defaultValue={telephone}
-                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                              as="textarea"
-                              type="text"
-                            ></Form.Control>
-                          </Form.Group>
-                        </Col>
-                        <Col className="px-1" md="12">
-                          <Form.Group>
-                            <br />
-                            <label>Technical Interview Duration</label>
-                            <Form.Control
-                              onChange={this.onchange}
-                              id="durationOfEachRoundTech"
-                              // defaultValue={telephone}
-                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                              as="textarea"
-                              type="text"
-                              disabled
-                            ></Form.Control>
-                          </Form.Group>
-                        </Col>
-                        <Col className="px-1" md="12">
-                          <Form.Group>
-                            <br />
-                            <label>Technical Interview Rounds</label>
-                            <Form.Control
-                              onChange={this.onchange}
-                              id="noOfRoundsTech"
-                              // defaultValue={telephone}
-                              placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                              as="textarea"
-                              type="text"
-                              disabled
-                            ></Form.Control>
-                          </Form.Group>
-                        </Col></>):(<><Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>HR Interview Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="durationOfEachRoundHR"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                            disabled
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>HR Interview Rounds</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="noOfRoundsHR"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                            disabled
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Technical Interview Duration</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="durationOfEachRoundTech"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                            disabled
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Technical Interview Rounds</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="noOfRoundsTech"
-                            // defaultValue={telephone}
-                            placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                            as="textarea"
-                            type="text"
-                            disabled
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col></>)
-                        )
+                      {this.state.typeOfInterview[0] &&
+                      this.state.typeOfInterview[1] ? (
+                        <>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>HR Interview Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="durationOfEachRoundHR"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>HR Interview Rounds</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="noOfRoundsHR"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>Technical Interview Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="durationOfEachRoundTech"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>Technical Interview Rounds</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="noOfRoundsTech"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : this.state.typeOfInterview[0] ? (
+                        <>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>HR Interview Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="durationOfEachRoundHR"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>HR Interview Rounds</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="noOfRoundsHR"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>Technical Interview Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="durationOfEachRoundTech"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>Technical Interview Rounds</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="noOfRoundsTech"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : this.state.typeOfInterview[1] ? (
+                        <>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>HR Interview Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="durationOfEachRoundHR"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>HR Interview Rounds</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="noOfRoundsHR"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>Technical Interview Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="durationOfEachRoundTech"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>Technical Interview Rounds</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="noOfRoundsTech"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
+                      ) : (
+                        <>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>HR Interview Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="durationOfEachRoundHR"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>HR Interview Rounds</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="noOfRoundsHR"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>Technical Interview Duration</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="durationOfEachRoundTech"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="12">
+                            <Form.Group>
+                              <br />
+                              <label>Technical Interview Rounds</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="noOfRoundsTech"
+                                // defaultValue={telephone}
+                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                as="textarea"
+                                type="text"
+                                disabled
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </>
                       )}
                     </Row>
                     <br />

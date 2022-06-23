@@ -45,7 +45,7 @@ class ViewFilledFormVolunteer extends Component {
       jobDesignationOffered: "",
       accommodationProvided: "",
       bonusPerksTravel: "",
-      durationOfInternship: Array(4).fill(false),
+      durationOfInternship: Array(3).fill(false),
       eligibilityCriteria: "",
       prePlacementTalk: "",
       resumeShortlisting: "",
@@ -125,10 +125,9 @@ class ViewFilledFormVolunteer extends Component {
             }
           }
           const internDuration = [
-            "2 months winter",
-            "2 months Summer",
-            "6 months winter",
-            "6 months Summer",
+            "2 months - Internship period: 50-60 days depending on semester date - Summer Internship (mid-June 2023 to 1st week of August 2023)",
+            "2 months - Internship period: 50-60 days depending on semester date - Winter Internship (Mid Dec 2022 to Mid Feb 2023)",
+            "6 Months - Jan 2023 to June 2023 or June 2023 to Dec 2023",
           ];
           const duration = Array(4).fill(false);
           for (let i = 0; i < internDuration.length; i++) {
@@ -181,16 +180,16 @@ class ViewFilledFormVolunteer extends Component {
           ];
           let otherOrgs = "";
           const typeOrgs = Array(7).fill(false);
-          for (let i = 0; i < (typeOrgs.length); i++) {
-            for (let j = 0; j < (data.typeOfOrganization.length); j++) {
+          for (let i = 0; i < typeOrgs.length; i++) {
+            for (let j = 0; j < data.typeOfOrganization.length; j++) {
               if (data.typeOfOrganization[j] == orgs[i]) {
                 typeOrgs[i] = true;
               }
             }
           }
           let c = 0;
-          for (let i = 0; i < (data.typeOfOrganization.length); i++) {
-            for (let j = 0; j < (orgs.length); j++) {
+          for (let i = 0; i < data.typeOfOrganization.length; i++) {
+            for (let j = 0; j < orgs.length; j++) {
               if (data.typeOfOrganization[i] != orgs[j]) {
                 c++;
               }
@@ -216,16 +215,16 @@ class ViewFilledFormVolunteer extends Component {
           ];
           let otherBusi = "";
           const natureBusi = Array(10).fill(false);
-          for (let i = 0; i < (natureBusi.length); i++) {
-            for (let j = 0; j < (data.natureOfBusiness.length); j++) {
+          for (let i = 0; i < natureBusi.length; i++) {
+            for (let j = 0; j < data.natureOfBusiness.length; j++) {
               if (data.natureOfBusiness[j] == business[i]) {
                 natureBusi[i] = true;
               }
             }
           }
           c = 0;
-          for (let i = 0; i < (data.natureOfBusiness.length); i++) {
-            for (let j = 0; j < (business.length); j++) {
+          for (let i = 0; i < data.natureOfBusiness.length; i++) {
+            for (let j = 0; j < business.length; j++) {
               if (data.natureOfBusiness[i] != business[j]) {
                 c++;
               }
@@ -239,21 +238,17 @@ class ViewFilledFormVolunteer extends Component {
           }
           const Test = ["Paper Based", "Online"];
           const typeTest = Array(2).fill(false);
-          for (let i = 0; i < (typeTest.length); i++) {
-            for (let j = 0; j < (data.modeOfTest.length); j++) {
+          for (let i = 0; i < typeTest.length; i++) {
+            for (let j = 0; j < data.modeOfTest.length; j++) {
               if (data.modeOfTest[j] == Test[i]) {
                 typeTest[i] = true;
               }
             }
           }
-          const interview = [
-            "In Person",
-            "Video Conferencing",
-            "Skype",
-          ];
+          const interview = ["In Person", "Video Conferencing", "Skype"];
           const modeInterview = Array(3).fill(false);
-          for (let i = 0; i < (modeInterview.length); i++) {
-            for (let j = 0; j < (data.modeOfInterview.length); j++) {
+          for (let i = 0; i < modeInterview.length; i++) {
+            for (let j = 0; j < data.modeOfInterview.length; j++) {
               if (data.modeOfInterview[j] == interview[i]) {
                 modeInterview[i] = true;
               }
@@ -365,16 +360,16 @@ class ViewFilledFormVolunteer extends Component {
           ];
           let otherOrgs = "";
           const typeOrgs = Array(7).fill(false);
-          for (let i = 0; i < (typeOrgs.length); i++) {
-            for (let j = 0; j < (data.typeOfOrganization.length); j++) {
+          for (let i = 0; i < typeOrgs.length; i++) {
+            for (let j = 0; j < data.typeOfOrganization.length; j++) {
               if (data.typeOfOrganization[j] == orgs[i]) {
                 typeOrgs[i] = true;
               }
             }
           }
           let c = 0;
-          for (let i = 0; i < (data.typeOfOrganization.length); i++) {
-            for (let j = 0; j < (orgs.length); j++) {
+          for (let i = 0; i < data.typeOfOrganization.length; i++) {
+            for (let j = 0; j < orgs.length; j++) {
               if (data.typeOfOrganization[i] != orgs[j]) {
                 c++;
               }
@@ -400,16 +395,16 @@ class ViewFilledFormVolunteer extends Component {
           ];
           let otherBusi = "";
           const natureBusi = Array(10).fill(false);
-          for (let i = 0; i < (natureBusi.length); i++) {
-            for (let j = 0; j < (data.natureOfBusiness.length); j++) {
+          for (let i = 0; i < natureBusi.length; i++) {
+            for (let j = 0; j < data.natureOfBusiness.length; j++) {
               if (data.natureOfBusiness[j] == business[i]) {
                 natureBusi[i] = true;
               }
             }
           }
           c = 0;
-          for (let i = 0; i < (data.natureOfBusiness.length); i++) {
-            for (let j = 0; j < (business.length); j++) {
+          for (let i = 0; i < data.natureOfBusiness.length; i++) {
+            for (let j = 0; j < business.length; j++) {
               if (data.natureOfBusiness[i] != business[j]) {
                 c++;
               }
@@ -423,21 +418,17 @@ class ViewFilledFormVolunteer extends Component {
           }
           const Test = ["Paper Based", "Online"];
           const typeTest = Array(2).fill(false);
-          for (let i = 0; i < (typeTest.length); i++) {
-            for (let j = 0; j < (data.modeOfTest.length); j++) {
+          for (let i = 0; i < typeTest.length; i++) {
+            for (let j = 0; j < data.modeOfTest.length; j++) {
               if (data.modeOfTest[j] == Test[i]) {
                 typeTest[i] = true;
               }
             }
           }
-          const interview = [
-            "In Person",
-            "Video Conferencing",
-            "Skype",
-          ];
+          const interview = ["In Person", "Video Conferencing", "Skype"];
           const modeInterview = Array(3).fill(false);
-          for (let i = 0; i < (modeInterview.length); i++) {
-            for (let j = 0; j < (data.modeOfInterview.length); j++) {
+          for (let i = 0; i < modeInterview.length; i++) {
+            for (let j = 0; j < data.modeOfInterview.length; j++) {
               if (data.modeOfInterview[j] == interview[i]) {
                 modeInterview[i] = true;
               }
@@ -654,10 +645,9 @@ class ViewFilledFormVolunteer extends Component {
     ];
     const ma = ["Development Studies"];
     const internDuration = [
-      "2 months winter",
-      "2 months Summer",
-      "6 months winter",
-      "6 months Summer",
+      "2 months - Internship period: 50-60 days depending on semester date - Summer Internship (mid-June 2023 to 1st week of August 2023)",
+      "2 months - Internship period: 50-60 days depending on semester date - Winter Internship (Mid Dec 2022 to Mid Feb 2023)",
+      "6 Months - Jan 2023 to June 2023 or June 2023 to Dec 2023",
     ];
     if (this.state.DataisLoaded == true) {
       if (this.state.type == "INF") {
@@ -755,7 +745,10 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {orgs.map((item, i) => {
-                                    if (this.state.typeOfOrganization[i] && i == 6) {
+                                    if (
+                                      this.state.typeOfOrganization[i] &&
+                                      i == 6
+                                    ) {
                                       return (
                                         <Col className="px-1" md="2">
                                           <Form.Check
@@ -768,11 +761,15 @@ class ViewFilledFormVolunteer extends Component {
                                             disabled
                                             checked
                                           />
-                                          <input type="text" defaultValue={this.state.otherOrgs} />
+                                          <input
+                                            type="text"
+                                            defaultValue={this.state.otherOrgs}
+                                          />
                                         </Col>
                                       );
-                                    }
-                                    else if (this.state.typeOfOrganization[i]) {
+                                    } else if (
+                                      this.state.typeOfOrganization[i]
+                                    ) {
                                       return (
                                         <Col className="px-1" md="2">
                                           <Form.Check
@@ -798,7 +795,7 @@ class ViewFilledFormVolunteer extends Component {
                                             type="checkbox"
                                             id={`org${i}`}
                                             disabled
-                                          //   checked="false"
+                                            //   checked="false"
                                           />
                                         </Col>
                                       );
@@ -818,7 +815,10 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {business.map((item, i) => {
-                                    if (this.state.natureOfBusiness[i] && i == 9) {
+                                    if (
+                                      this.state.natureOfBusiness[i] &&
+                                      i == 9
+                                    ) {
                                       return (
                                         <Col className="px-1" md="3">
                                           <Form.Check
@@ -831,11 +831,13 @@ class ViewFilledFormVolunteer extends Component {
                                             disabled
                                             checked
                                           />
-                                          <input type="text" defaultValue={this.state.otherBusi} />
+                                          <input
+                                            type="text"
+                                            defaultValue={this.state.otherBusi}
+                                          />
                                         </Col>
                                       );
-                                    }
-                                    else if (this.state.natureOfBusiness[i]) {
+                                    } else if (this.state.natureOfBusiness[i]) {
                                       return (
                                         <Col className="px-1" md="3">
                                           <Form.Check
@@ -865,7 +867,6 @@ class ViewFilledFormVolunteer extends Component {
                                         </Col>
                                       );
                                     }
-
                                   })}
                                 </Row>
                               </div>
@@ -1208,7 +1209,6 @@ class ViewFilledFormVolunteer extends Component {
                                         </Col>
                                       );
                                     }
-
                                   })}
                                 </Row>
                               </div>
@@ -1357,7 +1357,9 @@ class ViewFilledFormVolunteer extends Component {
                               <Form.Control
                                 disabled
                                 id="durationOfEachRoundTech"
-                                defaultValue={this.state.durationOfEachRoundTech}
+                                defaultValue={
+                                  this.state.durationOfEachRoundTech
+                                }
                                 as="textarea"
                                 type="text"
                               ></Form.Control>
@@ -1701,7 +1703,9 @@ class ViewFilledFormVolunteer extends Component {
                               <Form.Control
                                 disabled
                                 id="virtualDriveRequirements"
-                                defaultValue={this.state.virtualDriveRequirements}
+                                defaultValue={
+                                  this.state.virtualDriveRequirements
+                                }
                                 placeholder="Virtual Drive Requirements"
                                 as="textarea"
                                 type="text"
@@ -1713,8 +1717,7 @@ class ViewFilledFormVolunteer extends Component {
                         <div
                           className="clearfix"
                           style={{ textAlign: "center", margin: "10px 0px" }}
-                        >
-                        </div>
+                        ></div>
                       </Form>
                     </Card.Body>
                   </Card>
@@ -1802,7 +1805,10 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {orgs.map((item, i) => {
-                                    if (this.state.typeOfOrganization[i] && i == 6) {
+                                    if (
+                                      this.state.typeOfOrganization[i] &&
+                                      i == 6
+                                    ) {
                                       return (
                                         <Col className="px-1" md="2">
                                           <Form.Check
@@ -1815,11 +1821,15 @@ class ViewFilledFormVolunteer extends Component {
                                             disabled
                                             checked
                                           />
-                                          <input type="text" defaultValue={this.state.otherOrgs} />
+                                          <input
+                                            type="text"
+                                            defaultValue={this.state.otherOrgs}
+                                          />
                                         </Col>
                                       );
-                                    }
-                                    else if (this.state.typeOfOrganization[i]) {
+                                    } else if (
+                                      this.state.typeOfOrganization[i]
+                                    ) {
                                       return (
                                         <Col className="px-1" md="2">
                                           <Form.Check
@@ -1845,7 +1855,7 @@ class ViewFilledFormVolunteer extends Component {
                                             type="checkbox"
                                             id={`org${i}`}
                                             disabled
-                                          //   checked="false"
+                                            //   checked="false"
                                           />
                                         </Col>
                                       );
@@ -1865,7 +1875,10 @@ class ViewFilledFormVolunteer extends Component {
                               <div className="container">
                                 <Row>
                                   {business.map((item, i) => {
-                                    if (this.state.natureOfBusiness[i] && i == 9) {
+                                    if (
+                                      this.state.natureOfBusiness[i] &&
+                                      i == 9
+                                    ) {
                                       return (
                                         <Col className="px-1" md="3">
                                           <Form.Check
@@ -1878,11 +1891,13 @@ class ViewFilledFormVolunteer extends Component {
                                             disabled
                                             checked
                                           />
-                                          <input type="text" defaultValue={this.state.otherBusi} />
+                                          <input
+                                            type="text"
+                                            defaultValue={this.state.otherBusi}
+                                          />
                                         </Col>
                                       );
-                                    }
-                                    else if (this.state.natureOfBusiness[i]) {
+                                    } else if (this.state.natureOfBusiness[i]) {
                                       return (
                                         <Col className="px-1" md="3">
                                           <Form.Check
@@ -1912,7 +1927,6 @@ class ViewFilledFormVolunteer extends Component {
                                         </Col>
                                       );
                                     }
-
                                   })}
                                 </Row>
                               </div>
@@ -1996,7 +2010,9 @@ class ViewFilledFormVolunteer extends Component {
                           </Col>
                           <Col className="pl-1" md="4">
                             <Form.Group>
-                              <label>Job Description (Skill set required)</label>
+                              <label>
+                                Job Description (Skill set required)
+                              </label>
                               <Form.Control
                                 id="skillSetRequired"
                                 defaultValue={this.state.skillSetRequired}
@@ -2043,14 +2059,25 @@ class ViewFilledFormVolunteer extends Component {
                         <br />
                         <Row>
                           <TableContainer component={Paper}>
-                            <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                            <Table
+                              sx={{ minWidth: 650 }}
+                              aria-label="simple table"
+                            >
                               <TableHead>
                                 <TableRow>
                                   <TableCell>Programmes</TableCell>
-                                  <TableCell align="right">Cost to Company</TableCell>
-                                  <TableCell align="right">Gross Compensation(INR)</TableCell>
-                                  <TableCell align="right">Take Home Compensation(INR)</TableCell>
-                                  <TableCell align="right">Bonus/Incentives(if any)</TableCell>
+                                  <TableCell align="right">
+                                    Cost to Company
+                                  </TableCell>
+                                  <TableCell align="right">
+                                    Gross Compensation(INR)
+                                  </TableCell>
+                                  <TableCell align="right">
+                                    Take Home Compensation(INR)
+                                  </TableCell>
+                                  <TableCell align="right">
+                                    Bonus/Incentives(if any)
+                                  </TableCell>
                                 </TableRow>
                               </TableHead>
                               <TableBody>
@@ -2058,15 +2085,27 @@ class ViewFilledFormVolunteer extends Component {
                                 {rows.map((row) => (
                                   <TableRow
                                     key={row.programme}
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    sx={{
+                                      "&:last-child td, &:last-child th": {
+                                        border: 0,
+                                      },
+                                    }}
                                   >
                                     <TableCell component="th" scope="row">
                                       {row.programme}
                                     </TableCell>
-                                    <TableCell align="right">{row.ctc}</TableCell>
-                                    <TableCell align="right">{row.grossCompensation}</TableCell>
-                                    <TableCell align="right">{row.takeHomeCompensation}</TableCell>
-                                    <TableCell align="right">{row.bonus}</TableCell>
+                                    <TableCell align="right">
+                                      {row.ctc}
+                                    </TableCell>
+                                    <TableCell align="right">
+                                      {row.grossCompensation}
+                                    </TableCell>
+                                    <TableCell align="right">
+                                      {row.takeHomeCompensation}
+                                    </TableCell>
+                                    <TableCell align="right">
+                                      {row.bonus}
+                                    </TableCell>
                                   </TableRow>
                                 ))}
                               </TableBody>
@@ -2206,7 +2245,6 @@ class ViewFilledFormVolunteer extends Component {
                                         </Col>
                                       );
                                     }
-
                                   })}
                                 </Row>
                               </div>
@@ -2352,7 +2390,9 @@ class ViewFilledFormVolunteer extends Component {
                               <label>Technical Interview Duration</label>
                               <Form.Control
                                 id="durationOfEachRoundTech"
-                                defaultValue={this.state.durationOfEachRoundTech}
+                                defaultValue={
+                                  this.state.durationOfEachRoundTech
+                                }
                                 as="textarea"
                                 type="text"
                                 disabled
@@ -2693,7 +2733,9 @@ class ViewFilledFormVolunteer extends Component {
                               <label>Virtual Drive Requirements</label>
                               <Form.Control
                                 id="virtualDriveRequirements"
-                                defaultValue={this.state.virtualDriveRequirements}
+                                defaultValue={
+                                  this.state.virtualDriveRequirements
+                                }
                                 as="textarea"
                                 type="text"
                                 disabled
@@ -2705,8 +2747,7 @@ class ViewFilledFormVolunteer extends Component {
                         <div
                           className="clearfix"
                           style={{ textAlign: "center", margin: "10px 0px" }}
-                        >
-                        </div>
+                        ></div>
                       </Form>
                     </Card.Body>
                   </Card>

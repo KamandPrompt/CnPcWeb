@@ -14,6 +14,7 @@ const Recruiters = require("../../models/RecruiterSchema");
 const Forms = require("../../models/FormSchema");
 const INF = require("../../models/INFSchema");
 const JNF = require("../../models/JNFSchema");
+const Response = require("../../models/ResponseSchema");
 
 // @route POST api/admins/login
 // @desc Login user and return JWT token
@@ -150,8 +151,41 @@ router.post("/getCIDUsingFID",async (req,res) => {
   else
   {
     let filledFormDetails = await JNF.findOne({_id : req.body.fid}).lean();
-    // console.log(filledFormDetails);
     return res.send({cid : filledFormDetails.CID});
   }
 });
+
+
+router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
+  const fid = req.params.fid;
+  const sid = req.params.sid;
+  try {
+    let data = [];
+    data = await Response.findOne({
+      "FID.FID": fid,
+      SID: sid,
+    }).lean();
+    // console.log(data);
+    res.send(data);
+  } catch (error) {
+    res.send(error);
+  }
+});
+router.post("/verifyResponse/:fid/:sid" , async(req,res) => {
+  const fid = req.params.fid;
+  const sid = req.params.sid;
+  // console.log(req.body);
+  try {
+    Response.updateOne(
+      { "FID.FID": fid, SID: sid},
+      {isVerified : req.body.isVerified},
+        function () {
+          console.log("Updated Response!!!");
+        }
+    );
+    res.send("Updated Successfully");
+  } catch (error) {
+    res.send(error);
+  }
+})
 module.exports = router;
