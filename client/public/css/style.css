@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,500,400');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
 body,
 html {
   font-family: "Open Sans", sans-serif;
@@ -273,7 +275,7 @@ a:focus,
 }
 
 .faculty-advisor{
-  height: 300px;
+  /* height: 300px; */
   width: 300px;
   /* border-radius: 100%; */
   /* border-color: #093660; */
@@ -321,9 +323,11 @@ a:focus,
   display: flex;  
   flex-direction: column;
   backdrop-filter: blur(2px);
-  margin: 2% 10% 2% 10%;
-  border-radius: 30px;
-  padding: 4%;
+  margin: 5% 10% 2% 10%;
+  /* border-radius: 30px; */
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  padding: 2%;
   background-color: rgba(0, 0, 0, 0.564);
 }
 
@@ -339,10 +343,12 @@ a:focus,
 }
 
 .backG{
-  background-color: #2f257b;
+  background-color: #0A1F56;
   border-top-left-radius: 20px;
+  font-family: 'Poppins', sans-serif;
   border-bottom-right-radius: 20px;
-  padding: 20px;
+  font-weight: lighter;
+  padding: 36px;
 }
 
 .homeHead{
@@ -366,6 +372,7 @@ a:focus,
 .faculty-head {
   font-size: 30px;
   text-align: left;
+  font-family: 'Poppins', sans-serif !important;
   color: #093660
 }
 
@@ -396,23 +403,27 @@ a:focus,
 }
 
 #myBtn{
-  background-color: #D0FFF7;
-  color: #06738A;
+  background-color: #2F44BB;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 500;
   border: 0px;
-  padding-bottom: 2px;
-  padding-left: 3px;
+  width: 150px;
+  box-shadow: 3px 3px #D0FFF7;
+  /* padding-bottom: 2px; */
+  /* padding-left: 3px; */
 }
 
 #myBtn1{
-  background-color: #D0FFF7;
-  color: #06738A;
+  background-color: #2F44BB;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 500;
   border: 0px;
-  padding-bottom: 5px;
-  padding-left: 3px;
+  width: 150px;
+  box-shadow: 3px 3px #D0FFF7;
+  /* padding-bottom: 5px; */
+  /* padding-left: 3px; */
 }
 
 .demo{
