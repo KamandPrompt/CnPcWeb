@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logoutUser, createFormRecruiter } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-
+import axios from "axios";
 const fixedFields = [
   {
     label: "Name",
@@ -146,6 +146,7 @@ class CreateForm extends Component {
     super(props);
     this.state = {
       FID: "",
+      CID:"",
       formType: "",
       title: "",
       type: "",
@@ -168,7 +169,7 @@ class CreateForm extends Component {
     // this.changeCountry = this.changeCountry.bind(this);
     // this.changeState = this.changeState.bind(this);
   }
-  componentDidMount() {
+  async componentDidMount() {
     let arr = [];
     programs.map((item, i) => {
       arr.push(Array(item.branches.length).fill(false));
@@ -178,8 +179,32 @@ class CreateForm extends Component {
     const params = new URLSearchParams(search);
     const FID = params.get("fid");
     const type = params.get("type");
-
     this.setState({ FID: FID, formType: type });
+    await 
+      axios.post("/api/admins/getCIDUsingFID",{fid: FID, type:type})
+      .then((res) => {
+        console.log(res.data); 
+        this.setState({CID : res.data.cid});
+      }).catch((err) => {
+        console.log(err);
+      })
+    
+    // await axios
+    //   .get("/api/admins/all-students")
+    //   .then((res) => {
+    //     for (var i = 0; i < res.data.length; i++) {
+    //       if (res.data[i].isVerified === true) {
+    //         res.data[i].isVerified = "Verified";
+    //       } else {
+    //         res.data[i].isVerified = "Not Verified";
+    //       }
+    //     }
+    //     this.setState({ studentsData: res.data, DataisLoaded: true });
+    //     // console.log(this.state.studentsData);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   }
 
   onLogout = (e) => {
@@ -278,7 +303,7 @@ class CreateForm extends Component {
       isVerified: this.state.isVerified,
       eligibility: arr,
       fields: fields,
-      CID: this.props.auth.user.id,
+      CID: this.state.CID,
     };
     // console.log(newForm);
     this.props.createFormRecruiter(newForm, this.props.history);

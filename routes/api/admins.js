@@ -12,6 +12,8 @@ const Admin = require("../../models/AdminSchema");
 const Students = require("../../models/StudentSchema");
 const Recruiters = require("../../models/RecruiterSchema");
 const Forms = require("../../models/FormSchema");
+const INF = require("../../models/INFSchema");
+const JNF = require("../../models/JNFSchema");
 
 // @route POST api/admins/login
 // @desc Login user and return JWT token
@@ -137,5 +139,19 @@ router.get("/all-forms", async (req,res) => {
     data.push(obj);
   }
   res.send(data);
+});
+
+router.post("/getCIDUsingFID",async (req,res) => {
+  if(req.body.type == 'INF')
+  {
+    let filledFormDetails = await INF.findOne({_id : req.body.fid}).lean();
+    return res.send({cid : filledFormDetails.CID});
+  }
+  else
+  {
+    let filledFormDetails = await JNF.findOne({_id : req.body.fid}).lean();
+    // console.log(filledFormDetails);
+    return res.send({cid : filledFormDetails.CID});
+  }
 });
 module.exports = router;
