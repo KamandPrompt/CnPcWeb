@@ -26,11 +26,13 @@ class viewResponsesVolunteer extends Component {
     const fid = params.get("fid");
     const sid = params.get("sid");
     // console.log(this.props.auth.user);
-    console.log(fid)
+    // console.log(fid)
     if(sid){
-      await axios.post(`/api/recruiters/getResponsebySID/${fid}/${sid}`, {sid: this.state.SID})
+      console.log("hi")
+      await axios.post(`/api/admins/getResponsebySID/${fid}/${sid}`, {sid: this.state.SID})
       .then((res)=>{
         this.setState({studentData:res.data , DataisLoaded:true, FID:fid, SID:sid});
+        console.log(this.state.studentData);
       })
       .catch((err)=>{
         console.log(err);

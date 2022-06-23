@@ -391,12 +391,14 @@ router.post("/saveResponse", (req, res) => {
   // }
   // console.log("hi");
   // console.log(req.body);
+  // console.log("394 -> ", req.body.FID)
   const newResponse = new Response({
     SID: req.body.SID,
     CID: req.body.CID,
     FID: req.body.FID,
     answers: req.body.answers,
   });
+  console.log(newResponse);
   newResponse
     .save()
     .then((user) => res.json(user))
