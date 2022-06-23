@@ -262,7 +262,7 @@ a:focus,
   padding-left: 10px;
   padding-right: 10px;
   font-family: 'Open Sans', sans-serif;
-  color: #06738A;
+  color: #ffffff;
   font-size: 15px;
 }
 
@@ -273,12 +273,12 @@ a:focus,
 }
 
 .faculty-advisor{
-  height: 150px;
-  width: 150px;
-  border-radius: 100%;
-  border-color: #093660;
-  border-width: 5px;
-  border: 4px solid #06738A
+  height: 300px;
+  width: 300px;
+  /* border-radius: 100%; */
+  /* border-color: #093660; */
+  /* border-width: 5px; */
+  /* border: 4px solid #06738A */
 }
 
 /* banner starts here */
@@ -339,7 +339,7 @@ a:focus,
 }
 
 .backG{
-  background-color: #D0FFF7;
+  background-color: #2f257b;
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 20px;

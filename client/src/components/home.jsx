@@ -22,7 +22,7 @@ import suzlon from "../images/Company_Logos/Suzlon_Energy.jpg"
 import samsung from "../images/Company_Logos/samsung.png"
 import raam_g from "../images/Company_Logos/Raam_Group.png"
 import practical from "../images/Company_Logos/Practically.png"
-import director from "../images/Dir.jpg"
+import director from "../images/Dir.png"
 import tushar_jain from "../images/tj1.jpg"
 
 export const Home = (props) => {
@@ -87,22 +87,19 @@ export const Home = (props) => {
         </div>
         <div className="container">
           <h3 className="faculty-head">From the Director</h3>
-          <div className="about container row item">
+          <div className="about container-fluid row item">
             {/* <div className="col-lg-4 col-md-6 col-sm-12">
                 <img className="faculty-advisor" src="http://faculty.iitmandi.ac.in/~tushar/img/tj1.jpg" alt="Dr. Tushar Jain" />
             </div> */}
             {/* <div className="col-lg-8 col-md-6 col-sm-12"> */}
-            <div className="col-lg-3 col-md-3 col-sm-12">
+            <div className="col-lg-4 col-md-4 col-sm-12">
               <img
                 className="faculty-advisor"
                 src={director}
                 alt="Dr. Laxmidhar Behera"
               />
-              <h4 className="profile">Dr. Laxmidhar Behera</h4>
-              <h5 className="profile">Director</h5>
-              <h5 className="profile">IIT Mandi</h5>
             </div>
-            <p className="bhashan col-lg-9 col-md-9 col-sm-12 backG">
+            <p className="bhashan col-lg-8 col-md-8 col-sm-12 backG">
               During a short span of ten years of its existence, Indian Institute of
               Technology Mandi (IIT Mandi) has gained a reputation for its cutting
               edge research and innovative teaching programs. The institute prides

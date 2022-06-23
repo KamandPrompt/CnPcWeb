@@ -19,6 +19,8 @@ class Register extends Component {
       designation: "",
       telephone: "",
       mobile: "",
+      POCName: "Volunteer name",
+      POCMobile: "Volunteer Contact number",
       errors: {},
     };
   }
@@ -76,6 +78,8 @@ class Register extends Component {
       designation: this.state.designation,
       telephone: this.state.telephone,
       mobile: this.state.mobile,
+      POCName: this.state.POCName,
+      POCMobile: this.state.POCMobile,
     };
 
     this.props
@@ -90,6 +94,8 @@ class Register extends Component {
       designation: "",
       telephone: "",
       mobile: "",
+      POCName: "",
+      POCMobile: "",
       errors: {},
     });
   };
@@ -105,6 +111,8 @@ class Register extends Component {
       telephone,
       mobile,
       errors,
+      POCName,
+      POCMobile
     } = this.state;
 
     return (

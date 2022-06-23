@@ -43,6 +43,8 @@ router.post("/register", (req, res) => {
         designation: req.body.designation,
         telephone: req.body.telephone,
         mobile: req.body.mobile,
+        POCName: req.body.POCName,
+        POCMobile: req.body.POCMobile,
       });
 
       // Hash password before storing in database
@@ -96,6 +98,8 @@ router.post("/login", (req, res) => {
           telephone: user.telephone,
           mobile: user.mobile,
           role: user.role,
+          POCName: user.POCName,
+          POCMobile: user.POCMobile,
         };
 
         // Sign token
@@ -151,6 +155,8 @@ router.post("/update", (req, res) => {
       mobile: req.body.mobile,
       isVerified: req.body.isVerified,
       role: req.body.role,
+      POCName: req.body.POCName,
+      POCMobile: req.body.POCMobile,
     },
     function () {
       console.log("Updated!!!");

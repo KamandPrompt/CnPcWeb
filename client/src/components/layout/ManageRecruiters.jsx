@@ -21,6 +21,8 @@ class ManageRecruiters extends Component {
       mobile: "",
       isVerified: "",
       role: "",
+      POCName: "",
+      POCMobile: "",
       DataisLoaded: false,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -64,6 +66,8 @@ class ManageRecruiters extends Component {
             mobile: res.data.details.mobile,
             isVerified: res.data.details.isVerified,
             role: res.data.details.role,
+            POCName: res.data.details.POCName,
+            POCMobile: res.data.details.POCMobile,
             DataisLoaded: true,
           });
         })
@@ -95,6 +99,8 @@ class ManageRecruiters extends Component {
       mobile: this.state.mobile,
       isVerified: this.state.isVerified === "Yes" ? true : false,
       role: this.state.role,
+      POCName: this.state.POCName,
+      POCMobile: this.state.POCMobile,
     };
     console.log(user);
     this.updateUser(user);
@@ -114,6 +120,8 @@ class ManageRecruiters extends Component {
       mobile,
       isVerified,
       role,
+      POCName,
+      POCMobile,
     } = this.state;
     event.preventDefault();
     console.log(this.state);
@@ -208,6 +216,8 @@ class ManageRecruiters extends Component {
           mobile,
           isVerified,
           role,
+          POCName,
+          POCMobile,
         } = this.state;
         return (
           <>
@@ -290,6 +300,32 @@ class ManageRecruiters extends Component {
                                 id="mobile"
                                 defaultValue={mobile}
                                 placeholder="mobile"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                        </Row>
+                        <Row>
+                          <Col className="pr-1" md="4">
+                            <Form.Group>
+                              <label>Volunteer Name</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="POCName"
+                                Value={POCName}
+                                placeholder="Volunteer name"
+                                type="text"
+                              ></Form.Control>
+                            </Form.Group>
+                          </Col>
+                          <Col className="px-1" md="4">
+                            <Form.Group>
+                              <label>Volunteer Contact number</label>
+                              <Form.Control
+                                onChange={this.onchange}
+                                id="POCMobile"
+                                Value={POCMobile}
+                                placeholder="Volunteer mobile number"
                                 type="text"
                               ></Form.Control>
                             </Form.Group>
