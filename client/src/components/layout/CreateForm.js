@@ -5,6 +5,7 @@ import { logoutUser, createFormRecruiter } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
+// import { alertcenter_v1beta1 } from "googleapis";
 const fixedFields = [
   {
     label: "Name",
@@ -268,7 +269,7 @@ class CreateForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    let arr = [];
+    const arr = [];
     let len1 = programs.length;
     for (let i = 0; i < len1; i++) {
       if (this.state.isChecked[i]) {
@@ -293,7 +294,7 @@ class CreateForm extends Component {
         fields.push(obj);
       }
     }
-    // console.log(fields);
+    console.log(arr);
     const newForm = {
       title: this.state.title,
       JD: this.state.JD,
@@ -307,12 +308,18 @@ class CreateForm extends Component {
     };
     // console.log(newForm);
     this.props.createFormRecruiter(newForm, this.props.history);
+    const arr1 = [];
+    programs.map((item, i) => {
+      arr1.push(Array(item.branches.length).fill(false));
+    });
     this.setState({
       title: "",
       type: "",
       isVerified: false,
       JD: "",
-      eligibility: [],
+      eligibility: arr1,
+      isChecked: Array(programs.length).fill(false),
+      batch: Array(programs.length).fill(null),
       fields: fixedFields,
       counter1: fixedFields.length,
     });
@@ -439,6 +446,7 @@ class CreateForm extends Component {
 
   render() {
     const { user } = this.props.auth;
+    console.log(this.state);
     return (
       <>
         <form className="recruiterForm" onSubmit={this.onSubmit}>

@@ -41,6 +41,21 @@ export const Home = (props) => {
       moreText.style.display = "inline";
     }
   }
+  function myFunction_dir() {
+    var dots = document.getElementById("dots-dir");
+    var moreText = document.getElementById("more-dir");
+    var btnText = document.getElementById("myBtn1");
+
+    if (dots.style.display === "none") {
+      dots.style.display = "inline";
+      btnText.innerHTML = "<em>Read more<em/>";
+      moreText.style.display = "none";
+    } else {
+      dots.style.display = "none";
+      btnText.innerHTML = "<em>Read less<em/>";
+      moreText.style.display = "inline";
+    }
+  }
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
     { width: 550, itemsToShow: 3, itemsToScroll: 2 },
@@ -135,7 +150,38 @@ export const Home = (props) => {
               engineers and scientists, the innovative undergraduate curriculum
               at IIT Mandi strives to expose students to strong fundamentals of
               engineering, basic sciences, and humanities, while simultaneously
-              sensitizing them about human values and surroundings."
+              sensitizing them about human values and surroundings.
+              <span id="dots-dir">...</span>"
+              <span id="more-dir">
+                {" "}
+                Similarly, the institute's focus on research at the fore-fronts
+                of various areas of science and technology has resulted in
+                significant contributions, and excellent and responsible
+                researchers. The Career and Placement (CnP) cell invites
+                organizations which have recruited our alumni and have witnessed
+                them deliver well on high expectations placed on them, as well
+                as those whom our students have not yet got an opportunity to
+                serve. The CnP cell strives to facilitate the best possible
+                match between the aspirations of recruiting organizations and
+                the abilities of our students, and we welcome suggestions from
+                your organization that will help us realize it. I can assure you
+                of prodigious talent of our students and feel elated to invite
+                your esteemed organizations to recruit our students. We look
+                forward to enthusiastic participation of your organization in
+                our forthcoming campus placement session and lasting and
+                mutually satisfying relation with your organization.
+              </span>
+              <br />
+              <br />
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={myFunction_dir}
+                id="myBtn1"
+              >
+                <em>
+                  <b>Read More</b>
+                </em>
+              </button>
             </p>
             <div className="col-lg-4 col-md-4 col-sm-12">
               <img
@@ -210,6 +256,107 @@ export const Home = (props) => {
               </button>
             </p>
             <br />
+          </div>
+        </div>
+      </div>
+      <div className="why-recruit container">
+        <div className="intro-text">
+          <h2 className="why_heading">Why IIT Mandi ?</h2>
+          <p className="why_para">The Indian Institute of Technology Mandi is a premier technical institution. A uniquely innovative curriculum, a state-of-the-art infrastructure, and a brilliantly serene, clean and stimulating campus atmosphere made for an enriching and fulfilling experience for our students. Among the elite technology institutes of the country, IIT Mandi embodies technology, research and development in the purest form.</p>
+        </div>
+        <div className="main-cards row">
+          {/* <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 card-why-recruit">
+            <div>
+            <i class="bi bi-mortarboard-fill"></i>
+            <span>Research</span>
+            </div>
+          </div> */}
+          <div class="col-lg-4 col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title why_heading"> <i class="bi bi-search"></i> Research</h3>
+                <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
+                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+              >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title why_heading"> <i class="bi bi-book"></i> Acadmics</h3>
+                <p class="card-text">When it comes to academics, the institute has a uniquely liberal and hands-on curriculum that focuses on cultivating well-rounded and confident graduates ready to enter and contribute to the industry. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis alias atque assumenda vitae illo non, accusamus distinctio quod voluptate nulla. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ut eos velit corporis distinctio.</p>
+                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+              >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title why_heading"> <i class="bi bi-file-person"></i> Student Activities</h3>
+                <p class="card-text">Campus life is not just about academics; it’s about providing a holistic and colourful environment to an individual and allowing them to freely pursue their hobbies and interests so that they grow to become well-rounded and highly capable professionals.
+As such, the campus culture at IIT Mandi is a vibrant one, characterised by a wide range of dedicated clubs in areas like sports, arts, culture, science and technology, literature and so on.
+</p>
+                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+              >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title why_heading"> <i class="bi bi-award"></i> Student Achievement</h3>
+                <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
+                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+              >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title why_heading"> <i class="bi bi-mortarboard-fill"></i>Degree Programme</h3>
+                <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
+                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+              >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
