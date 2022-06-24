@@ -354,7 +354,8 @@ a:focus,
 .homeHead{
   font-size: 30px;
   text-align: left;
-  color: #093660
+  color: #093660;
+  font-family: 'Poppins', sans-serif;
 }
 
 .device{
@@ -732,9 +733,9 @@ hr {
   height: 50px;
   text-align: left;
   font-size: 20px;
-  background-color: #083661;
+  background-color: #0A1F56;
   border: 2px solid rgb(0, 0, 0);
-  border-radius: 5px;
+  border-radius: 15px;
   color: rgb(255, 255, 255);
   margin: 1px;
 }
@@ -895,16 +896,17 @@ hr {
 }
 
 .subHead{
-  color: #fff;
+  color: rgb(0, 0, 0);
   text-align: center;
-  background-color: #031B31;
+  /* background-color: #0A1F56; */
   font-size: 22px;
   font-weight: 500;
   padding: 2% 0%;
 }
 
 .subHead a{
-  color: #fff;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
 }
 
 @media (max-width:500px) {
@@ -915,10 +917,12 @@ hr {
 }
 
 .sub-content{
-  background-color: #CFFFF6;
+  background-color: #0A1F56;
   padding: 2%;
-  color: #031B31;
+  color: #ffffff;
   font-size: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .homeSlider{
@@ -946,14 +950,15 @@ hr {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgba(202, 204, 206, 0.85);
+    background-image: url(https://iitmandi.ac.in/Visitor_info/visitor_slider/img/vill_square.png);
+    /* background-color: #ffffff; */
 }
 
 .slick-center {
     transform: scale(1.11);
 }
 .sliderItem{
-  background-color: #16395a;
+  background-color: #0A1F56;
   width: 100%;
   border: 2px solid rgb(7, 28, 85);
   border-radius: 30px;
@@ -1006,7 +1011,7 @@ hr {
 }
 
 .slidePallet a{
-  color: #54d8f0;
+  color: #ffffff;
   font-weight: 600;
 }
 

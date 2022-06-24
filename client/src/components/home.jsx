@@ -135,38 +135,7 @@ export const Home = (props) => {
               engineers and scientists, the innovative undergraduate curriculum
               at IIT Mandi strives to expose students to strong fundamentals of
               engineering, basic sciences, and humanities, while simultaneously
-              sensitizing them about human values and surroundings.
-              <span id="dots">...</span>"
-              <span id="more">
-                {" "}
-                Similarly, the institute's focus on research at the fore-fronts
-                of various areas of science and technology has resulted in
-                significant contributions, and excellent and responsible
-                researchers. The Career and Placement (CnP) cell invites
-                organizations which have recruited our alumni and have witnessed
-                them deliver well on high expectations placed on them, as well
-                as those whom our students have not yet got an opportunity to
-                serve. The CnP cell strives to facilitate the best possible
-                match between the aspirations of recruiting organizations and
-                the abilities of our students, and we welcome suggestions from
-                your organization that will help us realize it. I can assure you
-                of prodigious talent of our students and feel elated to invite
-                your esteemed organizations to recruit our students. We look
-                forward to enthusiastic participation of your organization in
-                our forthcoming campus placement session and lasting and
-                mutually satisfying relation with your organization.
-              </span>
-              <br />
-              <br />
-              <button
-                className="btn btn-primary btn-sm"
-                onClick={myFunction}
-                id="myBtn1"
-              >
-                <em>
-                  <b>Read More</b>
-                </em>
-              </button>
+              sensitizing them about human values and surroundings."
             </p>
             <div className="col-lg-4 col-md-4 col-sm-12">
               <img

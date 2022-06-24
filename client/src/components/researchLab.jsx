@@ -13,7 +13,7 @@ export const ResearchLab = () => {
             <h3 className="homeHead homeHead-lg">Research Lab</h3>
             <hr className="right-lg" />
           </div>
-          <p>
+          <p style={{color:"black"}}>
             In a world increasingly driven by technology, IIT Mandi offers the
             best research facilities to its students as well to the faculties.
             Through its robust R&D axis, IIT Mandi focuses on technological
@@ -134,8 +134,9 @@ export const ResearchLab = () => {
           </div>
         </div>
         <br />
+        <br />
         <div className="slot container">
-          <p>
+          <p style={{color:"#0A1F56", fontSize:"25px", }}>
             Upcoming Installations :
           </p>
           <div className="row">

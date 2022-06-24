@@ -26,8 +26,6 @@ export const Research = (props) => {
   };
   return (
     <div>
-      <ResearchLab />
-      <Centre />
       <div className="acadmic">
         <div className="slot">
           <div>
@@ -86,6 +84,8 @@ export const Research = (props) => {
       </div>
         </div>
       </div>
+      <ResearchLab />
+      <Centre />
       <div className="acadmic">
         <div className="slot">
           {/* <h3 className="faculty-head">Technology Innovation HUB and HCL</h3> */}
@@ -115,12 +115,16 @@ export const Research = (props) => {
                 acceleration of startups, and collaborations in HCI areas.
               </p>
               <p className="bhashan">
-                {" "}
-                <strong>To know more please</strong>{" "}
-                <a href="https://www.iitmandi.ac.in/TIH-HCI/" target="_blank">
-                  click here
+                <center>
+              <button className="btn btn-primary btn-sm"
+                id="myBtn"
+                style={{width:"auto"}}>
+                <a href="https://www.iitmandi.ac.in/TIH-HCI/" target="_blank"
+                style={{color:"white", fontFamily:"Poppins, sans-serif"}}>
+                  Read More
                 </a>
-                .
+                </button>
+                </center>
               </p>
             </div>
           </div>
@@ -150,6 +154,7 @@ export const Research = (props) => {
           </p>
         </div>
       </div>
+      
     </div>
   );
 };
