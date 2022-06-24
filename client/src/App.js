@@ -52,6 +52,7 @@ import ViewResponsesVolunteer from "./components/layout/ViewResponsesVolunteer";
 import ViewFilledFormVolunteer from "./components/layout/viewFilledFormVolunteer";
 import ManageCreatedForms from "./components/layout/ManageCreatedForms";
 import ManageINFJNF from "./components/layout/ManageINFJNF";
+import ViewCreatedFormVolunteer from "./components/layout/viewCreatedFormVolunteer";
 // import GoogleMap from "./components/GoogleMap";
 // import {CarousalContainer} from "./components/carousal";
 // import { Header } from "./components/header";
@@ -152,6 +153,9 @@ class App extends Component {
             </Route>
             <Route path="/viewFilledFormVolunteer" element={<VolunteerOutlet />}>
               <Route path="" element={<ViewFilledFormVolunteer />} />
+            </Route>
+            <Route path="/viewCreatedFormVolunteer" element={<VolunteerOutlet />}>
+              <Route path="" element={<ViewCreatedFormVolunteer />} />
             </Route>
             <Route exact path="/dashboardStudent" element={<StudentOutlet />}>
               <Route path="" element={<StudentDashboard />} />

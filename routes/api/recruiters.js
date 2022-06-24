@@ -128,6 +128,7 @@ router.post("/login", (req, res) => {
 router.post("/createForm", (req, res) => {
   console.log("Adding...");
   //Form validation
+  console.log(req.body);
   const newForm = new Form({
     title: req.body.title,
     JD: req.body.JD,
@@ -136,6 +137,7 @@ router.post("/createForm", (req, res) => {
     fields: req.body.fields,
     FID: req.body.FID,
     CID: req.body.CID,
+    eligibility: req.body.eligibility,
   });
   newForm
     .save()
@@ -312,6 +314,17 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
     res.send(error);
   }
 });
+
+router.post("/getFormbyFID/:fid", async(req,res)=>{
+  const fid = req.params.fid;
+  try{
+    const data = await Form.findOne({"FID.FID":fid});
+    // console.log(data);
+    res.send(data);
+  }catch(err){
+    res.send(err);
+  }
+})
 
 router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
   const fid = req.params.fid;

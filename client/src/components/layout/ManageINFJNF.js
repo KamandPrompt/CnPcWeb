@@ -105,6 +105,24 @@ class ManageINFJNF extends Component {
               );
           },
         },
+        {
+          field: "createdForm",
+          headerName: "View Created Form",
+          sortable: false,
+          filterable: false,
+          hideable: false,
+          width: 230,
+          renderCell: (params) => {
+              return (
+                <>
+                  {/* Here we have to send GID which will be implemented later */}
+                  <Link to={"/viewCreatedFormVolunteer?fid=" + params.row.id} target="_blank"> 
+                    <button className="userEdit">View Form</button>
+                  </Link>
+                </>
+              );
+          },
+        },
       ];
       return (
         <>
