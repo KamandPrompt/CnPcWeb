@@ -167,6 +167,19 @@ router.post("/update", (req, res) => {
   res.send("Profile updated Successfully!");
 });
 
+router.post("/updateForm", (req,res)=>{
+  Form.updateMany(
+    {"FID.FID": req.body.FID},
+    {
+      eligibility: req.body.eligibility,
+    },
+    function(){
+      console.log("Updated!!!!!!!!");
+    }
+  );
+  res.send("Updated Successfully!");
+})
+
 router.post("/updatePassword", async (req, res) => {
   // console.log(req.body);
   const email = req.body.email;
