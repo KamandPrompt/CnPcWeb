@@ -41,8 +41,7 @@ class ManageINFJNF extends Component {
 
   render() {
     const { user } = this.props.auth;
-    if(this.state.DataisLoaded === true)
-    {
+    if (this.state.DataisLoaded === true) {
       const userRows = this.state.data;
       // console.log(userRows, "Debugging")
       const columns = [
@@ -56,7 +55,7 @@ class ManageINFJNF extends Component {
           field: "type",
           headerName: "Type",
           hideable: false,
-          width: 230,
+          width: 130,
         },
         {
           field: "nameOfTheCompany",
@@ -68,7 +67,7 @@ class ManageINFJNF extends Component {
           field: "year",
           headerName: "Year",
           hideable: false,
-          width: 230,
+          width: 130,
         },
         {
           field: "filledForm",
@@ -80,8 +79,38 @@ class ManageINFJNF extends Component {
           renderCell: (params) => {
             return (
               <>
-                <Link to={"/viewFilledFormVolunteer?fid=" + params.row.id + "&type=" + params.row.type} target="_blank">
+                <Link
+                  to={
+                    "/viewFilledFormVolunteer?fid=" +
+                    params.row.id +
+                    "&type=" +
+                    params.row.type
+                  }
+                  target="_blank"
+                >
                   <button className="userEdit">View</button>
+                </Link>
+              </>
+            );
+          },
+        },
+
+        {
+          field: "createdForm",
+          headerName: "View Created Form",
+          sortable: false,
+          filterable: false,
+          hideable: false,
+          width: 230,
+          renderCell: (params) => {
+            return (
+              <>
+                {/* Here we have to send GID which will be implemented later */}
+                <Link
+                  to={"/viewCreatedFormVolunteer?fid=" + params.row.id}
+                  target="_blank"
+                >
+                  <button className="userEdit">Created Form</button>
                 </Link>
               </>
             );
@@ -95,32 +124,17 @@ class ManageINFJNF extends Component {
           hideable: false,
           width: 230,
           renderCell: (params) => {
-              return (
-                <>
-                  {/* Here we have to send GID which will be implemented later */}
-                  <Link to={"/viewResponsesVolunteer?fid=" + params.row.id} target="_blank"> 
-                    <button className="userEdit">Responses</button>
-                  </Link>
-                </>
-              );
-          },
-        },
-        {
-          field: "createdForm",
-          headerName: "View Created Form",
-          sortable: false,
-          filterable: false,
-          hideable: false,
-          width: 230,
-          renderCell: (params) => {
-              return (
-                <>
-                  {/* Here we have to send GID which will be implemented later */}
-                  <Link to={"/viewCreatedFormVolunteer?fid=" + params.row.id} target="_blank"> 
-                    <button className="userEdit">View Form</button>
-                  </Link>
-                </>
-              );
+            return (
+              <>
+                {/* Here we have to send GID which will be implemented later */}
+                <Link
+                  to={"/viewResponsesVolunteer?fid=" + params.row.id}
+                  target="_blank"
+                >
+                  <button className="userEdit">Responses</button>
+                </Link>
+              </>
+            );
           },
         },
       ];
@@ -168,9 +182,7 @@ class ManageINFJNF extends Component {
           </div>
         </>
       );
-    }
-    else
-    {
+    } else {
       return (
         <>
           <div class="loaderContainer">

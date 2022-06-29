@@ -259,7 +259,7 @@ export const Home = (props) => {
           </div>
         </div>
       </div>
-      <div className="why-recruit container">
+      <div className="why-recruit container" id="why_recruit">
         <div className="intro-text">
           <h2 className="why_heading">Why IIT Mandi ?</h2>
           <p className="why_para">The Indian Institute of Technology Mandi is a premier technical institution. A uniquely innovative curriculum, a state-of-the-art infrastructure, and a brilliantly serene, clean and stimulating campus atmosphere made for an enriching and fulfilling experience for our students. Among the elite technology institutes of the country, IIT Mandi embodies technology, research and development in the purest form.</p>
@@ -277,6 +277,7 @@ export const Home = (props) => {
                 <h3 class="card-title why_heading"> <i class="bi bi-search"></i> Research</h3>
                 <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <a href="/research">
                 <button
                 className="btn btn-primary btn-sm"
                 id="btn-why"
@@ -285,6 +286,7 @@ export const Home = (props) => {
                   <b>Know More</b>
                 </em>
               </button>
+              </a>
               </div>
             </div>
           </div>
@@ -294,6 +296,7 @@ export const Home = (props) => {
                 <h3 class="card-title why_heading"> <i class="bi bi-book"></i> Acadmics</h3>
                 <p class="card-text">When it comes to academics, the institute has a uniquely liberal and hands-on curriculum that focuses on cultivating well-rounded and confident graduates ready to enter and contribute to the industry. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis alias atque assumenda vitae illo non, accusamus distinctio quod voluptate nulla. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ut eos velit corporis distinctio.</p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <a href="/acadmics">
                 <button
                 className="btn btn-primary btn-sm"
                 id="btn-why"
@@ -302,6 +305,7 @@ export const Home = (props) => {
                   <b>Know More</b>
                 </em>
               </button>
+              </a>
               </div>
             </div>
           </div>
@@ -313,6 +317,7 @@ export const Home = (props) => {
 As such, the campus culture at IIT Mandi is a vibrant one, characterised by a wide range of dedicated clubs in areas like sports, arts, culture, science and technology, literature and so on.
 </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <a href="https://gymkhana.iitmandi.co.in/">
                 <button
                 className="btn btn-primary btn-sm"
                 id="btn-why"
@@ -321,6 +326,7 @@ As such, the campus culture at IIT Mandi is a vibrant one, characterised by a wi
                   <b>Know More</b>
                 </em>
               </button>
+              </a>
               </div>
             </div>
           </div>
@@ -330,14 +336,16 @@ As such, the campus culture at IIT Mandi is a vibrant one, characterised by a wi
                 <h3 class="card-title why_heading"> <i class="bi bi-award"></i> Student Achievement</h3>
                 <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <a href="/achievement">
                 <button
                 className="btn btn-primary btn-sm"
                 id="btn-why"
-              >
+                >
                 <em>
                   <b>Know More</b>
                 </em>
               </button>
+              </a>
               </div>
             </div>
           </div>
@@ -347,14 +355,16 @@ As such, the campus culture at IIT Mandi is a vibrant one, characterised by a wi
                 <h3 class="card-title why_heading"> <i class="bi bi-mortarboard-fill"></i>Degree Programme</h3>
                 <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                <a href="https://iitmandi.ac.in/new/programs" target={"_blank"}>
                 <button
                 className="btn btn-primary btn-sm"
                 id="btn-why"
-              >
+                >
                 <em>
                   <b>Know More</b>
                 </em>
               </button>
+              </a>
               </div>
             </div>
           </div>

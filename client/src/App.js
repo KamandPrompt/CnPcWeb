@@ -101,9 +101,10 @@ class App extends Component {
             <Route
               exact
               path="/acadmics"
-              element={[<Acadmics />, <Demo />]}
+              element={[<Acadmics />]}
             ></Route>
-            <Route exact path="/Programmes" element={<Programmes />}></Route>
+            {/* <Route exact path="/Programmes" element={<Programmes />}></Route> */}
+            <Route exact path="/demographics" element={<Demo />}></Route>
             <Route exact path="/PrepPortal" element={<PrepPortal />}></Route>
             <Route exact path="/Recpro" element={<Recpro />}></Route>
             <Route exact path="/Kamand" element={<Kamand />}></Route>
