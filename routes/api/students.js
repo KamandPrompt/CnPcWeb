@@ -327,30 +327,22 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.post("/update", (req, res) => {
-  Student.updateMany(
+router.post("/update", async (req, res) => {
+  // console.log(req.body.contactNumber);
+  // console.log(req.body.rollNo);
+  // const data = await Student.findOne({ rollNo: req.body.rollNo });
+  // console.log(data);
+  await Student.updateOne(
     { rollNo: req.body.rollNo },
     {
-      name: req.body.name,
-      rollNo: req.body.rollNo,
-      email: req.body.email,
-      batch: req.body.batch,
-      degree: req.body.degree,
-      branch: req.body.branch,
-      cgpa: req.body.cgpa,
-      contactNumber: req.body.contactNumber,
-      resume1: req.body.resume1,
-      resume2: req.body.resume2,
-      resume3: req.body.resume3,
-      gender: req.body.gender,
-      dob: req.body.dob,
-      isVerified: req.body.isVerified,
-      role: req.body.role,
+      contactNumber: req.body.contactNumber
     },
     function () {
       console.log("Updated!!!");
     }
   );
+  // const data2 = await Student.findOne({ rollNo: req.body.rollNo });
+  // console.log(data2);
   res.send("Profile updated Successfully!");
 });
 
