@@ -276,7 +276,7 @@ export const Home = (props) => {
           </div>
         </div>
       </div>
-      <div className="why-recruit container">
+      <div className="why-recruit container" id="why_recruit">
         <div className="intro-text">
           <h2 className="why_heading">Why IIT Mandi ?</h2>
           <p className="why_para">
@@ -314,11 +314,16 @@ export const Home = (props) => {
                   research has developed in the campus.
                 </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button className="btn btn-primary btn-sm" id="btn-why">
-                  <em>
-                    <b>Know More</b>
-                  </em>
-                </button>
+                <a href="/research">
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+              >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </a>
               </div>
             </div>
           </div>
@@ -340,11 +345,16 @@ export const Home = (props) => {
                   Tempore ut eos velit corporis distinctio.
                 </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button className="btn btn-primary btn-sm" id="btn-why">
-                  <em>
-                    <b>Know More</b>
-                  </em>
-                </button>
+                <a href="/acadmics">
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+              >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </a>
               </div>
             </div>
           </div>
@@ -366,11 +376,16 @@ export const Home = (props) => {
                   literature and so on.
                 </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button className="btn btn-primary btn-sm" id="btn-why">
-                  <em>
-                    <b>Know More</b>
-                  </em>
-                </button>
+                <a href="https://gymkhana.iitmandi.co.in/">
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+              >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </a>
               </div>
             </div>
           </div>
@@ -392,11 +407,16 @@ export const Home = (props) => {
                   research has developed in the campus.
                 </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button className="btn btn-primary btn-sm" id="btn-why">
-                  <em>
-                    <b>Know More</b>
-                  </em>
-                </button>
+                <a href="/achievement">
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+                >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </a>
               </div>
             </div>
           </div>
@@ -418,11 +438,16 @@ export const Home = (props) => {
                   research has developed in the campus.
                 </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button className="btn btn-primary btn-sm" id="btn-why">
-                  <em>
-                    <b>Know More</b>
-                  </em>
-                </button>
+                <a href="https://iitmandi.ac.in/new/programs" target={"_blank"}>
+                <button
+                className="btn btn-primary btn-sm"
+                id="btn-why"
+                >
+                <em>
+                  <b>Know More</b>
+                </em>
+              </button>
+              </a>
               </div>
             </div>
           </div>

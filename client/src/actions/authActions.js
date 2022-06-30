@@ -82,6 +82,18 @@ export const createFormRecruiter = (formData, history) => (dispatch) => {
     );
 };
 
+export const updateFormRecruiter = (formData, history) => (dispatch) => {
+  axios
+    .post("/api/recruiters/updateForm", formData)
+    .then((res) => alert("Form created successfully!!"))
+    .catch((err) =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+      })
+    );
+};
+
 export const saveResponseStudent = (formData, history) => (dispatch) => {
   console.log(formData);
   axios

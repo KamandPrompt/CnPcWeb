@@ -136,9 +136,6 @@ export const ResearchLab = () => {
         <br />
         <br />
         <div className="slot container">
-          <p style={{color:"#0A1F56", fontSize:"25px", }}>
-            Upcoming Installations :
-          </p>
           <div className="row">
             <div className="col-lg-4 col-md-4 col-sm-12 installation">
               <img src={nmr} alt="" />

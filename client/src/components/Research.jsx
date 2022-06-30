@@ -131,30 +131,9 @@ export const Research = (props) => {
 
         </div>
       </div>
-      <div className="acadmic">
-        <div className="slot">
-        <div>
-            <hr className="left-lg" />
-            <h3 className="homeHead homeHead-lg">Research News</h3>
-            <hr className="right-lg" />
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            autem quaerat cumque, odit ea eos a excepturi quidem, quasi minima
-            soluta minus possimus labore laudantium rem debitis consequatur
-            libero consectetur?
-          </p>
-          <p>
-            {" "}
-            <strong>To know more please</strong>{" "}
-            <a href="https://www.iitmandi.ac.in/TIH-HCI/" target="_blank">
-              click here
-            </a>
-            .
-          </p>
-        </div>
-      </div>
-      
+      <br />      
+      <br />      
+      <br />      
     </div>
   );
 };

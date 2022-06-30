@@ -421,28 +421,28 @@ class CreateForm extends Component {
     return <div>{list}</div>;
   }
 
-  showData() {
-    let arr = [];
-    let len1 = programs.length;
-    for (let i = 0; i < len1; i++) {
-      if (this.state.isChecked[i]) {
-        let arr2 = this.state.eligibility[i];
-        let arr3 = [];
-        for (let j = 0; j < arr2.length; j++) {
-          if (arr2[j]) {
-            arr3.push(programs[i].branchIDs[j]);
-          }
-        }
-        let newData = {
-          program: programs[i].name,
-          branch: arr3,
-          batch: this.state.batch[i],
-        };
-        arr.push(newData);
-      }
-    }
-    // console.log(arr);
-  }
+  // showData() {
+  //   let arr = [];
+  //   let len1 = programs.length;
+  //   for (let i = 0; i < len1; i++) {
+  //     if (this.state.isChecked[i]) {
+  //       let arr2 = this.state.eligibility[i];
+  //       let arr3 = [];
+  //       for (let j = 0; j < arr2.length; j++) {
+  //         if (arr2[j]) {
+  //           arr3.push(programs[i].branchIDs[j]);
+  //         }
+  //       }
+  //       let newData = {
+  //         program: programs[i].name,
+  //         branch: arr3,
+  //         batch: this.state.batch[i],
+  //       };
+  //       arr.push(newData);
+  //     }
+  //   }
+  //   // console.log(arr);
+  // }
 
   render() {
     const { user } = this.props.auth;
