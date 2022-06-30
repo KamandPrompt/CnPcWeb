@@ -95,11 +95,6 @@ export const Footer = (props) => {
                       Student Gymkhana
                     </a>
                   </li>
-                  <li>
-                    <a className="links" href="./campusLife/index.html">
-                      Campus Life
-                    </a>
-                  </li>
                   {/* <li>
                     <a className="links" href="./studentLife/index.html">
                       Student Life
@@ -114,7 +109,7 @@ export const Footer = (props) => {
                     </a>
                   </li> */}
                   <li>
-                    <a className="links" href="https://students.iitmandi.ac.in/main/achievements/index.html">
+                    <a className="links" href="/achievement">
                       Students' Achievements
                     </a>
                   </li>

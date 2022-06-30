@@ -117,13 +117,13 @@ export const ResearchLab = () => {
           </div>
         </div>
         <div className="slot">
-          <button id="bttn3" className="extrabtn">
+          <button id="bttn6" className="extrabtn">
             ACS Lab (SCEE){" "}
             <span className="plus">
-              <i id="pluss3" className="fas fa-plus"></i>
+              <i id="pluss6" className="fas fa-plus"></i>
             </span>
           </button>
-          <div id="li3" className="extracont">
+          <div id="li6" className="extracont">
             <p>The focus of APPLIED COGNITIVE SCIENCE lab is to investigate decision-making and cognition in applied domains. Some key domains include our environment, consumer behavior, cyber security, vehicle driving, natural disasters, and betting.
               <br />To know more please{" "}
               <a href="http://www.acslab.org/" target="_blank">

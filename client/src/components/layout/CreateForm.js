@@ -163,7 +163,7 @@ class CreateForm extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.showData = this.showData.bind(this);
+    // this.showData = this.showData.bind(this);
     this.handleChangeCheckedBranch = this.handleChangeCheckedBranch.bind(this);
     this.handleChangeCheckedBatch = this.handleChangeCheckedBatch.bind(this);
     this.handleChangeChecked = this.handleChangeChecked.bind(this);
