@@ -5,23 +5,35 @@ import Carousel from "react-elastic-carousel";
 // import styled from "styled-components";
 import Item from "./Item";
 import amazon from "../images/Company_Logos/amazon.png";
-import adobe from "../images/Company_Logos/adobe.png";
-import digilytic from "../images/Company_Logos/Digilytics.png";
+import de_shaw from "../images/Company_Logos/de_shaw.png";
+import nvidia from "../images/Company_Logos/Nvidia.png";
+import amd from "../images/Company_Logos/AMD.png";
+import bajaj from "../images/Company_Logos/Bajaj.png";
+import lt from "../images/Company_Logos/lt.png";
+import synopsis from "../images/Company_Logos/synopsis.png";
+import accenture from "../images/Company_Logos/accenture.png";
+import tcs from "../images/Company_Logos/tcs.png";
+import kpmg from "../images/Company_Logos/kpmg.jpg";
+import st from "../images/Company_Logos/st.png";
+import deloitte from "../images/Company_Logos/deloitte.png";
+// import adobe from "../images/Company_Logos/adobe.png";
+// import digilytic from "../images/Company_Logos/Digilytics.png";
 import flipkart from "../images/Company_Logos/flipkart.png";
 import google from "../images/Company_Logos/google.png";
 import indeed from "../images/Company_Logos/indeed.png";
 import microsoft from "../images/Company_Logos/microsoft.png";
-import pharma from "../images/Company_Logos/PharmEasy.png";
+// import pharma from "../images/Company_Logos/PharmEasy.png";
 import sprinklr from "../images/Company_Logos/sprinklr.jpg";
 import siemens from "../images/Company_Logos/siemens.png";
-import swiggy from "../images/Company_Logos/Swiggy.png";
+// import swiggy from "../images/Company_Logos/Swiggy.png";
 import walmart from "../images/Company_Logos/Walmart.jpg";
 import uber from "../images/Company_Logos/uber.png";
+import pentair from "../images/Company_Logos/pentair.jpg";
 import texes from "../images/Company_Logos/texas.png";
-import suzlon from "../images/Company_Logos/Suzlon_Energy.jpg";
+// import suzlon from "../images/Company_Logos/Suzlon_Energy.jpg";
 import samsung from "../images/Company_Logos/samsung.png";
-import raam_g from "../images/Company_Logos/Raam_Group.png";
-import practical from "../images/Company_Logos/Practically.png";
+// import raam_g from "../images/Company_Logos/Raam_Group.png";
+// import practical from "../images/Company_Logos/Practically.png";
 import director from "../images/Dir.png";
 import tushar_jain from "../images/tushu.jpg";
 
@@ -63,24 +75,29 @@ export const Home = (props) => {
     { width: 1200, itemsToShow: 6 },
   ];
   const items = [
-    adobe,
+    accenture,
     amazon,
-    digilytic,
+    de_shaw,
+    deloitte,
+    nvidia,
+    amd,
+    lt,
+    bajaj,
+    st,
+    synopsis,
+    kpmg,
+    tcs,
     flipkart,
     microsoft,
     google,
+    pentair,
     samsung,
     siemens,
     sprinklr,
-    suzlon,
-    swiggy,
     indeed,
-    pharma,
     walmart,
     uber,
     texes,
-    raam_g,
-    practical,
   ];
   return (
     <>
@@ -99,11 +116,11 @@ export const Home = (props) => {
               (CP) Of The Institute. The CnP Consists Of Faculty Members,
               Placement Officers And Student Volunteers Working Round The Clock
               To Provide The Best Possible Services To The Visiting
-              Organisations. 
+              Organisations.
               <br />
               <br />
-              We Look Forward To A Mutually Beneficial Placement
-              Session With Your Company.
+              We Look Forward To A Mutually Beneficial Placement Session With
+              Your Company.
             </p>
           </div>
         </div>
@@ -212,7 +229,7 @@ export const Home = (props) => {
               />
             </div>
             <p className="bhashan col-lg-8 col-md-8 col-sm-12 backG">
-             " During a short span of ten years of its existence, Indian
+              " During a short span of ten years of its existence, Indian
               Institute of Technology Mandi (IIT Mandi) has gained a reputation
               for its cutting edge research and innovative teaching programs.
               The institute prides itself on creating an environment that
@@ -222,7 +239,7 @@ export const Home = (props) => {
               engineers and scientists, the innovative undergraduate curriculum
               at IIT Mandi strives to expose students to strong fundamentals of
               engineering, basic sciences, and humanities, while simultaneously
-              sensitizing them about human values and surroundings. 
+              sensitizing them about human values and surroundings.
               <span id="dots">...</span>"
               <span id="more">
                 {" "}
@@ -262,7 +279,15 @@ export const Home = (props) => {
       <div className="why-recruit container">
         <div className="intro-text">
           <h2 className="why_heading">Why IIT Mandi ?</h2>
-          <p className="why_para">The Indian Institute of Technology Mandi is a premier technical institution. A uniquely innovative curriculum, a state-of-the-art infrastructure, and a brilliantly serene, clean and stimulating campus atmosphere made for an enriching and fulfilling experience for our students. Among the elite technology institutes of the country, IIT Mandi embodies technology, research and development in the purest form.</p>
+          <p className="why_para">
+            The Indian Institute of Technology Mandi is a premier technical
+            institution. A uniquely innovative curriculum, a state-of-the-art
+            infrastructure, and a brilliantly serene, clean and stimulating
+            campus atmosphere made for an enriching and fulfilling experience
+            for our students. Among the elite technology institutes of the
+            country, IIT Mandi embodies technology, research and development in
+            the purest form.
+          </p>
         </div>
         <div className="main-cards row">
           {/* <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 card-why-recruit">
@@ -274,87 +299,130 @@ export const Home = (props) => {
           <div class="col-lg-4 col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title why_heading"> <i class="bi bi-search"></i> Research</h3>
-                <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
+                <h3 class="card-title why_heading">
+                  {" "}
+                  <i class="bi bi-search"></i> Research
+                </h3>
+                <p class="card-text">
+                  Good research is the hallmark of any great technical
+                  institution. The research facilities at IIT Mandi are among
+                  the finest in the country and allow the community to pursue
+                  scientific truths in the best possible manner, with every
+                  nature of assistance available for them. Over the years,
+                  students and faculty members have taken great strides in the
+                  field of research and a culture of constant innovation and
+                  research has developed in the campus.
+                </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button
-                className="btn btn-primary btn-sm"
-                id="btn-why"
-              >
-                <em>
-                  <b>Know More</b>
-                </em>
-              </button>
+                <button className="btn btn-primary btn-sm" id="btn-why">
+                  <em>
+                    <b>Know More</b>
+                  </em>
+                </button>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title why_heading"> <i class="bi bi-book"></i> Acadmics</h3>
-                <p class="card-text">When it comes to academics, the institute has a uniquely liberal and hands-on curriculum that focuses on cultivating well-rounded and confident graduates ready to enter and contribute to the industry. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis alias atque assumenda vitae illo non, accusamus distinctio quod voluptate nulla. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ut eos velit corporis distinctio.</p>
+                <h3 class="card-title why_heading">
+                  {" "}
+                  <i class="bi bi-book"></i> Acadmics
+                </h3>
+                <p class="card-text">
+                  When it comes to academics, the institute has a uniquely
+                  liberal and hands-on curriculum that focuses on cultivating
+                  well-rounded and confident graduates ready to enter and
+                  contribute to the industry. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Corporis alias atque assumenda
+                  vitae illo non, accusamus distinctio quod voluptate nulla.
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tempore ut eos velit corporis distinctio.
+                </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button
-                className="btn btn-primary btn-sm"
-                id="btn-why"
-              >
-                <em>
-                  <b>Know More</b>
-                </em>
-              </button>
+                <button className="btn btn-primary btn-sm" id="btn-why">
+                  <em>
+                    <b>Know More</b>
+                  </em>
+                </button>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title why_heading"> <i class="bi bi-file-person"></i> Student Activities</h3>
-                <p class="card-text">Campus life is not just about academics; it’s about providing a holistic and colourful environment to an individual and allowing them to freely pursue their hobbies and interests so that they grow to become well-rounded and highly capable professionals.
-As such, the campus culture at IIT Mandi is a vibrant one, characterised by a wide range of dedicated clubs in areas like sports, arts, culture, science and technology, literature and so on.
-</p>
+                <h3 class="card-title why_heading">
+                  {" "}
+                  <i class="bi bi-file-person"></i> Student Activities
+                </h3>
+                <p class="card-text">
+                  Campus life is not just about academics; it’s about providing
+                  a holistic and colourful environment to an individual and
+                  allowing them to freely pursue their hobbies and interests so
+                  that they grow to become well-rounded and highly capable
+                  professionals. As such, the campus culture at IIT Mandi is a
+                  vibrant one, characterised by a wide range of dedicated clubs
+                  in areas like sports, arts, culture, science and technology,
+                  literature and so on.
+                </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button
-                className="btn btn-primary btn-sm"
-                id="btn-why"
-              >
-                <em>
-                  <b>Know More</b>
-                </em>
-              </button>
+                <button className="btn btn-primary btn-sm" id="btn-why">
+                  <em>
+                    <b>Know More</b>
+                  </em>
+                </button>
               </div>
             </div>
           </div>
           <div class="col-lg-6 col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title why_heading"> <i class="bi bi-award"></i> Student Achievement</h3>
-                <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
+                <h3 class="card-title why_heading">
+                  {" "}
+                  <i class="bi bi-award"></i> Student Achievement
+                </h3>
+                <p class="card-text">
+                  Good research is the hallmark of any great technical
+                  institution. The research facilities at IIT Mandi are among
+                  the finest in the country and allow the community to pursue
+                  scientific truths in the best possible manner, with every
+                  nature of assistance available for them. Over the years,
+                  students and faculty members have taken great strides in the
+                  field of research and a culture of constant innovation and
+                  research has developed in the campus.
+                </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button
-                className="btn btn-primary btn-sm"
-                id="btn-why"
-              >
-                <em>
-                  <b>Know More</b>
-                </em>
-              </button>
+                <button className="btn btn-primary btn-sm" id="btn-why">
+                  <em>
+                    <b>Know More</b>
+                  </em>
+                </button>
               </div>
             </div>
           </div>
           <div class="col-lg-6 col-sm-6">
             <div class="card">
               <div class="card-body">
-                <h3 class="card-title why_heading"> <i class="bi bi-mortarboard-fill"></i>Degree Programme</h3>
-                <p class="card-text">Good research is the hallmark of any great technical institution. The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner, with every nature of assistance available for them. Over the years, students and faculty members have taken great strides in the field of research and a culture of constant innovation and research has developed in the campus.</p>
+                <h3 class="card-title why_heading">
+                  {" "}
+                  <i class="bi bi-mortarboard-fill"></i>Degree Programme
+                </h3>
+                <p class="card-text">
+                  Good research is the hallmark of any great technical
+                  institution. The research facilities at IIT Mandi are among
+                  the finest in the country and allow the community to pursue
+                  scientific truths in the best possible manner, with every
+                  nature of assistance available for them. Over the years,
+                  students and faculty members have taken great strides in the
+                  field of research and a culture of constant innovation and
+                  research has developed in the campus.
+                </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <button
-                className="btn btn-primary btn-sm"
-                id="btn-why"
-              >
-                <em>
-                  <b>Know More</b>
-                </em>
-              </button>
+                <button className="btn btn-primary btn-sm" id="btn-why">
+                  <em>
+                    <b>Know More</b>
+                  </em>
+                </button>
               </div>
             </div>
           </div>
