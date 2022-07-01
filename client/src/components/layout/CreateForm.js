@@ -180,12 +180,12 @@ class CreateForm extends Component {
     const params = new URLSearchParams(search);
     const FID = params.get("fid");
     const type = params.get("type");
-    this.setState({ FID: FID, formType: type });
     await 
-      axios.post("/api/admins/getCIDUsingFID",{fid: FID, type:type})
-      .then((res) => {
-        console.log(res.data); 
-        this.setState({CID : res.data.cid});
+    axios.post("/api/admins/getCIDUsingFID",{fid: FID, type:type})
+    .then((res) => {
+      console.log(res.data); 
+      this.setState({CID : res.data.cid});
+      this.setState({ FID: FID, formType: type });
       }).catch((err) => {
         console.log(err);
       })
@@ -306,7 +306,7 @@ class CreateForm extends Component {
       fields: fields,
       CID: this.state.CID,
     };
-    // console.log(newForm);
+    console.log(newForm);
     this.props.createFormRecruiter(newForm, this.props.history);
     const arr1 = [];
     programs.map((item, i) => {
