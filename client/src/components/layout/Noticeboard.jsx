@@ -6,7 +6,7 @@ import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "../achievement.css";
 import "../admin.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { log } from "util";
 import { DataGrid } from "@mui/x-data-grid";
 import "../admin.css";
@@ -27,6 +27,7 @@ class Noticeboard extends Component {
       type: "",
       JD: "",
       answers: [],
+      redirect : false,
     };
     this.handleChangeField = this.handleChangeField.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -71,7 +72,7 @@ class Noticeboard extends Component {
     // console.log(this.state.props.auth.user);
     if (id === null) {
       await axios
-        .get("/api/students/all-forms")
+        .post("/api/students/all-forms",{SID:this.state.SID})
         .then((res) => {
           this.setState({ data: res.data, DataisLoaded: true });
           // console.log(res.data)
@@ -82,18 +83,25 @@ class Noticeboard extends Component {
     } else {
       this.setState({ id: id });
       await axios
-        .get(`/api/students/all-forms/${id}`)
+        .post(`/api/students/all-forms/${id}`,{SID:this.state.SID})
         .then((res) => {
-          console.log(res.data.data);
-          this.setState({
-            CID: res.data.data[0].CID,
-            title: res.data.data[0].title,
-            type: res.data.data[0].type,
-            JD: res.data.data[0].JD,
-            answers: res.data.data[0].fields,
-            DataisLoaded: true,
-            FID : res.data.data[0].FID
-          });
+          if(res.data.redirect == true)
+          {
+            this.setState({redirect : true,DataisLoaded: true});
+          }
+          else
+          {
+            // console.log(res.data.data);
+            this.setState({
+              CID: res.data.data[0].CID,
+              title: res.data.data[0].title,
+              type: res.data.data[0].type,
+              JD: res.data.data[0].JD,
+              answers: res.data.data[0].fields,
+              DataisLoaded: true,
+              FID : res.data.data[0].FID
+            });
+          }
           // this.addNotice(this.state.data.length);
         })
         .catch((err) => {
@@ -140,7 +148,13 @@ class Noticeboard extends Component {
   render() {
     const { user } = this.props.auth;
     if (this.state.DataisLoaded === true) {
-      if (this.state.id === "") {
+      if(this.state.redirect === true)
+      {
+        return (
+          <Navigate to="/dashboardStudent" />
+        )
+      }
+      else if (this.state.id === "") {
         const rows = this.state.data;
         const columns = [
           {

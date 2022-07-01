@@ -346,31 +346,58 @@ router.post("/update", async (req, res) => {
   res.send("Profile updated Successfully!");
 });
 
-router.get("/all-forms", async (req, res) => {
+router.post("/all-forms", async (req, res) => {
+  const SID = req.body.SID;
+  const studData = await Student.findOne({_id: SID});
+  const deg = studData.degree;
+  const batch = studData.batch;
+  const branch = studData.branch;
+  // console.log(deg,batch,branch)
   try {
-    const data = await Form.find({ formStatus: "open" }).lean();
+    const data = await Form.find({ formStatus: "open", "eligibility.program" : deg, "eligibility.batch" : batch, "eligibility":{$elemMatch:{branch: branch}}}).lean();
+    // console.log(data);
+    // let sendData = [];
     for(var i=0;i<data.length;i++)
     {
+      // console.log(data[i]);
       const query = {_id : data[i].CID};
       const company = await Recruiters.findOne(query).lean();
       data[i].companyName = company.name;
+      // sendData.push(data[i]);
     }
-    console.log(data);
+    // console.log(data);
     res.send(data);
   } catch (error) {
     res.send(error);
   }
 });
 
-router.get("/all-forms/:id", async (req, res) => {
+router.post("/all-forms/:id", async (req, res) => {
   const id = req.params.id;
+  const SID = req.body.SID;
+  const studData = await Student.findOne({_id: SID});
+  const deg = studData.degree;
+  const batch = studData.batch;
+  const branch = studData.branch;
   try {
-    const data = await Form.find({ _id: id }).lean();
-    // console.log(data);
-    if (data) {
-      // console.log(student)
-      return res.json({ data });
+    let data = await Form.find({ _id: id }).lean();
+    for(var i=0;i<data[0].eligibility.length;i++)
+    {
+      // console.log(data[0].eligibility[i].program,data[0].eligibility[i].batch)
+      if(data[0].eligibility[i].program == deg && data[0].eligibility[i].batch == batch)
+      {
+        // console.log(data);
+        for(var j=0;j<data[0].eligibility[i].branch.length;j++)
+        {
+          if(data[0].eligibility[i].branch[j]==branch)
+          {
+            // console.log(data);
+            return res.json({ data });
+          }
+        }
+      }
     }
+    return res.json({ redirect : true });
   } catch (error) {
     res.send(error);
   }
