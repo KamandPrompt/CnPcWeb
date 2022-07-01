@@ -91,7 +91,7 @@ class StudentDashboard extends Component {
     // console.log(e.target.id);
   };
   updateUser = (userData) => {
-    console.log("hello");
+    // console.log(userData);
     axios
       .post("api/students/update", userData)
       .then((res) => {
@@ -127,6 +127,7 @@ class StudentDashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    // console.log(this.state);
 
     const {
       name,

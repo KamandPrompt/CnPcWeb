@@ -327,58 +327,77 @@ router.post("/login", (req, res) => {
   });
 });
 
-router.post("/update", (req, res) => {
-  Student.updateMany(
+router.post("/update", async (req, res) => {
+  // console.log(req.body.contactNumber);
+  // console.log(req.body.rollNo);
+  // const data = await Student.findOne({ rollNo: req.body.rollNo });
+  // console.log(data);
+  await Student.updateOne(
     { rollNo: req.body.rollNo },
     {
-      name: req.body.name,
-      rollNo: req.body.rollNo,
-      email: req.body.email,
-      batch: req.body.batch,
-      degree: req.body.degree,
-      branch: req.body.branch,
-      cgpa: req.body.cgpa,
-      contactNumber: req.body.contactNumber,
-      resume1: req.body.resume1,
-      resume2: req.body.resume2,
-      resume3: req.body.resume3,
-      gender: req.body.gender,
-      dob: req.body.dob,
-      isVerified: req.body.isVerified,
-      role: req.body.role,
+      contactNumber: req.body.contactNumber
     },
     function () {
       console.log("Updated!!!");
     }
   );
+  // const data2 = await Student.findOne({ rollNo: req.body.rollNo });
+  // console.log(data2);
   res.send("Profile updated Successfully!");
 });
 
-router.get("/all-forms", async (req, res) => {
+router.post("/all-forms", async (req, res) => {
+  const SID = req.body.SID;
+  const studData = await Student.findOne({_id: SID});
+  const deg = studData.degree;
+  const batch = studData.batch;
+  const branch = studData.branch;
+  // console.log(deg,batch,branch)
   try {
-    const data = await Form.find({ formStatus: "open" }).lean();
+    const data = await Form.find({ formStatus: "open", "eligibility.program" : deg, "eligibility.batch" : batch, "eligibility":{$elemMatch:{branch: branch}}}).lean();
+    // console.log(data);
+    // let sendData = [];
     for(var i=0;i<data.length;i++)
     {
+      // console.log(data[i]);
       const query = {_id : data[i].CID};
       const company = await Recruiters.findOne(query).lean();
       data[i].companyName = company.name;
+      // sendData.push(data[i]);
     }
-    console.log(data);
+    // console.log(data);
     res.send(data);
   } catch (error) {
     res.send(error);
   }
 });
 
-router.get("/all-forms/:id", async (req, res) => {
+router.post("/all-forms/:id", async (req, res) => {
   const id = req.params.id;
+  const SID = req.body.SID;
+  const studData = await Student.findOne({_id: SID});
+  const deg = studData.degree;
+  const batch = studData.batch;
+  const branch = studData.branch;
   try {
-    const data = await Form.find({ _id: id }).lean();
-    // console.log(data);
-    if (data) {
-      // console.log(student)
-      return res.json({ data });
+    let data = await Form.find({ _id: id }).lean();
+    for(var i=0;i<data[0].eligibility.length;i++)
+    {
+      // console.log(data[0].eligibility[i].program,data[0].eligibility[i].batch)
+      if(data[0].eligibility[i].program == deg && data[0].eligibility[i].batch == batch)
+      {
+        // console.log(data);
+        for(var j=0;j<data[0].eligibility[i].branch.length;j++)
+        {
+          if(data[0].eligibility[i].branch[j]==branch)
+          {
+            // console.log(data);
+            return res.json({ data });
+          }
+        }
+      }
     }
+    return res.json({ redirect : true });
   } catch (error) {
     res.send(error);
   }
