@@ -5,6 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import { fillINF } from "../../actions/authActions";
 import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import { Link, Navigate } from "react-router-dom";
 // import { updateUser } from "../../actions/authActions";
 
 class INF extends Component {
@@ -299,7 +300,6 @@ class INF extends Component {
       eligibility: eligibility,
     };
     this.props.fillINF(user, this.props.history);
-    
   };
 
   render() {
@@ -384,1175 +384,1186 @@ class INF extends Component {
     //   isVerified,
     //   role,
     // } = this.state;
-    return (
-      <>
-        <Container fluid>
-          <Row>
-            <Col md="12">
-              <Card>
-                <Card.Body>
-                  <Form>
-                    <h2>Company Details</h2>
-                    <Row>
-                      <Col className="pr-1" md="6">
-                        <Form.Group>
-                          <label>Company name</label>
-                          <Form.Control
-                            // defaultValue={rollNo}
-                            placeholder="Company name"
-                            type="text"
-                            id="nameOfTheCompany"
-                            onChange={this.onchange}
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="6">
-                        <Form.Group>
-                          <label>Website</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="website"
-                            // defaultValue={name}
-                            placeholder="Website"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col md="12">
-                        <Form.Group>
-                          <label>Postal Address</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="postalAddress"
-                            // defaultValue={contactNumber}
-                            placeholder="Postal Address"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col className="px-1" md="6">
-                        <Form.Group>
-                          <label>Country</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="country"
-                            // defaultValue={name}
-                            placeholder="Country"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="6">
-                        <Form.Group>
-                          <label>Pin/Zip code</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="PINZIP"
-                            // defaultValue={name}
-                            placeholder="Pin/Zip code"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <label>Type of organization</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {orgs.map((item, i) => {
-                                if (
-                                  this.state.typeOfOrganization[6] &&
-                                  i == 6
-                                ) {
+    if (!this.props.auth.user.isVerified) {
+      return <Navigate to="/dashboardRecruiter" />;
+    } else {
+      return (
+        <>
+          <Container fluid>
+            <Row>
+              <Col md="12">
+                <Card>
+                  <Card.Body>
+                    <Form>
+                      <h2>Company Details</h2>
+                      <Row>
+                        <Col className="pr-1" md="6">
+                          <Form.Group>
+                            <label>Company name</label>
+                            <Form.Control
+                              // defaultValue={rollNo}
+                              placeholder="Company name"
+                              type="text"
+                              id="nameOfTheCompany"
+                              onChange={this.onchange}
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="6">
+                          <Form.Group>
+                            <label>Website</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="website"
+                              // defaultValue={name}
+                              placeholder="Website"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col md="12">
+                          <Form.Group>
+                            <label>Postal Address</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="postalAddress"
+                              // defaultValue={contactNumber}
+                              placeholder="Postal Address"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className="px-1" md="6">
+                          <Form.Group>
+                            <label>Country</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="country"
+                              // defaultValue={name}
+                              placeholder="Country"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="6">
+                          <Form.Group>
+                            <label>Pin/Zip code</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="PINZIP"
+                              // defaultValue={name}
+                              placeholder="Pin/Zip code"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <label>Type of organization</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {orgs.map((item, i) => {
+                                  if (
+                                    this.state.typeOfOrganization[6] &&
+                                    i == 6
+                                  ) {
+                                    return (
+                                      <Col className="px-1" md="2">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          type="checkbox"
+                                          name="typeOfOrganization"
+                                          id={`org${i}`}
+                                          onChange={(e) => {
+                                            this.onchangeCheck(e, orgs);
+                                          }}
+                                        />
+                                        <input
+                                          type="text"
+                                          id="otherOrgs"
+                                          onChange={this.onchange}
+                                        />
+                                      </Col>
+                                    );
+                                  } else {
+                                    return (
+                                      <Col className="px-1" md="2">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          value={i}
+                                          type="checkbox"
+                                          name="typeOfOrganization"
+                                          id={`org${i}`}
+                                          onChange={(e) => {
+                                            this.onchangeCheck(e, orgs);
+                                          }}
+                                        />
+                                      </Col>
+                                    );
+                                  }
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <Row>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <label>Nature of Business</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {business.map((item, i) => {
+                                  if (
+                                    this.state.natureOfBusiness[i] &&
+                                    i == 9
+                                  ) {
+                                    return (
+                                      <Col className="px-1" md="3">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          name="natureOfBusiness"
+                                          value={i}
+                                          type="checkbox"
+                                          id={`business${i}`}
+                                          onChange={(e) => {
+                                            this.onchangeCheck(e, business);
+                                          }}
+                                        />
+                                        <input
+                                          type="text"
+                                          id="otherBusi"
+                                          onChange={this.onchange}
+                                        />
+                                      </Col>
+                                    );
+                                  } else {
+                                    return (
+                                      <Col className="px-1" md="3">
+                                        <Form.Check
+                                          inline
+                                          label={item}
+                                          name="natureOfBusiness"
+                                          value={i}
+                                          type="checkbox"
+                                          id={`business${i}`}
+                                          onChange={(e) => {
+                                            this.onchangeCheck(e, business);
+                                          }}
+                                        />
+                                      </Col>
+                                    );
+                                  }
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <br />
+                      <h2>Contact Details</h2>
+                      <br />
+                      <Row>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Contact Person</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="contactPerson"
+                              // defaultValue={contactPerson}
+                              placeholder="Contact Person"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Email address</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="emailAddress"
+                              // defaultValue={email}
+                              placeholder="Email"
+                              type="email"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Designation</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="designation"
+                              // Value={designation}
+                              placeholder="Designation"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Telephone</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="telephone"
+                              // defaultValue={telephone}
+                              placeholder="telephone"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Mobile</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="mobile"
+                              // defaultValue={mobile}
+                              placeholder="mobile"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <h2>Internship Profile</h2>
+                      <br />
+                      <Row>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Internship profile</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="internshipProfile"
+                              // defaultValue={contactPerson}
+                              placeholder="Contact Person"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Skill set required</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="skillSetRequired"
+                              // defaultValue={email}
+                              placeholder="Skill set required"
+                              as="textarea"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Tentative number of Interns</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="tentativeNoOfInterns"
+                              // Value={designation}
+                              placeholder="Number of Interns"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Tentative Job Location(s)</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="tentativeJobLocations"
+                              // defaultValue={telephone}
+                              placeholder="Tentative Job Location(s)"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Stipend(per month)</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="stipendPerMonth"
+                              // defaultValue={mobile}
+                              placeholder="Stipend"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Accommodation Provided</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="accommodationProvided"
+                              // defaultValue={mobile}
+                              as="textarea"
+                              placeholder="mobile"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Bonus/Perks/Travel</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="bonusPerksTravel"
+                              // defaultValue={mobile}
+                              as="textarea"
+                              placeholder="mobile"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <label>Duration of Internship</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {internDuration.map((item, i) => {
+                                  return (
+                                    <Col className="px-1" md="12">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        name="durationOfInternship"
+                                        value={i}
+                                        type="checkbox"
+                                        id={`duration${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, internDuration);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <br />
+                      <br />
+                      <h2>Selection Process</h2>
+                      {/* <br /> */}
+                      <Row>
+                        <Col className="px-1" md="12">
+                          <Form.Group>
+                            <label>
+                              Eligibility Criteria( like minimum CGPA, etc.. )
+                            </label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="eligibilityCriteria"
+                              // defaultValue={contactPerson}
+                              placeholder="Eligibility Criteria"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="4">
+                          <Form.Group>
+                            <label>Resume Shortlisting</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="resumeShortlisting"
+                              // defaultValue={email}
+                              placeholder="Criteria for resume shortlisting"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pr-1" md="4">
+                          <Form.Group>
+                            <label>Pre-Placement Talk</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="prePlacementTalk"
+                              // Value={designation}
+                              placeholder="Number of Interns"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="px-1" md="4">
+                          <Form.Group>
+                            <label>Group Discussion</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="groupDiscussion"
+                              // defaultValue={telephone}
+                              placeholder="Mention group size and other details"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Mode of Test</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {test.map((item, i) => {
+                                  return (
+                                    <Col className="px-1" md="2">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        name="modeOfTest"
+                                        value={i}
+                                        type="checkbox"
+                                        id={`test${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, test);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Type of Test</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {typeofTest.map((item, i) => {
+                                  return (
+                                    <Col className="px-1" md="2">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        name="typeOfTest"
+                                        type="checkbox"
+                                        id={`typeOfTest${i}`}
+                                        value={i}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, typeofTest);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        {this.state.typeOfTest[0] &&
+                        this.state.typeOfTest[1] ? (
+                          <>
+                            <Col className="px-1" md="4">
+                              <Form.Group>
+                                <label>Aptitude Test Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="aptitudeTest"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the duration for the selected tests."
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="4">
+                              <Form.Group>
+                                <label>Technical Test Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="technicalTest"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the duration for the selected tests."
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                          </>
+                        ) : this.state.typeOfTest[0] ? (
+                          <>
+                            <Col className="px-1" md="4">
+                              <Form.Group>
+                                <label>Aptitude Test Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="aptitudeTest"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the duration for the selected tests."
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="4">
+                              <Form.Group>
+                                <label>Technical Test Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="technicalTest"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the duration for the selected tests."
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                          </>
+                        ) : this.state.typeOfTest[1] ? (
+                          <>
+                            <Col className="px-1" md="4">
+                              <Form.Group>
+                                <label>Aptitude Test Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="aptitudeTest"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the duration for the selected tests."
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="4">
+                              <Form.Group>
+                                <label>Technical Test Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="technicalTest"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the duration for the selected tests."
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                          </>
+                        ) : (
+                          <>
+                            <Col className="px-1" md="4">
+                              <Form.Group>
+                                <label>Aptitude Test Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="aptitudeTest"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the duration for the selected tests."
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="4">
+                              <Form.Group>
+                                <label>Technical Test Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="technicalTest"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the duration for the selected tests."
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                          </>
+                        )}
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Mode of Interview</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {interview.map((item, i) => {
                                   return (
                                     <Col className="px-1" md="2">
                                       <Form.Check
                                         inline
                                         label={item}
                                         value={i}
+                                        name="modeOfInterview"
                                         type="checkbox"
-                                        name="typeOfOrganization"
-                                        id={`org${i}`}
+                                        id={`interview${i}`}
                                         onChange={(e) => {
-                                          this.onchangeCheck(e, orgs);
+                                          this.onchangeCheck(e, interview);
                                         }}
-                                      />
-                                      <input
-                                        type="text"
-                                        id="otherOrgs"
-                                        onChange={this.onchange}
                                       />
                                     </Col>
                                   );
-                                } else {
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>Type of Interview</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {typeofInterview.map((item, i) => {
                                   return (
                                     <Col className="px-1" md="2">
                                       <Form.Check
                                         inline
                                         label={item}
-                                        value={i}
+                                        name="typeOfInterview"
                                         type="checkbox"
-                                        name="typeOfOrganization"
-                                        id={`org${i}`}
+                                        value={i}
+                                        id={`typeOfInterview${i}`}
                                         onChange={(e) => {
-                                          this.onchangeCheck(e, orgs);
+                                          this.onchangeCheck(
+                                            e,
+                                            typeofInterview
+                                          );
                                         }}
                                       />
                                     </Col>
                                   );
-                                }
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <br />
-                    <Row>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <label>Nature of Business</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {business.map((item, i) => {
-                                if (this.state.natureOfBusiness[i] && i == 9) {
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        {this.state.typeOfInterview[0] &&
+                        this.state.typeOfInterview[1] ? (
+                          <>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>HR Interview Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="durationOfEachRoundHR"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>HR Interview Rounds</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="noOfRoundsHR"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>Technical Interview Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="durationOfEachRoundTech"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>Technical Interview Rounds</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="noOfRoundsTech"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                          </>
+                        ) : this.state.typeOfInterview[0] ? (
+                          <>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>HR Interview Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="durationOfEachRoundHR"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>HR Interview Rounds</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="noOfRoundsHR"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>Technical Interview Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="durationOfEachRoundTech"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>Technical Interview Rounds</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="noOfRoundsTech"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                          </>
+                        ) : this.state.typeOfInterview[1] ? (
+                          <>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>HR Interview Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="durationOfEachRoundHR"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>HR Interview Rounds</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="noOfRoundsHR"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>Technical Interview Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="durationOfEachRoundTech"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>Technical Interview Rounds</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="noOfRoundsTech"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                          </>
+                        ) : (
+                          <>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>HR Interview Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="durationOfEachRoundHR"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>HR Interview Rounds</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="noOfRoundsHR"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>Technical Interview Duration</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="durationOfEachRoundTech"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                            <Col className="px-1" md="12">
+                              <Form.Group>
+                                <br />
+                                <label>Technical Interview Rounds</label>
+                                <Form.Control
+                                  onChange={this.onchange}
+                                  id="noOfRoundsTech"
+                                  // defaultValue={telephone}
+                                  placeholder="Please specify the and number of rounds for the selected mode of Interviews."
+                                  as="textarea"
+                                  type="text"
+                                  disabled
+                                ></Form.Control>
+                              </Form.Group>
+                            </Col>
+                          </>
+                        )}
+                      </Row>
+                      <br />
+                      <br />
+                      <h2>Programme Details</h2>
+                      <p>
+                        Please tick mark the required degree and discipline in
+                        which you are interested to recruit
+                      </p>
+                      <br />
+                      <Row>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>B.Tech</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {btech.map((item, i) => {
                                   return (
-                                    <Col className="px-1" md="3">
+                                    <Col className="px-1" md="4">
                                       <Form.Check
                                         inline
                                         label={item}
-                                        name="natureOfBusiness"
                                         value={i}
+                                        name="btech"
                                         type="checkbox"
-                                        id={`business${i}`}
+                                        id={`btech${i}`}
                                         onChange={(e) => {
-                                          this.onchangeCheck(e, business);
+                                          this.onchangeCheck(e, btech);
                                         }}
-                                      />
-                                      <input
-                                        type="text"
-                                        id="otherBusi"
-                                        onChange={this.onchange}
                                       />
                                     </Col>
                                   );
-                                } else {
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>M.Tech</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {mtech.map((item, i) => {
                                   return (
-                                    <Col className="px-1" md="3">
+                                    <Col className="px-1" md="4">
                                       <Form.Check
                                         inline
                                         label={item}
-                                        name="natureOfBusiness"
                                         value={i}
+                                        name="mtech"
                                         type="checkbox"
-                                        id={`business${i}`}
+                                        id={`mtech${i}`}
                                         onChange={(e) => {
-                                          this.onchangeCheck(e, business);
+                                          this.onchangeCheck(e, mtech);
                                         }}
                                       />
                                     </Col>
                                   );
-                                }
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <br />
-                    <br />
-                    <h2>Contact Details</h2>
-                    <br />
-                    <Row>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Contact Person</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="contactPerson"
-                            // defaultValue={contactPerson}
-                            placeholder="Contact Person"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="4">
-                        <Form.Group>
-                          <label>Email address</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="emailAddress"
-                            // defaultValue={email}
-                            placeholder="Email"
-                            type="email"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pr-1" md="4">
-                        <Form.Group>
-                          <label>Designation</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="designation"
-                            // Value={designation}
-                            placeholder="Designation"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Telephone</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="telephone"
-                            // defaultValue={telephone}
-                            placeholder="telephone"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="4">
-                        <Form.Group>
-                          <label>Mobile</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="mobile"
-                            // defaultValue={mobile}
-                            placeholder="mobile"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <h2>Internship Profile</h2>
-                    <br />
-                    <Row>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Internship profile</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="internshipProfile"
-                            // defaultValue={contactPerson}
-                            placeholder="Contact Person"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="4">
-                        <Form.Group>
-                          <label>Skill set required</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="skillSetRequired"
-                            // defaultValue={email}
-                            placeholder="Skill set required"
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pr-1" md="4">
-                        <Form.Group>
-                          <label>Tentative number of Interns</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="tentativeNoOfInterns"
-                            // Value={designation}
-                            placeholder="Number of Interns"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Tentative Job Location(s)</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="tentativeJobLocations"
-                            // defaultValue={telephone}
-                            placeholder="Tentative Job Location(s)"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="4">
-                        <Form.Group>
-                          <label>Stipend(per month)</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="stipendPerMonth"
-                            // defaultValue={mobile}
-                            placeholder="Stipend"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="4">
-                        <Form.Group>
-                          <label>Accommodation Provided</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="accommodationProvided"
-                            // defaultValue={mobile}
-                            as="textarea"
-                            placeholder="mobile"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col className="pl-1" md="4">
-                        <Form.Group>
-                          <label>Bonus/Perks/Travel</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="bonusPerksTravel"
-                            // defaultValue={mobile}
-                            as="textarea"
-                            placeholder="mobile"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <label>Duration of Internship</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {internDuration.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="12">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      name="durationOfInternship"
-                                      value={i}
-                                      type="checkbox"
-                                      id={`duration${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, internDuration);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <br />
-                    <br />
-                    <br />
-                    <h2>Selection Process</h2>
-                    {/* <br /> */}
-                    <Row>
-                      <Col className="px-1" md="12">
-                        <Form.Group>
-                          <label>
-                            Eligibility Criteria( like minimum CGPA, etc.. )
-                          </label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="eligibilityCriteria"
-                            // defaultValue={contactPerson}
-                            placeholder="Eligibility Criteria"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="4">
-                        <Form.Group>
-                          <label>Resume Shortlisting</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="resumeShortlisting"
-                            // defaultValue={email}
-                            placeholder="Criteria for resume shortlisting"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pr-1" md="4">
-                        <Form.Group>
-                          <label>Pre-Placement Talk</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="prePlacementTalk"
-                            // Value={designation}
-                            placeholder="Number of Interns"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="px-1" md="4">
-                        <Form.Group>
-                          <label>Group Discussion</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="groupDiscussion"
-                            // defaultValue={telephone}
-                            placeholder="Mention group size and other details"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Mode of Test</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {test.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="2">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      name="modeOfTest"
-                                      value={i}
-                                      type="checkbox"
-                                      id={`test${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, test);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Type of Test</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {typeofTest.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="2">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      name="typeOfTest"
-                                      type="checkbox"
-                                      id={`typeOfTest${i}`}
-                                      value={i}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, typeofTest);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      {this.state.typeOfTest[0] && this.state.typeOfTest[1] ? (
-                        <>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Aptitude Test Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="aptitudeTest"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the duration for the selected tests."
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Technical Test Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="technicalTest"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the duration for the selected tests."
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </>
-                      ) : this.state.typeOfTest[0] ? (
-                        <>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Aptitude Test Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="aptitudeTest"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the duration for the selected tests."
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Technical Test Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="technicalTest"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the duration for the selected tests."
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </>
-                      ) : this.state.typeOfTest[1] ? (
-                        <>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Aptitude Test Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="aptitudeTest"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the duration for the selected tests."
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Technical Test Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="technicalTest"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the duration for the selected tests."
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </>
-                      ) : (
-                        <>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Aptitude Test Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="aptitudeTest"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the duration for the selected tests."
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="4">
-                            <Form.Group>
-                              <label>Technical Test Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="technicalTest"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the duration for the selected tests."
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </>
-                      )}
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Mode of Interview</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {interview.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="2">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="modeOfInterview"
-                                      type="checkbox"
-                                      id={`interview${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, interview);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>Type of Interview</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {typeofInterview.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="2">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      name="typeOfInterview"
-                                      type="checkbox"
-                                      value={i}
-                                      id={`typeOfInterview${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, typeofInterview);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      {this.state.typeOfInterview[0] &&
-                      this.state.typeOfInterview[1] ? (
-                        <>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="durationOfEachRoundHR"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Rounds</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="noOfRoundsHR"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="durationOfEachRoundTech"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Rounds</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="noOfRoundsTech"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </>
-                      ) : this.state.typeOfInterview[0] ? (
-                        <>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="durationOfEachRoundHR"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Rounds</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="noOfRoundsHR"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="durationOfEachRoundTech"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Rounds</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="noOfRoundsTech"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </>
-                      ) : this.state.typeOfInterview[1] ? (
-                        <>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="durationOfEachRoundHR"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Rounds</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="noOfRoundsHR"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="durationOfEachRoundTech"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Rounds</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="noOfRoundsTech"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </>
-                      ) : (
-                        <>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="durationOfEachRoundHR"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>HR Interview Rounds</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="noOfRoundsHR"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Duration</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="durationOfEachRoundTech"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                          <Col className="px-1" md="12">
-                            <Form.Group>
-                              <br />
-                              <label>Technical Interview Rounds</label>
-                              <Form.Control
-                                onChange={this.onchange}
-                                id="noOfRoundsTech"
-                                // defaultValue={telephone}
-                                placeholder="Please specify the and number of rounds for the selected mode of Interviews."
-                                as="textarea"
-                                type="text"
-                                disabled
-                              ></Form.Control>
-                            </Form.Group>
-                          </Col>
-                        </>
-                      )}
-                    </Row>
-                    <br />
-                    <br />
-                    <h2>Programme Details</h2>
-                    <p>
-                      Please tick mark the required degree and discipline in
-                      which you are interested to recruit
-                    </p>
-                    <br />
-                    <Row>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>B.Tech</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {btech.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="4">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="btech"
-                                      type="checkbox"
-                                      id={`btech${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, btech);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>M.Tech</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {mtech.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="4">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="mtech"
-                                      type="checkbox"
-                                      id={`mtech${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, mtech);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>M.Sc</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {msc.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="4">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="msc"
-                                      type="checkbox"
-                                      id={`msc${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, msc);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>M.A.</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {ma.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="4">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="ma"
-                                      type="checkbox"
-                                      id={`ma${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, ma);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>M.S.</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {ms.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="4">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="ms"
-                                      type="checkbox"
-                                      id={`ms${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, ms);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="12">
-                        <Form.Group>
-                          <br />
-                          <label>PhD.</label>
-                          <br />
-                          <div className="container">
-                            <Row>
-                              {phd.map((item, i) => {
-                                return (
-                                  <Col className="px-1" md="4">
-                                    <Form.Check
-                                      inline
-                                      label={item}
-                                      value={i}
-                                      name="phd"
-                                      type="checkbox"
-                                      id={`phd${i}`}
-                                      onChange={(e) => {
-                                        this.onchangeCheck(e, phd);
-                                      }}
-                                    />
-                                  </Col>
-                                );
-                              })}
-                            </Row>
-                          </div>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <br />
-                    <br />
-                    <h3>Logistic Requirements (on Campus Drive)</h3>
-                    <br />
-                    <Row>
-                      <Col className="px-1" md="6">
-                        <Form.Group>
-                          <label>Number of Members</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="numberOfMembers"
-                            // defaultValue={contactPerson}
-                            placeholder="Contact Person"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pl-1" md="6">
-                        <Form.Group>
-                          <label>
-                            Number of Rooms required for selection process
-                          </label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="numberOfRoomsRequired"
-                            // defaultValue={email}
-                            placeholder="No of rooms"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                      <Col className="pr-1" md="12">
-                        <Form.Group>
-                          <label>Other Requirements</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="otherRequirements"
-                            // Value={designation}
-                            placeholder="Other Requirements"
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                    </Row>
-                    <br />
-                    <br />
-                    <h3>Logistic Requirements (Virtual Drive)</h3>
-                    <br />
-                    <Row>
-                      <Col className="pr-1" md="12">
-                        <Form.Group>
-                          <label>Virtual Drive Requirements</label>
-                          <Form.Control
-                            onChange={this.onchange}
-                            id="virtualDriveRequirements"
-                            // Value={designation}
-                            placeholder="Virtual Drive Requirements"
-                            as="textarea"
-                            type="text"
-                          ></Form.Control>
-                        </Form.Group>
-                      </Col>
-                    </Row>
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>M.Sc</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {msc.map((item, i) => {
+                                  return (
+                                    <Col className="px-1" md="4">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        value={i}
+                                        name="msc"
+                                        type="checkbox"
+                                        id={`msc${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, msc);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>M.A.</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {ma.map((item, i) => {
+                                  return (
+                                    <Col className="px-1" md="4">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        value={i}
+                                        name="ma"
+                                        type="checkbox"
+                                        id={`ma${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, ma);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>M.S.</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {ms.map((item, i) => {
+                                  return (
+                                    <Col className="px-1" md="4">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        value={i}
+                                        name="ms"
+                                        type="checkbox"
+                                        id={`ms${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, ms);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="12">
+                          <Form.Group>
+                            <br />
+                            <label>PhD.</label>
+                            <br />
+                            <div className="container">
+                              <Row>
+                                {phd.map((item, i) => {
+                                  return (
+                                    <Col className="px-1" md="4">
+                                      <Form.Check
+                                        inline
+                                        label={item}
+                                        value={i}
+                                        name="phd"
+                                        type="checkbox"
+                                        id={`phd${i}`}
+                                        onChange={(e) => {
+                                          this.onchangeCheck(e, phd);
+                                        }}
+                                      />
+                                    </Col>
+                                  );
+                                })}
+                              </Row>
+                            </div>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <br />
+                      <h3>Logistic Requirements (on Campus Drive)</h3>
+                      <br />
+                      <Row>
+                        <Col className="px-1" md="6">
+                          <Form.Group>
+                            <label>Number of Members</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="numberOfMembers"
+                              // defaultValue={contactPerson}
+                              placeholder="Contact Person"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pl-1" md="6">
+                          <Form.Group>
+                            <label>
+                              Number of Rooms required for selection process
+                            </label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="numberOfRoomsRequired"
+                              // defaultValue={email}
+                              placeholder="No of rooms"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                        <Col className="pr-1" md="12">
+                          <Form.Group>
+                            <label>Other Requirements</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="otherRequirements"
+                              // Value={designation}
+                              placeholder="Other Requirements"
+                              as="textarea"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                      <br />
+                      <br />
+                      <h3>Logistic Requirements (Virtual Drive)</h3>
+                      <br />
+                      <Row>
+                        <Col className="pr-1" md="12">
+                          <Form.Group>
+                            <label>Virtual Drive Requirements</label>
+                            <Form.Control
+                              onChange={this.onchange}
+                              id="virtualDriveRequirements"
+                              // Value={designation}
+                              placeholder="Virtual Drive Requirements"
+                              as="textarea"
+                              type="text"
+                            ></Form.Control>
+                          </Form.Group>
+                        </Col>
+                      </Row>
 
-                    <div
-                      className="clearfix"
-                      style={{ textAlign: "center", margin: "10px 0px" }}
-                    >
-                      <Button
-                        className="btn-fill"
-                        style={{ width: "200px" }}
-                        type="submit"
-                        variant="info"
-                        onClick={this.onsubmit}
+                      <div
+                        className="clearfix"
+                        style={{ textAlign: "center", margin: "10px 0px" }}
                       >
-                        Submit
-                      </Button>
-                    </div>
-                  </Form>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-        <div>
-          Students' choices will be governed by the information you provide in
-          this form. Therefore, please be as clear and detailed as possible.
-          Before filling the form kindly refer to the placement brochure and
-          placement website for selection process and rules & regulations. For
-          any queries, you may contact the placement cell.
-        </div>
-      </>
-    );
+                        <Button
+                          className="btn-fill"
+                          style={{ width: "200px" }}
+                          type="submit"
+                          variant="info"
+                          onClick={this.onsubmit}
+                        >
+                          Submit
+                        </Button>
+                      </div>
+                    </Form>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+          <div>
+            Students' choices will be governed by the information you provide in
+            this form. Therefore, please be as clear and detailed as possible.
+            Before filling the form kindly refer to the placement brochure and
+            placement website for selection process and rules & regulations. For
+            any queries, you may contact the placement cell.
+          </div>
+        </>
+      );
+    }
   }
 }
 

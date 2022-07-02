@@ -99,6 +99,7 @@ router.post("/login", (req, res) => {
           mobile: user.mobile,
           role: user.role,
           POCName: user.POCName,
+          isVerified: user.isVerified,
           POCMobile: user.POCMobile,
         };
 

@@ -141,32 +141,35 @@ class RecruiterDashboard extends Component {
     return (
       <>
         <Container fluid>
-          <center>
-            <Button
-              className="btn-fill"
-              style={{ width: "230px", margin: "40px" }}
-              href="/fillINF"
-              variant="info"
-            >
-              Fill INF Form
-            </Button>
-            <Button
-              className="btn-fill"
-              style={{ width: "230px", margin: "40px" }}
-              href="/fillJNF"
-              variant="info"
-            >
-              Fill JNF Form
-            </Button>
-            <Button
-              className="btn-fill"
-              style={{ width: "230px", margin: "40px" }}
-              href="/formresponses"
-              variant="info"
-            >
-              View Forms and Responses
-            </Button>
-          </center>
+          {isVerified ? (
+            <center>
+              <Button
+                className="btn-fill"
+                style={{ width: "230px", margin: "40px" }}
+                href="/fillINF"
+                variant="info"
+              >
+                Fill INF Form
+              </Button>
+              <Button
+                className="btn-fill"
+                style={{ width: "230px", margin: "40px" }}
+                href="/fillJNF"
+                variant="info"
+              >
+                Fill JNF Form
+              </Button>
+
+              <Button
+                className="btn-fill"
+                style={{ width: "230px", margin: "40px" }}
+                href="/formresponses"
+                variant="info"
+              >
+                View Forms and Responses
+              </Button>
+            </center>
+          ) : null}
           <Row>
             <Col md="12">
               <Card>
