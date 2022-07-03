@@ -83,10 +83,6 @@ const StudentSchema = new Schema({
     type: String,
     required: true,
   },
-  isVerified: {
-    type: Boolean,
-    default: false,
-  },
   role: {
     type: String,
     default: "student",

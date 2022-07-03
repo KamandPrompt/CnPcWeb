@@ -302,7 +302,7 @@ router.post("/login", (req, res) => {
           resume1: user.resume1,
           resume2: user.resume2,
           resume3: user.resume3,
-          isVerified: user.isVerified,
+          // isVerified: user.isVerified,
         };
 
         // Sign token

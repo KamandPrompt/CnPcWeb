@@ -23,7 +23,7 @@ class StudentDashboard extends Component {
       resume1: "",
       resume2: "",
       resume3: "",
-      isVerified: "",
+      // isVerified: "",
       role: "",
       DataisLoaded: false,
     };
@@ -67,7 +67,7 @@ class StudentDashboard extends Component {
             resume1: res.data.details.resume1,
             resume2: res.data.details.resume2,
             resume3: res.data.details.resume3,
-            isVerified: res.data.details.isVerified,
+            // isVerified: res.data.details.isVerified,
             role: res.data.details.role,
             DataisLoaded: true,
           });
@@ -119,7 +119,7 @@ class StudentDashboard extends Component {
       resume1: this.state.resume1,
       resume2: this.state.resume2,
       resume3: this.state.resume3,
-      isVerified: this.state.isVerified,
+      // isVerified: this.state.isVerified,
       role: this.state.role,
     };
     this.updateUser(user);
@@ -143,7 +143,7 @@ class StudentDashboard extends Component {
       resume1,
       resume2,
       resume3,
-      isVerified,
+      // isVerified,
       role,
     } = this.state;
     return (
@@ -427,7 +427,7 @@ class StudentDashboard extends Component {
                         </Form.Group>
                       </Col> */}
                       <Col className="pl-1" md="4">
-                        <Form.Group>
+                        {/* <Form.Group>
                           <div>
                             <label>Verification Status</label>
                           </div>
@@ -455,7 +455,7 @@ class StudentDashboard extends Component {
                               </>
                             )}
                           </Form.Select>
-                        </Form.Group>
+                        </Form.Group> */}
                       </Col>
                     </Row>
                     <div
