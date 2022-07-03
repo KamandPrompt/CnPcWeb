@@ -48,10 +48,15 @@ export const registerRecruiter = (userData, history) => (dispatch) => {
     );
 };
 
-export const fillINF = (userData, history) => (dispatch) =>{
-  axios.post("/api/recruiters/fillINF", userData).then((res)=>{
-    alert("INF Form submitted!!!");
-  }).catch((err)=>{
+export const fillINF = (userData, history) => async (dispatch) => {
+  await axios.post("/api/recruiters/fillINF", userData).then((res) => {
+    let err = res.data.err._message;
+    if (res.data.status == "ok")
+      alert("INF Form submitted!!!");
+    else
+      alert(err);
+  }).catch((err) => {
+    alert("Received Error" + err.response.data);
     dispatch({
       type: GET_ERRORS,
       payload: err.response.data,
@@ -59,10 +64,14 @@ export const fillINF = (userData, history) => (dispatch) =>{
   })
 }
 
-export const fillJNF = (userData, history) => (dispatch) =>{
-  axios.post("/api/recruiters/fillJNF", userData).then((res)=>{
-    alert("JNF Form submitted!!!");
-  }).catch((err)=>{
+export const fillJNF = (userData, history) => (dispatch) => {
+  axios.post("/api/recruiters/fillJNF", userData).then((res) => {
+    let err = res.data.err._message;
+    if (res.data.status == "ok")
+      alert("JNF Form submitted!!!");
+    else
+      alert(err);
+  }).catch((err) => {
     dispatch({
       type: GET_ERRORS,
       payload: err.response.data,

@@ -300,6 +300,7 @@ class INF extends Component {
       eligibility: eligibility,
     };
     this.props.fillINF(user, this.props.history);
+    console.log()
   };
 
   render() {

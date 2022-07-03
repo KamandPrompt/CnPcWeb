@@ -373,16 +373,28 @@ router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
 router.post("/fillINF", (req, res) => {
   const INFform = new INF(req.body);
   INFform.save()
-    .then((user) => res.json(user))
-    .catch((err) => console.log(err));
+    .then((user) =>{
+      user.status = "ok";
+      res.json(user);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({"status" : "error",err : err});
+    });
 });
 
 router.post("/fillJNF", (req, res) => {
   // console.log(req.body);
   const JNFform = new JNF(req.body);
   JNFform.save()
-    .then((user) => res.json(user))
-    .catch((err) => console.log(err));
+    .then((user) =>{
+      user.status = "ok";
+      res.json(user);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.json({"status" : "error",err : err});
+    });
 });
 
 router.post("/viewFilledForm", async (req, res) => {
