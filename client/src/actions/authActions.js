@@ -51,7 +51,6 @@ export const registerRecruiter = (userData, history) => (dispatch) => {
 export const fillINF = (userData, history) => async (dispatch) => {
   await axios.post("/api/recruiters/fillINF", userData).then((res) => {
     let err = res.data.err._message;
-    console.log(err);
     if (res.data.status == "ok")
       alert("INF Form submitted!!!");
     else
@@ -67,7 +66,11 @@ export const fillINF = (userData, history) => async (dispatch) => {
 
 export const fillJNF = (userData, history) => (dispatch) => {
   axios.post("/api/recruiters/fillJNF", userData).then((res) => {
-    alert("JNF Form submitted!!!");
+    let err = res.data.err._message;
+    if (res.data.status == "ok")
+      alert("JNF Form submitted!!!");
+    else
+      alert(err);
   }).catch((err) => {
     dispatch({
       type: GET_ERRORS,
