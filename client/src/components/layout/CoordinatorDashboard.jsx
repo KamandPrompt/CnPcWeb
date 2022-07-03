@@ -234,6 +234,7 @@ class CoordinatorDashboard extends Component {
     if (this.state.DataisLoaded === true) {
       if (this.state.rollNo === "") {
         const userRows = this.state.studentsData;
+        console.log(userRows);
         const columns = [
           {
             field: "rollNo",
@@ -246,6 +247,12 @@ class CoordinatorDashboard extends Component {
             field: "batch",
             headerName: "Batch",
             type: "number",
+            width: 150,
+            hideable: false,
+          },
+          {
+            field: "branch",
+            headerName: "Branch",
             width: 150,
             hideable: false,
           },
