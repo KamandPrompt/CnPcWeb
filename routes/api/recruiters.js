@@ -299,7 +299,7 @@ router.post("/getAllForms", async (req, res) => {
 router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
   const fid = req.params.fid;
   // console.log(req.body.role);
-  // console.log(fid);
+  console.log(fid);
   try {
     let data = [];
     if (req.body.role === "recruiter") {
@@ -311,10 +311,10 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
     ) {
       data = await Response.find({ "FID.FID": fid }).lean();
     }
-    // console.log(data);
     let student_data = [];
     for (let i = 0; i < data.length; i++) {
-      const studentData = await Student.findOne({ _id: data[i].SID }).lean();
+      let query = {_id : data[i].SID};
+      const studentData = await Student.findOne(query).lean();
       const newData = {
         FID: data[i].FID.FID,
         CID: data[i].CID,
@@ -324,6 +324,7 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
         SID: studentData._id,
         branch: studentData.branch,
       };
+      // console.log(newData);
       student_data.push(newData);
     }
     res.send(student_data);

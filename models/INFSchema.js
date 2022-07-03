@@ -15,7 +15,7 @@ const EligibilitySchema = new mongoose.Schema({
     program: {
         type: String,
         enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
-        required: true,
+        required: false,
     },
     branch: {
         type: [String],
@@ -44,7 +44,7 @@ const EligibilitySchema = new mongoose.Schema({
             "SBS",
             "SHS",
         ],
-        // required: true,
+        // required: false,
     },
 });
 const INFSchema = new Schema({
@@ -65,105 +65,105 @@ const INFSchema = new Schema({
     },
     postalAddress: {
         type: String,
-        required: true,
+        required: false,
     },
     country: {
         type: String,
-        required: true,
+        required: false,
     },
     PINZIP: {
         type: String,
-        required: true,
+        required: false,
     },
     website: {
         type: String,
-        required: true,
+        required: false,
     },
     typeOfOrganization: [{
         type: String,
-        required: true,
+        required: false,
     }],
     natureOfBusiness: [{
         type: String,
-        required: true,
+        required: false,
     }],
     contactPerson: {
         type: String,
-        required: true,
+        required: false,
     },
     designation: {
         type: String,
-        required: true,
+        required: false,
     },
     emailAddress: {
         type: String,
-        required: true,
+        required: false,
     },
     telephone: {
         type: String,
-        required: true,
+        required: false,
     },
     mobile: {
         type: String,
-        required: true,
+        required: false,
     },
     internshipProfile: {
         type: String,
-        required: true,
+        required: false,
     },
     skillSetRequired: {
         type: String,
-        required: true,
+        required: false,
     },
     tentativeNoOfInterns: {
         type: String,
-        required: true,
+        required: false,
     },
     tentativeJobLocations: {
         type: String,
-        required: true,
+        required: false,
     },
     stipendPerMonth: {
         type: String,
-        required: true,
+        required: false,
     },
     accommodationProvided: {
         type: String,
-        required: true,
+        required: false,
     },
     bonusPerksTravel: {
         type: String,
-        required: true,
+        required: false,
     },
     durationOfInternship: [
         {
             type: String,
-            required: true,
+            required: false,
         }
     ],
     eligibilityCriteria: {
         type: String,
-        required: true,
+        required: false,
     },
     prePlacementTalk: {
         type: String,
-        required: true,
+        required: false,
     },
     resumeShortlisting: {
         type: String,
-        required: true,
+        required: false,
     },
     groupDiscussion: {
         type: String,
-        required: true,
+        required: false,
     },
     modeOfTest: [{
         type: String,
-        required: true,
+        required: false,
     }],
     typeOfTest: [{
         type: String,
-        required: true,
+        required: false,
     }],
     aptitudeTest: {
         type: String,
@@ -173,21 +173,21 @@ const INFSchema = new Schema({
     },
     modeOfInterview: [{
         type: String,
-        required: true,
+        required: false,
     }],
     typeOfInterview: [
         {
             type: String,
-            required: true,
+            required: false,
         }
     ],
     technicalInterview: {
         type: RoundSchema,
-        required: true
+        required: false
     },
     hRInterview: {
         type: RoundSchema,
-        required: true
+        required: false
     },
     eligibility: [
         {
@@ -196,11 +196,11 @@ const INFSchema = new Schema({
     ],
     numberOfMembers: {
         type: String,
-        required: true,
+        required: false,
     },
     numberOfRoomsRequired: {
         type: String,
-        required: true,
+        required: false,
     },
     otherRequirements: {
         type: String,

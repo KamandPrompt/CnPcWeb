@@ -825,7 +825,7 @@ class JNF extends Component {
                           </Form.Group>
                         </Col>
                       </Row>
-                      <h2>Sallery Details</h2>
+                      <h2>Salary Details</h2>
                       <br />
                       <Row>
                         <TableContainer component={Paper}>

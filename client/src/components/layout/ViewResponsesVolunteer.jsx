@@ -44,7 +44,7 @@ class viewResponsesVolunteer extends Component {
         .post(`/api/recruiters/getFormResponsesbyCID/${fid}`, { role: this.state.role })
         .then((res) => {
           // console.log(res.data);
-          this.setState({studentData:res.data.answers , DataisLoaded:true, FID:fid, isVerified : res.data.isVerified});
+          this.setState({studentData:res.data , DataisLoaded:true, FID:fid, isVerified : res.data.isVerified});
           // this.addNotice(this.state.data.length);
         })
         .catch((err) => {

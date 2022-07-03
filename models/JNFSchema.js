@@ -32,7 +32,7 @@ const EligibilitySchema = new mongoose.Schema({
   program: {
     type: String,
     enum: ["BTECH", "MTECH", "MS", "PHD", "MA", "MSC"],
-    required: true,
+    required: false,
   },
   branch: {
     type: [String],
@@ -61,7 +61,7 @@ const EligibilitySchema = new mongoose.Schema({
       "SBS",
       "SHS",
     ],
-    // required: true,
+    // required: false,
   },
 });
 const JNFSchema = new Schema({
@@ -83,67 +83,67 @@ const JNFSchema = new Schema({
   },
   postalAddress: {
     type: String,
-    required: true,
+    required: false,
   },
   country: {
     type: String,
-    required: true,
+    required: false,
   },
   PINZIP: {
     type: String,
-    required: true,
+    required: false,
   },
   website: {
     type: String,
-    required: true,
+    required: false,
   },
   typeOfOrganization: [{
     type: String,
-    required: true,
+    required: false,
 }],
 natureOfBusiness: [{
     type: String,
-    required: true,
+    required: false,
 }],
   contactPerson: {
     type: String,
-    required: true,
+    required: false,
   },
   designation: {
     type: String,
-    required: true,
+    required: false,
   },
   emailAddress: {
     type: String,
-    required: true,
+    required: false,
   },
   telephone: {
     type: String,
-    required: true,
+    required: false,
   },
   mobile: {
     type: String,
-    required: true,
+    required: false,
   },
   jobDesignationOffered: {
     type: String,
-    required: true,
+    required: false,
   },
   skillSetRequired: {
     type: String,
-    required: true,
+    required: false,
   },
   tentativeNoOfVacancies: {
     type: String,
-    required: true,
+    required: false,
   },
   tentativeDateOfJoining: {
     type: String,
-    required: true,
+    required: false,
   },
   tentativeJobLocations: {
     type: String,
-    required: true,
+    required: false,
   },
   compensation: [
     {
@@ -152,31 +152,31 @@ natureOfBusiness: [{
   ],
   eligibilityCriteria: {
     type: String,
-    required: true,
+    required: false,
   },
   prePlacementTalk: {
     type: String,
-    required: true,
+    required: false,
   },
   resumeShortlisting: {
     type: String,
-    required: true,
+    required: false,
   },
   groupDiscussion: {
     type: String,
-    required: true,
+    required: false,
   },
   modeOfTest: [{
     type: String,
-    required: true,
+    required: false,
 }],
 modeOfInterview: [{
   type: String,
-  required: true,
+  required: false,
 }],
   typeOfTest: [{
     type: String,
-    required: true,
+    required: false,
   }],
   aptitudeTest: {
     type: String,
@@ -186,7 +186,7 @@ modeOfInterview: [{
   },
   typeOfInterview: [{
     type: String,
-    required: true,
+    required: false,
   }],
   technicalInterview: {
     type: RoundSchema,
@@ -201,11 +201,11 @@ modeOfInterview: [{
   ],
   numberOfMembers: {
     type: String,
-    required: true,
+    required: false,
   },
   numberOfRoomsRequired: {
     type: String,
-    required: true,
+    required: false,
   },
   otherRequirements: {
     type: String,
