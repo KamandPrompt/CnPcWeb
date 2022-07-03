@@ -46,12 +46,6 @@ class ManageINFJNF extends Component {
       // console.log(userRows, "Debugging")
       const columns = [
         {
-          field: "id",
-          headerName: "ID",
-          hideable: false,
-          width: 260,
-        },
-        {
           field: "type",
           headerName: "Type",
           hideable: false,

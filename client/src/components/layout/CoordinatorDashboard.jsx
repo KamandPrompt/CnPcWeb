@@ -27,7 +27,7 @@ class CoordinatorDashboard extends Component {
       resume1: "",
       resume2: "",
       resume3: "",
-      isVerified: "",
+      // isVerified: "",
       registerSheet: "",
       updateSheet: "",
     };
@@ -42,13 +42,13 @@ class CoordinatorDashboard extends Component {
       await axios
         .get("/api/admins/all-students")
         .then((res) => {
-          for (var i = 0; i < res.data.length; i++) {
-            if (res.data[i].isVerified === true) {
-              res.data[i].isVerified = "Verified";
-            } else {
-              res.data[i].isVerified = "Not Verified";
-            }
-          }
+          // for (var i = 0; i < res.data.length; i++) {
+          //   if (res.data[i].isVerified === true) {
+          //     res.data[i].isVerified = "Verified";
+          //   } else {
+          //     res.data[i].isVerified = "Not Verified";
+          //   }
+          // }
           this.setState({ studentsData: res.data, DataisLoaded: true });
           // console.log(this.state.studentsData);
         })
@@ -73,7 +73,7 @@ class CoordinatorDashboard extends Component {
             resume1: res.data.details.resume1,
             resume2: res.data.details.resume2,
             resume3: res.data.details.resume3,
-            isVerified: res.data.details.isVerified,
+            // isVerified: res.data.details.isVerified,
             role: res.data.details.role,
             DataisLoaded: true,
           });
@@ -111,7 +111,7 @@ class CoordinatorDashboard extends Component {
       resume1: this.state.resume1,
       resume2: this.state.resume2,
       resume3: this.state.resume3,
-      isVerified: this.state.isVerified === "Yes" ? true : false,
+      // isVerified: this.state.isVerified === "Yes" ? true : false,
       role: this.state.role,
     };
     console.log(user);
@@ -137,7 +137,7 @@ class CoordinatorDashboard extends Component {
       resume1,
       resume2,
       resume3,
-      isVerified,
+      // isVerified,
     } = this.state;
     event.preventDefault();
     console.log(this.state);
@@ -234,6 +234,7 @@ class CoordinatorDashboard extends Component {
     if (this.state.DataisLoaded === true) {
       if (this.state.rollNo === "") {
         const userRows = this.state.studentsData;
+        console.log(userRows);
         const columns = [
           {
             field: "rollNo",
@@ -250,11 +251,17 @@ class CoordinatorDashboard extends Component {
             hideable: false,
           },
           {
-            field: "isVerified",
-            headerName: "Status",
-            width: 190,
+            field: "branch",
+            headerName: "Branch",
+            width: 150,
             hideable: false,
           },
+          // {
+          //   field: "isVerified",
+          //   headerName: "Status",
+          //   width: 190,
+          //   hideable: false,
+          // },
           {
             field: "edit",
             headerName: "Edit/View",
@@ -370,7 +377,7 @@ class CoordinatorDashboard extends Component {
           resume1,
           resume2,
           resume3,
-          isVerified,
+          // isVerified,
           role,
         } = this.state;
         return (
@@ -591,7 +598,7 @@ class CoordinatorDashboard extends Component {
                             </Form.Group>
                           </Col> */}
                           <Col className="pl-1" md="4">
-                            <Form.Group>
+                            {/* <Form.Group>
                               <div>
                                 <label>Verification Status</label>
                               </div>
@@ -618,7 +625,7 @@ class CoordinatorDashboard extends Component {
                                   </>
                                 )}
                               </Form.Select>
-                            </Form.Group>
+                            </Form.Group> */}
                           </Col>
                         </Row>
                         <div
