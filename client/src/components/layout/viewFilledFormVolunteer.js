@@ -98,6 +98,7 @@ class ViewFilledFormVolunteer extends Component {
       DataisLoaded: false,
       otherOrgs: "",
       otherBusi: "",
+      isFormCreated: false,
     };
   }
 
@@ -109,6 +110,17 @@ class ViewFilledFormVolunteer extends Component {
     // console.log(type);
     // console.log(FID);
     // console.log(this.state.type);
+
+    await axios
+      .post(`/api/recruiters/checkFormbyFID/${FID}`, { FID: FID })
+      .then((res) => {
+        this.setState({ isFormCreated: res.data });
+        console.log(this.state.isFormCreated);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+
     await axios
       .post("api/recruiters/viewFilledForm", { fid: FID, type: type })
       .then((res) => {
@@ -658,8 +670,7 @@ class ViewFilledFormVolunteer extends Component {
                 <Col md="12">
                   <Card>
                     <Card.Body>
-                      <Form>
-                        <h2>Company Details</h2>
+                      {this.state.isFormCreated ? null : (
                         <Link
                           to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
                         >
@@ -671,6 +682,9 @@ class ViewFilledFormVolunteer extends Component {
                             Create Form
                           </Button>
                         </Link>
+                      )}
+                      <Form>
+                        <h2>Company Details</h2>
                         <Row>
                           <Col className="pr-1" md="6">
                             <Form.Group>
@@ -1719,6 +1733,19 @@ class ViewFilledFormVolunteer extends Component {
                           style={{ textAlign: "center", margin: "10px 0px" }}
                         ></div>
                       </Form>
+                      {this.state.isFormCreated ? null : (
+                        <Link
+                          to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
+                        >
+                          <Button
+                            className="btn-fill"
+                            style={{ width: "200px", margin: "40px" }}
+                            variant="info"
+                          >
+                            Create Form
+                          </Button>
+                        </Link>
+                      )}
                     </Card.Body>
                   </Card>
                 </Col>
@@ -1734,6 +1761,19 @@ class ViewFilledFormVolunteer extends Component {
                 <Col md="12">
                   <Card>
                     <Card.Body>
+                      {this.state.isFormCreated ? null : (
+                        <Link
+                          to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
+                        >
+                          <Button
+                            className="btn-fill"
+                            style={{ width: "200px", margin: "40px" }}
+                            variant="info"
+                          >
+                            Create Form
+                          </Button>
+                        </Link>
+                      )}
                       <Form>
                         <h2>Company Details</h2>
                         <Row>
@@ -2749,19 +2789,21 @@ class ViewFilledFormVolunteer extends Component {
                           style={{ textAlign: "center", margin: "10px 0px" }}
                         ></div>
                       </Form>
+                      {this.state.isFormCreated ? null : (
+                        <Link
+                          to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
+                        >
+                          <Button
+                            className="btn-fill"
+                            style={{ width: "200px", margin: "40px" }}
+                            variant="info"
+                          >
+                            Create Form
+                          </Button>
+                        </Link>
+                      )}
                     </Card.Body>
                   </Card>
-                  <Link
-                    to={`/createForm/?fid=${this.state.FID}&type=${this.state.type}`}
-                  >
-                    <Button
-                      className="btn-fill"
-                      style={{ width: "200px", margin: "40px" }}
-                      variant="info"
-                    >
-                      Create Form
-                    </Button>
-                  </Link>
                 </Col>
               </Row>
             </Container>

@@ -168,18 +168,18 @@ router.post("/update", (req, res) => {
   res.send("Profile updated Successfully!");
 });
 
-router.post("/updateForm", (req,res)=>{
+router.post("/updateForm", (req, res) => {
   Form.updateMany(
-    {"FID.FID": req.body.FID},
+    { "FID.FID": req.body.FID },
     {
       eligibility: req.body.eligibility,
     },
-    function(){
+    function () {
       console.log("Updated!!!!!!!!");
     }
   );
   res.send("Updated Successfully!");
-})
+});
 
 router.post("/updatePassword", async (req, res) => {
   // console.log(req.body);
@@ -303,9 +303,12 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
   try {
     let data = [];
     if (req.body.role === "recruiter") {
-      data = await Response.find({ "FID.FID" : fid, isVerified: true }).lean();
+      data = await Response.find({ "FID.FID": fid, isVerified: true }).lean();
       // console.log(data);
-    } else if (req.body.role === "coordinator" || req.body.role === "volunteer") {
+    } else if (
+      req.body.role === "coordinator" ||
+      req.body.role === "volunteer"
+    ) {
       data = await Response.find({ "FID.FID": fid }).lean();
     }
     // console.log(data);
@@ -329,16 +332,26 @@ router.post("/getFormResponsesbyCID/:fid", async (req, res) => {
   }
 });
 
-router.post("/getFormbyFID/:fid", async(req,res)=>{
+router.post("/getFormbyFID/:fid", async (req, res) => {
   const fid = req.params.fid;
-  try{
-    const data = await Form.findOne({"FID.FID":fid});
+  try {
+    const data = await Form.findOne({ "FID.FID": fid });
     // console.log(data);
     res.send(data);
-  }catch(err){
+  } catch (err) {
     res.send(err);
   }
-})
+});
+router.post("/checkFormbyFID/:fid", async (req, res) => {
+  const fid = req.params.fid;
+  try {
+    const data = await Form.findOne({ "FID.FID": fid });
+    // console.log(data);
+    res.send(data ? true : false);
+  } catch (err) {
+    res.send(err);
+  }
+});
 
 router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
   const fid = req.params.fid;
