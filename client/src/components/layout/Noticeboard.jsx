@@ -138,11 +138,7 @@ class Noticeboard extends Component {
       CID: this.state.CID,
     };
     this.props.saveResponseStudent(newResponse, this.props.history);
-    this.setState({
-      FID: "",
-      CID: "",
-      answers: [],
-    });
+    this.setState({redirect: true});
   }
 
   render() {

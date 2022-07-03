@@ -407,7 +407,7 @@ router.post("/all-forms/:id", async (req, res) => {
   }
 });
 
-router.post("/saveResponse", (req, res) => {
+router.post("/saveResponse", async (req, res) => {
   // const data = await Response.find({SID:req.body.SID, FID:req.body.FID});
   // if(!data){
 
@@ -415,17 +415,28 @@ router.post("/saveResponse", (req, res) => {
   // console.log("hi");
   // console.log(req.body);
   // console.log("394 -> ", req.body.FID)
-  const newResponse = new Response({
-    SID: req.body.SID,
-    CID: req.body.CID,
-    FID: req.body.FID,
-    answers: req.body.answers,
-  });
-  console.log(newResponse);
-  newResponse
-    .save()
-    .then((user) => res.json(user))
-    .catch((err) => console.log(err));
+  const data = await Response.findOne({SID: req.body.SID}).lean();
+  console.log(data);
+  if(data != undefined){
+    res.send({"status" : "error","message" : "Form is closed for you as you had already submitted the response"});
+  }else{
+    const newResponse = new Response({
+      SID: req.body.SID,
+      CID: req.body.CID,
+      FID: req.body.FID,
+      answers: req.body.answers,
+    });
+    console.log(newResponse);
+    newResponse
+      .save()
+      .then((user) =>{
+        user.status = "ok";
+        user.message = "Response Submitted Successfully";
+        // console.log(user);
+        res.json(user);
+      })
+      .catch((err) => console.log(err));
+  }
 });
 
 router.post("/updateResume", async (req, res) => {

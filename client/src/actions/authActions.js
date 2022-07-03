@@ -107,7 +107,13 @@ export const saveResponseStudent = (formData, history) => (dispatch) => {
   console.log(formData);
   axios
     .post("/api/students/saveResponse", formData)
-    .then((res) => alert("Response submitted successfully"))
+    .then((res) =>{
+      // console.log(res.data);
+      if(res.data.status == "error")
+        alert(res.data.message)
+      else
+        alert("Response submitted successfully");
+    })
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
