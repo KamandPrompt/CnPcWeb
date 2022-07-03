@@ -148,15 +148,15 @@ router.post("/fetchOutput", (req, res) => {
   console.log(link);
   let index1 = -1;
   let index2 = 0;
-  for(let i=2;i<link.length;i++){
-    if(link[i-2]=='/' && link[i-1]=='d' && link[i]=='/'){
-      index1 = i+1;
-    }else if(link[i]=='/' && i>index1 && index1!=-1){
-      index2 = i-1;
+  for (let i = 2; i < link.length; i++) {
+    if (link[i - 2] == "/" && link[i - 1] == "d" && link[i] == "/") {
+      index1 = i + 1;
+    } else if (link[i] == "/" && i > index1 && index1 != -1) {
+      index2 = i - 1;
       break;
     }
   }
-  let result = link.substr(index1, index2-index1+1);
+  let result = link.substr(index1, index2 - index1 + 1);
   console.log(result);
   accessSpreadsheet(result)
     .then((a) => {
@@ -169,28 +169,29 @@ router.post("/fetchOutput", (req, res) => {
     });
 });
 
-router.post("/updateOutput", (req,res)=>{
+router.post("/updateOutput", (req, res) => {
   const link = req.body.updateSheet;
   console.log(link);
   let index1 = -1;
   let index2 = 0;
-  for(let i=2;i<link.length;i++){
-    if(link[i-2]=='/' && link[i-1]=='d' && link[i]=='/'){
-      index1 = i+1;
-    }else if(link[i]=='/' && i>index1 && index1!=-1){
-      index2 = i-1;
+  for (let i = 2; i < link.length; i++) {
+    if (link[i - 2] == "/" && link[i - 1] == "d" && link[i] == "/") {
+      index1 = i + 1;
+    } else if (link[i] == "/" && i > index1 && index1 != -1) {
+      index2 = i - 1;
       break;
     }
   }
-  let result = link.substr(index1, index2-index1+1);
+  let result = link.substr(index1, index2 - index1 + 1);
   console.log(result);
   updateSpreadsheet(result)
-  .then((a) => {
-    return res.json(a);
-  }).catch((err)=>{
-    return res.status(400);
-  })
-})
+    .then((a) => {
+      return res.json(a);
+    })
+    .catch((err) => {
+      return res.status(400);
+    });
+});
 // @route POST api/students/register
 // @desc Register user
 // @access Public
@@ -335,7 +336,7 @@ router.post("/update", async (req, res) => {
   await Student.updateOne(
     { rollNo: req.body.rollNo },
     {
-      contactNumber: req.body.contactNumber
+      contactNumber: req.body.contactNumber,
     },
     function () {
       console.log("Updated!!!");
@@ -348,19 +349,23 @@ router.post("/update", async (req, res) => {
 
 router.post("/all-forms", async (req, res) => {
   const SID = req.body.SID;
-  const studData = await Student.findOne({_id: SID});
+  const studData = await Student.findOne({ _id: SID });
   const deg = studData.degree;
   const batch = studData.batch;
   const branch = studData.branch;
   // console.log(deg,batch,branch)
   try {
-    const data = await Form.find({ formStatus: "open", "eligibility.program" : deg, "eligibility.batch" : batch, "eligibility":{$elemMatch:{branch: branch}}}).lean();
+    const data = await Form.find({
+      formStatus: "open",
+      "eligibility.program": deg,
+      "eligibility.batch": batch,
+      eligibility: { $elemMatch: { branch: branch } },
+    }).lean();
     // console.log(data);
     // let sendData = [];
-    for(var i=0;i<data.length;i++)
-    {
+    for (var i = 0; i < data.length; i++) {
       // console.log(data[i]);
-      const query = {_id : data[i].CID};
+      const query = { _id: data[i].CID };
       const company = await Recruiters.findOne(query).lean();
       data[i].companyName = company.name;
       // sendData.push(data[i]);
@@ -375,29 +380,28 @@ router.post("/all-forms", async (req, res) => {
 router.post("/all-forms/:id", async (req, res) => {
   const id = req.params.id;
   const SID = req.body.SID;
-  const studData = await Student.findOne({_id: SID});
+  const studData = await Student.findOne({ _id: SID });
   const deg = studData.degree;
   const batch = studData.batch;
   const branch = studData.branch;
   try {
     let data = await Form.find({ _id: id }).lean();
-    for(var i=0;i<data[0].eligibility.length;i++)
-    {
+    for (var i = 0; i < data[0].eligibility.length; i++) {
       // console.log(data[0].eligibility[i].program,data[0].eligibility[i].batch)
-      if(data[0].eligibility[i].program == deg && data[0].eligibility[i].batch == batch)
-      {
+      if (
+        data[0].eligibility[i].program == deg &&
+        data[0].eligibility[i].batch == batch
+      ) {
         // console.log(data);
-        for(var j=0;j<data[0].eligibility[i].branch.length;j++)
-        {
-          if(data[0].eligibility[i].branch[j]==branch)
-          {
+        for (var j = 0; j < data[0].eligibility[i].branch.length; j++) {
+          if (data[0].eligibility[i].branch[j] == branch) {
             // console.log(data);
             return res.json({ data });
           }
         }
       }
     }
-    return res.json({ redirect : true });
+    return res.json({ redirect: true });
   } catch (error) {
     res.send(error);
   }
@@ -424,32 +428,37 @@ router.post("/saveResponse", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/updateResume", async (req,res)=>{
+router.post("/updateResume", async (req, res) => {
   console.log(req.body);
-  try{
-    const data = await Student.findOne({rollNo: req.body.rollNo}).lean();
-    let resume1 = data.resume1, resume2 = data.resume2, resume3 = data.resume3;
-    if(req.body.resume1){
-      if(req.body.resume1!=""){
+  try {
+    const data = await Student.findOne({ rollNo: req.body.rollNo }).lean();
+    let resume1 = data.resume1,
+      resume2 = data.resume2,
+      resume3 = data.resume3;
+    if (req.body.resume1) {
+      if (req.body.resume1 != "") {
         resume1 = req.body.resume1;
       }
     }
-    if(req.body.resume2){
-      if(req.body.resume2!=""){
+    if (req.body.resume2) {
+      if (req.body.resume2 != "") {
         resume2 = req.body.resume2;
       }
     }
-    if(req.body.resume3){
-      if(req.body.resume3!=""){
+    if (req.body.resume3) {
+      if (req.body.resume3 != "") {
         resume3 = req.body.resume3;
       }
     }
-    const updatedData = await Student.updateMany({rollNo: req.body.rollNo},
-      {resume1: resume1, resume2:resume2, resume3:resume3},()=>{
+    const updatedData = await Student.updateMany(
+      { rollNo: req.body.rollNo },
+      { resume1: resume1, resume2: resume2, resume3: resume3 },
+      () => {
         console.log("Resume Links Updated!!!!");
-      });
+      }
+    );
     res.send(updatedData);
-  }catch(err){
+  } catch (err) {
     res.send(err);
   }
 });

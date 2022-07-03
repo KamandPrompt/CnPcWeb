@@ -101,60 +101,49 @@ router.get("/recruiter/:email", async (req, res) => {
     return res.json({ status: "ok", details: recruiter });
   }
 });
-router.get("/all-forms", async (req,res) => {
+router.get("/all-forms", async (req, res) => {
   let allForms = await Forms.find({}).lean();
   let data = [];
-  for(var i=0;i<allForms.length;i++)
-  {
-    const title= allForms[i].title;
-    const type= allForms[i].type;
+  for (var i = 0; i < allForms.length; i++) {
+    const title = allForms[i].title;
+    const type = allForms[i].type;
     let openStatus = allForms[i].formStatus;
-    if(allForms[i].formStatus === "open")
-    {
+    if (allForms[i].formStatus === "open") {
       openStatus = "Open";
-    }
-    else
-    {
+    } else {
       openStatus = "Closed";
     }
     let isVerified = allForms[i].isVerified;
-    if(allForms[i].isVerified === true)
-    {
+    if (allForms[i].isVerified === true) {
       isVerified = "Verified";
-    }
-    else
-    {
+    } else {
       isVerified = "Not Verified";
     }
-    const query = {_id : allForms[i].CID};
+    const query = { _id: allForms[i].CID };
     const recData = await Recruiters.findOne(query).lean();
     const cname = recData.name;
     const obj = {
-      fid : allForms[i].CID,
-      title : title,
-      type : type,
-      openStatus : openStatus,
-      isVerified : isVerified,
-      name : cname
-    }
+      fid: allForms[i].CID,
+      title: title,
+      type: type,
+      openStatus: openStatus,
+      isVerified: isVerified,
+      name: cname,
+    };
     data.push(obj);
   }
   res.send(data);
 });
 
-router.post("/getCIDUsingFID",async (req,res) => {
-  if(req.body.type == 'INF')
-  {
-    let filledFormDetails = await INF.findOne({_id : req.body.fid}).lean();
-    return res.send({cid : filledFormDetails.CID});
-  }
-  else
-  {
-    let filledFormDetails = await JNF.findOne({_id : req.body.fid}).lean();
-    return res.send({cid : filledFormDetails.CID});
+router.post("/getCIDUsingFID", async (req, res) => {
+  if (req.body.type == "INF") {
+    let filledFormDetails = await INF.findOne({ _id: req.body.fid }).lean();
+    return res.send({ cid: filledFormDetails.CID });
+  } else {
+    let filledFormDetails = await JNF.findOne({ _id: req.body.fid }).lean();
+    return res.send({ cid: filledFormDetails.CID });
   }
 });
-
 
 router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
   const fid = req.params.fid;
@@ -171,21 +160,21 @@ router.post("/getResponsebySID/:fid/:sid", async (req, res) => {
     res.send(error);
   }
 });
-router.post("/verifyResponse/:fid/:sid" , async(req,res) => {
+router.post("/verifyResponse/:fid/:sid", async (req, res) => {
   const fid = req.params.fid;
   const sid = req.params.sid;
   // console.log(req.body);
   try {
     Response.updateOne(
-      { "FID.FID": fid, SID: sid},
-      {isVerified : req.body.isVerified},
-        function () {
-          console.log("Updated Response!!!");
-        }
+      { "FID.FID": fid, SID: sid },
+      { isVerified: req.body.isVerified },
+      function () {
+        console.log("Updated Response!!!");
+      }
     );
     res.send("Updated Successfully");
   } catch (error) {
     res.send(error);
   }
-})
+});
 module.exports = router;
