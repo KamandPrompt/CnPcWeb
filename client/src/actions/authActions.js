@@ -85,7 +85,7 @@ export const createFormRecruiter = (formData, history) => (dispatch) => {
 export const updateFormRecruiter = (formData, history) => (dispatch) => {
   axios
     .post("/api/recruiters/updateForm", formData)
-    .then((res) => alert("Form created successfully!!"))
+    .then((res) => alert("Form updated successfully!!"))
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
