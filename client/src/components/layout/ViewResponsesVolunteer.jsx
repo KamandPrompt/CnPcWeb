@@ -6,6 +6,7 @@ import { Button, Card, Form, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
+import {CSVLink, CSVDownload} from 'react-csv';
 
 class viewResponsesVolunteer extends Component {
   constructor(props) {
@@ -87,27 +88,53 @@ class viewResponsesVolunteer extends Component {
       if(this.state.SID===""){
         console.log(this.state.studentData);
         const userRows = this.state.studentData;
+        const csvData = [];
+        // for()
+        let arr = [];
+        for(let i=0;i<userRows.length;i++)
+        {
+          if(i==0)
+          {
+            let obj = userRows[0];
+            arr = Object.keys(obj);
+            arr.shift();
+            arr.shift();
+            arr.shift();
+            csvData.push(arr);
+          }
+          let temp = [];
+          for(let j=0;j<arr.length;j++)
+          {
+            temp.push(userRows[i][arr[j]]);
+          }
+          // temp.push(userRows[i].name);
+          // temp.push(userRows[i].rollNo);
+          // temp.push(userRows[i].cgpa);
+          // temp.push(userRows[i].branch);
+          csvData.push(temp);
+        }
+        console.log(csvData);
         const columns = [
           {
-            field: "name",
+            field: "Name",
             headerName: "Name",
             hideable: false,
             width: 230,
           },
           {
-            field: "rollNo",
+            field: "Roll Number",
             headerName: "Roll No.",
             hideable: false,
             width: 230,
           },
           {
-            field: "cgpa",
+            field: "CGPA",
             headerName: "CGPA",
             width: 150,
             hideable: false,
           },
           {
-            field: "branch",
+            field: "Branch",
             headerName: "Branch",
             width: 150,
             hideable: false,
@@ -132,6 +159,7 @@ class viewResponsesVolunteer extends Component {
         ];
       return (
           <>
+            <CSVLink data={csvData} >Download me</CSVLink>
             <div className="container text-center mt-15">
               <div className="row">
                 <div className="col-sm-12">
@@ -154,7 +182,7 @@ class viewResponsesVolunteer extends Component {
                       ]}
                       pageSize={10}
                       rowsPerPageOptions={[10, 20, 30]}
-                      getRowId={(row) => row.rollNo}
+                      getRowId={(row) => row['Roll Number']}
                     />
                   </div>
                   {/* <button
