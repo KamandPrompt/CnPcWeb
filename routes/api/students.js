@@ -440,34 +440,24 @@ router.post("/saveResponse", async (req, res) => {
 });
 
 router.post("/updateResume", async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const data = await Student.findOne({ rollNo: req.body.rollNo }).lean();
-    let resume1 = data.resume1,
-      resume2 = data.resume2,
-      resume3 = data.resume3;
-    if (req.body.resume1) {
-      if (req.body.resume1 != "") {
-        resume1 = req.body.resume1;
+    let arr = Object.keys(data);
+    for(let i=0;i<arr.length;i++){
+      if(req.body[arr[i]]){
+        data[arr[i]] = req.body[arr[i]];
       }
     }
-    if (req.body.resume2) {
-      if (req.body.resume2 != "") {
-        resume2 = req.body.resume2;
-      }
-    }
-    if (req.body.resume3) {
-      if (req.body.resume3 != "") {
-        resume3 = req.body.resume3;
-      }
-    }
+    console.log(data);
     const updatedData = await Student.updateMany(
       { rollNo: req.body.rollNo },
-      { resume1: resume1, resume2: resume2, resume3: resume3 },
+      data,
       () => {
         console.log("Resume Links Updated!!!!");
       }
     );
+    // console.log(updatedData);
     res.send(updatedData);
   } catch (err) {
     res.send(err);
