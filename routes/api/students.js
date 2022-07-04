@@ -449,7 +449,7 @@ router.post("/updateResume", async (req, res) => {
         data[arr[i]] = req.body[arr[i]];
       }
     }
-    console.log(data);
+    // console.log(data);
     const updatedData = await Student.updateMany(
       { rollNo: req.body.rollNo },
       data,

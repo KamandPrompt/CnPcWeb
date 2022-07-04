@@ -206,7 +206,7 @@ class CoordinatorDashboard extends Component {
       .catch((e) => {
         console.log(e);
       });
-    console.log(updateData);
+    // console.log(updateData);
     for (var i = 0; i < updateData.length; i++) {
       await axios
         .post("/api/students/updateResume", updateData[i])
