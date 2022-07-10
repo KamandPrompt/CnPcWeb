@@ -106,21 +106,21 @@ export const Home = (props) => {
           <div className="message container">
             <h2 className="cnp_heading">Career and placement cell IIT Mandi</h2>
             <p className="home_msg">
-              Among The Elite Technology Institutes Of The Country, IT Mandi
-              Embodies Technology, Research And Development In The Purest Form.
-              Supported By The Nourishing, Picturesque Settings Of The Shivalik
-              Mountain Range, IIT Mandi Boasts Of A Unique Hands-On Curriculum,
-              Creme De La Creme Of Students Who Epitomise All Round Proficiency
-              In Technical And Professional Matters. All The Placement
-              Associated Activities Are Handled By The Career And Placement Cell
-              (CP) Of The Institute. The CnP Consists Of Faculty Members,
-              Placement Officers And Student Volunteers Working Round The Clock
-              To Provide The Best Possible Services To The Visiting
-              Organisations.
+              Among the elite technology institutes of the country, IIT Mandi
+              embodies technology, research and development in the purest form.
+              Supported by the nourishing, picturesque settings of the Shivalik
+              Mountain Ranges, IIT Mandi boasts of a unique hands-on curriculum,
+              creme de la creme of students who epitomise all round proficiency
+              In technical and professional matters. All the placement
+              associated activities are handled by The Career And Placement Cell
+              (CnP) of the institute. The CnP consists of faculty members,
+              placement officers and student volunteers working round the clock
+              to provide the best possible services to the visiting
+              organisations.
               <br />
               <br />
-              We Look Forward To A Mutually Beneficial Placement Session With
-              Your Company.
+              We look forward to a mutually beneficial placement session with
+              your company.
             </p>
           </div>
         </div>
