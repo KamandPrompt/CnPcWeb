@@ -156,7 +156,7 @@ export const Home = (props) => {
         <div className="container">
           <h3 className="faculty-head">From the Director</h3>
           <div className="about container-fluid row item">
-            <p className="bhashan col-lg-8 col-md-8 col-sm-12 backG">
+            <p className="bhashan2 col-lg-8 col-md-8 col-sm-12 backG">
               " During a short span of ten years of its existence, Indian
               Institute of Technology Mandi (IIT Mandi) has gained a reputation
               for its cutting edge research and innovative teaching programs.
@@ -168,9 +168,6 @@ export const Home = (props) => {
               at IIT Mandi strives to expose students to strong fundamentals of
               engineering, basic sciences, and humanities, while simultaneously
               sensitizing them about human values and surroundings.
-              <span id="dots-dir">...</span>"
-              <span id="more-dir">
-                {" "}
                 Similarly, the institute's focus on research at the fore-fronts
                 of various areas of science and technology has resulted in
                 significant contributions, and excellent and responsible
@@ -187,18 +184,8 @@ export const Home = (props) => {
                 forward to enthusiastic participation of your organization in
                 our forthcoming campus placement session and lasting and
                 mutually satisfying relation with your organization.
-              </span>
-              <br />
-              <br />
-              <button
-                className="btn btn-primary btn-sm"
-                onClick={myFunction_dir}
-                id="myBtn1"
-              >
-                <em>
-                  <b>Read More</b>
-                </em>
-              </button>
+              {/* <br />
+              <br /> */}
             </p>
             <div className="col-lg-4 col-md-4 col-sm-12">
               <img
@@ -228,7 +215,7 @@ export const Home = (props) => {
                 alt="Dr. Laxmidhar Behera"
               />
             </div>
-            <p className="bhashan col-lg-8 col-md-8 col-sm-12 backG">
+            <p className="bhashan2 col-lg-8 col-md-8 col-sm-12 backG">
               " During a short span of ten years of its existence, Indian
               Institute of Technology Mandi (IIT Mandi) has gained a reputation
               for its cutting edge research and innovative teaching programs.
@@ -240,9 +227,6 @@ export const Home = (props) => {
               at IIT Mandi strives to expose students to strong fundamentals of
               engineering, basic sciences, and humanities, while simultaneously
               sensitizing them about human values and surroundings.
-              <span id="dots">...</span>"
-              <span id="more">
-                {" "}
                 Similarly, the institute's focus on research at the fore-fronts
                 of various areas of science and technology has resulted in
                 significant contributions, and excellent and responsible
@@ -259,18 +243,6 @@ export const Home = (props) => {
                 forward to enthusiastic participation of your organization in
                 our forthcoming campus placement session and lasting and
                 mutually satisfying relation with your organization.
-              </span>
-              <br />
-              <br />
-              <button
-                className="btn btn-primary btn-sm"
-                onClick={myFunction}
-                id="myBtn"
-              >
-                <em>
-                  <b>Read More</b>
-                </em>
-              </button>
             </p>
             <br />
           </div>

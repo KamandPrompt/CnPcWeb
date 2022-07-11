@@ -79,7 +79,7 @@ class Navigation extends Component {
                   >
                     Calendar
                   </a>
-                  <a href={require("./Brochure2021-22.pdf")} target="blank">
+                  <a href="https://drive.google.com/file/d/1vKvmLQF237zce1Ecn6_09Yba_ASD24V0/view?usp=sharing" target="blank">
                     Brochure
                   </a>
                   <a href="/past">Past Recruiters</a>
@@ -103,7 +103,7 @@ class Navigation extends Component {
                     <a href="/loginStudent">Login</a>
                   )}
                   <a
-                    href="http://research.iitmandi.ac.in/main/placements/files/STUDENT%20INTERNSHIP%20AND%20PLACEMENT%20POLICY.pdf"
+                    href="https://drive.google.com/file/d/10q_5UtFXibmpyNI8CvED22Oz5AZGjKTz/view?usp=sharing"
                     target="_blank"
                   >
                     CnP Policy for Students

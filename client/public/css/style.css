@@ -270,6 +270,27 @@ a:focus,
   color: #ffffff;
   font-size: 15px;
 }
+
+.bhashan2{
+  text-align:initial;
+  padding-top: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Open Sans', sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  height: 400px;
+  overflow: scroll;
+}
+
+.bhashan2 {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.bhashan2::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
 .why-recruit{
   background-image: url(../images/why_backg.png);
   background-size: 100%;
