@@ -6,36 +6,29 @@ import Carousel from "react-elastic-carousel";
 import Item from "./Item";
 import amazon from "../images/Company_Logos/amazon.png";
 import de_shaw from "../images/Company_Logos/de_shaw.png";
-import nvidia from "../images/Company_Logos/Nvidia.png";
+import nvidia from "../images/Company_Logos/nvidia.jfif";
 import amd from "../images/Company_Logos/AMD.png";
 import bajaj from "../images/Company_Logos/Bajaj.png";
 import lt from "../images/Company_Logos/lt.png";
 import synopsis from "../images/Company_Logos/synopsis.png";
 import accenture from "../images/Company_Logos/accenture.png";
-import tcs from "../images/Company_Logos/tcs.png";
+import tcs from "../images/Company_Logos/tcs.jpg";
 import kpmg from "../images/Company_Logos/kpmg.jpg";
 import st from "../images/Company_Logos/st.png";
 import deloitte from "../images/Company_Logos/deloitte.png";
-// import adobe from "../images/Company_Logos/adobe.png";
-// import digilytic from "../images/Company_Logos/Digilytics.png";
 import flipkart from "../images/Company_Logos/flipkart.png";
 import google from "../images/Company_Logos/google.png";
 import indeed from "../images/Company_Logos/indeed.png";
 import microsoft from "../images/Company_Logos/microsoft.png";
-// import pharma from "../images/Company_Logos/PharmEasy.png";
 import sprinklr from "../images/Company_Logos/sprinklr.jpg";
 import siemens from "../images/Company_Logos/siemens.png";
-// import swiggy from "../images/Company_Logos/Swiggy.png";
 import walmart from "../images/Company_Logos/Walmart.jpg";
 import uber from "../images/Company_Logos/uber.png";
-import pentair from "../images/Company_Logos/pentair.jpg";
+import pentair from "../images/Company_Logos/pentair.jfif";
 import texes from "../images/Company_Logos/texas.png";
-// import suzlon from "../images/Company_Logos/Suzlon_Energy.jpg";
 import samsung from "../images/Company_Logos/samsung.png";
-// import raam_g from "../images/Company_Logos/Raam_Group.png";
-// import practical from "../images/Company_Logos/Practically.png";
 import director from "../images/Dir.png";
-import tushar_jain from "../images/tushu.jpg";
+import tushar_jain from "../images/tushu.png";
 
 export const Home = (props) => {
   function myFunction() {
@@ -75,28 +68,28 @@ export const Home = (props) => {
     { width: 1200, itemsToShow: 6 },
   ];
   const items = [
-    accenture,
-    amazon,
+    google,
+    microsoft,
     de_shaw,
-    deloitte,
+    amazon,
+    flipkart,
+    tcs,
+    sprinklr,
+    indeed,
+    walmart,
+    uber,
+    samsung,
+    siemens,
     nvidia,
+    accenture,
+    deloitte,
     amd,
     lt,
     bajaj,
     st,
     synopsis,
     kpmg,
-    tcs,
-    flipkart,
-    microsoft,
-    google,
     pentair,
-    samsung,
-    siemens,
-    sprinklr,
-    indeed,
-    walmart,
-    uber,
     texes,
   ];
   return (
@@ -157,33 +150,59 @@ export const Home = (props) => {
           <h3 className="faculty-head">From the Director</h3>
           <div className="about container-fluid row item">
             <p className="bhashan2 col-lg-8 col-md-8 col-sm-12 backG">
-              " During a short span of ten years of its existence, Indian
-              Institute of Technology Mandi (IIT Mandi) has gained a reputation
-              for its cutting edge research and innovative teaching programs.
-              The institute prides itself on creating an environment that
-              empowers young minds by developing intellect, versatility,
-              broadening horizons of creativity, and honing inter-personal
-              skills. With an aim of shaping the students into responsible
-              engineers and scientists, the innovative undergraduate curriculum
-              at IIT Mandi strives to expose students to strong fundamentals of
-              engineering, basic sciences, and humanities, while simultaneously
-              sensitizing them about human values and surroundings.
-                Similarly, the institute's focus on research at the fore-fronts
-                of various areas of science and technology has resulted in
-                significant contributions, and excellent and responsible
-                researchers. The Career and Placement (CnP) cell invites
-                organizations which have recruited our alumni and have witnessed
-                them deliver well on high expectations placed on them, as well
-                as those whom our students have not yet got an opportunity to
-                serve. The CnP cell strives to facilitate the best possible
-                match between the aspirations of recruiting organizations and
-                the abilities of our students, and we welcome suggestions from
-                your organization that will help us realize it. I can assure you
-                of prodigious talent of our students and feel elated to invite
-                your esteemed organizations to recruit our students. We look
-                forward to enthusiastic participation of your organization in
-                our forthcoming campus placement session and lasting and
-                mutually satisfying relation with your organization.
+              " I am pleased to welcome you to IIT Mandi, which is located on the 538-acre picturesque river
+valley in the Shivalik Range. Since its inception in 2010, IIT Mandi has consistently worked to nurture
+professionals with industry-ready skills. We achieve this by periodically revising the curriculum in
+consultation with academic and industry experts to keep it relevant to the fast-changing global
+human resource needs. Academic excellence is our greatest strength. Students are introduced to
+practical learning with innovative pedagogy very early into the training. This ensures that they are
+better prepared to succeed in ambitious corporate environments. We provide a learning
+environment to allow individuals to express their passion and apply their innate abilities to solve
+real-world problems.
+<br />
+In the first year, the B.Tech. students participate in the Foundations of Design Practicum: Robotics
+and Reverse Engineering course which introduces them to existing engineering systems with
+hands-on experience. Design Practicum introduced in the second year to our B.Tech. students
+enables them to get exposure to real-world engineering problem-solving with interdisciplinary
+collaborations. With a budget of Rs. 25,000, award-winning projects include an intelligent drip
+irrigation system, a 3D printer, an autonomous garbage collector, etc. Socio-Technical Practicum
+introduced during B.Tech. 3rd year provides exposure to the impact of new technologies on
+society, often doing fieldwork in villages and towns in the neighborhood. Typical projects include
+alleviating traffic congestion in Mandi town, mechanization in terraced farms in the Himalayas,
+and education and livelihood for village women. These interdisciplinary and group projects build
+up perseverance, leadership, connection with society, and the opportunity to apply their technical
+skills.
+<br />
+The M.Tech. and M.Sc. degree programs contain a substantial component of thesis work relying
+heavily on practical learning aspects for over two semesters. In this open-ended thesis, students
+learn to work independently and in great depth on a research problem. The thesis contains
+globally novel contributions to the discipline in some aspects. Thus, the Master’s graduates are
+well suited to take a lead role. The institute also encourages the student to explore collaboration
+and to work on projects guided by industry experts for their thesis. Research by our MS and Ph.D.
+students has achieved global recognition in international journals and conferences. <br />
+In addition, the diaspora of student-driven extracurricular activities creates a lively learning
+environment and provides leadership abilities and confidence in our students. All this is impossible
+without the support of our able faculty, who give a holistic learning experience with their excellent
+teaching and exposure to cutting-edge research and publication in the best international scholastic
+journals. We have a total faculty strength of 145 active in research and teaching in several areas of
+engineering, sciences, and the humanities. Faculty have received research grants totaling over Rs. 127
+crores and the Institute has invested heavily in developing state-of-the-art lab infrastructure. Our
+faculty members are also involved in mentoring startups supported by our Technology business
+incubator, IIT Mandi Catalyst. The IIT Mandi Catalyst has to date disbursed about INR 5.76 crores for
+prototyping and commercialization of diverse start-ups in clean energy, environment, health care,
+agriculture, enterprise management, biotech, education, manufacturing, and consumer internet. The
+fact that about 10% of the total start-ups have been founded by the IIT Mandi faculty, staff, and
+students underlines the innovative and entrepreneurial spirit of IIT Mandi once again.
+The IIT Mandi alumni have done extremely well, as evident from receiving the youngest scientist
+award in the Indian Science Congress, INYAS award, etc. Our current alumni strength is over 1081
+B.Tech, 75 MS, 321 M.Tech, 297 MSc, 23 MA, and 173 Ph.D. graduates. Our alumni have excelled in
+different spheres of academia, industry, and central government administration, thanks to our
+innovative curriculum. Most of these alumni have been hired by top multinational companies, a few
+have chosen higher studies in leading universities and several of them are serving different
+administrative positions in the Govt. of India including IAS.
+<br />
+On behalf of the faculty and students of IIT Mandi, I invite you to participate in our placement process.
+I am confident that you will find it a rewarding experience!
               {/* <br />
               <br /> */}
             </p>
@@ -216,33 +235,32 @@ export const Home = (props) => {
               />
             </div>
             <p className="bhashan2 col-lg-8 col-md-8 col-sm-12 backG">
-              " During a short span of ten years of its existence, Indian
-              Institute of Technology Mandi (IIT Mandi) has gained a reputation
-              for its cutting edge research and innovative teaching programs.
-              The institute prides itself on creating an environment that
-              empowers young minds by developing intellect, versatility,
-              broadening horizons of creativity, and honing inter-personal
-              skills. With an aim of shaping the students into responsible
-              engineers and scientists, the innovative undergraduate curriculum
-              at IIT Mandi strives to expose students to strong fundamentals of
-              engineering, basic sciences, and humanities, while simultaneously
-              sensitizing them about human values and surroundings.
-                Similarly, the institute's focus on research at the fore-fronts
-                of various areas of science and technology has resulted in
-                significant contributions, and excellent and responsible
-                researchers. The Career and Placement (CnP) cell invites
-                organizations which have recruited our alumni and have witnessed
-                them deliver well on high expectations placed on them, as well
-                as those whom our students have not yet got an opportunity to
-                serve. The CnP cell strives to facilitate the best possible
-                match between the aspirations of recruiting organizations and
-                the abilities of our students, and we welcome suggestions from
-                your organization that will help us realize it. I can assure you
-                of prodigious talent of our students and feel elated to invite
-                your esteemed organizations to recruit our students. We look
-                forward to enthusiastic participation of your organization in
-                our forthcoming campus placement session and lasting and
-                mutually satisfying relation with your organization.
+              " During the short span of thirteen years of its existence, the Indian Institute of Technology Mandi
+(IIT Mandi) has gained a reputation for its cutting-edge research and innovative teaching
+programs focusing on up-to-date scientific knowledge and state-of-the-art technological
+know-how in their respective disciplines. The institute prides itself on creating an environment
+that empowers young minds by developing intellect, and versatility, broadening horizons of
+creativity and honing interpersonal skills with the help of our top-notch faculty and staff. With the
+aim of shaping the students into responsible engineers and scientists, the innovative curriculum
+at IIT Mandi strives to expose students to strong fundamentals of engineering, basic sciences,
+and humanities while simultaneously sensitizing them to human values and society. Similarly, the
+institute's focus on research at the fore-fronts of various areas of science and technology has
+resulted in significant contributions and responsible researchers. <br />
+Apart from the technological development of our students, they also participate/organize in a
+multitude of extra-curricular activities, which exposes them to and tests their skills in sports,
+culture, dramatics, and music and allows them to develop a healthy overall personality. This has
+brought several awards to the institute at national and international levels. The students also get
+first-hand experience in organizing and managing events through various leadership positions
+they take up during several annual events organized at IIT Mandi. <br />
+The Career and Placement Cell (CnPC) invites organizations that have recruited our alumni and
+have witnessed them deliver well on high expectations placed on them, as well as those whom
+our students have not yet got an opportunity to serve. The CnP cell strives to facilitate the best
+possible match between the aspirations of recruiting organizations and the abilities of our
+students. We welcome suggestions from your organization that will help us realize it. On behalf of
+the CnPC team at IIT Mandi, I assure you of the prodigious talent of our students and feel elated
+to invite your esteemed organizations to recruit our students. We look forward to the enthusiastic
+participation of your organization in our 2022-2023 campus placement process and a lasting
+and mutually satisfying relationship with your organization."
             </p>
             <br />
           </div>
@@ -304,7 +322,7 @@ export const Home = (props) => {
               <div class="card-body">
                 <h3 class="card-title why_heading">
                   {" "}
-                  <i class="bi bi-book"></i> Acadmics
+                  <i class="bi bi-book"></i> Academics
                 </h3>
                 <p class="card-text">
                   When it comes to academics, the institute has a uniquely
@@ -317,7 +335,7 @@ export const Home = (props) => {
                   Tempore ut eos velit corporis distinctio.
                 </p>
                 {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <a href="/acadmics">
+                <a href="https://iitmandi.ac.in/new/academic-structure" target={"_blank"}>
                 <button
                 className="btn btn-primary btn-sm"
                 id="btn-why"
@@ -335,7 +353,7 @@ export const Home = (props) => {
               <div class="card-body">
                 <h3 class="card-title why_heading">
                   {" "}
-                  <i class="bi bi-file-person"></i> Student Activities
+                  <i class="bi bi-file-person"></i> Alumni  
                 </h3>
                 <p class="card-text">
                   Campus life is not just about academics; it’s about providing

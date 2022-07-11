@@ -57,7 +57,7 @@ class Navigation extends Component {
                 <div className="dropdown-content">
                   <a href="/Recpro">Recruitment Process</a>
                   <a
-                    href="http://research.iitmandi.ac.in/main/placements/files/COMPANY%20POLICY.pdf"
+                    href="https://drive.google.com/file/d/1yzcZepfq2UIVK73xc09oosTrfFlxn5dF/view?usp=sharing"
                     target="_blank"
                   >
                     CnP policy for Company

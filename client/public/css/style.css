@@ -279,7 +279,7 @@ a:focus,
   font-family: 'Open Sans', sans-serif;
   color: #ffffff;
   font-size: 15px;
-  height: 400px;
+  height: 300px;
   overflow: scroll;
 }
 
@@ -383,7 +383,7 @@ a:focus,
   font-family: 'Poppins', sans-serif;
   border-bottom-right-radius: 20px;
   font-weight: lighter;
-  padding: 36px;
+  padding: 35px;
 }
 
 .homeHead{
