@@ -263,9 +263,9 @@ a:focus,
 }
 .bhashan{
   text-align:initial;
-  padding-top: 35px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-top: 25px;
+  padding-left: 7px;
+  padding-right: 7px;
   font-family: 'Open Sans', sans-serif;
   color: #ffffff;
   font-size: 15px;
@@ -943,7 +943,7 @@ hr {
   color: rgb(0, 0, 0);
   text-align: center;
   /* background-color: #0A1F56; */
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 500;
   padding: 2% 0%;
 }
@@ -964,7 +964,7 @@ hr {
   background-color: #0A1F56;
   padding: 2%;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 18px;
   border-top-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }

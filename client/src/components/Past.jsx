@@ -32,7 +32,8 @@ const Past = () => {
       "Avalara",
       "Axtria",
       "Axxela",
-      "Azure power"
+      "Azure power",
+      "Azim Premji Foundation"
     ],
     // B
     [
@@ -50,6 +51,8 @@ const Past = () => {
       "Buddi.AI",
       "Bueno Finance",
       "BYJU'S",
+      "BEL",
+      "Brigosha finance"
     ],
     // C
     [
@@ -454,7 +457,7 @@ const Past = () => {
                 <div className="values row">
           {name.map((item) => {
             return (
-              <div className="company col-lg-3 col-md-4 col-sm-6 col-xs-12" style={{"padding":"25px","justify-content":"centre"}}>
+              <div className="company col-lg-3 col-md-4 col-sm-6 col-xs-12" style={{"padding":"25px","text-align":"center"}}>
                 {item}
               </div>
             );
