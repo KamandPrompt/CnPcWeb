@@ -270,40 +270,27 @@ and mutually satisfying relationship with your organization."
         <div className="intro-text">
           <h2 className="why_heading">Why IIT Mandi ?</h2>
           <p className="why_para">
-            The Indian Institute of Technology Mandi is a premier technical
-            institution. A uniquely innovative curriculum, a state-of-the-art
-            infrastructure, and a brilliantly serene, clean and stimulating
-            campus atmosphere made for an enriching and fulfilling experience
-            for our students. Among the elite technology institutes of the
-            country, IIT Mandi embodies technology, research and development in
-            the purest form.
+          The Indian Institute of Technology Mandi is a premier technical institution. A uniquely innovative curriculum, a state-of-the-art infrastructure, and a brilliantly serene, clean and stimulating campus atmosphere make for an enriching and fulfilling experience for our students. Among the elite technology institutes of the country, IIT Mandi embodies technology, research and development in the purest form.
           </p>
         </div>
         <div className="main-cards row">
           {/* <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 card-why-recruit">
             <div>
-            <i class="bi bi-mortarboard-fill"></i>
+            <i className="bi bi-mortarboard-fill"></i>
             <span>Research</span>
             </div>
           </div> */}
-          <div class="col-lg-4 col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="card-title why_heading">
+          <div className="col-lg-4 col-sm-6">
+            <div className="card">
+              <div className="card-body">
+                <h3 className="card-title why_heading">
                   {" "}
-                  <i class="bi bi-search"></i> Research
+                  <i className="bi bi-search"></i> Research
                 </h3>
-                <p class="card-text">
-                  Good research is the hallmark of any great technical
-                  institution. The research facilities at IIT Mandi are among
-                  the finest in the country and allow the community to pursue
-                  scientific truths in the best possible manner, with every
-                  nature of assistance available for them. Over the years,
-                  students and faculty members have taken great strides in the
-                  field of research and a culture of constant innovation and
-                  research has developed in the campus.
+                <p className="card-text">
+                The research facilities at IIT Mandi are among the finest in the country and allow the community to pursue scientific truths in the best possible manner. Over the years, students and faculty members have made great strides in the field of research and a culture of constant innovation and research has developed in the campus.
                 </p>
-                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                {/* <a href="#" className="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
                 <a href="/research">
                 <button
                 className="btn btn-primary btn-sm"
@@ -317,24 +304,17 @@ and mutually satisfying relationship with your organization."
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="card-title why_heading">
+          <div className="col-lg-4 col-sm-6">
+            <div className="card">
+              <div className="card-body">
+                <h3 className="card-title why_heading">
                   {" "}
-                  <i class="bi bi-book"></i> Academics
+                  <i className="bi bi-book"></i> Academics
                 </h3>
-                <p class="card-text">
-                  When it comes to academics, the institute has a uniquely
-                  liberal and hands-on curriculum that focuses on cultivating
-                  well-rounded and confident graduates ready to enter and
-                  contribute to the industry. Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Corporis alias atque assumenda
-                  vitae illo non, accusamus distinctio quod voluptate nulla.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Tempore ut eos velit corporis distinctio.
+                <p className="card-text">
+                When it comes to academics, the institute has a uniquely liberal and hands-on curriculum that focuses on cultivating well-rounded and confident graduates ready to enter the industry. Academic liberty gives students freedom to credit courses of their choice in diverse domains, while hands-on practice trains them for the professional world. 
                 </p>
-                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                {/* <a href="#" className="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
                 <a href="https://iitmandi.ac.in/new/academic-structure" target={"_blank"}>
                 <button
                 className="btn btn-primary btn-sm"
@@ -348,24 +328,18 @@ and mutually satisfying relationship with your organization."
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="card-title why_heading">
+          <div className="col-lg-4 col-sm-6">
+            <div className="card">
+              <div className="card-body">
+                <h3 className="card-title why_heading">
                   {" "}
-                  <i class="bi bi-file-person"></i> Alumni  
+                  <i className="bi bi-file-person"></i> Alumni  
                 </h3>
-                <p class="card-text">
-                  Campus life is not just about academics; it’s about providing
-                  a holistic and colourful environment to an individual and
-                  allowing them to freely pursue their hobbies and interests so
-                  that they grow to become well-rounded and highly capable
-                  professionals. As such, the campus culture at IIT Mandi is a
-                  vibrant one, characterised by a wide range of dedicated clubs
-                  in areas like sports, arts, culture, science and technology,
-                  literature and so on.
+                <p className="card-text">
+                Even as a young institute, IIT Mandi has an extensive alumni network comprising elite professionals. Our graduates engage with society in meaningful ways and continue to make a difference every day. Some of them have made significant strides and gained national popularity. The institute maintains relations with its alumni through the Alumni Affairs Cell.      
+
                 </p>
-                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                {/* <a href="#" className="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
                 <a href="https://gymkhana.iitmandi.co.in/">
                 <button
                 className="btn btn-primary btn-sm"
@@ -379,24 +353,17 @@ and mutually satisfying relationship with your organization."
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="card-title why_heading">
+          <div className="col-lg-6 col-sm-6">
+            <div className="card">
+              <div className="card-body">
+                <h3 className="card-title why_heading">
                   {" "}
-                  <i class="bi bi-award"></i> Student Achievement
+                  <i className="bi bi-award"></i> Student Achievement
                 </h3>
-                <p class="card-text">
-                  Good research is the hallmark of any great technical
-                  institution. The research facilities at IIT Mandi are among
-                  the finest in the country and allow the community to pursue
-                  scientific truths in the best possible manner, with every
-                  nature of assistance available for them. Over the years,
-                  students and faculty members have taken great strides in the
-                  field of research and a culture of constant innovation and
-                  research has developed in the campus.
+                <p className="card-text">
+                IIT Mandi students have made outstanding achievements in various fields over the years. Our teams have won accolades in several regional-level inter-college as well as national-level inter-IIT competitions in the domains of science and technology, cultural arts and sports. Apart from these, there is a long list of individual accomplishments of our students, mainly in the field of science and technology. 
                 </p>
-                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                {/* <a href="#" className="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
                 <a href="/achievement">
                 <button
                 className="btn btn-primary btn-sm"
@@ -410,24 +377,18 @@ and mutually satisfying relationship with your organization."
               </div>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <h3 class="card-title why_heading">
+          <div className="col-lg-6 col-sm-6">
+            <div className="card">
+              <div className="card-body">
+                <h3 className="card-title why_heading">
                   {" "}
-                  <i class="bi bi-mortarboard-fill"></i>Degree Programme
+                  <i className="bi bi-mortarboard-fill"></i>Degree Programme
                 </h3>
-                <p class="card-text">
-                  Good research is the hallmark of any great technical
-                  institution. The research facilities at IIT Mandi are among
-                  the finest in the country and allow the community to pursue
-                  scientific truths in the best possible manner, with every
-                  nature of assistance available for them. Over the years,
-                  students and faculty members have taken great strides in the
-                  field of research and a culture of constant innovation and
-                  research has developed in the campus.
+                <p className="card-text">
+                IIT Mandi offers a wide array of degree programmes in the fields of engineering, science, arts and management. The curricula of our programmes are extremely modern, and have been designed with the requirements of the ever-evolving global industry in mind. 
+
                 </p>
-                {/* <a href="#" class="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
+                {/* <a href="#" className="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
                 <a href="https://iitmandi.ac.in/new/programs" target={"_blank"}>
                 <button
                 className="btn btn-primary btn-sm"

@@ -1616,7 +1616,7 @@ hr {
 }
 .why_para{
   color: whitesmoke !important;
-  font-size: large;
+  font-size: 20px;
 }
 .card-title{
   /* color: whitesmoke !important; */
@@ -1624,6 +1624,9 @@ hr {
 .card{
   padding: 5%;
 }
+.card-text{
+  font-size: 20px;
+}
 .card > div > h3{
-  font-size: 30px;
+  font-size: 35px;
 }
