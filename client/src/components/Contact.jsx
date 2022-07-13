@@ -3,15 +3,18 @@ import dummy from "../images/ravinder.png";
 import "./Recpro.css";
 import nimisha from "../images/nimisha.jpg";
 import parmod from "../images/parmod.jpg";
-import kairav from "../images/kairav.jpeg";
-import ankit from "../images/ankit.jpg";
-import vidhi from "../images/vidhi.jpg";
-import gupta from "../images/ankit-gupta.jpg";
-import saksham from "../images/saksham.jpeg";
-import pratik from "../images/pratik.jpg";
-import sudhanshu from "../images/sudhanshu.jpg";
-import bhumanyu from "../images/bhumanyu.jpg";
+import aryan from "../images/aryan.jpg";
+import harnaman from "../images/harnaman.jpg";
+import vineet from "../images/vineet.jpg";
+import ayushV from "../images/ayushV.jpg";
+import deepak from "../images/deepak.jpg";
+import sagar from "../images/sagar.jpg";
+import ayush from "../images/ayush.jpg";
+import nivedita from "../images/nivedita.jpg";
 import garima from "../images/garima.jpg";
+import yatharth from "../images/yatarth.jpg";
+import shobit from "../images/shobit.png";
+import shikha from "../images/shikha.png";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import { Form } from "react-bootstrap";
 export const Contact = (props) => {
@@ -141,7 +144,7 @@ export const Contact = (props) => {
               </div>
             </figcaption>
           </figure>
-          <figure className="snip1559">
+          {/* <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
                 <img
@@ -167,7 +170,7 @@ export const Contact = (props) => {
                 </p>
               </div>
             </figcaption>
-          </figure>
+          </figure> */}
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
@@ -218,13 +221,13 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption className="snip1560">
               <div className="profile-image">
-                <img src={vidhi} className="image" />
-                <h3 className="person">Vidhi Desai</h3>
+                <img src={vineet} className="image" />
+                <h3 className="person">Vineet Ahuja</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Vidhi Desai
+                  Vineet Ahuja
                   <br />
                   Overall Coordinator
                   <br />
@@ -241,13 +244,13 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={ankit} alt="Ankit Karan" className="image" />
-                <h3 className="person">Ankit Karan</h3>
+                <img src={harnaman} alt="Harnaman Kaur" className="image" />
+                <h3 className="person">Harnaman Kaur</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Ankit Karan
+                  Harnaman Kaur
                   <br />
                   Overall Coordinator
                   <br />
@@ -264,13 +267,13 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={kairav} alt="Kairav Bansal" className="image" />
-                <h3 className="person">Kairav Bansal</h3>
+                <img src={nivedita} alt="Nivedita Pramod" className="image" />
+                <h3 className="person">Nivedita Pramod</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Kairav Bansal
+                  Nivedita Pramod
                   <br />
                   CSE Branch Coordinator
                   <br />
@@ -289,16 +292,16 @@ export const Contact = (props) => {
             <figcaption>
               <div className="profile-image">
                 <img
-                  src={sudhanshu}
-                  alt="Sudhanshu Chauhan"
+                  src={ayush}
+                  alt="Ayush Dwivedi"
                   className="image"
                 />
-                <h3 className="person">Sudhanshu Chauhan</h3>
+                <h3 className="person">Ayush Dwivedi</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Sudhanshu Chauhan
+                  Ayush Dwivedi
                   <br />
                   EE Branch Coordinator
                   <br />
@@ -315,13 +318,13 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={gupta} alt="Ankit Gupta" className="image" />
-                <h3 className="person">Ankit Gupta</h3>
+                <img src={ayushV} alt="Ayush Singh Vardhan" className="image" />
+                <h3 className="person">Ayush Singh Vardhan</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Ankit Gupta
+                  Ayush Singh Vardhan
                   <br />
                   ME, CE Branch Coordinator
                   <br />
@@ -338,13 +341,13 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={saksham} alt="saksham" className="image" />
-                <h3 className="person">Saksham Barara</h3>
+                <img src={deepak} alt="Deepak Kumar Sah" className="image" />
+                <h3 className="person">Deepak Kumar Sah</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Saksham Barara
+                  Deepak Kumar Sah
                   <br />
                   DSE Branch Coordinator
                   <br />
@@ -361,13 +364,13 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={bhumanyu} alt="Bhumanyu" className="image" />
-                <h3 className="person">Bhumanyu Goyal</h3>
+                <img src={aryan} alt="Aryan" className="image" />
+                <h3 className="person">Aryan Goyal</h3>
               </div>
               <br />
               <div className="middle">
                 <div className="text">
-                  Bhumanyu Goyal
+                  Aryan Goyal
                   <br />
                   EP Branch Coordinator
                   <br />
@@ -385,13 +388,85 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={pratik} alt="Pratik" className="image" />
-                <h3 className="person">Pratik Kumar</h3>
+                <img src={yatharth} alt="Yatharth Mogra" className="image" />
+                <h3 className="person">Yatharth Mogra</h3>
               </div>
               <br />
               <div className="middle">
                 <div className="text">
-                  Pratik Kumar
+                  Yatharth Mogra
+                  <br />
+                  Bio Eng. Branch Coordinator
+                  <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto:b18187@iitmandi.ac.in">
+                    b18187@iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +919939549845">+91-9939549845</a>
+                </div>
+              </div>
+              <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={shobit} alt="Shobhit" className="image" />
+                <h3 className="person">Shobhit</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <div className="text">
+                  Shobhit
+                  <br />
+                  Bio Eng. Branch Coordinator
+                  <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto:b18187@iitmandi.ac.in">
+                    b18187@iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +919939549845">+91-9939549845</a>
+                </div>
+              </div>
+              <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={sagar} alt="Sagar" className="image" />
+                <h3 className="person">Sagar</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <div className="text">
+                  Sagar
+                  <br />
+                  Bio Eng. Branch Coordinator
+                  <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto:b18187@iitmandi.ac.in">
+                    b18187@iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +919939549845">+91-9939549845</a>
+                </div>
+              </div>
+              <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={shikha} alt="Shikha" className="image" />
+                <h3 className="person">Shikha</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <div className="text">
+                  Shikha
                   <br />
                   Bio Eng. Branch Coordinator
                   <br />

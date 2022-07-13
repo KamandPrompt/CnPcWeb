@@ -4,10 +4,9 @@ const Past = () => {
   let names = [
     //   A
     [
-        "Aakash Institute",
-        "ABB",
-        "Achnet Technologie",
-        "Accenture India",
+      "Aakash Institute",
+      "ABB",
+      "ACME",
       "Accenture",
       "Accolite",
       "ACME",
@@ -25,8 +24,6 @@ const Past = () => {
       "ArcelorMittal Nippon Steel",
       "Arcesium",
       "Arista Networks",
-      "Ascend Bizcap",
-      "Ather energy",
       "Atom",
       "Atom Berg technologies",
       "Avalara",
@@ -74,6 +71,7 @@ const Past = () => {
       "Clear Trail",
       "Clicklabs",
       "Coal India",
+      "CodeNation",
       "Cognizant",
       "Commvault",
       "Continental India Private Limited",
@@ -88,7 +86,7 @@ const Past = () => {
     ],
     // D
     [
-        "Danfoss Industries Pvt Ltd",
+      "Danfoss Industries Pvt Ltd",
       "D. E. Shaw",
       "Decision Point",
       "Delhivery",
