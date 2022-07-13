@@ -57,12 +57,12 @@ class Navigation extends Component {
                 <div className="dropdown-content">
                   <a href="/Recpro">Recruitment Process</a>
                   <a
-                    href="http://research.iitmandi.ac.in/main/placements/files/COMPANY%20POLICY.pdf"
+                    href="https://drive.google.com/file/d/1yzcZepfq2UIVK73xc09oosTrfFlxn5dF/view?usp=sharing"
                     target="_blank"
                   >
                     CnP policy for Company
                   </a>
-                  {this.props.auth.isAuthenticated &&
+                  {/* {this.props.auth.isAuthenticated &&
                   this.props.auth.user.role == "recruiter" ? (
                     <a href="/dashboardRecruiter">Dashboard</a>
                   ) : (
@@ -70,16 +70,10 @@ class Navigation extends Component {
                       <a href="/registerRecruiter">Register</a>
                       <a href="/loginRecruiter">Login</a>
                     </>
-                  )}
+                  )} */}
 
                   {/* <a href="#">Placement brochure</a> */}
-                  <a
-                    href="https://iitmandi.ac.in/calender2022/Home/ViewCalendar/2.html"
-                    target="_blank"
-                  >
-                    Calendar
-                  </a>
-                  <a href={require("./Brochure2021-22.pdf")} target="blank">
+                  <a href="https://drive.google.com/file/d/1vKvmLQF237zce1Ecn6_09Yba_ASD24V0/view?usp=sharing" target="blank">
                     Brochure
                   </a>
                   <a href="/past">Past Recruiters</a>
@@ -89,6 +83,12 @@ class Navigation extends Component {
                   >
                     Demographics
                   </a>
+                  <a
+                    href="https://iitmandi.ac.in/calender2022/Home/ViewCalendar/2.html"
+                    target="_blank"
+                  >
+                    Calendar
+                  </a>
                 </div>
               </li>
               <li className="dropdown">
@@ -96,20 +96,38 @@ class Navigation extends Component {
                   <strong>Students Col</strong>
                 </a>
                 <div className="dropdown-content">
-                  {this.props.auth.isAuthenticated &&
+                  {/* {this.props.auth.isAuthenticated &&
                   this.props.auth.user.role == "student" ? (
                     <a href="/dashboardStudent">Dashboard</a>
                   ) : (
                     <a href="/loginStudent">Login</a>
-                  )}
+                  )} */}
                   <a
-                    href="http://research.iitmandi.ac.in/main/placements/files/STUDENT%20INTERNSHIP%20AND%20PLACEMENT%20POLICY.pdf"
+                    href="https://drive.google.com/file/d/10q_5UtFXibmpyNI8CvED22Oz5AZGjKTz/view?usp=sharing"
                     target="_blank"
                   >
                     CnP Policy for Students
                   </a>
-                  <a href="/noticeboard">Noticeboard</a>
-                  <a href={noc}>Forms </a>
+                  {/* <a href="/noticeboard">Noticeboard</a> */}
+                  {/* <a href={noc}>Forms </a> */}
+                  <a
+                  id="outerDiv"
+                  className="dropbtn"
+                  href="/acadmics"
+                >
+                  Forms{" "}
+                  <i
+                    style={{ float: "right", marginTop: "4px" }}
+                    class="fas fa-caret-right"
+                  ></i>
+                  <div
+                    id="innerDiv"
+                    className="dropdown-content btn-group dropright"
+                  >
+                    <a href="https://docs.google.com/document/d/1iVD3wzyHI591f39YQ9R32UtLbJ31ItyT/edit?usp=sharing&ouid=101579694841482910243&rtpof=true&sd=true" target={"_blank"}>Internship document</a>
+                    <a href={noc}>Noc</a>
+                  </div>
+                </a>
                   {/* <a href="/PrepPortal">Preparation Portal</a> */}
                 </div>
               </li>

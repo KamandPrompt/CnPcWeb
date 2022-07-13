@@ -36,6 +36,7 @@ export const Footer = (props) => {
                         id="fav1"
                         className="social-links"
                         href="https://www.facebook.com/IITMandi2009/"
+                        target={"_blank"}
                       >
                         <i className="fab fa-facebook-f"></i>
                       </a>
@@ -45,6 +46,7 @@ export const Footer = (props) => {
                         id="fav2"
                         className="social-links"
                         href="https://twitter.com/iit__mandi"
+                        target={"_blank"}
                       >
                         <i className="fab fa-twitter"></i>
                       </a>
@@ -53,7 +55,8 @@ export const Footer = (props) => {
                       <a
                         id="fav3"
                         className="social-links"
-                        href="https://www.linkedin.com/school/indian-institute-of-technology-mandi"
+                        href="https://www.linkedin.com/in/career-placement-cell-iit-mandi-85178650/"
+                        target={"_blank"}
                       >
                         <i className="fab fa-linkedin-in"></i>
                       </a>
@@ -114,9 +117,9 @@ export const Footer = (props) => {
                     </a>
                   </li>
                   <li>
-                    <a className="links" href="./loginAdmin">
+                    {/* <a className="links" href="./loginAdmin">
                       Admin Login
-                    </a>
+                    </a> */}
                   </li>
                   {/* <li>
                     <a className="links" href="./Talk2_us/index.html">

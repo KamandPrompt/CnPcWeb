@@ -39,7 +39,9 @@ export const Recpro = () => {
               <br />
               <div className="middle">
                 <p className="text">
-                  Companies can register on the Online Portal at "www.example.iitmandi.ac.in" by filling the Internship Notificatrion Form (INF)/ Job Notification Form (JNF).
+                Companies can register by filling Internship 7,
+Notification Form (INF) / Job Notification Form
+(JNF).
                 </p>
               </div>
             </figcaption>

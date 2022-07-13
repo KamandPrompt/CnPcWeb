@@ -263,13 +263,34 @@ a:focus,
 }
 .bhashan{
   text-align:initial;
+  padding-top: 25px;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-family: 'Open Sans', sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.bhashan2{
+  text-align:initial;
   padding-top: 35px;
   padding-left: 10px;
   padding-right: 10px;
   font-family: 'Open Sans', sans-serif;
   color: #ffffff;
   font-size: 15px;
+  height: 300px;
+  overflow: scroll;
 }
+
+.bhashan2 {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.bhashan2::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
 .why-recruit{
   background-image: url(../images/why_backg.png);
   background-size: 100%;
@@ -362,7 +383,7 @@ a:focus,
   font-family: 'Poppins', sans-serif;
   border-bottom-right-radius: 20px;
   font-weight: lighter;
-  padding: 36px;
+  padding: 35px;
 }
 
 .homeHead{
@@ -922,7 +943,7 @@ hr {
   color: rgb(0, 0, 0);
   text-align: center;
   /* background-color: #0A1F56; */
-  font-size: 22px;
+  font-size: 32px;
   font-weight: 500;
   padding: 2% 0%;
 }
@@ -943,7 +964,7 @@ hr {
   background-color: #0A1F56;
   padding: 2%;
   color: #ffffff;
-  font-size: 15px;
+  font-size: 18px;
   border-top-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -1595,7 +1616,7 @@ hr {
 }
 .why_para{
   color: whitesmoke !important;
-  font-size: large;
+  font-size: 20px;
 }
 .card-title{
   /* color: whitesmoke !important; */
@@ -1603,6 +1624,9 @@ hr {
 .card{
   padding: 5%;
 }
+.card-text{
+  font-size: 17px;
+}
 .card > div > h3{
-  font-size: 30px;
+  font-size: 35px;
 }

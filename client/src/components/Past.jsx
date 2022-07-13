@@ -4,10 +4,9 @@ const Past = () => {
   let names = [
     //   A
     [
-        "Aakash Institute",
-        "ABB",
-        "Achnet Technologie",
-        "Accenture India",
+      "Aakash Institute",
+      "ABB",
+      "ACME",
       "Accenture",
       "Accolite",
       "ACME",
@@ -25,14 +24,13 @@ const Past = () => {
       "ArcelorMittal Nippon Steel",
       "Arcesium",
       "Arista Networks",
-      "Ascend Bizcap",
-      "Ather energy",
       "Atom",
       "Atom Berg technologies",
       "Avalara",
       "Axtria",
       "Axxela",
-      "Azure power"
+      "Azure power",
+      "Azim Premji Foundation"
     ],
     // B
     [
@@ -50,6 +48,8 @@ const Past = () => {
       "Buddi.AI",
       "Bueno Finance",
       "BYJU'S",
+      "BEL",
+      "Brigosha finance"
     ],
     // C
     [
@@ -71,7 +71,7 @@ const Past = () => {
       "Clear Trail",
       "Clicklabs",
       "Coal India",
-      "Codenation",
+      "CodeNation",
       "Cognizant",
       "Commvault",
       "Continental India Private Limited",
@@ -86,7 +86,7 @@ const Past = () => {
     ],
     // D
     [
-        "Danfoss Industries Pvt Ltd",
+      "Danfoss Industries Pvt Ltd",
       "D. E. Shaw",
       "Decision Point",
       "Delhivery",
@@ -139,6 +139,7 @@ const Past = () => {
       "GMO Research",
       "Goldman Sachs",
       "GoMassive Incubators",
+      "Google",
       "Grayquest",
       "Gridants",
       "Grofers",
@@ -454,7 +455,7 @@ const Past = () => {
                 <div className="values row">
           {name.map((item) => {
             return (
-              <div className="company col-lg-3 col-md-4 col-sm-6 col-xs-12" style={{"padding":"25px"}}>
+              <div className="company col-lg-3 col-md-4 col-sm-6 col-xs-12" style={{"padding":"25px","text-align":"center"}}>
                 {item}
               </div>
             );

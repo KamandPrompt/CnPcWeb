@@ -1,17 +1,20 @@
 import React from "react";
-import dummy from "../images/ravinder.png";
+import ravinder from "../images/ravinder.jpeg";
 import "./Recpro.css";
 import nimisha from "../images/nimisha.jpg";
 import parmod from "../images/parmod.jpg";
-import kairav from "../images/kairav.jpeg";
-import ankit from "../images/ankit.jpg";
-import vidhi from "../images/vidhi.jpg";
-import gupta from "../images/ankit-gupta.jpg";
-import saksham from "../images/saksham.jpeg";
-import pratik from "../images/pratik.jpg";
-import sudhanshu from "../images/sudhanshu.jpg";
-import bhumanyu from "../images/bhumanyu.jpg";
+import aryan from "../images/aryan.jpg";
+import harnaman from "../images/harnaman.jpg";
+import vineet from "../images/vineet.jpg";
+import ayushV from "../images/ayushV.jpg";
+import deepak from "../images/deepak.jpg";
+import sagar from "../images/sagar.jpg";
+import ayush from "../images/ayush.jpg";
+import nivedita from "../images/nivedita.jpg";
 import garima from "../images/garima.jpg";
+import yatharth from "../images/yatarth.jpg";
+import shobit from "../images/shobit.png";
+import shikha from "../images/shikha.png";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import { Form } from "react-bootstrap";
 export const Contact = (props) => {
@@ -141,7 +144,7 @@ export const Contact = (props) => {
               </div>
             </figcaption>
           </figure>
-          <figure className="snip1559">
+          {/* <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
                 <img
@@ -167,7 +170,7 @@ export const Contact = (props) => {
                 </p>
               </div>
             </figcaption>
-          </figure>
+          </figure> */}
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
@@ -194,7 +197,7 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={dummy} alt="Mr.Ravinder" className="image" />
+                <img src={ravinder} alt="Mr.Ravinder" className="image" />
                 <h3 className="person">Mr. Ravinder Kumar</h3>
               </div>
               <br />
@@ -218,22 +221,22 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption className="snip1560">
               <div className="profile-image">
-                <img src={vidhi} className="image" />
-                <h3 className="person">Vidhi Desai</h3>
+                <img src={vineet} className="image" />
+                <h3 className="person">Vineet Ahuja</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Vidhi Desai
+                  Vineet Ahuja
                   <br />
                   Overall Coordinator
                   <br />
                   <b>Email</b>-{" "}
-                  <a href="mailto: b18168@iitmandi.ac.in">
-                    b18168@iitmandi.ac.in
+                  <a href="mailto: b19122@students.iitmandi.ac.in">
+                  b19122@students.iitmandi.ac.in
                   </a>
                   <br />
-                  <b>Phone</b>- <a href="tel: +918544786022">+91-8544786022</a>
+                  <b>Phone</b>- <a href="tel: +919911473244">+91-9911473244</a>
                 </p>
               </div>
             </figcaption>
@@ -241,22 +244,22 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={ankit} alt="Ankit Karan" className="image" />
-                <h3 className="person">Ankit Karan</h3>
+                <img src={harnaman} alt="Harnaman Kaur" className="image" />
+                <h3 className="person">Harnaman Kaur</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Ankit Karan
+                  Harnaman Kaur
                   <br />
                   Overall Coordinator
                   <br />
                   <b>Email</b>-{" "}
-                  <a href="mailto: b18159@iitmandi.ac.in">
-                    b18159@iitmandi.ac.in
+                  <a href="mailto: b19085@students.iitmandi.ac.in">
+                  b19085@students.iitmandi.ac.in
                   </a>
                   <br />
-                  <b>Phone</b>- <a href="tel: +917677911376">+91-7677911376</a>
+                  <b>Phone</b>- <a href="tel: +919041590497">+91-9041590497</a>
                 </p>
               </div>
             </figcaption>
@@ -264,50 +267,73 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={kairav} alt="Kairav Bansal" className="image" />
-                <h3 className="person">Kairav Bansal</h3>
+                <img src={nivedita} alt="Nivedita Pramod" className="image" />
+                <h3 className="person">Nivedita Pramod</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Kairav Bansal
+                  Nivedita Pramod
                   <br />
                   CSE Branch Coordinator
                   <br />
                   <b>Email</b>-{" "}
-                  <a href="mailto: b18062@iitmandi.ac.in">
-                    b18062@iitmandi.ac.in
+                  <a href="mailto: b19098@students.iitmandi.ac.in ">
+                  b19098@students.iitmandi.ac.in
                   </a>
                   <br />
-                  <b>Phone</b>- <a href="tel: +919988154700">+91-9988154700</a>
+                  <b>Phone</b>- <a href="tel: +917012016415">+91-7012016415</a>
                 </p>
               </div>
               <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={deepak} alt="Deepak Kumar Sah" className="image" />
+                <h3 className="person">Deepak Kumar Sah</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <p className="text">
+                  Deepak Kumar Sah
+                  <br />
+                  Overall Coordinator (PG)
+                  <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto: t21260@students.iitmandi.ac.in">
+                    t21260@students.iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +919821764691">+91-9821764691</a>
+                </p>
+              </div>
             </figcaption>
           </figure>
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
                 <img
-                  src={sudhanshu}
-                  alt="Sudhanshu Chauhan"
+                  src={ayush}
+                  alt="Ayush Dwivedi"
                   className="image"
                 />
-                <h3 className="person">Sudhanshu Chauhan</h3>
+                <h3 className="person">Ayush Dwivedi</h3>
               </div>
               <br />
               <div className="middle">
                 <p className="text">
-                  Sudhanshu Chauhan
+                  Ayush Dwivedi
                   <br />
-                  EE Branch Coordinator
+                  Overall Coordinator (PG)
                   <br />
                   <b>Email</b>-{" "}
-                  <a href="mailto: b18147@iitmandi.ac.in">
-                    b18147@iitmandi.ac.in
+                  <a href="mailto: v21093@students.iitmandi.ac.in">
+                  v21093@students.iitmandi.ac.in
                   </a>
                   <br />
-                  <b>Phone</b>- <a href="tel: +919370552327">+91-9370552327</a>
+                  <b>Phone</b>- <a href="tel: +916388581883">+91-6388581883</a>
                 </p>
               </div>
             </figcaption>
@@ -315,68 +341,22 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={gupta} alt="Ankit Gupta" className="image" />
-                <h3 className="person">Ankit Gupta</h3>
-              </div>
-              <br />
-              <div className="middle">
-                <p className="text">
-                  Ankit Gupta
-                  <br />
-                  ME, CE Branch Coordinator
-                  <br />
-                  <b>Email</b>-{" "}
-                  <a href="mailto: b18008@iitmandi.ac.in">
-                    b18008@iitmandi.ac.in
-                  </a>
-                  <br />
-                  <b>Phone</b>- <a href="tel: +916388792413">+91-6388792413</a>
-                </p>
-              </div>
-            </figcaption>
-          </figure>
-          <figure className="snip1559">
-            <figcaption>
-              <div className="profile-image">
-                <img src={saksham} alt="saksham" className="image" />
-                <h3 className="person">Saksham Barara</h3>
-              </div>
-              <br />
-              <div className="middle">
-                <p className="text">
-                  Saksham Barara
-                  <br />
-                  DSE Branch Coordinator
-                  <br />
-                  <b>Email</b>-{" "}
-                  <a href="mailto: b18190@iitmandi.ac.in">
-                    b18190@iitmandi.ac.in
-                  </a>
-                  <br />
-                  <b>Phone</b>- <a href="tel: +919877757063">+91-9877757063</a>
-                </p>
-              </div>
-            </figcaption>
-          </figure>
-          <figure className="snip1559">
-            <figcaption>
-              <div className="profile-image">
-                <img src={bhumanyu} alt="Bhumanyu" className="image" />
-                <h3 className="person">Bhumanyu Goyal</h3>
+                <img src={aryan} alt="Aryan" className="image" />
+                <h3 className="person">Aryan Goyal</h3>
               </div>
               <br />
               <div className="middle">
                 <div className="text">
-                  Bhumanyu Goyal
+                  Aryan Goyal
                   <br />
-                  EP Branch Coordinator
+                  CSE Branch Coordinator
                   <br />
                   <b>Email</b>-{" "}
-                  <a href="mailto:b18012@iitmandi.ac.in">
-                    b18012@iitmandi.ac.in
+                  <a href="mailto:b19073@students.iitmandi.ac.in">
+                  b19073@students.iitmandi.ac.in
                   </a>
                   <br />
-                  <b>Phone</b>- <a href="tel: +916377838426">+91-6377838426</a>
+                  <b>Phone</b>- <a href="tel: +919718877971">+91-9718877971</a>
                 </div>
               </div>
               <br />
@@ -385,22 +365,118 @@ export const Contact = (props) => {
           <figure className="snip1559">
             <figcaption>
               <div className="profile-image">
-                <img src={pratik} alt="Pratik" className="image" />
-                <h3 className="person">Pratik Kumar</h3>
+                <img src={yatharth} alt="Yatharth Mogra" className="image" />
+                <h3 className="person">Yatharth Mogra</h3>
               </div>
               <br />
               <div className="middle">
                 <div className="text">
-                  Pratik Kumar
+                  Yatharth Mogra
+                  <br />
+                  DSE Branch Coordinator
+                  <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailtob19272@students.iitmandi.ac.in">
+                  b19272@students.iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +917568864147">+91-7568864147</a>
+                </div>
+              </div>
+              <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={shobit} alt="Shobhit" className="image" />
+                <h3 className="person">Shobhit Rajput</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <div className="text">
+                  Shobhit Rajput
                   <br />
                   Bio Eng. Branch Coordinator
                   <br />
                   <b>Email</b>-{" "}
-                  <a href="mailto:b18187@iitmandi.ac.in">
-                    b18187@iitmandi.ac.in
+                  <a href="mailto:b19195@students.iitmandi.ac.in">
+                  b19195@students.iitmandi.ac.in
                   </a>
                   <br />
-                  <b>Phone</b>- <a href="tel: +919939549845">+91-9939549845</a>
+                  <b>Phone</b>- <a href="tel: +918126588271">+91-8126588271 </a>
+                </div>
+              </div>
+              <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={ayushV} alt="Ayush Singh Vardhan" className="image" />
+                <h3 className="person">Ayush Singh Vardhan</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <p className="text">
+                  Ayush Singh Vardhan
+                  <br />
+                  ME Branch Coordinator
+                  <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto:b19241@students.iitmandi.ac.in">
+                  b19241@students.iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +919528553052 ">+91-9528553052</a>
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={shikha} alt="Shikha" className="image" />
+                <h3 className="person">Shikha</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <div className="text">
+                  Shikha
+                  <br />
+                  CE Branch Coordinator
+                  <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto:b19057@students.iitmandi.ac.in">
+                    b19057@students.iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +917668853539 ">+91-7668853539 </a>
+                </div>
+              </div>
+              <br />
+            </figcaption>
+          </figure>
+          <figure className="snip1559">
+            <figcaption>
+              <div className="profile-image">
+                <img src={sagar} alt="Sagar" className="image" />
+                <h3 className="person">Sagar Mishra</h3>
+              </div>
+              <br />
+              <div className="middle">
+                <div className="text">
+                  Sagar Mishra
+                  <br />
+                  Bio Eng. Branch Coordinator
+                  <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto:b19016@students.iitmandi.ac.in">
+                  b19016@students.iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +917352509910 ">+91-7352509910 </a>
                 </div>
               </div>
               <br />
