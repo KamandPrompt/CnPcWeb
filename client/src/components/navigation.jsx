@@ -96,8 +96,8 @@ class Navigation extends Component {
                     id="innerDiv"
                     className="dropdown-content btn-group dropright"
                   >
-                    <a href="https://docs.google.com/document/d/1iVD3wzyHI591f39YQ9R32UtLbJ31ItyT/edit?usp=sharing&ouid=101579694841482910243&rtpof=true&sd=true" target={"_blank"}>Internship document</a>
-                    <a href={noc}>Noc</a>
+                    <a href="https://docs.google.com/document/d/1BAQnxM_Tg_y_3XiZd3nncC0WYFndt5nt/edit?usp=sharing&ouid=101579694841482910243&rtpof=true&sd=true" target={"_blank"}>INF form</a>
+                    <a href="https://docs.google.com/document/d/1J1l6qHsdtUv10cqgEycmeBbyrchGv6gX/edit?rtpof=true&sd=true" target={"_blank"}>JNF form</a>
                   </div>
                 </a>
                   <a
@@ -159,14 +159,14 @@ class Navigation extends Component {
               </div> */}
               </li>
 
-              {/* {this.props.auth.isAuthenticated ? (
+              {this.props.auth.isAuthenticated ? (
                 <button
                   onClick={this.onLogout}
                   className="page-scroll dropbtn logout"
                 >
                   Logout
                 </button>
-              ) : null} */}
+              ) : null}
             </ul>
           </div>
         </div>
