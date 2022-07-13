@@ -34,22 +34,9 @@ export const Kamand = () => {
       <div id="front" className="container-item">
         <div className="guestHouse1">
           {/* <h2 className="faculty-head">About Us</h2> */}
-          <p className="guest" style={{ textAlign: "justify" , "margin":"30px" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vero
-            commodi corrupti at? Mollitia, natus dicta! Quo quidem eligendi,
-            corporis consectetur eos numquam id a, voluptate vitae, amet debitis
-            sequi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            saepe, ullam suscipit aperiam, reiciendis aut voluptatum fuga
-            voluptas repellendus enim perspiciatis quaerat a amet facere
-            molestias quibusdam? Eum, saepe? Non amet necessitatibus, dolor ea
-            placeat in assumenda maiores ut ducimus nemo beatae aut labore ipsa
-            alias aliquid nostrum fugit, officiis maxime! Pariatur suscipit
-            voluptas ipsa sit vero quae, illo est, ad animi corporis molestias
-            magni expedita labore possimus necessitatibus sequi delectus dicta
-            autem. Molestiae, ab tenetur perspiciatis sequi voluptates delectus
-            soluta itaque iusto, quas mollitia iste voluptas reprehenderit
-            debitis optio sint culpa maiores! Quisquam eos temporibus
-            cupiditate? Officiis, esse maiores!
+          <p className="guest" style={{ textAlign: "justify" , "margin":"30px", color:"white" }}>
+          To facilitate the lodging & dining services for the guests arriving at IIT-Mandi campus, guest house services are provided in both the campuses. The main guest house is named after the great Indian scientist and Nobel laureate Sir. C. V. Raman and is situated in the North campus. In the South campus Manirang apartment (two accommodations) and a smaller semi-furnished guest house with three rooms (Uhl guest house) are available.
+Apart from these two guest houses there are few sets of fully furnished apartments available in both the campuses to provide accommodation to eminent institute guests. Guest house remains a pleasant heaven for the Institute’s guests, whether from academia, guests from center/ state government administration, Institute alumni, or the parents/wards of students.
           </p>
         </div>
         <div className="guestHouse3">
@@ -72,22 +59,8 @@ export const Kamand = () => {
       <div id="front" className="container-item2">
         <div className="places">
           {/* <h2 className="faculty-head">About Us</h2> */}
-          <p className="guest" style={{ textAlign: "justify" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vero
-            commodi corrupti at? Mollitia, natus dicta! Quo quidem eligendi,
-            corporis consectetur eos numquam id a, voluptate vitae, amet debitis
-            sequi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-            saepe, ullam suscipit aperiam, reiciendis aut voluptatum fuga
-            voluptas repellendus enim perspiciatis quaerat a amet facere
-            molestias quibusdam? Eum, saepe? Non amet necessitatibus, dolor ea
-            placeat in assumenda maiores ut ducimus nemo beatae aut labore ipsa
-            alias aliquid nostrum fugit, officiis maxime! Pariatur suscipit
-            voluptas ipsa sit vero quae, illo est, ad animi corporis molestias
-            magni expedita labore possimus necessitatibus sequi delectus dicta
-            autem. Molestiae, ab tenetur perspiciatis sequi voluptates delectus
-            soluta itaque iusto, quas mollitia iste voluptas reprehenderit
-            debitis optio sint culpa maiores! Quisquam eos temporibus
-            cupiditate? Officiis, esse maiores!
+          <p className="guest" style={{ textAlign: "justify" , color: "#093660", padding:"2% 4%"}}>
+          Indian Institute of Technology Mandi (IIT Mandi) is situated on the lap of nature over the lush green mountains covered with Pine trees and varieties of flora and fauna. River Uhl & tributary of river Beas flows along the South & North campus respectively. Nestled in the laps of the Himalayas, the state of Himachal Pradesh is blessed with some exquisite places to visit. Because of the innumerable hill stations and villages tucked away from the digital life, Himachal Pradesh is certainly a haven for an explorer. There are far too many incredible places for you to visit in the state which includes Shimla, Kullu, Manali, Kinnaur, Malana, Dharamshala, Solang Valley, Dalhousie and many more to explore.
           </p>
         </div>
           {/* <div className="toVisit"> */}

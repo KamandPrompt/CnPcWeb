@@ -120,11 +120,11 @@
   }
 
   .container-item{
-      background-color: #FFEBD0;
+      background-color: #093660;
       margin: auto;
   }
   .container-item2{
-    background-color:#EAF9FF;
+    background-color:#d4eef9;
     margin: auto;
 }
 .places{
@@ -133,6 +133,6 @@
     margin-top: 10px;
 }
 .toVisit{
-    background-color: #94ADC1;
+    background-color: #1a4364;
     
 }

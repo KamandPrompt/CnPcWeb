@@ -27,6 +27,7 @@ import uber from "../images/Company_Logos/uber.png";
 import pentair from "../images/Company_Logos/pentair.jfif";
 import texes from "../images/Company_Logos/texas.png";
 import samsung from "../images/Company_Logos/samsung.png";
+import adobe from "../images/Company_Logos/adobe.png";
 import director from "../images/Dir.png";
 import tushar_jain from "../images/tushu.png";
 
@@ -71,6 +72,7 @@ export const Home = (props) => {
     google,
     microsoft,
     de_shaw,
+    adobe,
     amazon,
     flipkart,
     tcs,
