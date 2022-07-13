@@ -3,7 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Open+Sans&display=swap');
 div#frame {
     display: flex;
-    background: url("../images/sandpaper-background.jpg") no-repeat;
+    /* background: url("../images/sandpaper-background.jpg") no-repeat; */
+    background-color: #3c6fa8;
     background-size: cover;
     justify-content: center;
     align-items: center;
@@ -30,19 +31,19 @@ div#frame {
     transform: rotate(-2.5deg);
     -webkit-transform: rotate(-2.5deg);
     -moz-transform: rotate(-2.5deg);
-    background-color: #CBFAFA;
+    background-color: #cbe1fa;
 }
 
 .sticky2 {
-    background-color: #f8f8f4;
+    background-color: #ccf2f8;
 }
 
 .sticky3 {
-    background-color: #ffff65;
+    background-color: #c2d9f5;
 }
 
 .sticky0 {
-    background-color: #ffbefa;
+    background-color: #d3beff;
 }
 
 div#frame .pin {
@@ -52,7 +53,7 @@ div#frame .pin {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-image: radial-gradient(yellow 50%, black 100%);
+    background-image: radial-gradient(rgb(194, 171, 245) 50%, black 100%);
 }
 
 div#frame .pin2 {
@@ -63,7 +64,7 @@ div#frame .pin2 {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-image: radial-gradient(rgb(26, 198, 250) 50%, black 100%);
+    background-image: radial-gradient(rgb(45, 26, 250) 50%, black 100%);
 }
 
 div#frame .pin1 {
@@ -74,7 +75,7 @@ div#frame .pin1 {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-image: radial-gradient(rgb(255, 41, 41) 50%, black 100%);
+    background-image: radial-gradient(rgb(56, 174, 243) 50%, black 100%);
 }
 
 .text2 {
