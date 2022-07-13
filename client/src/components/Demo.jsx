@@ -97,21 +97,21 @@ export const Demo = (props) => {
     dots: true,
     infinite: true,
     slidesToShow: 3,
-    autoplay: true,
+    // autoplay: true,
     speed: 1000,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     cssEase: "linear",
     responsive: [
       {
-        breakpoint: 1500,
+        breakpoint: 1100,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 990,
+        breakpoint: 890,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -140,18 +140,18 @@ export const Demo = (props) => {
               <h3 style={{ fontSize: "15px" }}>B.Tech(2018-2022)</h3>
               <center>
                 <PieChart
-                  width={500}
+                  width={450}
                   height={300}
-                  margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
+                  margin={{ top: 0, right: 0, left: 10, bottom: 0 }}
                 >
                   {width > 640 ? (
                     <Pie
                     dataKey="value"
                     isAnimationActive={true}
                     data={data00}
-                    cx={170}
+                    cx={100}
                     cy={160}
-                    outerRadius={80}
+                    outerRadius={75}
                     fill="#fff"
                     label
                     // title={"Chart of diffferent branches"}
@@ -175,7 +175,7 @@ export const Demo = (props) => {
                     <Legend
                       layout="vertical"
                       verticalAlign="middle"
-                      align="left"
+                      align="right"
                     />
                   ) : (
                     <Legend
@@ -193,7 +193,7 @@ export const Demo = (props) => {
               <h3 style={{ fontSize: "15px" }}>B.Tech(2019-2023)</h3>
               <center>
                 <PieChart
-                  width={500}
+                  width={450}
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
@@ -202,9 +202,9 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data01}
-                    cx={170}
+                    cx={100}
                     cy={160}
-                    outerRadius={80}
+                    outerRadius={75}
                     fill="#fff"
                     label
                     // title={"Chart of diffferent branches"}
@@ -228,7 +228,7 @@ export const Demo = (props) => {
                     <Legend
                       layout="vertical"
                       verticalAlign="middle"
-                      align="left"
+                      align="right"
                     />
                   ) : (
                     <Legend
@@ -246,7 +246,7 @@ export const Demo = (props) => {
               <h3 style={{ fontSize: "15px" }}>B.Tech(2020-2024)</h3>
               <center>
                 <PieChart
-                  width={500}
+                  width={450}
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
@@ -255,9 +255,9 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data02}
-                    cx={170}
+                    cx={90}
                     cy={160}
-                    outerRadius={80}
+                    outerRadius={75}
                     fill="#fff"
                     label
                     // title={"Chart of diffferent branches"}
@@ -281,7 +281,7 @@ export const Demo = (props) => {
                     <Legend
                       layout="vertical"
                       verticalAlign="middle"
-                      align="left"
+                      align="right"
                     />
                   ) : (
                     <Legend
@@ -299,7 +299,7 @@ export const Demo = (props) => {
               <h3 style={{ fontSize: "15px" }}>M.Tech(2021-2023)</h3>
               <center>
                 <PieChart
-                  width={500}
+                  width={450}
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
@@ -308,9 +308,9 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data03}
-                    cx={170}
+                    cx={140}
                     cy={160}
-                    outerRadius={80}
+                    outerRadius={75}
                     fill="#fff"
                     label
                     // title={"Chart of diffferent branches"}
@@ -334,7 +334,7 @@ export const Demo = (props) => {
                     <Legend
                       layout="vertical"
                       verticalAlign="middle"
-                      align="left"
+                      align="right"
                     />
                   ) : (
                     <Legend
@@ -352,7 +352,7 @@ export const Demo = (props) => {
               <h3 style={{ fontSize: "15px" }}>M.Tech (2018-2022)</h3>
               <center>
                 <PieChart
-                  width={500}
+                  width={450}
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
@@ -361,9 +361,9 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data04}
-                    cx={170}
+                    cx={150}
                     cy={160}
-                    outerRadius={80}
+                    outerRadius={75}
                     fill="#fff"
                     label
                     // title={"Chart of diffferent branches"}
@@ -387,7 +387,7 @@ export const Demo = (props) => {
                     <Legend
                       layout="vertical"
                       verticalAlign="middle"
-                      align="left"
+                      align="right"
                     />
                   ) : (
                     <Legend
@@ -405,7 +405,7 @@ export const Demo = (props) => {
               <h3 style={{ fontSize: "15px" }}>M.Sc.(2021-2023)</h3>
               <center>
                 <PieChart
-                  width={500}
+                  width={450}
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
@@ -414,9 +414,9 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data05}
-                    cx={170}
+                    cx={150}
                     cy={160}
-                    outerRadius={80}
+                    outerRadius={75}
                     fill="#fff"
                     label
                     // title={"Chart of diffferent branches"}
@@ -440,7 +440,7 @@ export const Demo = (props) => {
                     <Legend
                       layout="vertical"
                       verticalAlign="middle"
-                      align="left"
+                      align="right"
                     />
                   ) : (
                     <Legend
@@ -458,7 +458,7 @@ export const Demo = (props) => {
               <h3 style={{ fontSize: "15px" }}>MA(2021-2023)</h3>
               <center>
                 <PieChart
-                  width={500}
+                  width={450}
                   height={300}
                   margin={{ top: 0, right: 0, left: 10, bottom: 0 }}
                 >
@@ -467,9 +467,9 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data06}
-                    cx={220}
+                    cx={160}
                     cy={160}
-                    outerRadius={80}
+                    outerRadius={75}
                     fill="#fff"
                     label
                     // title={"Chart of diffferent branches"}
@@ -493,7 +493,7 @@ export const Demo = (props) => {
                     <Legend
                       layout="vertical"
                       verticalAlign="middle"
-                      align="left"
+                      align="right"
                     />
                   ) : (
                     <Legend
@@ -511,7 +511,7 @@ export const Demo = (props) => {
               <h3 style={{ fontSize: "15px" }}>MSc</h3>
               <center>
                 <PieChart
-                  width={500}
+                  width={450}
                   height={300}
                   margin={{ top: 0, right: 10, left: 10, bottom: 0 }}
                 >
@@ -520,9 +520,9 @@ export const Demo = (props) => {
                     dataKey="value"
                     isAnimationActive={true}
                     data={data07}
-                    cx={220}
+                    cx={160}
                     cy={160}
-                    outerRadius={80}
+                    outerRadius={75}
                     fill="#fff"
                     label
                     // title={"Chart of diffferent branches"}
@@ -546,7 +546,7 @@ export const Demo = (props) => {
                     <Legend
                       layout="vertical"
                       verticalAlign="middle"
-                      align="left"
+                      align="right"
                     />
                   ) : (
                     <Legend
