@@ -84,6 +84,23 @@ class Navigation extends Component {
                     Demographics
                   </a>
                   <a
+                  id="outerDiv"
+                  className="dropbtn"
+                >
+                  Forms{" "}
+                  <i
+                    style={{ float: "right", marginTop: "4px" }}
+                    class="fas fa-caret-right"
+                  ></i>
+                  <div
+                    id="innerDiv"
+                    className="dropdown-content btn-group dropright"
+                  >
+                    <a href="https://docs.google.com/document/d/1iVD3wzyHI591f39YQ9R32UtLbJ31ItyT/edit?usp=sharing&ouid=101579694841482910243&rtpof=true&sd=true" target={"_blank"}>Internship document</a>
+                    <a href={noc}>Noc</a>
+                  </div>
+                </a>
+                  <a
                     href="https://iitmandi.ac.in/calender2022/Home/ViewCalendar/2.html"
                     target="_blank"
                   >
@@ -113,7 +130,6 @@ class Navigation extends Component {
                   <a
                   id="outerDiv"
                   className="dropbtn"
-                  href="/acadmics"
                 >
                   Forms{" "}
                   <i
@@ -143,14 +159,14 @@ class Navigation extends Component {
               </div> */}
               </li>
 
-              {this.props.auth.isAuthenticated ? (
+              {/* {this.props.auth.isAuthenticated ? (
                 <button
                   onClick={this.onLogout}
                   className="page-scroll dropbtn logout"
                 >
                   Logout
                 </button>
-              ) : null}
+              ) : null} */}
             </ul>
           </div>
         </div>

@@ -229,7 +229,7 @@ export const Contact = (props) => {
                 <p className="text">
                   Vineet Ahuja
                   <br />
-                  Overall Coordinator
+                  Overall Coordinator (B.Tech)
                   <br />
                   <b>Email</b>-{" "}
                   <a href="mailto: b19122@students.iitmandi.ac.in">
@@ -252,7 +252,7 @@ export const Contact = (props) => {
                 <p className="text">
                   Harnaman Kaur
                   <br />
-                  Overall Coordinator
+                  Overall Coordinator (B.Tech)
                   <br />
                   <b>Email</b>-{" "}
                   <a href="mailto: b19085@students.iitmandi.ac.in">
@@ -275,7 +275,7 @@ export const Contact = (props) => {
                 <p className="text">
                   Nivedita Pramod
                   <br />
-                  CSE Branch Coordinator
+                  Overall Coordinator (B.Tech)
                   <br />
                   <b>Email</b>-{" "}
                   <a href="mailto: b19098@students.iitmandi.ac.in ">
@@ -397,7 +397,7 @@ export const Contact = (props) => {
                 <div className="text">
                   Shobhit Rajput
                   <br />
-                  Bio Eng. Branch Coordinator
+                  EE branch Coordinator
                   <br />
                   <b>Email</b>-{" "}
                   <a href="mailto:b19195@students.iitmandi.ac.in">
