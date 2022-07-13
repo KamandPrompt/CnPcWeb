@@ -97,7 +97,7 @@ export const Demo = (props) => {
     dots: true,
     infinite: true,
     slidesToShow: 3,
-    // autoplay: true,
+    autoplay: true,
     speed: 1000,
     autoplaySpeed: 2000,
     pauseOnHover: true,
