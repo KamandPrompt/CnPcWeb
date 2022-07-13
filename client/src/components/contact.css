@@ -47,9 +47,10 @@
 }
 .text {
     color: #083661 ;
-    font-size: 18px;
+    font-size: 16px !important;
     padding:5%;
     text-align: left;
+    padding-right: 65px !important;
     /* font-family: 'IBM Plex Sans Thai Looped', sans-serif; */
     /* border-radius: 10px; */
 
