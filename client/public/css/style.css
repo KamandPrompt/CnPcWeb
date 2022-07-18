@@ -1628,3 +1628,6 @@ hr {
 .card > div > h3{
   font-size: 35px;
 }
+.recharts-legend-item-text{
+  font-size: 12px !important;
+}

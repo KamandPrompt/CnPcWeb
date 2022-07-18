@@ -117,9 +117,9 @@ export const Footer = (props) => {
                     </a>
                   </li>
                   <li>
-                    {/* <a className="links" href="./loginAdmin">
+                    <a className="links" href="./loginAdmin">
                       Admin Login
-                    </a> */}
+                    </a>
                   </li>
                   {/* <li>
                     <a className="links" href="./Talk2_us/index.html">

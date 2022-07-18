@@ -22,7 +22,7 @@ import { Achievement } from "./components/achievement";
 import { Student } from "./components/Student";
 // import { INF } from "./components/INF";
 import { Kamand } from "./components/Kamand";
-import { PrepPortal } from "./components/PrepPortal";
+// import { PrepPortal } from "./components/PrepPortal";
 import Past from "./components/Past";
 
 import RegisterStudent from "./components/layout/RegisterStudent";
@@ -105,7 +105,6 @@ class App extends Component {
             ></Route>
             {/* <Route exact path="/Programmes" element={<Programmes />}></Route> */}
             <Route exact path="/demographics" element={<Demo />}></Route>
-            <Route exact path="/PrepPortal" element={<PrepPortal />}></Route>
             <Route exact path="/Recpro" element={<Recpro />}></Route>
             <Route exact path="/Kamand" element={<Kamand />}></Route>
             <Route exact path="/research" element={<Research />}></Route>
@@ -121,9 +120,9 @@ class App extends Component {
             <Route exact path="/loginRecruiter" element={<UnprivateOutlet />}>
               <Route path="" element={<LoginRecruiter />} />
             </Route>
-            {/* <Route exact path="/registerStudent" element={<UnprivateOutlet />}>
+            <Route exact path="/registerStudent" element={<UnprivateOutlet />}>
               <Route path="" element={<RegisterStudent />} />
-            </Route> */}
+            </Route>
             <Route exact path="/loginStudent" element={<UnprivateOutlet />}>
               <Route path="" element={<LoginStudent />} />
             </Route>
