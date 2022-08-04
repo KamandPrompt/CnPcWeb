@@ -377,7 +377,7 @@ export const Home = (props) => {
 
                 </p>
                 {/* <a href="#" className="btn btn-primary btn-sm btn-why">Go somewhere</a> */}
-                <a href="https://gymkhana.iitmandi.co.in/">
+                <a href="https://alumniconnect.iitmandi.ac.in/" target={"_blank"}>
                   <button className="btn btn-primary btn-sm" id="btn-why">
                     <em>
                       <b>Know More</b>

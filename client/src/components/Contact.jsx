@@ -47,7 +47,16 @@ export const Contact = (props) => {
                   alt="tushar-jain"
                   className="image"
                 />
-                <h3 className="person">Dr. Tushar Jain</h3>
+                <h3 className="person">
+                  Dr. Tushar Jain
+                  {/* <br />
+                  <b>Email-{" "}</b>
+                  <a href="mailto: advisorcnp@iitmandi.ac.in">
+                    advisorcnp@iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: 01905267920">01905-267920</a> */}
+                </h3>
               </div>
               <br />
               <div className="middle">
@@ -75,7 +84,16 @@ export const Contact = (props) => {
                   alt="Dr.Garima-Agrawal"
                   className="image"
                 />
-                <h3 className="person">Dr. Garima Agrawal</h3>
+                <h3 className="person">
+                  Dr. Garima Agrawal
+                  {/* <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto: garima@iitmandi.ac.in">
+                    garima@iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: 01905267827">01905-267827</a> */}
+                  </h3>
               </div>
               <br />
               <div className="middle">
@@ -98,7 +116,16 @@ export const Contact = (props) => {
             <figcaption>
               <div className="profile-image">
                 <img src={parmod} alt="Dr.Parmod-kumar" className="image" />
-                <h3 className="person">Dr. Parmod Kumar</h3>
+                <h3 className="person">
+                  Dr. Parmod Kumar
+                  {/* <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto: parmod@iitmandi.ac.in">
+                    pramod@iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: 01905267264">01905-267264</a> */}
+                </h3>
               </div>
               <br />
               <div className="middle">
@@ -126,7 +153,14 @@ export const Contact = (props) => {
                   alt="Dr.Bhaskar"
                   className="image"
                 />
-                <h3 className="person">Dr. Baskar Bakthavachalu</h3>
+                <h3 className="person">
+                  Dr. Baskar Bakthavachalu
+                  {/* <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto: baskar@iitmandi.ac.in">
+                    baskar@iitmandi.ac.in
+                  </a> */}
+                  </h3>
               </div>
               <br />
               <div className="middle">
@@ -175,7 +209,16 @@ export const Contact = (props) => {
             <figcaption>
               <div className="profile-image">
                 <img src={nimisha} alt="Nimisha N B" className="image" />
-                <h3 className="person">Nimisha N B</h3>
+                <h3 className="person">
+                  Nimisha N B
+                  {/* <br />
+                  <b>Email</b>-{" "}
+                  <a href="mailto: nimisha@iitmandi.ac.in">
+                    nimisha@iitmandi.ac.in
+                  </a>
+                  <br />
+                  <b>Phone</b>- <a href="tel: +917807625022">+91-7807625022</a> */}
+                  </h3>
               </div>
               <br />
               <div className="middle">
@@ -198,7 +241,11 @@ export const Contact = (props) => {
             <figcaption>
               <div className="profile-image">
                 <img src={ravinder} alt="Mr.Ravinder" className="image" />
-                <h3 className="person">Mr. Ravinder Kumar</h3>
+                <h3 className="person">
+                  Mr. Ravinder Kumar
+                  {/* <br />
+                  <b>Phone</b>- <a href="tel: +919459366121">+91-9459366121</a> */}
+                  </h3>
               </div>
               <br />
               <div className="middle">
